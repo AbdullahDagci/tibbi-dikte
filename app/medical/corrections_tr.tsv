@@ -1,0 +1,175 @@
+# yanlış/söylenen biçim<TAB>yazılacak biçim
+# Büyük/küçük harf duyarsızdır, tam kelime/ifade eşleşir. Uzun ifadeler önce uygulanır.
+# --- Kısaltmalar (harf harf okunuş)
+e ka ge	EKG
+eke ge	EKG
+e ke ge	EKG
+eko	EKO
+em ar	MR
+em er	MR
+emar	MR
+be te	BT
+bete	BT
+ce ar pe	CRP
+se er pe	CRP
+ce re pe	CRP
+koah	KOAH
+ke o a ha	KOAH
+de em	DM
+ha te ne	HT
+ha te	HT
+ka ah	KAH
+ka ka ye	KKY
+ka be ye	KBY
+a be ye	ABY
+ge i se	GİS
+e me ar	EMR
+ye be ü	YBÜ
+ye o be ü	YBÜ
+i ve	IV
+i em	IM
+es ce	SC
+pe o	PO
+ef ef ar	FFR
+ha be a bir ce	HbA1c
+hba bir ce	HbA1c
+te es ha	TSH
+ef te dört	fT4
+ef te üç	fT3
+a el te	ALT
+a es te	AST
+ge ge te	GGT
+el de ha	LDH
+ce ka	CK
+ce ka em be	CK-MB
+be en pe	BNP
+en te pro be en pe	NT-proBNP
+pe ha	pH
+i en ar	INR
+a pe te te	aPTT
+pe te	PT
+de dimer	D-dimer
+de-dimer	D-dimer
+sedim	sedimantasyon
+ka ce	KC
+ü se ge	USG
+i ka ge	İKG
+bi ka	BK
+pe a ce ge	PA AC grafisi
+ha be es ag	HBsAg
+anti ha ce ve	anti-HCV
+ha i ve	HIV
+kovid	COVID-19
+covid on dokuz	COVID-19
+pe ce ar	PCR
+# --- Sık karışan yazımlar
+para setamol	parasetamol
+parasetemol	parasetamol
+ibu profen	ibuprofen
+amoksi silin	amoksisilin
+amoksisilin klavulanat	amoksisilin-klavulanat
+met formin	metformin
+insulin	insülin
+levo tiroksin	levotiroksin
+pantoprozol	pantoprazol
+omeprozol	omeprazol
+asetil salisilik asit	asetilsalisilik asit
+salbu tamol	salbutamol
+hiper tansiyon	hipertansiyon
+hipo tansiyon	hipotansiyon
+hiper lipidemi	hiperlipidemi
+hipo glisemi	hipoglisemi
+hiper glisemi	hiperglisemi
+taşi kardi	taşikardi
+bradi kardi	bradikardi
+miyokart	miyokard
+miyokart enfarktüsü	miyokard enfarktüsü
+diabet	diyabet
+pinömoni	pnömoni
+pnomoni	pnömoni
+anjio	anjiyo
+anjiografi	anjiyografi
+anjioplasti	anjiyoplasti
+mili metre cıva	mmHg
+milimetre cıva	mmHg
+klavulan at	klavulanat
+kılavulan at	klavulanat
+kılavlan at	klavulanat
+kılavulanat	klavulanat
+tansiyon arterial	tansiyon arteriyel
+# --- Radyoloji sınıflamaları (model okunuşları)
+bıkras	BI-RADS
+bikras	BI-RADS
+bi rads	BI-RADS
+birads	BI-RADS
+bayrads	BI-RADS
+bi-rads	BI-RADS
+tikras	TI-RADS
+ti rads	TI-RADS
+tirads	TI-RADS
+ti-rads	TI-RADS
+pi rads	PI-RADS
+pirads	PI-RADS
+li rads	LI-RADS
+lirads	LI-RADS
+tikrats	TI-RADS
+bikrats	BI-RADS
+bırads	BI-RADS
+# --- Omurga (kullanıcı denemesi, lomber MR)
+lordos	lordoz
+her niyet disk	hernie disk
+her niye disk	hernie disk
+her nie disk	hernie disk
+herniyet disk	hernie disk
+eks tride	ekstrüde
+ekstride	ekstrüde
+ekstrude	ekstrüde
+tekal sağ	tekal sak
+nöral noramen	nöral foramen
+# --- Servikal/omurga (kullanıcı denemesi 2). Sonu * olan satırlar kök düzeltmesidir: ekler korunur.
+vertebra korkusu	vertebra korpus
+vertebra korkuları	vertebra korpusları
+korpus korkusu	korpus
+kemik eriği	kemik iliği
+internet siteleri	intensiteleri
+internet sitesi	intensitesi
+inten siteleri	intensiteleri
+deltabral	vertebral
+deltebral	vertebral
+interventerral*	intervertebral
+intervertebral disiplinde	intervertebral diskinde
+interverteral*	intervertebral
+disk boding	disk bulging
+disk bolding	disk bulging
+disk bulding	disk bulging
+disk bulgin	disk bulging
+anterior kontrolünde	anterior konturunda
+posterior kontrolünde	posterior konturunda
+düzgün kontrollü	düzgün konturlu
+spiküler kontrollü	spiküler konturlu
+lobüle kontrollü	lobüle konturlu
+düzensiz kontrollü	düzensiz konturlu
+protezyon*	protrüzyon
+protrüzyon*	protrüzyon
+protürüzyon*	protrüzyon
+protruzyon*	protrüzyon
+ekstrizyon*	ekstrüzyon
+posteriorki	posterior
+disk kaçması	disk taşması
+disk kaçmaları	disk taşmaları
+medulla spinalist	medulla spinalis
+medulla spinales	medulla spinalis
+normadüller	intramedüller
+intra medüller	intramedüller
+ekstra medüller	ekstramedüller
+para yumuşak doku	paravertebral yumuşak doku
+para, yumuşak doku	paravertebral yumuşak doku
+post veriyor	posterior
+post eriyor	posterior
+pos teriyor	posterior
+nöroloji muayene	nörolojik muayene
+difüz	diffüz
+azal ma	azalma
+disk dejenerasyon	disk dejenerasyonu
+disk dejenerasyon)	disk dejenerasyonu.
+sinyal özelliklerdedir	sinyal özelliklerindedir

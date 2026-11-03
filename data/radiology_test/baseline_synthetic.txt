@@ -1,0 +1,505 @@
+
+[00_Ahme.wav] REF: Toraks bilgisayarlı tomografi incelemesinde sağ akciğer üst lob apikal segmentte on iki milimetre çaplı spiküler konturlu nodül izlendi.
+  ham               : Doraks bilgisayarlı tomografi incelemesinde sağ akciğer üstobabicaz segmentte on iki milimetre çaplı speküler kontrollü nodül izlendi.
+  hotword           : Toraks bilgisayarlı tomografi incelemesinde sağ akciğer üstobabicaz segmentte on iki milimetre çaplı spiküler kontrollü nodül izlendi.
+  hotword+sonişleme : Toraks bilgisayarlı tomografi incelemesinde sağ akciğer üstobabicaz segmentte 12 mm çaplı spiküler kontrollü nodül izlendi.
+
+[00_Emel.wav] REF: Toraks bilgisayarlı tomografi incelemesinde sağ akciğer üst lob apikal segmentte on iki milimetre çaplı spiküler konturlu nodül izlendi.
+  ham               : Toraks bilgisayarlı tomografi incelemesinde sağ akciğer üst log apikal segmentte 12 mm çaplı spiküler kontrollü modül izlendi.
+  hotword           : Toraks bilgisayarlı tomografi incelemesinde sağ akciğer üst log apikal segmentte 12 mm çaplı spiküler kontrollü nodül izlendi.
+  hotword+sonişleme : Toraks bilgisayarlı tomografi incelemesinde sağ akciğer üst log apikal segmentte 12 mm çaplı spiküler kontrollü nodül izlendi.
+
+[01_Ahme.wav] REF: Bilateral plevral efüzyon mevcut, sol tarafta daha belirgin.
+  ham               : Bilateral pilavral efüzyon mevcut. Sol tarafta daha belirgin.
+  hotword           : Bilateral plevral efüzyon mevcut. Sol tarafta daha belirgin.
+  hotword+sonişleme : Bilateral plevral efüzyon mevcut. Sol tarafta daha belirgin.
+
+[01_Emel.wav] REF: Bilateral plevral efüzyon mevcut, sol tarafta daha belirgin.
+  ham               : Biateral plevrel efüzyon mevcut, sol tarafta daha belirgin.
+  hotword           : Bilateral plevral efüzyon mevcut, sol tarafta daha belirgin.
+  hotword+sonişleme : Bilateral plevral efüzyon mevcut, sol tarafta daha belirgin.
+
+[02_Ahme.wav] REF: Mediastinal ve hiler patolojik boyutta lenf nodu saptanmadı.
+  ham               : Medi astinal ve Hilar patolojik boyutta lenf noudu saptanmadı.
+  hotword           : Mediastinal ve Hilar patoloji boyutta lenf notu saptanmadı
+  hotword+sonişleme : Mediastinal ve Hilar patoloji boyutta lenf notu saptanmadı
+
+[02_Emel.wav] REF: Mediastinal ve hiler patolojik boyutta lenf nodu saptanmadı.
+  ham               : Mediastinal ve Hilal patolojik boyutta lenf nohdu saptanmadı.
+  hotword           : Mediastinal ve Hilal patoloji boyutta lenf no'lu saptanmadı.
+  hotword+sonişleme : Mediastinal ve Hilal patoloji boyutta lenf no'lu saptanmadı.
+
+[03_Ahme.wav] REF: Kalp boyutları normal, perikardiyal efüzyon izlenmedi.
+  ham               : Kalp boyutları normal, perikardiyal efüzyon izlenmedi.
+  hotword           : Kalp boyutları normal, perikardiyal efüzyon izlenmedi.
+  hotword+sonişleme : Kalp boyutları normal, perikardiyal efüzyon izlenmedi.
+
+[03_Emel.wav] REF: Kalp boyutları normal, perikardiyal efüzyon izlenmedi.
+  ham               : Kalp boyutları normal, peri kardiyal efuzyon izlenmedi.
+  hotword           : Kalp boyutları normal, perikardiyal efüzyon izlenmedi.
+  hotword+sonişleme : Kalp boyutları normal, perikardiyal efüzyon izlenmedi.
+
+[04_Ahme.wav] REF: Sağ alt lobda konsolidasyon ve hava bronkogramları pnömoni ile uyumludur.
+  ham               : Sağ alt logda konsolidasyon ve hava bronkogramları pinemoni ile uyumludur.
+  hotword           : Sağ alt lobda konsolidasyon ve hava bronkogramları pnömoni ile uyumludur.
+  hotword+sonişleme : Sağ alt lobda konsolidasyon ve hava bronkogramları pnömoni ile uyumludur.
+
+[04_Emel.wav] REF: Sağ alt lobda konsolidasyon ve hava bronkogramları pnömoni ile uyumludur.
+  ham               : Sağ alt logda konsolidasyon ve hava bronkogramları pnömonu ile uyumludur.
+  hotword           : Sağ alt logda konsolidasyon ve hava bronkogramları pnömoni ile uyumludur.
+  hotword+sonişleme : Sağ alt logda konsolidasyon ve hava bronkogramları pnömoni ile uyumludur.
+
+[05_Ahme.wav] REF: Her iki akciğerde buzlu cam dansiteleri izlenmekte olup viral pnömoni açısından klinik korelasyon önerilir.
+  ham               : Her iki akciğer de buzlu camdan siteleri izlenmekte olup viral Pnemoni açısından klinik korelasyon önerilir.
+  hotword           : Her iki akciğer de Buzlu camdan siteleri izlenmekte olup viral Pnemoni açısından klinik korelasyon önerilir.
+  hotword+sonişleme : Her 2 akciğer de buzlu camdan siteleri izlenmekte olup viral pnömoni açısından klinik korelasyon önerilir.
+
+[05_Emel.wav] REF: Her iki akciğerde buzlu cam dansiteleri izlenmekte olup viral pnömoni açısından klinik korelasyon önerilir.
+  ham               : Her iki akciğer de buzlu camdan siteleri izlenmekte olup viral Pinomoni açısından klinik korelasyon önerilir.
+  hotword           : Her iki akciğer de buzlu camdan siteleri izlenmekte olup bir Alpinemoni açısından klinik korelasyon önerilir.
+  hotword+sonişleme : Her 2 akciğer de buzlu camdan siteleri izlenmekte olup bir Alpinemoni açısından klinik korelasyon önerilir.
+
+[06_Ahme.wav] REF: Pulmoner arter dallarında dolum defekti saptanmadı, pulmoner emboli lehine bulgu yoktur.
+  ham               : Bulmoner arter dallarında dolum defekti saptanmadı, poner embolü lehine bulgu yoktur
+  hotword           : Bulmoner arter dallarında dolum defekti saptanmadı, poner embolü lehine bulgu yoktur
+  hotword+sonişleme : Pulmoner arter dallarında dolum defekti saptanmadı, poner embolü lehine bulgu yoktur
+
+[06_Emel.wav] REF: Pulmoner arter dallarında dolum defekti saptanmadı, pulmoner emboli lehine bulgu yoktur.
+  ham               : Bu moner Arter dallarında dolum defekti saptanmadı. Pumoner embol lehine bulgu yoktur.
+  hotword           : Bu moner Arter dallarında dolum defekti saptanmadı. Pulmoner Emboli lehine bulgu yoktur.
+  hotword+sonişleme : Bu moner Arter dallarında dolum defekti saptanmadı. Pulmoner emboli lehine bulgu yoktur.
+
+[07_Ahme.wav] REF: Assendan aorta çapı kırk iki milimetre ölçülmüş olup anevrizmal dilatasyon ile uyumludur.
+  ham               : Aslandan orta çapı kırk iki milimetre ölçülmüş olup anevrizmal dilatasyon ile uyumludur.
+  hotword           : Aslandan orta çapı kırk iki milimetre ölçülmüş olup anevrizmal dilatasyon ile uyumludur.
+  hotword+sonişleme : Aslandan orta çapı 42 mm ölçülmüş olup anevrizmal dilatasyon ile uyumludur.
+
+[07_Emel.wav] REF: Assendan aorta çapı kırk iki milimetre ölçülmüş olup anevrizmal dilatasyon ile uyumludur.
+  ham               : Assenden orta çapı kırk iki milimetre ölçülmüş olup anevriz maldilatasyon ile uyumludur.
+  hotword           : Assendan Orta Çapı kırk iki milimetre ölçülmüş olup anevrizmaldilatasyon ile uyumludur.
+  hotword+sonişleme : Assendan Orta Çapı 42 mm ölçülmüş olup anevrizmaldilatasyon ile uyumludur.
+
+[08_Ahme.wav] REF: Karaciğer boyutları artmış, parankim ekojenitesi diffüz olarak artmış olup grade iki hepatosteatoz ile uyumludur.
+  ham               : Karaciğer boyutları artmış, parankim ekojenitesi difüz olarak artmış olup grade 2 hepatosteotoz ile uyumludur.
+  hotword           : Karaciğer boyutları artmış. Parankim ekojenitesi difüz olarak artmış olup kreat iki hepatosteatoz ile uyumludur.
+  hotword+sonişleme : Karaciğer boyutları artmış. Parankim ekojenitesi difüz olarak artmış olup kreat 2 hepatosteatoz ile uyumludur.
+
+[08_Emel.wav] REF: Karaciğer boyutları artmış, parankim ekojenitesi diffüz olarak artmış olup grade iki hepatosteatoz ile uyumludur.
+  ham               : Karaciğer boyutları artmış, parankimekojenitesi difüz olarak artmış olup grade 2 hepatosteatoz ile uyumludur.
+  hotword           : Karaciğer boyutları artmış, palankim ekojenitesi difüz olarak artmış olup Grade 2 hepatosteatoz ile uyumludur.
+  hotword+sonişleme : Karaciğer boyutları artmış, parankim ekojenitesi difüz olarak artmış olup Grade 2 hepatosteatoz ile uyumludur.
+
+[09_Ahme.wav] REF: Safra kesesi lümeninde en büyüğü on sekiz milimetre çaplı akustik gölge veren taşlar izlendi.
+  ham               : Safra kesesi lümeninde en büyüğü on sekiz milimetre çaplı akustik gölge veren taşlar izlendi.
+  hotword           : Safra kesesi lümeninde en büyüğü on sekiz milimetre çaplı akustik gölge veren taşlar izlendi.
+  hotword+sonişleme : Safra kesesi lümeninde en büyüğü 18 mm çaplı akustik gölge veren taşlar izlendi.
+
+[09_Emel.wav] REF: Safra kesesi lümeninde en büyüğü on sekiz milimetre çaplı akustik gölge veren taşlar izlendi.
+  ham               : Safra kesesi lümeninde en büyüğü on sekiz milimetre çaplı akustik gölge veren taşlar izlendi.
+  hotword           : Safra kesesi lümeninde en büyüğü on sekiz milimetre çaplı akustik gölge veren taşlar izlendi.
+  hotword+sonişleme : Safra kesesi lümeninde en büyüğü 18 mm çaplı akustik gölge veren taşlar izlendi.
+
+[10_Ahme.wav] REF: Koledok çapı altı milimetre olup intrahepatik safra yollarında dilatasyon saptanmadı.
+  ham               : Koledok çapı altı milimetre olup intrahapatik safra yollarında dilatasyon saptanmadı.
+  hotword           : Koledok çapı altı milimetre olup intrahepatik safra yollarında dilatasyon saptanmadı.
+  hotword+sonişleme : Koledok çapı 6 mm olup intrahepatik safra yollarında dilatasyon saptanmadı.
+
+[10_Emel.wav] REF: Koledok çapı altı milimetre olup intrahepatik safra yollarında dilatasyon saptanmadı.
+  ham               : Poledok çapı altı milimetre olup intrahapatik safra yollarında dilatasyon saptanmadı.
+  hotword           : Poledok çapı altı milimetre olup İntrah da dilatasyon saptanmadı.
+  hotword+sonişleme : Koledok çapı 6 mm olup İntrah da dilatasyon saptanmadı.
+
+[11_Ahme.wav] REF: Pankreas başı ve unsinat proses normal görünümdedir.
+  ham               : Pankreas başı ve unsinat proses normal görünümdedir.
+  hotword           : Pankreas başı ve unsinat proses normal görünümdedir.
+  hotword+sonişleme : Pankreas başı ve unsinat proses normal görünümdedir.
+
+[11_Emel.wav] REF: Pankreas başı ve unsinat proses normal görünümdedir.
+  ham               : Ankreas başı ve unsinat proses normal görünümdedir.
+  hotword           : Ankeas başı ve unsinat proses normal görünümdedir.
+  hotword+sonişleme : Ankeas başı ve unsinat proses normal görünümdedir.
+
+[12_Ahme.wav] REF: Dalak boyutu on üç santimetre olup hafif splenomegali mevcuttur.
+  ham               : Dalak boyutu on üç santimetre olup hafif siplenomegali mevcuttur.
+  hotword           : Dalak boyutu on üç santimetre olup hafif siplenomegali mevcuttur.
+  hotword+sonişleme : Dalak boyutu 13 cm olup hafif splenomegali mevcuttur.
+
+[12_Emel.wav] REF: Dalak boyutu on üç santimetre olup hafif splenomegali mevcuttur.
+  ham               : Dalak boyutu on üç santimetre olup hafif siplenomagali mevcuttur.
+  hotword           : Dalak boyutu on üç santimetre olup hafif splenomegali mevcuttur.
+  hotword+sonişleme : Dalak boyutu 13 cm olup hafif splenomegali mevcuttur.
+
+[13_Ahme.wav] REF: Sağ böbrekte grade iki hidronefroz ve proksimal üreterde yedi milimetrelik taş izlendi.
+  ham               : Sağ böbrekte grade iki hidonefroz ve proksimal üreterde yedi milimetrelik taş izlendi.
+  hotword           : Sağ böbrekte grade iki hidronefroz ve proksimal üreterde yedi milimetrelik taş izlendi.
+  hotword+sonişleme : Sağ böbrekte grade 2 hidronefroz ve proksimal üreterde 7 mm'lik taş izlendi.
+
+[13_Emel.wav] REF: Sağ böbrekte grade iki hidronefroz ve proksimal üreterde yedi milimetrelik taş izlendi.
+  ham               : Sağ böbrekte grade iki hidronefroz ve proksimal üreterde yedi milimetrelik taş izlendi.
+  hotword           : Sağ böbrekte grade iki hidronefroz ve proksimal üreterde yedi milimetrelik taş izlendi.
+  hotword+sonişleme : Sağ böbrekte grade 2 hidronefroz ve proksimal üreterde 7 mm'lik taş izlendi.
+
+[14_Ahme.wav] REF: Sol böbrek üst polde on beş milimetre çaplı basit kortikal kist izlendi, Bosniak tip bir ile uyumludur.
+  ham               : Sol böbrek üst bolde on beş milimetre çaplı basit kortikal kist izlendi. Bosnaak Tip 1 ile uyumludur.
+  hotword           : Sol böbrek üst bolde on beş milimetre çaplı basit kortikal kist izlendi. Bosnaak Tip 1 ile uyumludur.
+  hotword+sonişleme : Sol böbrek üst bolde 15 mm çaplı basit kortikal kist izlendi. Bosniak Tip 1 ile uyumludur.
+
+[14_Emel.wav] REF: Sol böbrek üst polde on beş milimetre çaplı basit kortikal kist izlendi, Bosniak tip bir ile uyumludur.
+  ham               : Sol böbrek üst polde on beş milimetre çaplı basit kortikal kist izlendi. Bosnaak Tipi ile uyumludur.
+  hotword           : Sol böbrek üst polde on beş milimetre çaplı basit kortikal kist izlendi. Bosniyak Tipi ile uyumludur.
+  hotword+sonişleme : Sol böbrek üst polde 15 mm çaplı basit kortikal kist izlendi. Bosniak Tipi ile uyumludur.
+
+[15_Ahme.wav] REF: Mesane duvar kalınlığı normal, lümende patolojik bulgu saptanmadı.
+  ham               : Mesale dar kalınlığı normal, lümende patolojik bulgu saptanmadı.
+  hotword           : Mesale dar kalınlığı normal, lümende patoloji bulgu saptanmadı.
+  hotword+sonişleme : Mesale dar kalınlığı normal, lümende patoloji bulgu saptanmadı.
+
+[15_Emel.wav] REF: Mesane duvar kalınlığı normal, lümende patolojik bulgu saptanmadı.
+  ham               : Mesane duvar kalınlığı normal, dümende patolojik bu saptanmadı.
+  hotword           : Mesane duvar kalınlığı normal, dümende patoloji bu saptanmadı.
+  hotword+sonişleme : Mesane duvar kalınlığı normal, dümende patoloji bu saptanmadı.
+
+[16_Ahme.wav] REF: Prostat hacmi yaklaşık elli beş mililitre olarak hesaplanmış olup benign prostat hiperplazisi ile uyumludur.
+  ham               : Prostat hacmi yaklaşık elli beş mililitre olarak hesaplanmış olup benim prostat hiperplazisi ile uyumludur.
+  hotword           : Prostat hacmi yaklaşık elli beş mililitre olarak hesaplanmış olup benim prostat hiperplazisi ile uyumludur.
+  hotword+sonişleme : Prostat hacmi yaklaşık 55 ml olarak hesaplanmış olup benim prostat hiperplazisi ile uyumludur.
+
+[16_Emel.wav] REF: Prostat hacmi yaklaşık elli beş mililitre olarak hesaplanmış olup benign prostat hiperplazisi ile uyumludur.
+  ham               : Rostat hacmi yaklaşık elli beş mililitre olarak hesaplanmış olup benim prostat hiperplazisiyle uyumludur.
+  hotword           : Rostat hacmi yaklaşık elli beş mililitre olarak hesaplanmış olup benim prostat hiperplazisi ile uyumludur.
+  hotword+sonişleme : Rostat hacmi yaklaşık 55 ml olarak hesaplanmış olup benim prostat hiperplazisi ile uyumludur.
+
+[17_Ahme.wav] REF: Batın içi serbest sıvı izlenmedi.
+  ham               : Batın içi serbest sıvı izlenmedi.
+  hotword           : Batın içi serbest sıvı izlenmedi.
+  hotword+sonişleme : Batın içi serbest sıvı izlenmedi.
+
+[17_Emel.wav] REF: Batın içi serbest sıvı izlenmedi.
+  ham               : Batının içi serbest sıvı izlenmedi.
+  hotword           : Batının içi serbest sıvı izlenmedi.
+  hotword+sonişleme : Batının içi serbest sıvı izlenmedi.
+
+[18_Ahme.wav] REF: Appendiks çapı dokuz milimetre ölçülmüş, çevresinde yağlı doku kirlenmesi mevcuttur, akut apandisit ile uyumludur.
+  ham               : Appendik çapı dokuz milimetre ölçülmüş, çevresinde yağlı doku kirlenmesi mevcuttur. Akut hapandisit ile uyumludur.
+  hotword           : Appendik çapı dokuz milimetre ölçülmüş, çevresinde yağlı doku kirlenmesi mevcuttur. Akut hapandisit ile uyumludur.
+  hotword+sonişleme : Appendik çapı 9 mm ölçülmüş, çevresinde yağlı doku kirlenmesi mevcuttur. Akut apandisit ile uyumludur.
+
+[18_Emel.wav] REF: Appendiks çapı dokuz milimetre ölçülmüş, çevresinde yağlı doku kirlenmesi mevcuttur, akut apandisit ile uyumludur.
+  ham               : Apendiks çapı dokuz milimetre ölçülmüş, çevresinde yağlı doku kirlenmesi mevcuttur. Akutapandisit ile uyumludur.
+  hotword           : Apendiks çapı dokuz milimetre ölçülmüş, çevresinde yağlı doku kirlenmesi mevcuttur. Akut apandisit ile uyumludur.
+  hotword+sonişleme : Apendiks çapı 9 mm ölçülmüş, çevresinde yağlı doku kirlenmesi mevcuttur. Akut apandisit ile uyumludur.
+
+[19_Ahme.wav] REF: Kranial bilgisayarlı tomografide akut intrakranial kanama bulgusu saptanmadı.
+  ham               : Kranial bilgisayarlı tomografi de akut intrak kanama bulgusu saptanmadı.
+  hotword           : Kranyal bilgisayarlı tomografi de akut intrak kanama bulgusu saptanmadı.
+  hotword+sonişleme : Kranyal bilgisayarlı tomografi de akut intrak kanama bulgusu saptanmadı.
+
+[19_Emel.wav] REF: Kranial bilgisayarlı tomografide akut intrakranial kanama bulgusu saptanmadı.
+  ham               : Ranial bilgisayarlı tomografide akut intrak kanama bulgusu saptanmadı.
+  hotword           : Ranial bilgisayarlı tomografide akut intrak kanama bulgusu saptanmadı.
+  hotword+sonişleme : Ranial bilgisayarlı tomografide akut intrak kanama bulgusu saptanmadı.
+
+[20_Ahme.wav] REF: Sol frontal lobda kronik iskemik değişiklikler ve periventriküler beyaz cevherde gliotik odaklar izlendi.
+  ham               : Sol Frontal lobda kronik iskemik değişiklikler ve periventriküler beyaz cevherde genotik odaklar izlendi.
+  hotword           : Sol Frontal lobda kronik iskemik değişiklikler ve periventriküler beyaz cevherde gilotik odaklar izlendi.
+  hotword+sonişleme : Sol Frontal lobda kronik iskemik değişiklikler ve periventriküler beyaz cevherde gilotik odaklar izlendi.
+
+[20_Emel.wav] REF: Sol frontal lobda kronik iskemik değişiklikler ve periventriküler beyaz cevherde gliotik odaklar izlendi.
+  ham               : Sol Frontal lobda kronik iskemik değişiklikler ve periventriküler beyaz cevherde gilotik odaklar izlendi.
+  hotword           : Sol Frontal lobda kronik iskemik değişiklikler ve periventrik gilotik odaklar izlendi.
+  hotword+sonişleme : Sol Frontal lobda kronik iskemik değişiklikler ve periventrik gilotik odaklar izlendi.
+
+[21_Ahme.wav] REF: Difüzyon ağırlıklı görüntülerde sol orta serebral arter sulama alanında difüzyon kısıtlaması akut enfarkt ile uyumludur.
+  ham               : Difüzyon ağırlıklı görüntülerde sol orta serebral arter sulama alanında difüzyon kısıtlaması, akut enfark dile uyumludur
+  hotword           : Difüzyon ağırlıklı görüntülerde sol orta serebral arter sulama alanında difüzyon kısıtlaması, akut enfark ile uyumludur.
+  hotword+sonişleme : Difüzyon ağırlıklı görüntülerde sol orta serebral arter sulama alanında difüzyon kısıtlaması, akut enfark ile uyumludur.
+
+[21_Emel.wav] REF: Difüzyon ağırlıklı görüntülerde sol orta serebral arter sulama alanında difüzyon kısıtlaması akut enfarkt ile uyumludur.
+  ham               : Difüzyon ağırlıklı görüntülerde sol orta serebral arter sulama alanında difüzyon kısıtlaması, akut enfart ile uyumludur.
+  hotword           : Difüzyon ağırlıklı görüntülerde sol orta serebral arter sulama alanında difüzyon kısıtlaması, akut enfart ile uyumludur.
+  hotword+sonişleme : Difüzyon ağırlıklı görüntülerde sol orta serebral arter sulama alanında difüzyon kısıtlaması, akut enfart ile uyumludur.
+
+[22_Ahme.wav] REF: Ventriküler sistem orta hatta olup genişlememiştir.
+  ham               : Ventriküler sistem orta hatta olup genişlememiştir.
+  hotword           : Ventriküler sistem orta hatta olup genişlememiştir.
+  hotword+sonişleme : Ventriküler sistem orta hatta olup genişlememiştir.
+
+[22_Emel.wav] REF: Ventriküler sistem orta hatta olup genişlememiştir.
+  ham               : Ventriküler sistem orta hatta olup genişlememiştir.
+  hotword           : Ventriküler sistem orta hatta olup genişlememiştir.
+  hotword+sonişleme : Ventriküler sistem orta hatta olup genişlememiştir.
+
+[23_Ahme.wav] REF: Sağ serebellar hemisferde kontrast tutan yirmi üç milimetre çaplı kitle lezyonu izlendi, metastaz açısından değerlendirilmelidir.
+  ham               : Sağ serebeller hemisferde kontrast tutan yirmi üç milimetre çaplı kitle lezyonu izlendi. Metastaz açısından değerlendirilmelidir.
+  hotword           : Sağ serebellar hemisferde kontrast tutan yirmi üç milimetre çaplı kitle lezyonu izlendi. Metastaz açısından değerlendirilmelidir.
+  hotword+sonişleme : Sağ serebellar hemisferde kontrast tutan 23 mm çaplı kitle lezyonu izlendi. Metastaz açısından değerlendirilmelidir.
+
+[23_Emel.wav] REF: Sağ serebellar hemisferde kontrast tutan yirmi üç milimetre çaplı kitle lezyonu izlendi, metastaz açısından değerlendirilmelidir.
+  ham               : Sağ serebeller hem isterde kontrast tutan yirmi üç milimetre çaplı kitle lezyonu izlendi. Betastaz açısından değerlendirilmelidir.
+  hotword           : Sağ serebell hem isterde kontrast tutan yirmi üç milimetre çaplı kitle lezyonu izlendi. Metastaz açısından değerlendirilmelidir.
+  hotword+sonişleme : Sağ serebell hem isterde kontrast tutan 23 mm çaplı kitle lezyonu izlendi. Metastaz açısından değerlendirilmelidir.
+
+[24_Ahme.wav] REF: Hipofiz bezi boyutları normal, sella turcika doğal görünümdedir.
+  ham               : Hipofiz bezi boyutları normal, sellaturcika doğal görünümdedir
+  hotword           : Hipofiz bezi boyutları normal, sella turcika doğal görünümdedir.
+  hotword+sonişleme : Hipofiz bezi boyutları normal, sella turcika doğal görünümdedir.
+
+[24_Emel.wav] REF: Hipofiz bezi boyutları normal, sella turcika doğal görünümdedir.
+  ham               : İpofiz bezi boyutları normal, sella turcuka doğal görünümdedir.
+  hotword           : Hipofiz bezi boyutları normal, sella turcuka doğal görünümdedir.
+  hotword+sonişleme : Hipofiz bezi boyutları normal, sella turcuka doğal görünümdedir.
+
+[25_Ahme.wav] REF: Lomber manyetik rezonans görüntülemede L dört L beş seviyesinde sol paramedian disk protrüzyonu sol L beş sinir kökünü komprese etmektedir.
+  ham               : Lomber manyetik rezonans görüntülemede L4D5 seviyesinde sol parameden disk prottüzyonu sol L beş sinir kökünü komprese etmektedir.
+  hotword           : Lomber manyetik Rezonans görüntülemede L4D5 seviyesinde sol Paramedian disk prottüzyonu sol L beş sinir kökünü komprese etmektedir.
+  hotword+sonişleme : Lomber manyetik rezonans görüntülemede L4D5 seviyesinde sol paramedian disk protrüzyonu sol L 5 sinir kökünü komprese etmektedir.
+
+[25_Emel.wav] REF: Lomber manyetik rezonans görüntülemede L dört L beş seviyesinde sol paramedian disk protrüzyonu sol L beş sinir kökünü komprese etmektedir.
+  ham               : Lomber manyetik rezonans görüntülemede L4D5 seviyesinde sol paramedan disk profrizyonu sol L5 sinir kökünü komprese etmektedir.
+  hotword           : Lomber manyetik rezonans görüntülemede L4D5 seviyesinde sol paramedan disk protrüzyonu sol L5 sinir kökünü komprese etmektedir.
+  hotword+sonişleme : Lomber manyetik rezonans görüntülemede L4D5 seviyesinde sol paramedian disk protrüzyonu sol L5 sinir kökünü komprese etmektedir.
+
+[26_Ahme.wav] REF: L beş S bir seviyesinde santral disk ekstrüzyonu ve spinal kanalda daralma mevcuttur.
+  ham               : L beş S1 seviyesinde santral disk ekstrüzyonu ve spinal kanalda daralma mevcuttur.
+  hotword           : L beş S1 seviyesinde santral disk ekstrüzyonu ve spinal kanalda daralma mevcuttur.
+  hotword+sonişleme : L 5 S1 seviyesinde santral disk ekstrüzyonu ve spinal kanalda daralma mevcuttur.
+
+[26_Emel.wav] REF: L beş S bir seviyesinde santral disk ekstrüzyonu ve spinal kanalda daralma mevcuttur.
+  ham               : L5S1 seviyesinde santral disk ekstrüzyonu ve spinal kanalda daralma mevcuttur.
+  hotword           : L beş S1 seviyesinde santral disk ekstrüzyonu ve spinal kanalda daralma mevcuttur.
+  hotword+sonişleme : L 5 S1 seviyesinde santral disk ekstrüzyonu ve spinal kanalda daralma mevcuttur.
+
+[27_Ahme.wav] REF: Servikal vertebralarda dejeneratif spondiloz bulguları ve C beş C altı seviyesinde osteofit oluşumları izlendi.
+  ham               : Servikal vertebralarda dejeneratif spondiloz bulguları ve C5C6 seviyesinde osteofit oluşumları izlendi.
+  hotword           : Servikal Vertebralarda dejeneratif spondiloz bulguları ve C5C6 seviyesinde osteofit oluşumları izlendi.
+  hotword+sonişleme : Servikal Vertebralarda dejeneratif spondiloz bulguları ve C5C6 seviyesinde osteofit oluşumları izlendi.
+
+[27_Emel.wav] REF: Servikal vertebralarda dejeneratif spondiloz bulguları ve C beş C altı seviyesinde osteofit oluşumları izlendi.
+  ham               : Serikan Vertebralarda dejeneratif spondiloz bulguları ve C5C6 seviyesinde Osteofit oluşumları izlendi.
+  hotword           : Serikan Vertebralarda dejeneratif spondiloz bulguları ve C5C6 seviyesinde Osteofit oluşumları izlendi.
+  hotword+sonişleme : Serikan Vertebralarda dejeneratif spondiloz bulguları ve C5C6 seviyesinde osteofit oluşumları izlendi.
+
+[28_Ahme.wav] REF: Torakal vertebra korpuslarında hemanjiom ile uyumlu sinyal değişiklikleri izlendi.
+  ham               : Torakal vertebre korkuslarında hemanjiyom ile uyumlu sinyal değişiklikleri izlendi.
+  hotword           : Torakal vertebre korpuslarında hemanj ile uyumlu sinyal değişiklikleri izlendi.
+  hotword+sonişleme : Torakal vertebra korpuslarında hemanj ile uyumlu sinyal değişiklikleri izlendi.
+
+[28_Emel.wav] REF: Torakal vertebra korpuslarında hemanjiom ile uyumlu sinyal değişiklikleri izlendi.
+  ham               : Sorakal ve ertebre korkuslarında hem anjeom ile uyumlu sinyal değişiklikleri izlendi.
+  hotword           : Torakal ve ertebre korpuslarında hem anjeom ile uyumlu sinyal değişiklikleri izlendi.
+  hotword+sonişleme : Torakal ve ertebre korpuslarında hem anjeom ile uyumlu sinyal değişiklikleri izlendi.
+
+[29_Ahme.wav] REF: Sağ diz manyetik rezonans incelemesinde medial menisküs arka boynuzda grade üç yırtık izlendi.
+  ham               : Sadiz manyetik rezonans incelemesinde medyal Menüsküs arka boynuzda grade üç yırtık izlendi.
+  hotword           : Sadiz manyetik rezonans incelemesinde medyal Menisküs arka boynuzda grade üç yırtık izlendi.
+  hotword+sonişleme : Sadiz manyetik rezonans incelemesinde medyal menisküs arka boynuzda grade 3 yırtık izlendi.
+
+[29_Emel.wav] REF: Sağ diz manyetik rezonans incelemesinde medial menisküs arka boynuzda grade üç yırtık izlendi.
+  ham               : Sağ diz manyetik rezonans incelemesinde medyan menüscüs arka boynuzda Grade 3 yırtık izlendi.
+  hotword           : Sağ diz manyetik rezonans incelemesinde medyan Menisküs arka boynuzda Grade 3 yırtık izlendi
+  hotword+sonişleme : Sağ diz manyetik rezonans incelemesinde medyan menisküs arka boynuzda Grade 3 yırtık izlendi
+
+[30_Ahme.wav] REF: Ön çapraz bağda tam kat yırtık ile uyumlu süreklilik kaybı mevcuttur.
+  ham               : Ön çapraz bağda tam kat yırtık ile uyumlu süreklilik kaybı mevcuttur.
+  hotword           : Ön çapraz bağda tam kat yırtık ile uyumlu süreklilik kaybı mevcuttur.
+  hotword+sonişleme : 10 çapraz bağda tam kat yırtık ile uyumlu süreklilik kaybı mevcuttur.
+
+[30_Emel.wav] REF: Ön çapraz bağda tam kat yırtık ile uyumlu süreklilik kaybı mevcuttur.
+  ham               : Ön çapraz bağda tam kat yırtık ile uyumlu süreklilik kaybı mevcuttur.
+  hotword           : Ön çapraz bağda tam kat yırtık ile uyumlu süreklilik kaybı mevcuttur.
+  hotword+sonişleme : 10 çapraz bağda tam kat yırtık ile uyumlu süreklilik kaybı mevcuttur.
+
+[31_Ahme.wav] REF: Sol omuzda supraspinatus tendonunda kısmi kalınlıkta yırtık ve subakromiyal bursit izlendi.
+  ham               : Sol omuzda Supraspinatus tendonunda kısmi kalınlıkta yırtık ve subakromiyal Bursit izlendi
+  hotword           : Sol omuzda Supraspinatus tendonunda kısmi kalınlıkta yırtık ve subakromiyal Bursitizlendi.
+  hotword+sonişleme : Sol omuzda supraspinatus tendonunda kısmi kalınlıkta yırtık ve subakromiyal Bursitizlendi.
+
+[31_Emel.wav] REF: Sol omuzda supraspinatus tendonunda kısmi kalınlıkta yırtık ve subakromiyal bursit izlendi.
+  ham               : Sol omuzda supraspinatus sendonunda kısmi kalınlıkta yırtık ve su bakromiyal bursit izlendi.
+  hotword           : Sol omuzda supraspinatus sendonunda kısmi kalınlıkta yırtık ve subakromiyal Bursit izlendi.
+  hotword+sonişleme : Sol omuzda supraspinatus sendonunda kısmi kalınlıkta yırtık ve subakromiyal bursit izlendi.
+
+[32_Ahme.wav] REF: Sağ femur boynunda deplase olmayan fraktür hattı izlendi.
+  ham               : Safemur boynunda deplase olmayan fraktör hattı izlendi.
+  hotword           : Safemur boynunda Deplase olmayan fraktür hattı izlendi.
+  hotword+sonişleme : Safemur boynunda deplase olmayan fraktür hattı izlendi.
+
+[32_Emel.wav] REF: Sağ femur boynunda deplase olmayan fraktür hattı izlendi.
+  ham               : Sağ famur boynunda deplase olmayan fraktör hattı izlendi.
+  hotword           : Sağ femur boynunda deplase olmayan fraktür hattı izlendi.
+  hotword+sonişleme : Sağ femur boynunda deplase olmayan fraktür hattı izlendi.
+
+[33_Ahme.wav] REF: Distal radiusta eklem yüzünü ilgilendiren parçalı kırık mevcuttur.
+  ham               : Distal Radius'a eklem yüzünü ilgilendiren parçalı kırık mevcuttur.
+  hotword           : Distal Radius'a eklem yüzünü ilgilendiren parçalı kırık mevcuttur.
+  hotword+sonişleme : Distal radius'a eklem yüzünü ilgilendiren parçalı kırık mevcuttur.
+
+[33_Emel.wav] REF: Distal radiusta eklem yüzünü ilgilendiren parçalı kırık mevcuttur.
+  ham               : Distal Radius'ta eklem yüzünü ilgilendiren parçalı kırık mevcuttur.
+  hotword           : Distal Radius'ta eklem yüzünü ilgilendiren parçalı kırık mevcuttur.
+  hotword+sonişleme : Distal radius'ta eklem yüzünü ilgilendiren parçalı kırık mevcuttur.
+
+[34_Ahme.wav] REF: Meme ultrasonografisinde sol meme saat ikide on bir milimetrelik hipoekoik solid lezyon izlendi, BI-RADS dört olarak değerlendirildi.
+  ham               : Meme ultrasonografisinde son meme saat ikide on bir milimetrelik hipoykoik solid lezyon izlendi. Bıkras dört olarak değerlendirildi.
+  hotword           : Meme ultrasonografiğinde sol meme saat ikide on bir milimetrelik hipoykoik solid lezyon izlendi. Bıkras dört olarak değerlendirildi.
+  hotword+sonişleme : Meme ultrasonografiğinde sol meme saat 2'de 11 mm'lik hipoekoik solid lezyon izlendi. Bıkras 4 olarak değerlendirildi.
+
+[34_Emel.wav] REF: Meme ultrasonografisinde sol meme saat ikide on bir milimetrelik hipoekoik solid lezyon izlendi, BI-RADS dört olarak değerlendirildi.
+  ham               : Meme ultresenografisinde sol meme saat ikide on bir milimetrelik hipo ekoiksolid lezyon izlendi. Brads 4 olarak değerlendirildi.
+  hotword           : Meme ultrasonografiğinde sol meme saat ikide on bir milimetrelik hipo ekoiksolid lezyon izlendi. Brads 4 olarak değerlendirildi.
+  hotword+sonişleme : Meme ultrasonografiğinde sol meme saat 2'de 11 mm'lik hipo ekoiksolid lezyon izlendi. Brads 4 olarak değerlendirildi.
+
+[35_Ahme.wav] REF: Mamografide sağ meme üst dış kadranda gruplaşmış mikrokalsifikasyonlar izlendi.
+  ham               : Mamografi de Samime üstış kadranda gruplaşmış mikrokasifikasyonlar izlendi.
+  hotword           : Mamografi de Samime üst kadranda gruplaşmış mikrokalsifikasyonlar izlendi.
+  hotword+sonişleme : Mamografi de Samime üst kadranda gruplaşmış mikrokalsifikasyonlar izlendi.
+
+[35_Emel.wav] REF: Mamografide sağ meme üst dış kadranda gruplaşmış mikrokalsifikasyonlar izlendi.
+  ham               : Mamografide sağ meme üst dış kadranda gruplaşmış mikrokosifikasyonlar izlendi.
+  hotword           : Mamografide sağ meme üst dış kadranda gruplaşmış mikrokifikasyonlar izlendi.
+  hotword+sonişleme : Mamografide sağ meme üst dış kadranda gruplaşmış mikrokalsifikasyonlar izlendi.
+
+[36_Ahme.wav] REF: Tiroid ultrasonografisinde sağ lobda on dört milimetrelik izoekoik nodül izlendi, TI-RADS üç kategorisindedir.
+  ham               : Tiroid ultrasonografisinde sağ logda on dört milimetrelik izoekoik nodül izlendi. Tikras üç kategorisindedir
+  hotword           : Tiroid ultrasonografiğinde sağ logda on dört milimetrelik izoekoik nodül izlendi. Tikras üç kategorisindedir
+  hotword+sonişleme : Tiroid ultrasonografiğinde sağ logda 14 mm'lik izoekoik nodül izlendi. Tikras 3 kategorisindedir
+
+[36_Emel.wav] REF: Tiroid ultrasonografisinde sağ lobda on dört milimetrelik izoekoik nodül izlendi, TI-RADS üç kategorisindedir.
+  ham               : Tiroid ultrasonografisinde sağ logda on dört milimetrelik izoekoik nodül izlendi. Tikrat üç kategorisindedir.
+  hotword           : Tiroid ultrasonografifinde sağ lobda on dört milimetrelik izoekoik nodül izlendi. Tikrat üç kategorisindedir.
+  hotword+sonişleme : Tiroid ultrasonografifinde sağ lobda 14 mm'lik izoekoik nodül izlendi. Tikrat 3 kategorisindedir.
+
+[37_Ahme.wav] REF: Boyunda bilateral reaktif görünümlü lenf nodları izlendi.
+  ham               : Boyunda bile teral reaktif görünümlü lenf notları izlendi.
+  hotword           : Boyunda bile teral reaktif görünümlü lenf nodları izlendi.
+  hotword+sonişleme : Boyunda bile teral reaktif görünümlü lenf nodları izlendi.
+
+[37_Emel.wav] REF: Boyunda bilateral reaktif görünümlü lenf nodları izlendi.
+  ham               : Boyunda bila teral reaktif görünümlü lenf nodları izlendi.
+  hotword           : Boyunda Bilateral reaktif görünümlü lenf nodları izlendi.
+  hotword+sonişleme : Boyunda bilateral reaktif görünümlü lenf nodları izlendi.
+
+[38_Ahme.wav] REF: Karotis Doppler ultrasonografide sağ internal karotis arterde yüzde elli darlık oluşturan kalsifik plak izlendi.
+  ham               : Karotistoplar ultrasonografide sağ internal karotis arterde yüzde elli darlık oluşturan Kalsifik Black izlendi.
+  hotword           : Karotis dokter ultrasonografide sağ internal karotis arter de yüzde elli darlık oluşturan Kalsifik Black izlendi.
+  hotword+sonişleme : Karotis dokter ultrasonografide sağ internal karotis arter de %50 darlık oluşturan kalsifik Black izlendi.
+
+[38_Emel.wav] REF: Karotis Doppler ultrasonografide sağ internal karotis arterde yüzde elli darlık oluşturan kalsifik plak izlendi.
+  ham               : Karotistopler ultrasonografide sağ internal karotis arter de yüzde elli darlık oluşturan felsefik plak izlendi.
+  hotword           : Karotis Dopler ultrasonografide sağ internal Karotis arter de yüzde elli darlık oluşturan felsefik plak izlendi.
+  hotword+sonişleme : Karotis Dopler ultrasonografide sağ internal karotis arter de %50 darlık oluşturan felsefik plak izlendi.
+
+[39_Ahme.wav] REF: Alt ekstremite venöz Doppler incelemesinde sol popliteal vende derin ven trombozu ile uyumlu ekojen trombüs izlendi.
+  ham               : Art ekstremite venozdopter incelemesinde sol popiteal bende derin van trombozu ile uyumlu ekojen trombü sizlendi.
+  hotword           : Art ekstremite venozdopter incelemesinde sol popiteal bende derin van trombozu ile uyumlu ekojen trombüsizlendi
+  hotword+sonişleme : Art ekstremite venozdopter incelemesinde sol popliteal bende derin van trombozu ile uyumlu ekojen trombüsizlendi
+
+[39_Emel.wav] REF: Alt ekstremite venöz Doppler incelemesinde sol popliteal vende derin ven trombozu ile uyumlu ekojen trombüs izlendi.
+  ham               : Alt ekstremite venezloplar incelemesinde sol popiteal Vende derin ventrombozu ile uyumlu ekojen trombüs izlendi.
+  hotword           : Alt ekstremite venez doplar incelemesinde sol popiteal Vende derin ventrombozu ile uyumlu ekojen trombüs izlendi.
+  hotword+sonişleme : Alt ekstremite venez doplar incelemesinde sol popliteal Vende derin ventrombozu ile uyumlu ekojen trombüs izlendi.
+
+[40_Ahme.wav] REF: Uterus antevert pozisyonda, boyutları normal, endometrium kalınlığı sekiz milimetredir.
+  ham               : Bu terus Antevert pozisyonda boyutları normal, endometrum kalınlığı sekiz milimetredir.
+  hotword           : Bu terus Antevert pozisyonda boyutları normal, endometrinliği sekiz milimetredir.
+  hotword+sonişleme : Bu terus antevert pozisyonda boyutları normal, endometriumiği 8 milimetredir.
+
+[40_Emel.wav] REF: Uterus antevert pozisyonda, boyutları normal, endometrium kalınlığı sekiz milimetredir.
+  ham               : Otelus Antevert pozisyonda boyutları normal, endometrium kalınlığı sekiz milimetredir.
+  hotword           : Otelus Antevert pozisyonda boyutları normal, endometrium kalınlığı sekiz milimetredir.
+  hotword+sonişleme : Otelus antevert pozisyonda boyutları normal, endometrium kalınlığı 8 milimetredir.
+
+[41_Ahme.wav] REF: Sağ overde otuz milimetre çaplı basit kist izlendi.
+  ham               : Sağ ol de otuz milimetre çaplı basit pist izlendi.
+  hotword           : Sağ Over'de otuz milimetre çaplı basit pist izlendi.
+  hotword+sonişleme : Sağ over'de 30 mm çaplı basit pist izlendi.
+
+[41_Emel.wav] REF: Sağ overde otuz milimetre çaplı basit kist izlendi.
+  ham               : Sağ ol ver de otuz milimetre çaplı basit pist izlendi.
+  hotword           : Sağ ol Ver de otuz milimetre çaplı basit pist izlendi.
+  hotword+sonişleme : Sağ ol Ver de 30 mm çaplı basit pist izlendi.
+
+[42_Ahme.wav] REF: Kontrastlı incelemede karaciğer segment yedide arteriyel fazda kontrastlanan portal venöz fazda wash out gösteren lezyon hepatoselüler karsinom açısından şüphelidir.
+  ham               : Kontrastı incelemede karaciğer segment yedide arteriyal fazla kontrastlanan portal ve nöz fazla baş ot gösteren lezyon hepatoseliler karsinom açısından şüphelidir.
+  hotword           : Kontrastı incelemede karaciğer segment yedide arteriyel fazla kontrastlanan portal ve nös fazla baş ot gösteren lezyon hepatoseliler Karsinom açısından şüphelidir.
+  hotword+sonişleme : Kontrastı incelemede karaciğer segment 7'de arteriyel fazla kontrastlanan portal ve nös fazla baş ot gösteren lezyon hepatoselüler karsinom açısından şüphelidir.
+
+[42_Emel.wav] REF: Kontrastlı incelemede karaciğer segment yedide arteriyel fazda kontrastlanan portal venöz fazda wash out gösteren lezyon hepatoselüler karsinom açısından şüphelidir.
+  ham               : Kontrastlı incelemede karaciğer segment yedide arteriyel fazla kontrastlanan portal Venez fazda baş out gösteren lezyon hepatoseriler karşinom açısından şüphelidir.
+  hotword           : Kontrastlı incelemede karaciğer segment yedide arteriyel fazla kontrastlanan portal, venez fazda baş out gösteren lezyon hepatoseriler Karsinom açısından şüphelidir.
+  hotword+sonişleme : Kontrastlı incelemede karaciğer segment 7'de arteriyel fazla kontrastlanan portal, venez fazda baş out gösteren lezyon hepatoselüler karsinom açısından şüphelidir.
+
+[43_Ahme.wav] REF: Önceki tetkik ile karşılaştırıldığında lezyon boyutlarında belirgin değişiklik izlenmedi.
+  ham               : Önceki tetkik ile karşılaştırıldığında lezyon boyutlarında belirgin değişiklik izlenmedi.
+  hotword           : Önceki tetkik ile karşılaştırıldığında lezyon boyutlarında belirgin değişiklik izlenmedi.
+  hotword+sonişleme : Önceki tetkik ile karşılaştırıldığında lezyon boyutlarında belirgin değişiklik izlenmedi.
+
+[43_Emel.wav] REF: Önceki tetkik ile karşılaştırıldığında lezyon boyutlarında belirgin değişiklik izlenmedi.
+  ham               : Önceki tetkik ile karşılaştırıldığında lezyon boyutlarında belirgin değişiklik izlenmedi.
+  hotword           : Önceki tetkik ile karşılaştırıldığında lezyon boyutlarında belirgin değişiklik izlenmedi.
+  hotword+sonişleme : Önceki tetkik ile karşılaştırıldığında lezyon boyutlarında belirgin değişiklik izlenmedi.
+
+[44_Ahme.wav] REF: Abdominal aortada infrarenal düzeyde otuz sekiz milimetre çaplı anevrizma izlendi.
+  ham               : Andominal ortada infrarenal düzeyde otuz sekiz milimetre çaplı anevrizma izlendi.
+  hotword           : Andominal ortada infrarenal düzeyde otuz sekiz milimetre çaplı anevrizma izlendi.
+  hotword+sonişleme : Andominal ortada infrarenal düzeyde 38 mm çaplı anevrizma izlendi.
+
+[44_Emel.wav] REF: Abdominal aortada infrarenal düzeyde otuz sekiz milimetre çaplı anevrizma izlendi.
+  ham               : Abdominal ortada infrarenal düzeyde otuz sekiz milimetre çaplı anevrizma izlendi.
+  hotword           : Abdominal ortada infrarenal düzeyde otuz sekiz milimetre çaplı anevrizma izlendi.
+  hotword+sonişleme : Abdomenal ortada infrarenal düzeyde 38 mm çaplı anevrizma izlendi.
+
+[45_Ahme.wav] REF: Akciğer grafisinde kardiyotorasik oran artmış olup kardiyomegali ile uyumludur.
+  ham               : Akciğer grafisinde kardiyotorasik oran artmış olup kardiyomegali ile uyumludur.
+  hotword           : Akciğer grafisinde Kardiyotorasik oran artmış olup kardiyomegali ile uyumludur.
+  hotword+sonişleme : Akciğer grafisinde kardiyotorasik oran artmış olup kardiyomegali ile uyumludur.
+
+[45_Emel.wav] REF: Akciğer grafisinde kardiyotorasik oran artmış olup kardiyomegali ile uyumludur.
+  ham               : Akciğer grafisinde kardiyoterosik oran artmış olup kardiyomegali ile uyumludur.
+  hotword           : Akciğer grafisinde Kardiyotorasik oran artmış olup kardiyomegali ile uyumludur.
+  hotword+sonişleme : Akciğer grafisinde kardiyotorasik oran artmış olup kardiyomegali ile uyumludur.
+
+[46_Ahme.wav] REF: Sol kostofrenik sinüs kapalı izlendi.
+  ham               : Sol Kostofrenik sinüs kapalı izlendi.
+  hotword           : Sol Kostofrenik sinüs kapalı izlendi.
+  hotword+sonişleme : Sol kostofrenik sinüs kapalı izlendi.
+
+[46_Emel.wav] REF: Sol kostofrenik sinüs kapalı izlendi.
+  ham               : Sol kolstofrenik sinüs kapalı izlendi.
+  hotword           : Sol Kostofrenik sinüs kapalı izlendi.
+  hotword+sonişleme : Sol kostofrenik sinüs kapalı izlendi.
+
+[47_Ahme.wav] REF: Pnömotoraks bulgusu saptanmadı.
+  ham               : Finomotorax bulgusu saptanmadı.
+  hotword           : Finomotorax bulgusu saptanmadı.
+  hotword+sonişleme : Finomotorax bulgusu saptanmadı.
+
+[47_Emel.wav] REF: Pnömotoraks bulgusu saptanmadı.
+  ham               : Yine Motorax bulgusu saptanmadı.
+  hotword           : Yine Motorax bulgusu saptanmadı.
+  hotword+sonişleme : Yine Motorax bulgusu saptanmadı.
+
+[48_Ahme.wav] REF: Sonuç olarak bulgular metastatik hastalık ile uyumlu olup onkoloji ile konsültasyon önerilir.
+  ham               : Sonuç olarak bulgular metastetik hastalık ile uyumlu olup onkoloji ile konsültasyon önerilir.
+  hotword           : Sonuç olarak bulgular metastetik hastalık ile uyumlu olup onkoloji ile konsültasyon önerilir.
+  hotword+sonişleme : Sonuç olarak bulgular metastatik hastalık ile uyumlu olup onkoloji ile konsültasyon önerilir.
+
+[48_Emel.wav] REF: Sonuç olarak bulgular metastatik hastalık ile uyumlu olup onkoloji ile konsültasyon önerilir.
+  ham               : Sonuç olarak bulgular metastetik hastalık ile uyumlu olup onkolü ile konsültasyon önerilir.
+  hotword           : Sonuç olarak bulgular metastetik hastalık ile uyumlu olup onkoloji ile konsültasyon önerilir.
+  hotword+sonişleme : Sonuç olarak bulgular metastatik hastalık ile uyumlu olup onkoloji ile konsültasyon önerilir.
+
+[49_Ahme.wav] REF: Klinik ve laboratuvar bulguları ile birlikte değerlendirilmesi önerilir.
+  ham               : Klinik ve laboratuvar bulguları ile birlikte değerlendirilmesi önerilir.
+  hotword           : Klinik ve laboratuvar bulguları ile birlikte değerlendirilmesi önerilir.
+  hotword+sonişleme : Klinik ve laboratuvar bulguları ile birlikte değerlendirilmesi önerilir.
+
+[49_Emel.wav] REF: Klinik ve laboratuvar bulguları ile birlikte değerlendirilmesi önerilir.
+  ham               : Klinik ve laboratuvar bulguları ile birlikte değerlendirilmesi önerilir.
+  hotword           : Klinik ve laboratuvar bulguları ile birlikte değerlendirilmesi önerilir.
+  hotword+sonişleme : Klinik ve laboratuvar bulguları ile birlikte değerlendirilmesi önerilir.
+
+Sistem               WER     Tıbbi terim isabeti
+  ham                 21.9%   139/242 (57%)
+  hotword             17.9%   171/242 (71%)
+  hotword+sonişleme   16.6%   191/242 (79%)

@@ -1,0 +1,19 @@
+{
+  "name": "Türkçe Tıbbi Dikte v2",
+  "engine": "sherpa-onnx",
+  "mode": "online",
+  "type": "transducer",
+  "tokens": "tokens.txt",
+  "encoder": "encoder.int8.onnx",
+  "decoder": "decoder.int8.onnx",
+  "joiner": "joiner.int8.onnx",
+  "sample_rate": 16000,
+  "feature_dim": 80,
+  "decoding_method": "modified_beam_search",
+  "max_active_paths": 4,
+  "rule2_min_trailing_silence": 0.8,
+  "license": "mihu Community License",
+  "modeling_unit": "bpe",
+  "bpe_vocab": "bpe.vocab",
+  "attribution": "Powered by mihu"
+}

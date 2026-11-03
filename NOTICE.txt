@@ -1,0 +1,16 @@
+Tıbbi Dikte
+===========
+
+Türkçe Tıbbi Dikte v2: Powered by mihu
+  Lisans: mihu Community License — models\tibbi-tr-v2\LICENSE
+
+Üçüncü taraf bileşenler
+  sherpa-onnx  — Apache License 2.0
+  Silero VAD   — MIT License
+  damga        — Apache License 2.0
+  PySide6 (Qt) — LGPL v3
+  pynput       — LGPL v3
+  sounddevice  — MIT License
+  soundfile / libsndfile — BSD / LGPL v2.1
+  RapidFuzz    — MIT License
+  cryptography — Apache License 2.0 / BSD

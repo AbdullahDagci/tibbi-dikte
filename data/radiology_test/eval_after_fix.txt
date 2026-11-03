@@ -1,0 +1,7 @@
+  ham                 21.9%   281/394 (71%)
+  hotword             18.0%   317/394 (80%)
+  hotword+sonişleme   16.6%   339/394 (86%)
+== genel
+  ham                 19.9%   48/74 (65%)
+  hotword             14.3%   59/74 (80%)
+  hotword+sonişleme   11.9%   63/74 (85%)

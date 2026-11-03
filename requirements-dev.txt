@@ -1,0 +1,7 @@
+-r requirements.txt
+huggingface_hub
+sentencepiece
+pytest
+pyinstaller
+edge-tts
+miniaudio
