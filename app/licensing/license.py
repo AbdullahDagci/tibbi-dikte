@@ -27,6 +27,10 @@ PAYLOAD_LEN = struct.calcsize(PAYLOAD_FMT)
 SIG_LEN = 64
 LICENSE_FILE = user_dir() / "license.key"
 _LAST_SEEN_FILE = user_dir() / ".ls"
+# Demo anahtarı: makine alanı sıfır -> her bilgisayarda çalışır, ama süreli olmak ve en fazla DEMO_MAX_DAYS
+# gün geçerli olmak zorundadır (müşteriye kurulumla birlikte e-postayla gönderilebilir).
+DEMO_MACHINE = bytes(10)
+DEMO_MAX_DAYS = 31
 
 
 # ------------------------------------------------------------------ makine kimliği
@@ -98,6 +102,8 @@ class LicenseInfo:
     message: str
     expires: dt.date | None = None
     customer_id: int | None = None
+    demo: bool = False
+    days_left: int | None = None
 
 
 def _public_key() -> Ed25519PublicKey:
@@ -134,16 +140,27 @@ def verify(key: str, *, public_key: Ed25519PublicKey | None = None, machine: byt
     ver, mach, days, cust = struct.unpack(PAYLOAD_FMT, payload)
     if ver != VERSION:
         return LicenseInfo(False, "Anahtar sürümü desteklenmiyor.")
-    if mach != (machine if machine is not None else machine_digest()):
+    demo = mach == DEMO_MACHINE
+    if not demo and mach != (machine if machine is not None else machine_digest()):
         return LicenseInfo(False, "Bu anahtar başka bir bilgisayar için üretilmiş.")
     today = today or dt.date.today()
     expires = None if days == 0 else EPOCH + dt.timedelta(days=days)
+    if demo and expires is None:
+        return LicenseInfo(False, "Geçersiz deneme anahtarı (süresiz olamaz).", None, cust, demo=True)
+    if demo and (expires - today).days > DEMO_MAX_DAYS:
+        return LicenseInfo(False, f"Deneme anahtarı en fazla {DEMO_MAX_DAYS} gün geçerli olabilir.", expires, cust,
+                           demo=True)
     if check_clock and _clock_rolled_back(today):
         return LicenseInfo(False, "Sistem saati geri alınmış görünüyor.", expires, cust)
     if expires and today > expires:
-        return LicenseInfo(False, f"Lisans süresi {expires:%d.%m.%Y} tarihinde doldu.", expires, cust)
-    msg = "Süresiz lisans" if expires is None else f"Lisans {expires:%d.%m.%Y} tarihine kadar geçerli"
-    return LicenseInfo(True, msg, expires, cust)
+        what = "Deneme süresi" if demo else "Lisans süresi"
+        return LicenseInfo(False, f"{what} {expires:%d.%m.%Y} tarihinde doldu.", expires, cust, demo=demo)
+    left = None if expires is None else (expires - today).days
+    if demo:
+        msg = f"Deneme lisansı — {left} gün kaldı ({expires:%d.%m.%Y} tarihine kadar)"
+    else:
+        msg = "Süresiz lisans" if expires is None else f"Lisans {expires:%d.%m.%Y} tarihine kadar geçerli"
+    return LicenseInfo(True, msg, expires, cust, demo=demo, days_left=left)
 
 
 # ------------------------------------------------------------------ kayıtlı lisans

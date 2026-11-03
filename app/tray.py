@@ -111,6 +111,10 @@ class TrayApp:
     def _check_license(self) -> None:
         info = lic.current()
         self.licensed = info.valid
+        self.license_info = info
+        if info.valid and info.demo:
+            self.tray.showMessage("Tıbbi Dikte — deneme sürümü", info.message,
+                                  QSystemTrayIcon.Warning if (info.days_left or 0) <= 3 else QSystemTrayIcon.Information)
         if not info.valid:
             self._on_state("unlicensed")
             self.tray.showMessage("Tıbbi Dikte", f"{info.message} Lütfen ürün anahtarınızı girin.",
@@ -241,4 +245,6 @@ class TrayApp:
     def _update_tooltip(self) -> None:
         label = STATE_STYLE.get(getattr(self, "state", "idle"), STATE_STYLE["idle"])[1]
         model = self.dictation.model.name if self.dictation.model else "-"
-        self.tray.setToolTip(f"Tıbbi Dikte — {label}\nKısayol: {pynput_to_qt(self.cfg.hotkey)}\nModel: {model}")
+        li = getattr(self, "license_info", None)
+        demo = f"\nDeneme: {li.days_left} gün kaldı" if li is not None and li.valid and li.demo else ""
+        self.tray.setToolTip(f"Tıbbi Dikte — {label}\nKısayol: {pynput_to_qt(self.cfg.hotkey)}\nModel: {model}{demo}")
