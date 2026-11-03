@@ -7,6 +7,7 @@ Pencere asla etkinleşmez ve fare olaylarını geçirir; yazılan uygulamadaki i
 from __future__ import annotations
 
 import html
+import re
 import math
 import sys
 import time
@@ -146,6 +147,10 @@ class ListeningOverlay(QWidget):
                 committed = "…" + committed[cut:]
             else:
                 partial, committed = "…" + partial[cut - len(committed):], ""
+        # "C4-C5", "BI-RADS" satır sonunda tireden bölünmesin (yalnızca görüntü; yazılan metin değişmez)
+        committed, partial = (re.sub(r"(?<=\w)-(?=\w)", "‑", t) for t in (committed, partial))
+        # "C4-C5", "BI-RADS" satır sonunda tireden bölünmesin (yalnızca görüntü; yazılan metin değişmez)
+        committed, partial = (re.sub(r"(?<=\w)-(?=\w)", "‑", t) for t in (committed, partial))
         if not committed and not partial:
             body = "<span style='color:#6B7486'>Konuşmaya başlayın…</span>"
         else:
