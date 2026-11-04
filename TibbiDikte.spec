@@ -13,6 +13,7 @@ datas += [
     ("app/medical/radiology_fuzzy_tr.txt", "app/medical"),
     ("app/medical/radiology_known_tr.txt", "app/medical"),
     ("app/medical/collect_sentences_tr.txt", "app/medical"),
+    ("app/medical/general_tr_words.txt", "app/medical"),
     ("app/licensing/public_key.pem", "app/licensing"),
     ("app/silero_vad.onnx", "app"),
 ]

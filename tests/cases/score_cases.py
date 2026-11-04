@@ -9,7 +9,8 @@ from app.medical.postprocess import MedicalPostProcessor, read_lexicon, tr_lower
 from app.scoring import score  # noqa: E402
 
 pp = MedicalPostProcessor.from_files([BUILTIN_LEXICON, RADIOLOGY_LEXICON], [BUILTIN_CORRECTIONS],
-                                     fuzzy_files=[BUILTIN_LEXICON, RADIOLOGY_FUZZY], protected_files=[RADIOLOGY_KNOWN])
+                                     fuzzy_files=[BUILTIN_LEXICON, RADIOLOGY_FUZZY], protected_files=[RADIOLOGY_KNOWN],
+                                     general_files=[BUILTIN_LEXICON.parent / "general_tr_words.txt"])
 terms = {tr_lower(t) for f in (BUILTIN_LEXICON, RADIOLOGY_LEXICON) for t in read_lexicon(f) if " " not in t}
 for hyp_f in sorted(Path(__file__).parent.glob("*.hyp.txt")):
     hyp = hyp_f.read_text(encoding="utf-8")

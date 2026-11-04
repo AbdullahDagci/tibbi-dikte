@@ -5,7 +5,10 @@ def test_spoken_tokens_numbers_units():
     assert spoken_tokens("TA 140/90, %94") == ["ta", "yüz", "kırk", "doksan", "yüzde", "doksan", "dört"]
     assert spoken_tokens("500 mg'lık") == ["beş", "yüz", "miligramlık"]
     assert spoken_tokens("12 mm") == ["on", "iki", "milimetre"]
-    assert spoken_tokens("İnceleme: EKG'de") == ["inceleme", "ekg", "de"]
+    assert spoken_tokens("İnceleme: EKG'de") == ["inceleme", "ekgde"]
+    assert spoken_tokens("bakım'a") == spoken_tokens("bakıma")
+    assert spoken_tokens("on beş dakika") == spoken_tokens("15 dk")
+    assert spoken_tokens("ikinci derece") == spoken_tokens("2. derece")
 
 
 def test_digits_vs_words_is_not_an_error():

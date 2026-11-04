@@ -67,8 +67,8 @@ def main() -> int:
     hw = write_hotwords(lexs, ROOT / "tests" / "_hotwords.txt")
     raw = load_engine(model)
     biased = load_engine(model, hotwords_file=str(hw), hotwords_score=a.score)
-    post = MedicalPostProcessor.from_files(lexs, [CORR], fuzzy_files=fuzz, protected_files=prot)
-    post_noitn = MedicalPostProcessor.from_files(lexs, [CORR], fuzzy_files=fuzz, protected_files=prot, use_itn=False)
+    post = MedicalPostProcessor.from_files(lexs, [CORR], fuzzy_files=fuzz, protected_files=prot, general_files=[LEX.parent / 'general_tr_words.txt'])
+    post_noitn = MedicalPostProcessor.from_files(lexs, [CORR], fuzzy_files=fuzz, protected_files=prot, general_files=[LEX.parent / 'general_tr_words.txt'], use_itn=False)
 
     systems = {"ham": [], "hotword": [], "hotword+sonişleme": []}
     term_hits = {k: [0, 0] for k in systems}
