@@ -6,26 +6,27 @@ Her satır bir ölçüm çalıştırması. **Uygulama** = hotword + tıbbi soni�
 
 | Tarih | Model | Örnek | Ham WER | **Uygulama WER** | Doğruluk | CER | Terim isabeti | Hız |
 |---|---|---|---|---|---|---|---|---|
-| 2026-11-03 16:29 | mihu v1 (eski temel) | 715 | %11.1 | **%11.2** | %88.8 | %2.9 | %87.3 | 10× gerçek zaman |
-| 2026-11-04 10:27 | v2 — mevcut uygulama modeli 🏆 | 715 | %7.3 | **%7.8** | %92.2 | %2.1 | %94.5 | 4× gerçek zaman |
+| 2026-11-04 12:12 | mihu v1 (eski temel) | 715 | %9.9 | **%10.1** | %89.9 | %2.8 | %87.3 | 5× gerçek zaman |
+| 2026-11-04 13:22 | v2 — mevcut uygulama modeli 🏆 | 715 | %6.8 | **%7.0** | %93.0 | %1.9 | %94.5 | 9× gerçek zaman |
+| 2026-11-04 13:58 | ufakzeka-kulak (Apache-2.0, akışsız) | 715 | %9.8 | **%9.7** | %90.3 | %2.8 | %89.1 | 43× gerçek zaman |
 
-<details><summary>Son çalıştırmada en çok hata yapılan örnekler (v2 — mevcut uygulama modeli)</summary>
+<details><summary>Son çalıştırmada en çok hata yapılan örnekler (ufakzeka-kulak (Apache-2.0, akışsız))</summary>
 
-- **fleurs-3760582813802136359-104** (WER %69)
-  - doğru: Falklands resmi para birimi değeri bir İngiliz sterlinine (GBP) denk şekilde ayarlanmış olan Falkland sterlinidir (FKP).
-  - çıktı: Fot lans resmi para birimi değeri bir İngiliz sterlinine parantez içinde JBP" denk gelecek şekilde ayarlanmış olan Fotland Sterlin'idir. F Pi
-- **fleurs-7737199873163370997-12** (WER %67)
-  - doğru: Erkekler ayakta Super-G.'yi Avustralyalı Mitchell Gourley on birinci sırada bitirdi, Çek yarışmacı Oldrich Jelinek erkekler oturarak Super-G.'de on altıncı bitirdi.
-  - çıktı: Arkekler ayakta Süper ciyi, Avustralyalı Michael Gorle'yı 11. sırada bitirdi. Çek yarışmacı All Strich, Jeinek, erkekler oturarak Süper J'de 16. yıl bitirildi.
-- **fleurs-11446785038892875951-413** (WER %67)
+- **fleurs-11446785038892875951-413** (WER %80)
   - doğru: Lakkha Singh, şarkıcı Raju Khandelwal'ın eşliğinde chhappan bhog bhajan'ı söyledi.
-  - çıktı: Laka Sing, şarkıcı Reju Kandar'ın eşliğinde Cap Ban Woog Bugon'ı söyledi.
-- **fleurs-14796200043332062398-385** (WER %60)
-  - doğru: Futbol, ​​basketbol, ​​voleybol, sutopu, eskrim, ragbi, bisiklete binme, buz hokeyi, patenli hokey ve F bir motorlu araç yarışları popüler sporlardandır.
-  - çıktı: Bu betbol, valeybol su topu ekstrim Rock bir bisiklete binme, buzoki, batenli okey ve F1 motorlu araç yarışları popüler sporlardandır.
-- **fleurs-8845659249103320766-11** (WER %50)
-  - doğru: Erkekler ayakta Super-G.'yi Avustralyalı Mitchell Gourley on birinci sırada bitirdi, Çek yarışmacı Oldrich Jelinek erkekler oturarak Super-G.'de on altıncı bitirdi.
-  - çıktı: Erkekler ayakta süperceyi Avustralyalı Michel Goli 11. sırada bitirdi. Çek yarışmacı Audrich Jelinek, erkekler oturarak Süper J bitirdi.
+  - çıktı: Loca Cing, şarkıcı Reshu Cander Wall'ın eşliğinde Chap Bangwoog Buin'ı söyledi.
+- **fleurs-3821382969495596105-414** (WER %70)
+  - doğru: Lakkha Singh, şarkıcı Raju Khandelwal'ın eşliğinde chhappan bhog bhajan'ı söyledi.
+  - çıktı: Loca Sing, şarkıcı Raju, Kandel Val'ın eşliğinde Çaphan Boğuk Bajan'ı söyledi.
+- **fleurs-8635712831779220795-379** (WER %67)
+  - doğru: Daha sonra Cambridge'deki Addenbrooke Hastanesi'ne nakledildi.
+  - çıktı: Daha sonra Cambridge'teki Ad Tham Broke Hastanesi'ne nakledildi.
+- **fleurs-1769159075613236297-364** (WER %62)
+  - doğru: Araç aynı gün takriben on iki virgül sıfır sıfır GMT'de kaza yerinden kaldırıldı.
+  - çıktı: Aynı gün takipçili ben. 12 0. CTM'de kaza yerine kaldırıldı.
+- **fleurs-3760582813802136359-104** (WER %56)
+  - doğru: Falklands resmi para birimi değeri bir İngiliz sterlinine (GBP) denk şekilde ayarlanmış olan Falkland sterlinidir (FKP).
+  - çıktı: Falcland resmi para birimi değeri bir İngiliz sterlinine parantez içinde GBP denk gelecek şekilde ayarlanmış olan Falk Land sterlinidir. F key pi.
 
 </details>
 
@@ -33,26 +34,27 @@ Her satır bir ölçüm çalıştırması. **Uygulama** = hotword + tıbbi soni�
 
 | Tarih | Model | Örnek | Ham WER | **Uygulama WER** | Doğruluk | CER | Terim isabeti | Hız |
 |---|---|---|---|---|---|---|---|---|
-| 2026-11-03 16:29 | mihu v1 (eski temel) | 100 | %27.3 | **%20.0** | %80.0 | %4.2 | %85.1 | 3× gerçek zaman |
-| 2026-11-04 10:27 | v2 — mevcut uygulama modeli 🏆 | 100 | %19.8 | **%15.3** | %84.7 | %3.1 | %87.3 | 3× gerçek zaman |
+| 2026-11-04 12:12 | mihu v1 (eski temel) | 100 | %26.1 | **%18.8** | %81.2 | %4.1 | %84.1 | 9× gerçek zaman |
+| 2026-11-04 13:22 | v2 — mevcut uygulama modeli 🏆 | 100 | %19.5 | **%13.9** | %86.1 | %3.0 | %85.8 | 8× gerçek zaman |
+| 2026-11-04 13:58 | ufakzeka-kulak (Apache-2.0, akışsız) | 100 | %18.8 | **%16.7** | %83.3 | %3.7 | %79.4 | 45× gerçek zaman |
 
-<details><summary>Son çalıştırmada en çok hata yapılan örnekler (v2 — mevcut uygulama modeli)</summary>
+<details><summary>Son çalıştırmada en çok hata yapılan örnekler (ufakzeka-kulak (Apache-2.0, akışsız))</summary>
 
 - **47_Emel** (WER %67)
   - doğru: Pnömotoraks bulgusu saptanmadı.
-  - çıktı: Yine Motorax bulgusu saptanmadı.
-- **05_Emel** (WER %57)
-  - doğru: Her iki akciğerde buzlu cam dansiteleri izlenmekte olup viral pnömoni açısından klinik korelasyon önerilir.
-  - çıktı: Heriki akciğer de buzlu camdan siteleri izlenmekte olup bir al pinomoni açısından klinik korelasyon önerilir.
-- **40_Ahme** (WER %56)
-  - doğru: Uterus antevert pozisyonda, boyutları normal, endometrium kalınlığı sekiz milimetredir.
-  - çıktı: Bu terus antevert pozisyonda boyutları normal, endometriumiği 8 milimetrikir.
-- **35_Emel** (WER %56)
-  - doğru: Mamografide sağ meme üst dış kadranda gruplaşmış mikrokalsifikasyonlar izlendi.
-  - çıktı: Mamografide sağ memeüst dışkadranda gruplaşmış mikrokifikasyonlar izlendi.
-- **34_Emel** (WER %56)
-  - doğru: Meme ultrasonografisinde sol meme saat ikide on bir milimetrelik hipoekoik solid lezyon izlendi, BI-RADS dört olarak değerlendirildi.
-  - çıktı: Meme ultrasonografiğinde solmeme saat 2'de 11 milimetrik hipo ekoik solid lezyon izlendi. Brads 4 olarak değerlendirildi.
+  - çıktı: Yine Motoraks bulgusu saptanmadı.
+- **29_Ahme** (WER %54)
+  - doğru: Sağ diz manyetik rezonans incelemesinde medial menisküs arka boynuzda grade üç yırtık izlendi.
+  - çıktı: Sadiz manyetik rezonans incelemesinde Medya Meniskü arka boynuzda Great 3 yıl tık izlendi.
+- **06_Ahme** (WER %46)
+  - doğru: Pulmoner arter dallarında dolum defekti saptanmadı, pulmoner emboli lehine bulgu yoktur.
+  - çıktı: Bulmer artar dallarında dolum defekti saptanmadı, pulmoner embolu ile yine bulgu yoktur.
+- **28_Emel** (WER %44)
+  - doğru: Torakal vertebra korpuslarında hemanjiom ile uyumlu sinyal değişiklikleri izlendi.
+  - çıktı: Torakal ve Ertebra Korpuslarında hem Anjeom ile uyumlu sinyal değişiklikleri izlendi.
+- **37_Ahme** (WER %43)
+  - doğru: Boyunda bilateral reaktif görünümlü lenf nodları izlendi.
+  - çıktı: Boyunda bile teral reaktif görünümlü lenf notları izlendi.
 
 </details>
 
@@ -60,26 +62,27 @@ Her satır bir ölçüm çalıştırması. **Uygulama** = hotword + tıbbi soni�
 
 | Tarih | Model | Örnek | Ham WER | **Uygulama WER** | Doğruluk | CER | Terim isabeti | Hız |
 |---|---|---|---|---|---|---|---|---|
-| 2026-11-03 16:29 | mihu v1 (eski temel) | 24 | %27.6 | **%19.2** | %80.8 | %5.1 | %77.0 | 2× gerçek zaman |
-| 2026-11-04 10:27 | v2 — mevcut uygulama modeli 🏆 | 24 | %18.7 | **%8.9** | %91.1 | %2.1 | %86.5 | 3× gerçek zaman |
+| 2026-11-04 12:12 | mihu v1 (eski temel) | 24 | %27.4 | **%19.3** | %80.7 | %5.1 | %75.7 | 8× gerçek zaman |
+| 2026-11-04 13:22 | v2 — mevcut uygulama modeli 🏆 | 24 | %18.9 | **%9.4** | %90.6 | %2.4 | %86.5 | 8× gerçek zaman |
+| 2026-11-04 13:58 | ufakzeka-kulak (Apache-2.0, akışsız) | 24 | %17.5 | **%12.7** | %87.3 | %3.7 | %78.4 | 46× gerçek zaman |
 
-<details><summary>Son çalıştırmada en çok hata yapılan örnekler (v2 — mevcut uygulama modeli)</summary>
+<details><summary>Son çalıştırmada en çok hata yapılan örnekler (ufakzeka-kulak (Apache-2.0, akışsız))</summary>
 
-- **10_Emel** (WER %50)
+- **10_Ahme** (WER %50)
   - doğru: Batın ultrasonografisinde kolelitiazis ve hepatomegali izlendi.
-  - çıktı: Batın ultrasonografiğinde koloneli tazis ve hepatomegali izlendi.
-- **07_Emel** (WER %38)
+  - çıktı: Batı ultrasonografisinde koleli tiyazis ve hepatomegali izlendi.
+- **07_Emel** (WER %50)
   - doğru: Hastada dispne, ortopne ve bilateral pretibial ödem mevcut.
-  - çıktı: Astada dispne, ortopne ve bilateral pretibi aleden mevcut.
-- **07_Ahme** (WER %38)
-  - doğru: Hastada dispne, ortopne ve bilateral pretibial ödem mevcut.
-  - çıktı: Hastada disp ne ortopne ve bilateral piletibel ödem mevcut.
-- **10_Ahme** (WER %33)
+  - çıktı: Hastada dispne, ortokne ve bilateral pileti bir haleden mevcut.
+- **10_Emel** (WER %33)
   - doğru: Batın ultrasonografisinde kolelitiazis ve hepatomegali izlendi.
-  - çıktı: Batı ultrasonografisinde kolonitiyazis ve hepatomegali izlendi.
+  - çıktı: Batın ultrasonografisinde koleli tazis ve hepatomegali izlendi.
 - **04_Emel** (WER %22)
   - doğru: Fizik muayenede epigastrik hassasiyet mevcut, defans ve rebound yok.
-  - çıktı: Fizik muayenede epigastrik hassasiyet mevcut. Defans ve röbondiok
+  - çıktı: Fizik muayenede epigastrik hassasiyet mevcut, defans ve rebondio.
+- **04_Ahme** (WER %22)
+  - doğru: Fizik muayenede epigastrik hassasiyet mevcut, defans ve rebound yok.
+  - çıktı: Fizik muayenede epigastrik hassasiyet mevcut, defans ve rebondio.
 
 </details>
 
@@ -87,5 +90,6 @@ Her satır bir ölçüm çalıştırması. **Uygulama** = hotword + tıbbi soni�
 
 | Tarih | Model | Örnek | Ham WER | **Uygulama WER** | Doğruluk | CER | Terim isabeti | Hız |
 |---|---|---|---|---|---|---|---|---|
-| 2026-11-03 16:29 | mihu v1 (eski temel) 🏆 | 1 | %18.7 | **%1.2** | %98.8 | %0.3 | %100.0 | — |
-| 2026-11-04 10:27 | v2 — mevcut uygulama modeli 🏆 | 1 | %18.7 | **%1.2** | %98.8 | %0.3 | %100.0 | — |
+| 2026-11-04 12:12 | mihu v1 (eski temel) 🏆 | 1 | %18.7 | **%1.2** | %98.8 | %0.3 | %100.0 | — |
+| 2026-11-04 13:22 | v2 — mevcut uygulama modeli 🏆 | 1 | %18.7 | **%1.2** | %98.8 | %0.3 | %100.0 | — |
+| 2026-11-04 13:58 | ufakzeka-kulak (Apache-2.0, akışsız) 🏆 | 1 | %18.7 | **%1.2** | %98.8 | %0.3 | %100.0 | — |
