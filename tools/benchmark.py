@@ -238,8 +238,9 @@ def main() -> int:
     if audio_sets:
         OUT.mkdir(exist_ok=True)
         hw = write_hotwords([BUILTIN_LEXICON, RADIOLOGY_LEXICON], OUT / "_hotwords.txt")
-        raw_engine = load_engine(model, num_threads=4)
-        app_engine = load_engine(model, num_threads=4, hotwords_file=str(hw), hotwords_score=2.0) \
+        th = int(model.spec.get("num_threads", 4))  # bazı modeller tek iş parçacığında daha hızlı (ör. kulak)
+        raw_engine = load_engine(model, num_threads=th)
+        app_engine = load_engine(model, num_threads=th, hotwords_file=str(hw), hotwords_score=2.0) \
             if model.spec.get("bpe_vocab") else raw_engine
         for name, items in audio_sets.items():
             print(f"{SET_TITLES[name]}: {len(items)} örnek…", flush=True)
