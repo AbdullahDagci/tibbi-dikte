@@ -37,3 +37,7 @@ benchmarks/_*.log
 !models/tibbi-tr-v3-aday/bpe.model
 !models/tibbi-tr-v3-aday/bpe.vocab
 !models/tibbi-tr-v3-aday/tokens.txt
+!models/tibbi-tr-v3-tam/*.onnx
+!models/tibbi-tr-v3-tam/bpe.model
+!models/tibbi-tr-v3-tam/bpe.vocab
+!models/tibbi-tr-v3-tam/tokens.txt

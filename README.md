@@ -64,9 +64,14 @@ Yeni gerçek deneme eklemek: `tests/cases/<ad>.hyp.txt` (model çıktısı) + `<
 (ISSAI, Common Voice, MediaSpeech, FLEURS, kendi kayıtlar), ince ayar, kendi Türkçe BPE ile sıfırdan eğitim ve
 uygulamaya dışa aktarma. Ayrıntı ve komutlar: **[docs/EGITIM.md](docs/EGITIM.md)**.
 
-- **A yolu**: mihu üzerine radyoloji ince ayarı (hızlı; mihu izni ve atıf gerekir). Sonuç:
-  **`models/tibbi-tr-v3-aday`** (Chatterbox ile seslendirilmiş 10.888 radyoloji cümlesi + genel Türkçe; uygulamada
-  kelime hatası radyolojide v2 %15,6 → %2,3, genel tıbbi sette %11,9 → %5,0, FLEURS ham %9,1 → %7,8).
+- **A yolu**: mihu üzerine radyoloji ince ayarı (hızlı; mihu izni ve atıf gerekir). Sonuç (Chatterbox ile
+  seslendirilmiş radyoloji cümleleri + genel Türkçe; kelime hatası):
+
+  | Model | Radyoloji (uygulama) | Genel tıbbi (uygulama) | FLEURS (ham) | ISSAI (ham) |
+  |---|---|---|---|---|
+  | v2 (taban) | %15,6 | %11,9 | %9,1 | %11,3 |
+  | **`models/tibbi-tr-v3-tam`** (14.750 klip) | **%1,6** (terim %99) | %8,4 | %8,3 | %9,3 |
+  | `models/tibbi-tr-v3-aday` (10.888 klip) | %2,3 (terim %98) | %5,0 | %7,8 | %9,3 |
 - **B yolu**: mihu'dan bağımsız kendi modelimiz (kendi BPE, sıfırdan; `--independent` dışa aktarımda atıf eklenmez).
 
 ## Model değiştirme
@@ -114,5 +119,5 @@ tests/          birim testleri, değerlendirme, gerçek vaka puanlaması
 Varsayılan konuşma tanıma modeli **mihu Community License** kapsamındadır: yıllık ciro < 500.000 USD iken
 ticari kullanım; ücretli üründe dağıtım açıkça izinli değildir (md. 5e); atıf zorunludur (Hakkında sekmesi ve
 NOTICE.txt). v2 ağırlıkları bu depoda yer almaz (`tools/setup_model.py` indirir); radyoloji ince ayarlı
-v3 (`models/tibbi-tr-v3-aday`) depoyla gelir. Satış ve müşteriye kurulum
+v3 modelleri (`models/tibbi-tr-v3-tam`, `models/tibbi-tr-v3-aday`) depoyla gelir. Satış ve müşteriye kurulum
 vermeden önce mihu'dan yazılı izin alınmalıdır; mihu'dan bağımsız model (B yolu) bu kısıtı kaldırır.
