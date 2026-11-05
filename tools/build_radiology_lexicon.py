@@ -160,7 +160,14 @@ def main() -> int:
     gen_set = {g for g in general if len(g) >= 5}
     def has_general_stem(w: str) -> bool:  # "değişikliklere" -> "değişiklik", "hatlarında" -> "hatları"
         return any(w[:k] in gen_set for k in range(max(5, len(w) - 6), len(w) + 1))
-    fuzzy = [w for w in top if not has_general_stem(w)]
+    # Hedefler yalnızca terim kökleri: fiil/çekim biçimleri ("izlendi", "saptanmadı", "kisti") hedef olursa
+    # genel Türkçe kelimeler bunlara benzetilip bozulur. Listede kökü bulunan ekli biçimler de çıkarılır
+    # (kök + ek mantığı onları zaten kapsar).
+    verbal = re.compile(r"(mış|miş|muş|müş|mıştır|miştir|dı|di|du|dü|tı|ti|tu|tü|an|en|yan|yen|ama|eme|acak|ecek|"
+                        r"dığı|diği|duğu|düğü|ması|mesi|ndan|nden|ında|inde|unda|ünde|ları|leri|dır|dir|dur|dür|"
+                        r"tır|tir|tur|tür|sı|si|su|sü|ken|arak|erek|ılır|ilir)$")
+    cand = [w for w in top if not has_general_stem(w) and len(w) >= 7 and not verbal.search(w)]
+    fuzzy = [w for w in cand if not any(o != w and len(o) >= 6 and w.startswith(o) for o in cand)]
     # Koruma listesi: raporlarda gerçekten geçen tüm (temizlenmiş) kelimeler doğru kabul edilir, değiştirilmez
     known = [w for w in remaining if tf[w] >= 3 and not bad_start(w)]
     (ROOT / "app" / "medical" / "radiology_known_tr.txt").write_text(

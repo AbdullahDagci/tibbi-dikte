@@ -89,6 +89,45 @@ def normalize_units(text: str) -> str:
     return text
 
 
+# ------------------------------------------------------------------ sayı sanılan kelimeler
+# damga (ITN) şunları sayıya çeviriyor: "ön çapraz bağ" -> "10 çapraz bağ", "cilt altı" -> "cilt 6",
+# "yüz felci" -> "100 felci". "ön" hiçbir zaman sayı değildir; "altı"/"yüz" yalnızca açık sayı bağlamında sayıdır.
+_NUMBER_WORDS = {"sıfır", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz", "on", "yirmi", "otuz",
+                 "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan", "yüz", "bin", "milyon", "milyar", "buçuk",
+                 "virgül"}
+_COUNT_WORDS = {"miligram", "mikrogram", "gram", "kilogram", "mililitre", "litre", "santimetre", "milimetre", "metre",
+                "mg", "mcg", "g", "kg", "ml", "cm", "mm", "saniye", "dakika", "saat", "gün", "hafta", "ay", "yıl",
+                "yaşında", "yaşındaki", "yaş", "kez", "defa", "kere", "adet", "tane", "kat", "seans", "doz", "derece",
+                "ünite", "kür", "seviye", "seviyede", "düzey", "düzeyinde", "hafta", "aylık", "günlük", "yıllık"}
+_ALWAYS_WORD = {"ön"}
+_AMBIGUOUS = {"altı", "yüz"}
+_PH = "{}"  # özel kullanım alanı karakterleri: ITN'den dokunulmadan geçer
+_TOKEN_RE = re.compile(r"[A-Za-zÇĞİÖŞÜçğıöşüÂâÎîÛû]+|\d+")
+
+
+def protect_number_words(text: str) -> tuple[str, list[str]]:
+    toks = list(_TOKEN_RE.finditer(text))
+    low = [tr_lower(m.group(0)) for m in toks]
+    saved: list[str] = []
+    out, pos = [], 0
+    for i, m in enumerate(toks):
+        w = low[i]
+        protect = w in _ALWAYS_WORD
+        if w in _AMBIGUOUS:
+            prev_ = low[i - 1] if i else ""
+            next_ = low[i + 1] if i + 1 < len(low) else ""
+            numeric = (prev_ in _NUMBER_WORDS or prev_.isdigit() or next_ in _NUMBER_WORDS
+                       or next_ in _COUNT_WORDS or next_.isdigit())
+            protect = not numeric
+        if protect:
+            out.append(text[pos:m.start()])
+            out.append(_PH.format(len(saved)))
+            saved.append(m.group(0))
+            pos = m.end()
+    out.append(text[pos:])
+    return "".join(out), saved
+
+
 # ------------------------------------------------------------------ omurga seviyeleri
 _SPINE_MAX = {"C": 7, "T": 12, "L": 5, "S": 5}
 _SPINE_BRIDGE = {("C", 7, "T", 1), ("T", 12, "L", 1), ("L", 5, "S", 1)}
@@ -143,7 +182,7 @@ def normalize_spine_levels(text: str) -> str:
 
 def max_edits(n: int) -> int:
     """Kelime uzunluğuna göre izin verilen düzeltme mesafesi (kısa kelimeler dokunulmaz)."""
-    if n < 7:
+    if n < 8:
         return 0
     if n < 10:
         return 1
@@ -169,9 +208,8 @@ _COMMON_WORDS = {"her", "bir", "iki", "üç", "sol", "sağ", "üst", "alt", "ön
 # Birleştirmede sözlük terimi ikinci parçanın içine en az bu kadar harf uzanmalı: "para|santral" (7), "inten|site"
 # (4) gerçek bölünmedir; "kist|i" (1) değildir ("kist izlendi" -> "kistizlendi" yapıyordu).
 _MIN_JOIN_OVERLAP = 3
-# ITN (damga) öncesi: "ön"ü "on" (10) sanıyor ("Ön çapraz bağ" -> "10 çapraz bağ"); harf+sayı omurga seviyesini
-# önceki kelimeyle heceleme sanıyor ("görüntülemede L dört L beş" -> "Gd 5"), rakamlı hâline ("L4 L5") dokunmuyor.
-_ON_WORD_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([Öö][Nn])(?![\wÇĞİÖŞÜçğıöşü])")
+# ITN (damga) öncesi: harf+sayı omurga seviyesini önceki kelimeyle heceleme sanıyor ("görüntülemede L dört L beş"
+# -> "Gd 5"), rakamlı hâline ("L4 L5") dokunmuyor. ("ön"/"altı"/"yüz" için bkz. protect_number_words.)
 _SPINE_NUMS = {"bir": 1, "iki": 2, "üç": 3, "dört": 4, "beş": 5, "altı": 6, "yedi": 7, "sekiz": 8, "dokuz": 9,
                "on": 10, "on bir": 11, "on iki": 12}
 _SPINE_WORD_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([CTLS])\s+(on iki|on bir|bir|iki|üç|dört|beş|altı|yedi|sekiz|"
@@ -201,11 +239,12 @@ class MedicalPostProcessor:
     lexicon: list[str] = field(default_factory=list)
     fuzzy_lexicon: list[str] | None = None   # None = lexicon'un tamamı bulanık düzeltme hedefi
     protected: list[str] = field(default_factory=list)  # doğru kabul edilen, asla düzeltilmeyen kelimeler
+    general: list[str] = field(default_factory=list)  # genel Türkçe kelimeler (koruma + bağlaç kontrolü)
     context: object | None = None  # bağlamsal düzeltici (medical/context.py), rapor dil modeli varsa
     corrections: list[tuple[str, str]] = field(default_factory=list)
     use_itn: bool = True
     fuzzy: bool = True
-    min_fuzzy_len: int = 7
+    min_fuzzy_len: int = 8
 
     def __post_init__(self) -> None:
         # Uzun ifadeler önce: "e ka ge" "e ka"dan önce eşleşmeli
@@ -229,7 +268,12 @@ class MedicalPostProcessor:
         for t in self.lexicon:
             if " " not in t and (t != tr_lower(t) or tr_lower(t) not in self._canonical):
                 self._canonical[tr_lower(t)] = t
-        self._protected = {tr_lower(t) for t in self.protected} | set(self._canonical)
+        self._general = {tr_lower(t) for t in self.general}
+        self._protected = {tr_lower(t) for t in self.protected} | set(self._canonical) | self._general
+        self._protected_prefix: dict[str, set[str]] = {}
+        for w in self._protected:
+            if len(w) >= 5:
+                self._protected_prefix.setdefault(w[:3], set()).add(w)
         # Bilinen terim önekleri (yumuşama dahil: ...k -> ...ğ, ...p -> ...b, ...t -> ...d, ...ç -> ...c)
         self._prefix_index: dict[str, set[str]] = {}
         for t in {tr_lower(x) for x in self.lexicon if " " not in x and len(x) >= 4}:
@@ -251,7 +295,7 @@ class MedicalPostProcessor:
     @classmethod
     def from_files(cls, lexicon_files: list[Path], correction_files: list[Path],
                    fuzzy_files: list[Path] | None = None, protected_files: list[Path] | None = None,
-                   **kw) -> "MedicalPostProcessor":
+                   general_files: list[Path] | None = None, **kw) -> "MedicalPostProcessor":
         """fuzzy_files verilirse bulanık düzeltme yalnızca bu dosyalardaki terimlere yapılır."""
         lex: list[str] = []
         for p in lexicon_files:
@@ -260,6 +304,8 @@ class MedicalPostProcessor:
             kw["fuzzy_lexicon"] = [t for p in fuzzy_files for t in read_lexicon(p)]
         if protected_files:
             kw["protected"] = [t for p in protected_files for t in read_lexicon(p)]
+        if general_files:
+            kw["general"] = [t for p in general_files for t in read_lexicon(p)]
         corr: list[tuple[str, str]] = []
         for p in correction_files:
             corr += read_corrections(p)
@@ -287,20 +333,19 @@ class MedicalPostProcessor:
         return text
 
     def apply_itn(self, text: str) -> str:
+        """Sayıları rakama çevirir; sayı sanılabilecek kelimeleri önce korur (bkz. protect_number_words)."""
         if self._itn is None:
             return text
+        # Omurga seviyesi önce: "C altı" -> "C6" ("altı" aksi hâlde sayı bağlamı görülmeden korunurdu)
         text = _SPINE_WORD_RE.sub(lambda m: f"{m.group(1)}{_SPINE_NUMS[m.group(2)]}", text)  # "L dört" -> "L4"
-        parts = _ON_WORD_RE.split(text)  # "ön" damga'ya hiç gösterilmez; sayı ifadesi "ön"ü aşamaz
-        return "".join(p if i % 2 else self._itn_piece(p) for i, p in enumerate(parts))
-
-    def _itn_piece(self, s: str) -> str:
-        core = s.strip()
-        if not core:
-            return s
+        protected, saved = protect_number_words(text)
         try:
-            return s[:len(s) - len(s.lstrip())] + self._itn.normalize(core) + s[len(s.rstrip()):]
+            out = self._itn.normalize(protected)
         except Exception:
-            return s
+            return text
+        for i, word in enumerate(saved):
+            out = out.replace(_PH.format(i), word)
+        return out
 
     def _is_known(self, low: str) -> bool:
         """Kelime bir terimle (veya yumuşamış hâliyle) başlıyorsa doğru kabul edilir: terim + ek."""
@@ -309,9 +354,19 @@ class MedicalPostProcessor:
                 return True
         return False
 
+    def _is_protected(self, low: str) -> bool:
+        """Geçerli bir kelime mi? Tam eşleşme ya da geçerli kök + kısa ek ("milimetre"+"dir", "odakla"+"ndı")."""
+        if low in self._protected:
+            return True
+        for w in self._protected_prefix.get(low[:3], ()):
+            if len(low) - len(w) <= 5 and len(w) >= max(5, len(low) - 5) and low.startswith(w):
+                return True
+        return False
+
     def _fuzzy_word(self, word: str) -> str:
         low = tr_lower(word)
-        if len(low) < self.min_fuzzy_len or not self._fuzzy_keys or low in self._protected or self._is_known(low):
+        if (len(low) < self.min_fuzzy_len or not self._fuzzy_keys or self._is_protected(low)
+                or self._is_known(low)):
             return word
         best: tuple[int, int, str] | None = None  # (mesafe, ek uzunluğu, terim)
         # Kelimenin tamamı (k=0) ve son 1-4 harfi ek sayılarak kökü ("metforminin" -> "metformin"+"in")
@@ -378,7 +433,7 @@ class MedicalPostProcessor:
             j = tr_lower(a + b)
             al = tr_lower(a)
             if tr_lower(b) in _PARTICLES:  # bağlaç "da/de" mi, ayrılmış hâl eki mi? yalnızca raporda geçen biçim
-                ok = j in self._protected
+                ok = j in self._protected and tr_lower(a) not in self._general
             else:
                 ok = self._term_span(j) >= len(a) + _MIN_JOIN_OVERLAP or (
                     j in self._protected and al not in self._protected and al not in _COMMON_WORDS and len(a) >= 3)

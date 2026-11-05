@@ -85,3 +85,19 @@ def test_lowercase_apostrophe(pp_noitn):
 def test_rads_corrections(pp_noitn):
     assert pp_noitn("Bıkras dört olarak değerlendirildi") == "BI-RADS dört olarak değerlendirildi"
     assert pp_noitn("tikras üç kategorisinde") == "TI-RADS üç kategorisinde"
+
+
+@pytest.mark.parametrize("src,expected", [
+    ("ön çapraz bağda yırtık", "ön çapraz bağda yırtık"),        # damga 'ön'ü 10 sanıyordu
+    ("ön yüz", "ön yüz"),
+    ("cilt altı yağ dokusu", "cilt altı yağ dokusu"),            # 'altı' = aşağısı
+    ("diz altı amputasyon", "diz altı amputasyon"),
+    ("yüz felci", "yüz felci"),                                  # 'yüz' = surat
+    ("anterior yüz düzgün", "anterior yüz düzgün"),
+    ("altı ay sonra kontrol", "6 ay sonra kontrol"),             # sayı bağlamı -> çevrilir
+    ("altı milimetre", "6 mm"),
+    ("yüz kırk doksan", "140 90"),
+    ("beş yüz miligram", "500 mg"),
+])
+def test_number_word_protection(pp, src, expected):
+    assert pp(src) == expected

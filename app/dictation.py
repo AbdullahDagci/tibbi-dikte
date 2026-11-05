@@ -27,6 +27,7 @@ BUILTIN_LEXICON = resource_dir() / "medical" / "lexicon_tr.txt"
 RADIOLOGY_LEXICON = resource_dir() / "medical" / "radiology_terms_tr.txt"
 RADIOLOGY_FUZZY = resource_dir() / "medical" / "radiology_fuzzy_tr.txt"
 RADIOLOGY_KNOWN = resource_dir() / "medical" / "radiology_known_tr.txt"
+GENERAL_WORDS = resource_dir() / "medical" / "general_tr_words.txt"
 # Bağlamsal dil modeli: kullanıcı klasöründeki (yerel olarak yeniden kurulmuş) öncelikli, yoksa paketteki
 CONTEXT_LM = [user_dir() / "context_lm.json.gz", resource_dir() / "medical" / "context_lm.json.gz"]
 BUILTIN_CORRECTIONS = resource_dir() / "medical" / "corrections_tr.tsv"
@@ -110,7 +111,7 @@ class Dictation:
             post = MedicalPostProcessor.from_files(
                 lex_files, [BUILTIN_CORRECTIONS, USER_CORRECTIONS],
                 fuzzy_files=[BUILTIN_LEXICON, RADIOLOGY_FUZZY, USER_LEXICON],
-                protected_files=[RADIOLOGY_KNOWN],
+                protected_files=[RADIOLOGY_KNOWN], general_files=[GENERAL_WORDS],
                 use_itn=self.cfg.use_itn, fuzzy=self.cfg.fuzzy_correction)
             if self.cfg.use_context:
                 from .medical.context import ContextCorrector

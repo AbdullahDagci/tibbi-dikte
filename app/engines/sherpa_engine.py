@@ -144,6 +144,8 @@ class SherpaOfflineEngine(SttEngine):
             if self.hotwords_file and m.path("bpe_vocab") and kwargs["decoding_method"] == "modified_beam_search":
                 kwargs.update(hotwords_file=self.hotwords_file, hotwords_score=self.hotwords_score,
                               modeling_unit=sp.get("modeling_unit", "bpe"), bpe_vocab=m.path("bpe_vocab"))
+            if sp.get("model_type"):  # ör. "nemo_transducer" (NeMo TDT/RNNT modelleri)
+                kwargs["model_type"] = sp["model_type"]
             self.rec = sherpa_onnx.OfflineRecognizer.from_transducer(**common, **kwargs)
         elif t == "nemo_ctc":
             self.rec = sherpa_onnx.OfflineRecognizer.from_nemo_ctc(model=m.path("model"), **common)
@@ -170,7 +172,13 @@ class SherpaOfflineEngine(SttEngine):
         return sherpa_onnx.VoiceActivityDetector(self.vad_config, buffer_size_in_seconds=60)
 
     def decode(self, samples: np.ndarray) -> str:
+        gain = float(self.model.spec.get("input_gain", 1.0))  # bazı NeMo dışa aktarımları ister (VAD'a uygulanmaz)
         s = self.rec.create_stream()
+        samples = samples * gain if gain != 1.0 else samples
+        pad = int(float(self.model.spec.get("pad_sec", 0)) * self.sample_rate)  # VAD parçası çok sıkı kesilmesin
+        if pad:
+            z = np.zeros(pad, dtype=np.float32)
+            samples = np.concatenate([z, samples.astype(np.float32), z])
         s.accept_waveform(self.sample_rate, samples)
         self.rec.decode_stream(s)
         return _clean(s.result.text)

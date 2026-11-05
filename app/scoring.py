@@ -15,7 +15,8 @@ from .medical.postprocess import tr_lower
 _ONES = ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"]
 _TENS = ["", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"]
 _UNITS = {"mg": "miligram", "mcg": "mikrogram", "g": "gram", "kg": "kilogram", "ml": "mililitre", "dl": "desilitre",
-          "cm": "santimetre", "mm": "milimetre", "mmhg": "milimetre cıva", "iu": "ünite", "meq": "miliekivalan"}
+          "cm": "santimetre", "mm": "milimetre", "mmhg": "milimetre cıva", "iu": "ünite", "meq": "miliekivalan",
+          "dk": "dakika", "sn": "saniye"}
 
 
 def _below_1000(n: int) -> list[str]:
@@ -51,17 +52,36 @@ def _num(tok: str) -> str:
     return int_to_words(int(tok)) if len(tok) < 13 else tok
 
 
+_ORD_SOFT = {"dört": "dörd"}
+
+
+def ordinal(words: str) -> str:
+    """'iki' -> 'ikinci', 'dört' -> 'dördüncü', 'on' -> 'onuncu', 'altı' -> 'altıncı' (son kelimeye ek)."""
+    parts = words.split()
+    last = _ORD_SOFT.get(parts[-1], parts[-1])
+    v = [c for c in last if c in "aeıioöuü"][-1]
+    suffix = {"a": "ıncı", "ı": "ıncı", "e": "inci", "i": "inci", "o": "uncu", "u": "uncu", "ö": "üncü", "ü": "üncü"}[v]
+    if last[-1] in "aeıioöuü":
+        suffix = suffix[1:]
+    parts[-1] = last + suffix
+    return " ".join(parts)
+
+
 def spoken_tokens(text: str) -> list[str]:
     """Puanlama için ortak biçim: 'TA 140/90, %94' -> ['ta','yüz','kırk','doksan','yüzde','doksan','dört']."""
     t = tr_lower(text).replace("’", "'")
     t = re.sub(r"%\s*(\d)", r"yüzde \1", t)
     t = re.sub(r"(\d)\s*/\s*(\d)", r"\1 \2", t)
-    t = re.sub(r"(?<=\d)\s*(mmhg|mcg|meq|mg|kg|ml|dl|cm|mm|iu|g)'?(l[ıiuü]k[a-zçğıöşü]*|'[a-zçğıöşü]+)",
+    t = re.sub(r"(?<=\d)\s*(mmhg|mcg|meq|mg|kg|ml|dl|cm|mm|iu|dk|sn|g)'?(l[ıiuü]k[a-zçğıöşü]*|'[a-zçğıöşü]+)",
                lambda m: " " + _UNITS[m.group(1)] + m.group(2).lstrip("'"), t)
-    t = re.sub(r"(?<=\d)\s*(mmhg|mcg|meq|mg|kg|ml|dl|cm|mm|iu|g)(?![a-zçğıöşü])",
+    t = re.sub(r"(?<=\d)\s*(mmhg|mcg|meq|mg|kg|ml|dl|cm|mm|iu|dk|sn|g)(?![a-zçğıöşü])",
                lambda m: " " + _UNITS[m.group(1)], t)
+    # ekli sayı: "3'e" -> "üçe", "2'de" -> "ikide" (okunuşta ek sayıya bitişir)
+    t = re.sub(r"(\d+)'([a-zçğıöşü]+)", lambda m: _num(m.group(1)).replace(" ", " ") + m.group(2), t)
+    # sıra sayısı: "2. derece" -> "ikinci derece" (ardından küçük harfli kelime gelirse)
+    t = re.sub(r"(?<![\d.,])(\d+)\.(?=\s+[a-zçğıöşü])", lambda m: ordinal(_num(m.group(1))), t)
     t = re.sub(r"\d+(?:[.,]\d+)*", lambda m: f" {_num(m.group(0))} ", t)
-    t = t.replace("'", " ")
+    t = t.replace("'", "")  # "bakım'a" = "bakıma", "EKG'de" = "ekgde": okunuşta ek kelimeye bitişir
     return re.findall(r"[a-zçğıöşüâîû0-9]+", t)
 
 

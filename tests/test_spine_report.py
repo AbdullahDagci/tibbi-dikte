@@ -13,7 +13,7 @@ def pp():
     return MedicalPostProcessor.from_files(
         [M / "lexicon_tr.txt", M / "radiology_terms_tr.txt"], [M / "corrections_tr.tsv"],
         fuzzy_files=[M / "lexicon_tr.txt", M / "radiology_fuzzy_tr.txt"],
-        protected_files=[M / "radiology_known_tr.txt"], use_itn=False)
+        protected_files=[M / "radiology_known_tr.txt"], general_files=[M / "general_tr_words.txt"], use_itn=False)
 
 
 @pytest.mark.parametrize("src,expected", [

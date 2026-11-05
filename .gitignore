@@ -28,3 +28,5 @@ data/reports/
 models/*/config.json
 models/*/LICENSE
 docs/mihu_izin_talebi.md
+benchmarks/_hotwords.txt
+benchmarks/_*.log
