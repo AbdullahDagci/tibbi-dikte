@@ -1,14 +1,17 @@
 ﻿"""Ayarlar penceresi: Genel · Sözlük · Lisans · Hakkında."""
 from __future__ import annotations
 
+import csv
+from pathlib import Path
+
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QGuiApplication, QKeySequence
-from PySide6.QtWidgets import (QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFormLayout,
-                               QHBoxLayout, QKeySequenceEdit, QLabel, QLineEdit, QMessageBox,
-                               QPlainTextEdit, QPushButton, QSpinBox, QTabWidget, QVBoxLayout,
-                               QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFileDialog,
+                               QFormLayout, QHBoxLayout, QHeaderView, QKeySequenceEdit, QLabel, QLineEdit,
+                               QMessageBox, QPlainTextEdit, QPushButton, QSpinBox, QTableWidget, QTableWidgetItem,
+                               QTabWidget, QVBoxLayout, QWidget)
 
-from . import __version__
+from . import __version__, user_dict
 from .audio import list_input_devices
 from .config import Config
 from .dictation import USER_CORRECTIONS, USER_LEXICON, ensure_user_files
@@ -81,6 +84,8 @@ class SettingsWindow(QDialog):
 
         self.cb_hot = QCheckBox("Tıbbi terimleri modele öncelikli tanıt (hotword)")
         self.cb_hot.setChecked(self.cfg.use_hotwords)
+        self.cb_hot.setToolTip("Radyoloji için ince ayarlanmış modeller (Tıbbi Türkçe v3) terimleri kendisi öğrendi; "
+                               "bu modellerde hotword otomatik olarak kullanılmaz.")
         self.cb_fuzzy = QCheckBox("Yanlış duyulan tıbbi terimleri otomatik düzelt")
         self.cb_fuzzy.setChecked(self.cfg.fuzzy_correction)
         self.cb_ctx = QCheckBox("Bağlama göre kelime düzelt (rapor dil modeli; ör. \"bacağı yayılan\" → \"bacağa\")")
@@ -104,14 +109,109 @@ class SettingsWindow(QDialog):
         ensure_user_files()
         w = QWidget()
         v = QVBoxLayout(w)
-        v.addWidget(QLabel("Kendi terimleriniz (her satıra bir terim, doğru yazımıyla):"))
-        self.lex_edit = QPlainTextEdit(USER_LEXICON.read_text(encoding="utf-8"))
-        v.addWidget(self.lex_edit)
-        v.addWidget(QLabel("Düzeltmeler (her satır: yanlış duyulan  TAB  doğru yazım):"))
-        self.corr_edit = QPlainTextEdit(USER_CORRECTIONS.read_text(encoding="utf-8"))
-        self.corr_edit.setTabChangesFocus(False)
-        v.addWidget(self.corr_edit)
+        info = QLabel("Her satır bir terim: <b>doğru yazımı</b> ve modelin onu yazabileceği <b>söyleniş "
+                      "varyantları</b> (virgülle). Dikte sırasında varyant doğru yazıma çevrilir ve terim modele "
+                      "öncelikli tanıtılır. Varyantın sonundaki <b>*</b> ekleri korur: <i>protezyon*</i> → "
+                      "protrüzyonu. Sesli komutlar da varyant alabilir: <i>alt sağa geç</i> → alt satıra geç.")
+        info.setWordWrap(True)
+        info.setTextFormat(Qt.RichText)
+        v.addWidget(info)
+        self.lex_search = QLineEdit()
+        self.lex_search.setPlaceholderText("Ara…")
+        self.lex_search.setClearButtonEnabled(True)
+        self.lex_search.textChanged.connect(self._filter_lexicon)
+        v.addWidget(self.lex_search)
+        self.lex_table = QTableWidget(0, 2)
+        self.lex_table.setHorizontalHeaderLabels(list(user_dict.HEADER))
+        self.lex_table.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        self.lex_table.horizontalHeader().setSectionResizeMode(1, QHeaderView.Stretch)
+        self.lex_table.verticalHeader().setVisible(False)
+        self.lex_table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        v.addWidget(self.lex_table, 1)
+        self._lex_loaded = user_dict.load(USER_LEXICON, USER_CORRECTIONS)
+        self._fill_lexicon(self._lex_loaded)
+
+        row = QHBoxLayout()
+        add = QPushButton("+ Terim ekle")
+        add.clicked.connect(lambda: self._add_lexicon_row())  # clicked(bool) terim yerine geçmesin
+        rem = QPushButton("Seçiliyi sil")
+        rem.clicked.connect(self._remove_lexicon_rows)
+        imp = QPushButton("İçe aktar…")
+        imp.clicked.connect(self._import_lexicon)
+        exp = QPushButton("Dışa aktar…")
+        exp.clicked.connect(self._export_lexicon)
+        for b in (add, rem):
+            row.addWidget(b)
+        row.addStretch()
+        for b in (imp, exp):
+            row.addWidget(b)
+        v.addLayout(row)
         return w
+
+    def _fill_lexicon(self, entries: list[user_dict.Entry]) -> None:
+        self.lex_table.setRowCount(0)
+        for e in entries:
+            self._add_lexicon_row(e.term, ", ".join(e.variants), edit=False)
+        self._filter_lexicon(self.lex_search.text())
+
+    def _add_lexicon_row(self, term: str = "", variants: str = "", edit: bool = True) -> None:
+        r = self.lex_table.rowCount()
+        self.lex_table.insertRow(r)
+        self.lex_table.setItem(r, 0, QTableWidgetItem(term))
+        self.lex_table.setItem(r, 1, QTableWidgetItem(variants))
+        if edit:
+            self.lex_search.clear()
+            self.lex_table.scrollToBottom()
+            self.lex_table.setCurrentCell(r, 0)
+            self.lex_table.editItem(self.lex_table.item(r, 0))
+
+    def _remove_lexicon_rows(self) -> None:
+        for r in sorted({i.row() for i in self.lex_table.selectedIndexes()}, reverse=True):
+            self.lex_table.removeRow(r)
+
+    def _filter_lexicon(self, text: str) -> None:
+        q = text.strip().casefold()
+        for r in range(self.lex_table.rowCount()):
+            cells = " ".join((self.lex_table.item(r, c) or QTableWidgetItem()).text() for c in (0, 1))
+            self.lex_table.setRowHidden(r, bool(q) and q not in cells.casefold())
+
+    def _lexicon_entries(self) -> list[user_dict.Entry]:
+        entries, index = [], {}
+        for r in range(self.lex_table.rowCount()):
+            term = " ".join((self.lex_table.item(r, 0) or QTableWidgetItem()).text().split())
+            if not term:
+                continue
+            variants = user_dict.parse_variants((self.lex_table.item(r, 1) or QTableWidgetItem()).text(), term)
+            if term in index:  # aynı terim iki satırda: tek satırda birleştir
+                index[term].variants += [x for x in variants if x not in index[term].variants]
+            else:
+                index[term] = user_dict.Entry(term, variants)
+                entries.append(index[term])
+        return entries
+
+    def _import_lexicon(self) -> None:
+        path, _ = QFileDialog.getOpenFileName(self, "Sözlüğü içe aktar", "",
+                                              "Sözlük dosyaları (*.csv *.tsv *.txt);;Tüm dosyalar (*.*)")
+        if not path:
+            return
+        try:
+            incoming = user_dict.import_file(Path(path))
+        except (OSError, UnicodeDecodeError, csv.Error) as e:
+            QMessageBox.warning(self, "İçe aktar", f"Dosya okunamadı:\n{e}")
+            return
+        merged, nt, nv = user_dict.merge(self._lexicon_entries(), incoming)
+        self._fill_lexicon(merged)
+        QMessageBox.information(self, "İçe aktar", f"{nt} yeni terim, {nv} yeni varyant eklendi; mevcut "
+                                                   "sözlük korundu.\nUygulamak için Kaydet'e basın.")
+
+    def _export_lexicon(self) -> None:
+        path, _ = QFileDialog.getSaveFileName(self, "Sözlüğü dışa aktar", "tibbi_dikte_sozluk.csv",
+                                              "CSV (Excel) (*.csv)")
+        if not path:
+            return
+        entries = self._lexicon_entries()
+        user_dict.export_file(entries, Path(path))
+        QMessageBox.information(self, "Dışa aktar", f"{len(entries)} terim kaydedildi:\n{path}")
 
     # ------------------------------------------------------------ Lisans
     def _license_tab(self) -> QWidget:
@@ -202,6 +302,13 @@ class SettingsWindow(QDialog):
         if not is_valid(hk):
             QMessageBox.warning(self, "Kısayol", f"Geçersiz kısayol: {seq}")
             return
+        entries = self._lexicon_entries()
+        clash = user_dict.conflicts(entries)
+        if clash:
+            lines = "\n".join(f"• “{v}” → {', '.join(t)}" for v, t in clash[:10])
+            QMessageBox.warning(self, "Sözlük", "Aynı varyant birden çok terime bağlı; birini seçin:\n" + lines)
+            self.tabs.setCurrentIndex(TAB_LEXICON)
+            return
         old = (self.cfg.model_dir, self.cfg.num_threads, self.cfg.use_hotwords, self.cfg.use_itn,
                self.cfg.fuzzy_correction, self.cfg.use_context)
         self.cfg.model_dir = self.model_box.currentData() or ""
@@ -218,10 +325,9 @@ class SettingsWindow(QDialog):
         self.cfg.show_overlay = self.cb_overlay.isChecked()
         self.cfg.save()
 
-        lex_changed = (self.lex_edit.toPlainText() != USER_LEXICON.read_text(encoding="utf-8")
-                       or self.corr_edit.toPlainText() != USER_CORRECTIONS.read_text(encoding="utf-8"))
-        USER_LEXICON.write_text(self.lex_edit.toPlainText(), encoding="utf-8")
-        USER_CORRECTIONS.write_text(self.corr_edit.toPlainText(), encoding="utf-8")
+        lex_changed = entries != self._lex_loaded
+        if lex_changed:
+            user_dict.save(entries, USER_LEXICON, USER_CORRECTIONS)
         new = (self.cfg.model_dir, self.cfg.num_threads, self.cfg.use_hotwords, self.cfg.use_itn,
                self.cfg.fuzzy_correction, self.cfg.use_context)
         self.settings_changed.emit(lex_changed or old != new)

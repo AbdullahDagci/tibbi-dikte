@@ -415,8 +415,10 @@ döküntü
 
 # --- Anatomi
 abdomen
+abdominal
 toraks
 kranyal
+kranial
 servikal
 torakal
 lomber
@@ -727,6 +729,11 @@ sintigrafi
 mamografi
 ultrasonografi
 Doppler
+
+# --- Ölçü birimleri (bulanık düzeltme "milimetredir"i "milimetrikir" yapmasın; ekli biçimler de tanınır)
+milimetre
+santimetre
+mililitre
 
 # --- Omurga / nöro / kas-iskelet (rad_dict mamografi ağırlıklı olduğu için elle eklendi)
 lordoz

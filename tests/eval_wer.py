@@ -70,16 +70,17 @@ def main() -> int:
     post = MedicalPostProcessor.from_files(lexs, [CORR], fuzzy_files=fuzz, protected_files=prot)
     post_noitn = MedicalPostProcessor.from_files(lexs, [CORR], fuzzy_files=fuzz, protected_files=prot, use_itn=False)
 
-    systems = {"ham": [], "hotword": [], "hotword+sonişleme": []}
+    # sonişleme = hotword'süz ham çıktı + sonişleme (model.json "hotwords": false olan modellerde uygulamanın yaptığı)
+    systems = {"ham": [], "hotword": [], "hotword+sonişleme": [], "sonişleme": []}
     term_hits = {k: [0, 0] for k in systems}
     for f in files:
         ref = refs[int(f.name[:2])]
         audio = load_wav(f)
         r = raw.transcribe(audio)
         b = biased.transcribe(audio)
-        outs = {"ham": r, "hotword": b, "hotword+sonişleme": post(b)}
+        outs = {"ham": r, "hotword": b, "hotword+sonişleme": post(b), "sonişleme": post(r)}
         # WER: ITN rakamları referansla karşılaştırılamaz, bu yüzden yazım karşılaştırması için ITN'siz sonişleme
-        cmp = {"ham": r, "hotword": b, "hotword+sonişleme": post_noitn(b)}
+        cmp = {"ham": r, "hotword": b, "hotword+sonişleme": post_noitn(b), "sonişleme": post_noitn(r)}
         ref_toks = norm(ref)
         ref_terms = [t for t in ref_toks if any(t.startswith(x) for x in terms)]
         for k in systems:
@@ -91,10 +92,12 @@ def main() -> int:
             print(f"\n[{f.name}] REF: {ref}")
             for k, v in outs.items():
                 print(f"  {k:18s}: {v}")
+    app_mode = "hotword+sonişleme" if model.hotwords else "sonişleme"
     print("\nSistem               WER     Tıbbi terim isabeti")
     for k, v in systems.items():
         h, n = term_hits[k]
-        print(f"  {k:18s} {100*np.mean(v):5.1f}%   {h}/{n} ({100*h/max(1,n):.0f}%)")
+        mark = "   <- uygulamada" if k == app_mode else ""
+        print(f"  {k:18s} {100*np.mean(v):5.1f}%   {h}/{n} ({100*h/max(1,n):.0f}%){mark}")
     return 0
 
 

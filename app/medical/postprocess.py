@@ -157,15 +157,43 @@ _SOFTEN = {"k": "ğ", "p": "b", "t": "d", "ç": "c", "g": "ğ"}
 # Özel isim / kısaltma / sayı (EKG'de, Ahmet'in, 2'de) büyük harf veya rakamla başladığı için dokunulmaz.
 _LOWER_APOS_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü'])([a-zçğıöşü]+)['’]([a-zçğıöşü]+)(?![\wÇĞİÖŞÜçğıöşü])")
 _CAP_APOS_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü'])([A-ZÇĞİÖŞÜ][a-zçğıöşü]+)['’]([a-zçğıöşü]+)(?![\wÇĞİÖŞÜçğıöşü])")
-_PCT_SPACE_RE = re.compile(r"([A-Za-zÇĞİÖŞÜçğıöşü])%(\d)")
-_L = "A-Za-zÇĞİÖŞÜçğıöşüÂâÎîÛû"
+_PCT_SPACE_RE = re.compile(r"([A-Za-zÇĞİÖŞÜçğıöşü])%(\d)")  # "Satürasyonu%94" -> "Satürasyonu %94"
+_L ="A-Za-zÇĞİÖŞÜçğıöşüÂâÎîÛû"
 _JOIN_RE = re.compile(rf"(?<![{_L}])([{_L}]+) ([a-zçğıöşüâîû]+)(?![{_L}])")
 _PARTICLES = {"da", "de", "ta", "te"}
+# Rapor kelime listesinde (radiology_known) bulunmayan kısa, sık kelimeler. Birleştirmede "ilk parça gerçek bir
+# kelime değil" denetimi bunları bilemiyordu; raporlardaki bitişik yazım hatalarıyla ("heriki", "solmeme",
+# "memeüst", "dışkadranda") doğru ayrı yazımları birleştiriyordu.
+_COMMON_WORDS = {"her", "bir", "iki", "üç", "sol", "sağ", "üst", "alt", "ön", "arka", "iç", "dış", "orta", "yan",
+                 "meme", "ana", "tam", "kat", "çok", "az", "en", "ve", "ile", "bu", "şu"}
+# Birleştirmede sözlük terimi ikinci parçanın içine en az bu kadar harf uzanmalı: "para|santral" (7), "inten|site"
+# (4) gerçek bölünmedir; "kist|i" (1) değildir ("kist izlendi" -> "kistizlendi" yapıyordu).
+_MIN_JOIN_OVERLAP = 3
+# ITN (damga) öncesi: "ön"ü "on" (10) sanıyor ("Ön çapraz bağ" -> "10 çapraz bağ"); harf+sayı omurga seviyesini
+# önceki kelimeyle heceleme sanıyor ("görüntülemede L dört L beş" -> "Gd 5"), rakamlı hâline ("L4 L5") dokunmuyor.
+_ON_WORD_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([Öö][Nn])(?![\wÇĞİÖŞÜçğıöşü])")
+_SPINE_NUMS = {"bir": 1, "iki": 2, "üç": 3, "dört": 4, "beş": 5, "altı": 6, "yedi": 7, "sekiz": 8, "dokuz": 9,
+               "on": 10, "on bir": 11, "on iki": 12}
+_SPINE_WORD_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([CTLS])\s+(on iki|on bir|bir|iki|üç|dört|beş|altı|yedi|sekiz|"
+                            r"dokuz|on)(?![\wÇĞİÖŞÜçğıöşü])")
 # Omurga seviyesinden önce "son" anlamsızdır: sağ/sol hatası raporda en tehlikeli hatadır.
 _SIDE_RE = re.compile(r"(?<![\wçğıöşü])([Ss])on(?=\s+[LSCT]\s?(?:\d|bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on)\b)")
-# Sesli biçim komutları
-_COMMANDS = {"yeni satır": "\n", "yeni paragraf": "\n\n", "yeni madde": "\n• "}
-_COMMAND_RE = re.compile(r"[\s.,;:]*\b((?:[Yy]eni|YENİ)\s+(?:[Ss]atır|[Pp]aragraf|[Mm]adde))\b[\s.,;:]*")  # "Satürasyonu%94" -> "Satürasyonu %94"
+# Sesli biçim komutları (büyük/küçük harf Türkçe kurallarıyla duyarsız; model komutu noktalı cümle gibi verebilir)
+_COMMANDS = {
+    "yeni satır": "\n", "alt satıra geç": "\n", "satır başı": "\n",
+    "yeni paragraf": "\n\n", "paragraf başı": "\n\n",
+    "yeni madde": "\n• ",
+}
+
+
+def _tr_ci(phrase: str) -> str:
+    """'satır başı' -> '[sS][aA][tT][ıI][rR]\\s+[bB]...' (re.IGNORECASE Türkçe ı/İ'yi doğru eşlemez)."""
+    return r"\s+".join("".join(f"[{c}{tr_upper(c)}]" for c in w) for w in phrase.split())
+
+
+# Komuttan önceki cümle noktası korunur ("normaldir. Alt satıra geç." -> "normaldir.\n"); virgül __call__'da atılır
+_COMMAND_RE = re.compile(r"\s*\b((?:" + "|".join(_tr_ci(c) for c in sorted(_COMMANDS, key=len, reverse=True))
+                         + r"))\b[\s.,;:]*")
 
 
 @dataclass
@@ -195,7 +223,12 @@ class MedicalPostProcessor:
             self._fuzzy_terms = {tr_lower(t): t for t in targets
                                  if " " not in t and len(t) >= self.min_fuzzy_len}
         self._fuzzy_keys = list(self._fuzzy_terms)
-        self._canonical = {tr_lower(t): t for t in self.lexicon if " " not in t}
+        # Yazım biçimi: sonra gelen dosya (kullanıcı sözlüğü) öncekini ezer — ama yalnızca küçük harfli bir kayıt
+        # (raporlardan otomatik üretilen radyoloji listesi tümüyle küçük harflidir) el ile yazılmış "Doppler"i ezmez.
+        self._canonical: dict[str, str] = {}
+        for t in self.lexicon:
+            if " " not in t and (t != tr_lower(t) or tr_lower(t) not in self._canonical):
+                self._canonical[tr_lower(t)] = t
         self._protected = {tr_lower(t) for t in self.protected} | set(self._canonical)
         # Bilinen terim önekleri (yumuşama dahil: ...k -> ...ğ, ...p -> ...b, ...t -> ...d, ...ç -> ...c)
         self._prefix_index: dict[str, set[str]] = {}
@@ -256,10 +289,18 @@ class MedicalPostProcessor:
     def apply_itn(self, text: str) -> str:
         if self._itn is None:
             return text
+        text = _SPINE_WORD_RE.sub(lambda m: f"{m.group(1)}{_SPINE_NUMS[m.group(2)]}", text)  # "L dört" -> "L4"
+        parts = _ON_WORD_RE.split(text)  # "ön" damga'ya hiç gösterilmez; sayı ifadesi "ön"ü aşamaz
+        return "".join(p if i % 2 else self._itn_piece(p) for i, p in enumerate(parts))
+
+    def _itn_piece(self, s: str) -> str:
+        core = s.strip()
+        if not core:
+            return s
         try:
-            return self._itn.normalize(text)
+            return s[:len(s) - len(s.lstrip())] + self._itn.normalize(core) + s[len(s.rstrip()):]
         except Exception:
-            return text
+            return s
 
     def _is_known(self, low: str) -> bool:
         """Kelime bir terimle (veya yumuşamış hâliyle) başlıyorsa doğru kabul edilir: terim + ek."""
@@ -335,22 +376,30 @@ class MedicalPostProcessor:
         def repl(m: re.Match) -> str:
             a, b = m.group(1), m.group(2)
             j = tr_lower(a + b)
+            al = tr_lower(a)
             if tr_lower(b) in _PARTICLES:  # bağlaç "da/de" mi, ayrılmış hâl eki mi? yalnızca raporda geçen biçim
                 ok = j in self._protected
             else:
-                ok = self._term_span(j) > len(a) or (
-                    j in self._protected and tr_lower(a) not in self._protected and len(a) >= 3)
+                ok = self._term_span(j) >= len(a) + _MIN_JOIN_OVERLAP or (
+                    j in self._protected and al not in self._protected and al not in _COMMON_WORDS and len(a) >= 3)
             return a + tr_lower(b) if ok else m.group(0)
         return _JOIN_RE.sub(repl, text)
 
-    def _process(self, text: str) -> str:
+    def _prepare(self, text: str) -> str:
+        """Komut ayrıştırmasından önce: boşluk, kesme işareti ve kesin düzeltmeler (kullanıcı varyantı bir
+        komuta da bağlanabilsin: "alt sağa geç" -> "alt satıra geç")."""
         text = " ".join(text.split())
         if not text:
             return text
         text = _LOWER_APOS_RE.sub(lambda m: m.group(1) + m.group(2), text)
         # Büyük harfle başlayan ama bir tıbbi terimle başlayan kelime de cins isimdir: "Ultrasonografisi'nde"
         text = _CAP_APOS_RE.sub(lambda m: m.group(1) + m.group(2) if self._is_known(tr_lower(m.group(1))) else m.group(0), text)
-        text = self.apply_corrections(text)
+        return self.apply_corrections(text)
+
+    def _process(self, text: str) -> str:
+        text = " ".join(text.split())
+        if not text:
+            return text
         text = self.apply_join(text)
         if self.context is not None:
             text = self.context(text)  # "sol bacağı yayılan" -> "sol bacağa yayılan"
@@ -364,16 +413,18 @@ class MedicalPostProcessor:
         return text
 
     def __call__(self, text: str) -> str:
-        """Sesli biçim komutları ("yeni satır", "yeni paragraf", "yeni madde") metni böler; parçalar ayrı işlenir."""
+        """Sesli biçim komutları (_COMMANDS: "alt satıra geç", "paragraf başı", "yeni madde" ...) metni böler;
+        parçalar ayrı işlenir."""
+        parts = _COMMAND_RE.split(self._prepare(text))
         out = []
-        for i, part in enumerate(_COMMAND_RE.split(text)):
+        for i, part in enumerate(parts):
             if i % 2:  # komut
                 out.append(_COMMANDS[tr_lower(" ".join(part.split()))])
             else:
                 piece = self._process(part)
                 if out and out[-1].endswith(("\n", "• ")):
                     piece = piece.lstrip(" .,:;")
-                if i + 1 < len(_COMMAND_RE.split(text)):  # komuttan önceki parçanın sonundaki boşluk/virgül
+                if i + 1 < len(parts):  # komuttan önceki parçanın sonundaki boşluk/virgül
                     piece = piece.rstrip(" ,;")
                 out.append(piece)
         return "".join(out)

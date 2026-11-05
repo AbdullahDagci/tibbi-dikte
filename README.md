@@ -12,8 +12,13 @@ dikte uygulaması. Radyoloji ve genel tıbbi terimler için ayarlanmıştır, **
 - **İki dikte modu**: aç/kapa kısayolu (**Ctrl+Alt+Space**) ve **bas-konuş** (Boşluk'u basılı tut; kısa basış normal boşluk yazar).
 - **Dinleme göstergesi**: ekranın altında sesle atan nabız + canlı metin; odak çalmaz.
 - **Tıbbi sonişleme**: terim düzeltme, sayı/birim (`beş yüz miligram → 500 mg`), omurga seviyesi onarımı (`G4 C5 → C4-C5`), sağ/sol (`son L5 → sol L5`).
-- **Sesli biçim komutları**: "yeni satır", "yeni paragraf", "yeni madde" (•).
-- **Test ve doğruluk ekranı**: ses dosyası/kayıt + doğru metin → kelime doğruluğu, WER/CER, terim isabeti, renkli fark.
+- **Sesli biçim komutları**: "yeni satır" / "alt satıra geç" / "satır başı" (yeni satır), "yeni paragraf" /
+  "paragraf başı" (boş satır bırakıp yeni paragraf), "yeni madde" (•).
+- **Söyleniş varyantlı sözlük**: her terime modelin duyabileceği söylenişler bağlanır (`BT ← bete, pete`);
+  dışa/içe aktarma (Excel'de açılan CSV).
+- **Test ve doğruluk ekranı**: **canlı dikte editörü** (metin doğrudan editöre yazılır; yanlış kelimeyi seç › sağ tık ›
+  *Sözlüğe varyant olarak ekle*) ve ses dosyası/kayıt + doğru metin → kelime doğruluğu, WER/CER, terim isabeti,
+  renkli fark.
 - **Veri toplama ekranı**: radyologlardan eğitim verisi (ses + metin), KVKK onayı ve kalite kontrolüyle.
 - **Değiştirilebilir model**: `model.json` ile her sherpa-onnx modeli kodsuz eklenir.
 - **Lisanslama**: makineye bağlı çevrimdışı Ed25519 ürün anahtarları + her bilgisayarda çalışan süreli **demo anahtarı**.
@@ -29,8 +34,9 @@ dikte uygulaması. Radyoloji ve genel tıbbi terimler için ayarlanmıştır, **
    - **Boşluk'u basılı tut** → konuş → bırak.
 3. Tepsi menüsü: **Test ve doğruluk…**, **Veri toplama…**, **Ayarlar…** (model, mikrofon, kısayol, bas-konuş tuşu,
    anlık yazım, sözlük).
-4. **Ayarlar › Sözlük**: kendi terimlerin ve `yanlış duyulan ⇥ doğru` düzeltmelerin
-   (`kök*` biçimi ekleri korur: `protezyon*  protrüzyon`).
+4. **Ayarlar › Sözlük**: tablo — *Doğru yazım* + *Söyleniş varyantları* (virgülle; `kök*` biçimi ekleri korur:
+   `protrüzyon ← protezyon*`). Varyant bir sesli komuta da bağlanabilir (`alt satıra geç ← alt sağa geç`).
+   **Dışa aktar…** / **İçe aktar…** ile sözlük başka bilgisayara taşınır; içe aktarma mevcut sözlüğü silmeden birleştirir.
 
 ## Tıbbi doğruluk katmanları
 | Katman | Örnek |

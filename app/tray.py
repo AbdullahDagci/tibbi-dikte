@@ -13,11 +13,13 @@ from .collect import CollectWindow
 from .dictation import Dictation
 from .hotkey import GlobalHotkey, pynput_to_qt
 from .licensing import license as lic
-from .dictation import BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_LEXICON
+from .dictation import BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_CORRECTIONS, USER_LEXICON
+from .editor import EditorPage
 from .overlay import ListeningOverlay
 from .ptt import PushToTalk
 from .settings_window import TAB_LICENSE, SettingsWindow
 from .testbench import TestWindow
+from .typer import backspace, type_text
 
 log = logging.getLogger(__name__)
 
@@ -154,8 +156,11 @@ class TrayApp:
             return
         if self._test is None:
             d = self.dictation
+            page = EditorPage(USER_LEXICON, USER_CORRECTIONS, pynput_to_qt(self.cfg.hotkey),
+                              on_toggle=self._toggle, on_dictionary_changed=self._dictionary_changed)
             self._test = TestWindow(lambda: (d.engine, d.post, d.listening),
-                                    [BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_LEXICON])
+                                    [BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_LEXICON], editor_page=page)
+            page.set_listening(d.listening)
             self._test.finished.connect(lambda _: setattr(self, "_test", None))
             self._test.setAttribute(Qt.WA_DeleteOnClose)
         self._test.show()
@@ -187,12 +192,29 @@ class TrayApp:
         if reason == QSystemTrayIcon.Trigger:
             self._toggle()
 
+    def _route_output(self) -> None:
+        """Dikte başlarken: Test › Canlı dikte editörü etkinse metin doğrudan editöre, değilse imlece (SendInput)."""
+        if self._test is not None and self._test.wants_dictation():
+            sink = self._test.editor_page.sink
+            self.dictation.typer, self.dictation.eraser = sink.type, sink.erase
+        else:
+            self.dictation.typer, self.dictation.eraser = type_text, backspace
+
+    def _dictionary_changed(self) -> None:
+        """Editörden sözlüğe varyant eklendi: sözlük + hotword'ler yeniden yüklenir (dikte sürüyorsa bitince)."""
+        if self.dictation.listening:
+            self._reload_pending = True
+        else:
+            self._load_async()
+
     def _toggle(self) -> None:
         if not self.licensed:
             self.settings().show_tab(TAB_LICENSE)
             return
         if self.dictation.engine is None:
             return
+        if not self.dictation.listening:
+            self._route_output()
         self.overlay.ptt_mode = False
         if self.dictation.listening and self.cfg.show_overlay:
             self.overlay.finishing()  # son ses çözülüp yazılıyor
@@ -204,6 +226,7 @@ class TrayApp:
         if not self.licensed or self.dictation.engine is None or self.dictation.listening:
             return
         self._ptt_on = True
+        self._route_output()
         self.overlay.ptt_mode = True
         self._beep(False)
         threading.Thread(target=self.dictation.start_listening, daemon=True).start()
@@ -235,6 +258,11 @@ class TrayApp:
             elif state == "error" and prev == "listening":
                 self.overlay.error("Dikte sırasında hata oluştu (günlük dosyasına bakın).")
         self.state = state
+        if self._test is not None and self._test.editor_page is not None:
+            self._test.editor_page.set_listening(state == "listening")
+        if state == "idle" and getattr(self, "_reload_pending", False):
+            self._reload_pending = False
+            self._load_async()
         self.tray.setIcon(self.icons.get(state, self.icons["idle"]))
         self.act_toggle.setText("Dikteyi durdur" if state == "listening" else "Dikteyi başlat")
         self.act_toggle.setEnabled(state in ("idle", "listening"))

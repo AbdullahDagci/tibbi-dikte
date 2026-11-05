@@ -18,6 +18,7 @@ from PySide6.QtWidgets import (QCheckBox, QDialog, QFileDialog, QFrame, QHBoxLay
                                QProgressBar, QPushButton, QTabWidget, QTextBrowser, QVBoxLayout, QWidget)
 
 from . import theme
+from .editor import EditorPage
 from .medical.postprocess import read_lexicon, tr_lower
 from .scoring import Score, score
 
@@ -52,9 +53,11 @@ class Card(QFrame):
 
 
 class TestWindow(QDialog):
-    def __init__(self, get_pipeline: Callable[[], tuple], term_files: list[Path], parent=None):
-        """get_pipeline() -> (engine, postprocessor, meşgul_mu: bool)."""
+    def __init__(self, get_pipeline: Callable[[], tuple], term_files: list[Path], parent=None,
+                 editor_page: EditorPage | None = None):
+        """get_pipeline() -> (engine, postprocessor, meşgul_mu: bool). editor_page: "Canlı dikte" sekmesi."""
         super().__init__(parent)
+        self.editor_page = editor_page
         self.get_pipeline = get_pipeline
         self.terms = {tr_lower(t) for f in term_files for t in read_lexicon(f) if " " not in t and len(t) >= 6}
         self.audio: np.ndarray | None = None
@@ -71,16 +74,26 @@ class TestWindow(QDialog):
 
     # ------------------------------------------------ arayüz
     def _build(self) -> None:
-        root = QVBoxLayout(self)
-        root.setContentsMargins(22, 18, 22, 18)
-        root.setSpacing(12)
+        outer = QVBoxLayout(self)
+        outer.setContentsMargins(22, 18, 22, 18)
+        outer.setSpacing(8)
         h1 = QLabel("Test ve Doğruluk")
         h1.setObjectName("h1")
+        outer.addWidget(h1)
+        self.mode_tabs = QTabWidget()
+        outer.addWidget(self.mode_tabs, 1)
+        if self.editor_page is not None:
+            self.mode_tabs.addTab(self.editor_page, "Canlı dikte (editör)")
+        file_page = QWidget()
+        self.mode_tabs.addTab(file_page, "Ses dosyası ile test")
+
+        root = QVBoxLayout(file_page)
+        root.setContentsMargins(0, 8, 0, 0)
+        root.setSpacing(12)
         sub = QLabel("Bir ses dosyası seçin ya da mikrofonla kaydedin. Doğru metni (referans) girerseniz "
                      "doğruluk oranı ve kelime kelime fark gösterilir.")
         sub.setObjectName("muted")
         sub.setWordWrap(True)
-        root.addWidget(h1)
         root.addWidget(sub)
 
         row = QHBoxLayout()
@@ -310,6 +323,11 @@ class TestWindow(QDialog):
             else:
                 parts.append(f"<span style='background:#FFF4DB;color:{theme.WARN}'>&nbsp;{html.escape(a.hyp)}&nbsp;</span>")
         return f"<div style='font-size:12.5pt; line-height:170%'>{' '.join(parts)}</div>"
+
+    def wants_dictation(self) -> bool:
+        """Dikte çıktısı editöre mi gitmeli: pencere etkin ve "Canlı dikte" sekmesi açık."""
+        return (self.editor_page is not None and self.isVisible() and self.isActiveWindow()
+                and self.mode_tabs.currentWidget() is self.editor_page)
 
     def closeEvent(self, e) -> None:
         if self._rec_stream is not None:

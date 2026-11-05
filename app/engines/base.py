@@ -49,6 +49,11 @@ class ModelInfo:
     def sample_rate(self) -> int:
         return int(self.spec.get("sample_rate", 16000))
 
+    @property
+    def hotwords(self) -> bool:
+        """False: model tıbbi terimleri eğitimde öğrendi, hotword yardımı ona zarar verir (model.json "hotwords")."""
+        return bool(self.spec.get("hotwords", True))
+
     def path(self, key: str) -> str | None:
         """model.json'daki dosya adını mutlak yola çevirir (yoksa None)."""
         name = self.spec.get(key)

@@ -101,8 +101,10 @@ class Dictation:
             model = self.pick_model()
             lex_files = [BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_LEXICON]
             hw = None
-            if self.cfg.use_hotwords:
+            if self.cfg.use_hotwords and model.hotwords:
                 hw = str(write_hotwords(lex_files, user_dir() / "hotwords.txt"))
+            elif self.cfg.use_hotwords:
+                log.info("Hotword bu modelde kapalı (model.json: hotwords=false)")
             engine = load_engine(model, num_threads=self.cfg.num_threads,
                                  hotwords_file=hw, hotwords_score=self.cfg.hotwords_score)
             post = MedicalPostProcessor.from_files(
