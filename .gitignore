@@ -30,3 +30,10 @@ models/*/LICENSE
 docs/mihu_izin_talebi.md
 benchmarks/_hotwords.txt
 benchmarks/_*.log
+
+# Radyoloji ince ayarlı model depoda gelir (05.11 kullanıcı kararı); v2'yi tools/setup_model.py indirir.
+# LICENSE ve config.json yukarıdaki kuralla dışarıda kalır.
+!models/tibbi-tr-v3-aday/*.onnx
+!models/tibbi-tr-v3-aday/bpe.model
+!models/tibbi-tr-v3-aday/bpe.vocab
+!models/tibbi-tr-v3-aday/tokens.txt
