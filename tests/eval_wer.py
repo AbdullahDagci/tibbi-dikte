@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from app.engines.base import ModelInfo  # noqa: E402
-from app.engines.registry import discover_models, load_engine  # noqa: E402
+from app.engines.registry import discover_models, load_engine, resolve_model  # noqa: E402
 from app.medical.postprocess import MedicalPostProcessor, read_lexicon, tr_lower  # noqa: E402
 from app.dictation import write_hotwords  # noqa: E402
 
@@ -56,7 +56,7 @@ def main() -> int:
     ap.add_argument("--audio", default=str(ROOT / "tests" / "audio"))
     ap.add_argument("--no-radiology", action="store_true", help="radyoloji sözlüğünü kullanma (karşılaştırma için)")
     a = ap.parse_args()
-    model = ModelInfo.from_dir(Path(a.model)) if a.model else discover_models()[0]
+    model = ModelInfo.from_dir(Path(a.model)) if a.model else resolve_model(discover_models(), "")
     refs = [l.strip() for l in Path(a.sentences).read_text(encoding="utf-8").splitlines() if l.strip()]
     files = sorted(Path(a.audio).glob("*.wav"))
     lexs = [LEX] if a.no_radiology else [LEX, RAD]

@@ -1,5 +1,5 @@
 {
-  "name": "Tıbbi Türkçe v3 (tam veri, 14750 klip) — radyoloji ince ayarı",
+  "name": "Tıbbi Türkçe v3 — Radyoloji",
   "engine": "sherpa-onnx",
   "mode": "online",
   "type": "transducer",
@@ -12,11 +12,13 @@
   "decoding_method": "modified_beam_search",
   "max_active_paths": 4,
   "rule2_min_trailing_silence": 0.8,
-  "license": "mihu Community License",
+  "license": "Tıbbi Dikte ürün lisansı",
+  "license_file": "",
   "modeling_unit": "bpe",
   "bpe_vocab": "bpe.vocab",
-  "attribution": "Powered by mihu",
+  "attribution": "Ertansa tarafından radyoloji dikte için eğitildi",
   "finetuned_from": "averaged.pt",
   "hotwords": false,
+  "default": true,
   "base_model": "mihuai/turkish-stt-66m-v2"
 }

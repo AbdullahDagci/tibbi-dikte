@@ -91,6 +91,12 @@ class PushToTalk:
         up = msg in (WM_KEYUP, WM_SYSKEYUP)
         vk = data.vkCode
         if vk == self.vk:
+            # kanca geç çalışırsa (Windows sınırı ~300-1000 ms) Windows olayı bizi beklemeden iletir:
+            # basılı tutulan boşluğun tekrarları hedef pencereye boşluk olarak düşer
+            t = getattr(data, "time", None)
+            lag = (ctypes.windll.kernel32.GetTickCount() - t) & 0xFFFFFFFF if t is not None else 0
+            if lag > 150:
+                log.warning("bas-konuş kancası %d ms geç çalıştı", lag)
             if self.vk == VK_SPACE:
                 return self._space(down, up)
             return self._instant(down, up)

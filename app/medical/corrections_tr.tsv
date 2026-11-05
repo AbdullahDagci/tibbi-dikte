@@ -173,3 +173,6 @@ azal ma	azalma
 disk dejenerasyon	disk dejenerasyonu
 disk dejenerasyon)	disk dejenerasyonu.
 sinyal özelliklerdedir	sinyal özelliklerindedir
+# --- Omurga (06.11 kullanıcı denemesi: model "end-plate"i "en plate" yazıyor; ekler korunur)
+en plate*	end-plate
+end plate*	end-plate

@@ -1,8 +1,8 @@
 Tıbbi Dikte
 ===========
 
-Türkçe Tıbbi Dikte v2: Powered by mihu
-  Lisans: mihu Community License — models\tibbi-tr-v2\LICENSE
+Tıbbi Türkçe v3 — Radyoloji: Ertansa tarafından radyoloji dikte için eğitildi
+  Lisans: Tıbbi Dikte ürün lisansı
 
 Üçüncü taraf bileşenler
   sherpa-onnx  — Apache License 2.0

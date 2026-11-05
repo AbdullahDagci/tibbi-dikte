@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import logging
 import threading
+import time
 from pathlib import Path
 from typing import Callable
 
@@ -15,7 +16,7 @@ import numpy as np
 from .audio import Microphone
 from .config import Config
 from .engines.base import ModelInfo, SttEngine
-from .engines.registry import discover_models, load_engine
+from .engines.registry import discover_models, load_engine, resolve_model
 from .medical.postprocess import MedicalPostProcessor, read_lexicon, tr_capitalize
 from .paths import resource_dir, user_dir
 from .live import LiveWriter
@@ -87,11 +88,7 @@ class Dictation:
         models = discover_models()
         if not models:
             raise FileNotFoundError("Hiç model bulunamadı (models klasöründe model.json yok).")
-        if self.cfg.model_dir:
-            for m in models:
-                if str(m.dir) == self.cfg.model_dir:
-                    return m
-        return models[0]
+        return resolve_model(models, self.cfg.model_dir)
 
     def load(self) -> None:
         """Modeli ve sonişleyiciyi (yeniden) yükler. Dikte açıksa önce durdurur."""
@@ -163,7 +160,7 @@ class Dictation:
         self.on_state("idle")
 
     def _finish_text(self, raw: str) -> str:
-        text = self.post(raw) if self.post else raw
+        text = self.post(raw) if self.post and self.cfg.use_postprocess else raw
         if text and self.cfg.add_trailing_space and not text.endswith(("\n", "• ")):
             text += " "
         return text
@@ -182,6 +179,15 @@ class Dictation:
             if text:
                 self.on_text(text)
 
+    def _make_writer(self) -> LiveWriter | None:
+        if not self.cfg.live_typing:
+            return None
+        return LiveWriter(self.typer, self.eraser, transform=self._live_transform)
+
+    def _live_transform(self, text: str) -> str:
+        """Anlık yazılan kelimeler de cümle sonundaki gibi sonişlenir (ham mod kapalıysa)."""
+        return self.post(text) if self.post and self.cfg.use_postprocess else text
+
     def _live(self, partial: str) -> None:
         if self._writer is not None:
             try:
@@ -194,12 +200,17 @@ class Dictation:
             engine = self.engine
         mic = Microphone(sample_rate=engine.sample_rate, device=self.cfg.input_device)
         session = engine.new_session()
-        self._writer = LiveWriter(self.typer, self.eraser) if self.cfg.live_typing else None
+        self._writer = self._make_writer()
         try:
             mic.start()
             last_partial = ""
+            warned = 0.0
             while not self._stop.is_set():
                 chunk = mic.read(timeout=0.2)
+                backlog = mic.q.qsize()
+                if backlog >= 5 and time.monotonic() - warned > 1.0:  # 100 ms'lik parçalar: ≥0,5 sn geride
+                    warned = time.monotonic()
+                    log.warning("işleme gecikmesi: %d ses parçası (%.1f sn) bekliyor", backlog, backlog / 10)
                 if chunk is not None:
                     # ses seviyesi (0..1, kabaca dBFS'e göre) -> ekrandaki nabız animasyonu
                     rms = float(np.sqrt(np.mean(chunk * chunk))) if len(chunk) else 0.0
@@ -208,6 +219,7 @@ class Dictation:
                     part = session.partial()
                     self._live(part)  # zamanla kararlılaşan kelimeler için her parçada çağrılır
                     if part != last_partial:
+                        log.debug("kısmi: %r", part)
                         last_partial = part
                         self.on_partial(part)
             mic.stop()

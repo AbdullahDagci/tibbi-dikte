@@ -157,6 +157,10 @@ _LVL_GARBLED_FIRST = re.compile(r"(?<![\w])([A-ZÇĞİÖŞÜ])\s?(\d{1,2})\s*[- 
 _LVL_GARBLED_SECOND = re.compile(r"(?<![\w])([CLS])\s?(\d)\s*([A-Za-zÇĞİÖŞÜçğıöşü]?)\s*-?\s*(\d)(?![\d\w])")
 _LVL_LEADING_DIGIT = re.compile(r"(?<![\w\d])(\d)([CLS])(\d)(?![\d\w])")
 _LVL_PAIR = re.compile(r"(?<![\w])([CTLS])\s?(\d{1,2})\s*[- ]?\s*([CTLS])\s?(\d{1,2})(?![\d\w])")
+# Çok seviyeli aralık ("C üç yedi" -> ITN "C3 7" -> "C3-C7"): yalnız seviye bağlamında (ardından disk/intervertebral…),
+# "C3 7 mm" gibi ölçülere dokunulmaz
+_LVL_RANGE = re.compile(r"(?<![\w])([CTLS])\s?(\d{1,2})\s*[- ]\s*(\d{1,2})"
+                        r"(?=\s+(?i:intervertebral|disk|seviye|düzey|aralı|vertebra|korpus|segment))")
 _MR_SEQ_CONTEXT = re.compile(r"^\W*(?:\w+\W+){0,2}?(?:ağırlık|sekans|seri|imaj|görüntü)", re.IGNORECASE)
 
 
@@ -188,9 +192,14 @@ def normalize_spine_levels(text: str) -> str:
             return m.group(0)
         return f"{a}{i}-{b}{j}"
 
+    def span(m):
+        a, i, j = m.group(1), int(m.group(2)), int(m.group(3))
+        return f"{a}{i}-{a}{j}" if i < j <= _SPINE_MAX[a] else m.group(0)
+
     text = _LVL_GARBLED_FIRST.sub(first, text)
     text = _LVL_GARBLED_SECOND.sub(second, text)
     text = _LVL_LEADING_DIGIT.sub(leading, text)
+    text = _LVL_RANGE.sub(span, text)
     return _LVL_PAIR.sub(pair, text)
 
 
@@ -228,6 +237,8 @@ _SPINE_NUMS = {"bir": 1, "iki": 2, "üç": 3, "dört": 4, "beş": 5, "altı": 6,
                "on": 10, "on bir": 11, "on iki": 12}
 _SPINE_WORD_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([CTLS])\s+(on iki|on bir|bir|iki|üç|dört|beş|altı|yedi|sekiz|"
                             r"dokuz|on)(?![\wÇĞİÖŞÜçğıöşü])")
+# Sınıflama numarası: "tip/evre/grade/kategori bir" -> 1 (ITN "bir"i "patolojik bir bulgu"daki gibi sözcük sayar)
+_TYPE_ONE_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([Tt]ip|[Ee]vre|[Gg]rade|[Kk]ategori)\s+bir(?![\wÇĞİÖŞÜçğıöşü])")
 # Omurga seviyesinden önce "son" anlamsızdır: sağ/sol hatası raporda en tehlikeli hatadır.
 _SIDE_RE = re.compile(r"(?<![\wçğıöşü])([Ss])on(?=\s+[LSCT]\s?(?:\d|bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on)\b)")
 # Sesli biçim komutları (büyük/küçük harf Türkçe kurallarıyla duyarsız; model komutu noktalı cümle gibi verebilir)
@@ -236,6 +247,7 @@ _COMMANDS = {
     "yeni paragraf": "\n\n", "paragraf başı": "\n\n",
     "yeni madde": "\n• ",
 }
+COMMAND_PHRASES = tuple(_COMMANDS)  # Ayarlar › Sözlük'te terim önerisi (komuta söyleniş bağlamak için)
 
 
 def _tr_ci(phrase: str) -> str:
@@ -352,6 +364,7 @@ class MedicalPostProcessor:
             return text
         # Omurga seviyesi önce: "C altı" -> "C6" ("altı" aksi hâlde sayı bağlamı görülmeden korunurdu)
         text = _SPINE_WORD_RE.sub(lambda m: f"{m.group(1)}{_SPINE_NUMS[m.group(2)]}", text)  # "L dört" -> "L4"
+        text = _TYPE_ONE_RE.sub(r"\1 1", text)  # "Modic tip bir" -> "tip 1" (ITN "bir"i sözcük sayar)
         protected, saved = protect_number_words(text)
         try:
             out = self._itn.normalize(protected)

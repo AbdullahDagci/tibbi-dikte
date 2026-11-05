@@ -9,11 +9,16 @@ Dosya alanları: tokens, encoder, decoder, joiner, model, bpe_vocab, vad (offlin
 """
 from __future__ import annotations
 
+import json
+import logging
+
 import numpy as np
 import sherpa_onnx
 
 from ..paths import resource_dir
 from .base import DictationSession, ModelInfo, SttEngine
+
+log = logging.getLogger(__name__)
 
 
 def _clean(text: str) -> str:
@@ -21,24 +26,65 @@ def _clean(text: str) -> str:
 
 
 # ---------------------------------------------------------------- online (akış)
+# Kelime düşürülen uç noktada son kelimenin zaman damgasından bu kadar sonrası yeni akışa yeniden verilir
+TAIL_MARGIN_SEC = 0.3
+_KEEP_SEC = 90.0  # yeniden verme için tutulan son ses (rule3 sınırından uzun olmalı)
+
+
 class _OnlineSession(DictationSession):
+    """Uç nokta (cümle sonu): sonuç alınır, akış sıfırlanır. Model son anda kelime düşürdüyse (kısmi sonuç
+    "…daralmıştır. Ayrıca komşu", nihai "…daralmıştır.") sıfırlama o kelimelerin sesini atardı (05.11 kayıt):
+    bu durumda yeni akış açılır ve son kelimeden sonraki ses ona yeniden verilir. Normal uç noktada davranış
+    aynıdır (her uç noktada yeniden vermek son kelimenin artığından sahte "A" üretiyordu)."""
+
     def __init__(self, rec: "sherpa_onnx.OnlineRecognizer", sr: int):
         self.rec = rec
         self.sr = sr
-        self.stream = rec.create_stream()
+        self._new_stream()
+
+    def _new_stream(self, audio: np.ndarray | None = None) -> None:
+        self.stream = self.rec.create_stream()
+        self._audio: list[np.ndarray] = []  # akışa verilen sesin son _KEEP_SEC'i
+        self._base = 0                       # _audio'daki ilk örneğin akış başına göre sırası
+        self._n = 0                          # akışa verilen toplam örnek
+        self._last = ""                      # uç noktadan önceki son kısmi sonuç
+        if audio is not None and len(audio):
+            self._feed(audio)
+
+    def _feed(self, samples: np.ndarray) -> None:
+        s = np.asarray(samples, dtype=np.float32)
+        self._audio.append(s)
+        self._n += len(s)
+        keep = int(_KEEP_SEC * self.sr)
+        while len(self._audio) > 1 and self._n - self._base - len(self._audio[0]) >= keep:
+            self._base += len(self._audio.pop(0))
+        self.stream.accept_waveform(self.sr, s)
+        self._decode()
 
     def _decode(self) -> None:
         while self.rec.is_ready(self.stream):
             self.rec.decode_stream(self.stream)
 
     def accept(self, samples: np.ndarray) -> list[str]:
-        self.stream.accept_waveform(self.sr, samples)
-        self._decode()
-        if self.rec.is_endpoint(self.stream):
-            text = _clean(self.rec.get_result(self.stream))
+        self._feed(samples)
+        if not self.rec.is_endpoint(self.stream):
+            self._last = self.rec.get_result(self.stream)
+            return []
+        r = json.loads(self.rec.get_result_as_json_string(self.stream))
+        text = _clean(r.get("text", ""))
+        ts = r.get("timestamps") or []
+        prev, cur = _clean(self._last).split(), text.split()
+        if ts and len(prev) > len(cur) and prev[:len(cur)] == cur:
+            # zaman damgaları segment başına göre; segment akışın start_time anında başlar
+            start = int((float(r.get("start_time", 0.0)) + ts[-1] + TAIL_MARGIN_SEC) * self.sr) - self._base
+            tail = np.concatenate(self._audio)[max(0, start):]
+            log.info("uç nokta kelime düşürdü (%d kelime): %.1f sn ses yeniden çözülüyor",
+                     len(prev) - len(cur), len(tail) / self.sr)
+            self._new_stream(tail)
+        else:
             self.rec.reset(self.stream)
-            return [text] if text else []
-        return []
+            self._last = ""
+        return [text] if text else []
 
     def partial(self) -> str:
         return _clean(self.rec.get_result(self.stream))
@@ -49,7 +95,7 @@ class _OnlineSession(DictationSession):
         self.stream.input_finished()
         self._decode()
         text = _clean(self.rec.get_result(self.stream))
-        self.stream = self.rec.create_stream()
+        self._new_stream()
         return [text] if text else []
 
 
@@ -65,7 +111,8 @@ class SherpaOnlineEngine(SttEngine):
             enable_endpoint_detection=True,
             rule1_min_trailing_silence=float(sp.get("rule1_min_trailing_silence", 2.4)),
             rule2_min_trailing_silence=float(sp.get("rule2_min_trailing_silence", 0.8)),
-            rule3_min_utterance_length=float(sp.get("rule3_min_utterance_length", 20.0)),
+            # 20 sn akıcı okumayı kelime ortasında kesiyordu (05.11: "daralmı|ştır"); cümle duraksamada biter
+            rule3_min_utterance_length=float(sp.get("rule3_min_utterance_length", 60.0)),
             provider="cpu",
         )
         t = sp.get("type", "transducer")

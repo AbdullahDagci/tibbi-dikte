@@ -54,3 +54,39 @@ def test_voice_commands(pp):
 def test_spine_levels(src, expected):
     from app.medical.postprocess import normalize_spine_levels
     assert normalize_spine_levels(src) == expected
+
+
+@pytest.mark.parametrize("src,expected", [
+    ("C3 7 intervertebral disklerde", "C3-C7 intervertebral disklerde"),  # çok seviyeli aralık
+    ("L2 5 disk aralıklarında", "L2-L5 disk aralıklarında"),
+    ("C3 7 mm çaplı", "C3 7 mm çaplı"),           # seviye bağlamı yok: dokunma
+    ("C7 3 intervertebral", "C7 3 intervertebral"),  # azalan: aralık değil
+])
+def test_spine_ranges(src, expected):
+    from app.medical.postprocess import normalize_spine_levels
+    assert normalize_spine_levels(src) == expected
+
+
+@pytest.fixture(scope="module")
+def pp_itn():
+    return MedicalPostProcessor.from_files(
+        [M / "lexicon_tr.txt", M / "radiology_terms_tr.txt"], [M / "corrections_tr.tsv"],
+        fuzzy_files=[M / "lexicon_tr.txt", M / "radiology_fuzzy_tr.txt"],
+        protected_files=[M / "radiology_known_tr.txt"], general_files=[M / "general_tr_words.txt"])
+
+
+@pytest.mark.parametrize("src,expected", [
+    # 06.11 kullanıcı denemesi (servikal MR): model çıktısı -> rapordaki yazım
+    ("C üç yedi intervertebral disklerde posterior taşma izlenmekte",
+     "C3-C7 intervertebral disklerde posterior taşma izlenmekte"),
+    ("C beş altı intervertebral diskte posterosantral annüler fissür",
+     "C5-C6 intervertebral diskte posterosantral annüler fissür"),
+    ("komşu en platelerde T bir ağırlıklı serilerde hipointens, T iki ağırlıklı serilerde hiperintens",
+     "komşu end-platelerde T1 ağırlıklı serilerde hipointens, T2 ağırlıklı serilerde hiperintens"),
+    ("Modic tip bir dejenerasyon dikkati çekmektedir.", "Modic tip 1 dejenerasyon dikkati çekmektedir."),
+    ("tip iki diyabet öyküsü", "tip 2 diyabet öyküsü"),
+    # "bir" sayı bağlamı yoksa sözcük kalır
+    ("disklere ait patolojik bir bulgu saptanmamıştır.", "disklere ait patolojik bir bulgu saptanmamıştır."),
+])
+def test_cervical_report_numbers(pp_itn, src, expected):
+    assert pp_itn(src) == expected

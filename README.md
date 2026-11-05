@@ -34,9 +34,12 @@ dikte uygulaması. Radyoloji ve genel tıbbi terimler için ayarlanmıştır, **
    - **Boşluk'u basılı tut** → konuş → bırak.
 3. Tepsi menüsü: **Test ve doğruluk…**, **Veri toplama…**, **Ayarlar…** (model, mikrofon, kısayol, bas-konuş tuşu,
    anlık yazım, sözlük).
-4. **Ayarlar › Sözlük**: tablo — *Doğru yazım* + *Söyleniş varyantları* (virgülle; `kök*` biçimi ekleri korur:
-   `protrüzyon ← protezyon*`). Varyant bir sesli komuta da bağlanabilir (`alt satıra geç ← alt sağa geç`).
-   **Dışa aktar…** / **İçe aktar…** ile sözlük başka bilgisayara taşınır; içe aktarma mevcut sözlüğü silmeden birleştirir.
+4. **Ayarlar › Sözlük**: modelin yanlış yazdığı kelimeyi sizin yazımınıza çevirir. Solda terimler, sağda seçili
+   terimin **doğru yazımı** ve **söylenişleri** (modelin yanlış yazdığı hâller; her biri ayrı satır, Enter ile eklenir).
+   **Ekli hâlleri de** işaretli söyleniş ekleri de kapsar: `protezyon` ✓ → *protezyonu → protrüzyonu*.
+   Söyleniş bir sesli komuta da bağlanabilir (`alt satıra geç ← alt sağa geç`). **Dene** kutusu bir cümlenin
+   sözlükle nasıl düzeltileceğini anında gösterir. **Dışa aktar…** / **İçe aktar…** ile sözlük başka bilgisayara
+   taşınır; içe aktarma mevcut sözlüğü silmeden birleştirir.
 
 ## Tıbbi doğruluk katmanları
 | Katman | Örnek |
@@ -83,6 +86,9 @@ klasörlerini tarar, **Ayarlar › Genel › Konuşma modeli**'nden seçilir:
   "encoder": "small-encoder.int8.onnx", "decoder": "small-decoder.int8.onnx",
   "tokens": "small-tokens.txt", "language": "tr" }
 ```
+Kullanıcı model seçmediyse `"default": true` olan model kullanılır — şu an **`tibbi-tr-v3-tam`**
+(Ayarlar'da "(varsayılan)" yazar; kurulum yalnızca bu modeli kurar, eski kurulumdaki v2 klasörü güncellemede silinir). Varsayılan seçili kaydedilirse ayar boş
+kalır, sonraki sürümde varsayılan değişince kullanıcı da geçer; başka bir model seçen kullanıcının tercihi korunur.
 `mode`: `online` (akış) | `offline` (Silero VAD ile bölünür). `type`: online için `transducer`, `paraformer`,
 `zipformer2_ctc`; offline için `transducer`, `whisper`, `nemo_ctc`, `paraformer`, `sense_voice`.
 Lisansı atıf gerektiren modellerde `"attribution"` alanı Hakkında sekmesinde ve NOTICE.txt'de gösterilir.

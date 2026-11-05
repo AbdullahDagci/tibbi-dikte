@@ -12,7 +12,11 @@ from .paths import user_dir
 def setup_logging() -> None:
     h = RotatingFileHandler(user_dir() / "app.log", maxBytes=1_000_000, backupCount=2, encoding="utf-8")
     h.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s"))
-    logging.basicConfig(level=logging.INFO, handlers=[h])
+    # %APPDATA%\TibbiDikte\debug dosyası varsa ayrıntılı kayıt (dikte metni dahil — KVKK: tanı bitince silin)
+    debug = (user_dir() / "debug").exists()
+    logging.basicConfig(level=logging.DEBUG if debug else logging.INFO, handlers=[h])
+    if debug:
+        logging.getLogger(__name__).warning("Ayrıntılı kayıt açık (debug dosyası): dikte metni günlüğe yazılır")
 
 
 def main() -> int:

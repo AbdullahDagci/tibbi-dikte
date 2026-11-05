@@ -15,7 +15,7 @@ import io
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from .medical.postprocess import read_corrections, read_lexicon, tr_lower
+from .medical.postprocess import MedicalPostProcessor, read_corrections, read_lexicon, tr_lower
 
 HEADER = ("Doğru yazım", "Söyleniş varyantları")
 _LEX_HEADER = "# Kendi tıbbi terimleriniz — her satıra bir terim (Ayarlar › Sözlük'ten düzenleyin)\n"
@@ -38,6 +38,24 @@ def parse_variants(text: str, term: str = "") -> list[str]:
             seen.add(tr_lower(v))
             out.append(v)
     return out
+
+
+def split_root(variant: str) -> tuple[str, bool]:
+    """'protezyon*' -> ('protezyon', True): sondaki * "ekli hâlleri de düzelt" demektir."""
+    v = variant.strip()
+    return (v[:-1].rstrip(), True) if v.endswith("*") else (v, False)
+
+
+def join_root(text: str, with_suffixes: bool) -> str:
+    text = " ".join(text.replace("*", " ").split())
+    return text + "*" if with_suffixes and text else text
+
+
+def preview(entries: list[Entry], text: str) -> str:
+    """Yalnızca sözlüğün etkisi: söylenişler doğru yazıma çevrilir (Ayarlar › Sözlük › Dene kutusu)."""
+    pp = MedicalPostProcessor(corrections=[(v, e.term) for e in entries if e.term.strip() for v in e.variants],
+                              use_itn=False, fuzzy=False)
+    return pp.apply_corrections(text)
 
 
 def _add(entries: list[Entry], index: dict[str, Entry], term: str, variants: list[str]) -> tuple[int, int]:

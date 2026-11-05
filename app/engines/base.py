@@ -50,6 +50,11 @@ class ModelInfo:
         return int(self.spec.get("sample_rate", 16000))
 
     @property
+    def is_default(self) -> bool:
+        """Kullanıcı model seçmediyse kullanılacak model (model.json "default": true)."""
+        return bool(self.spec.get("default", False))
+
+    @property
     def hotwords(self) -> bool:
         """False: model tıbbi terimleri eğitimde öğrendi, hotword yardımı ona zarar verir (model.json "hotwords")."""
         return bool(self.spec.get("hotwords", True))

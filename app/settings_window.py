@@ -6,17 +6,17 @@ from pathlib import Path
 
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QGuiApplication, QKeySequence
-from PySide6.QtWidgets import (QAbstractItemView, QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFileDialog,
-                               QFormLayout, QHBoxLayout, QHeaderView, QKeySequenceEdit, QLabel, QLineEdit,
-                               QMessageBox, QPlainTextEdit, QPushButton, QSpinBox, QTableWidget, QTableWidgetItem,
-                               QTabWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFileDialog, QFormLayout,
+                               QHBoxLayout, QKeySequenceEdit, QLabel, QLineEdit, QMessageBox, QPlainTextEdit,
+                               QPushButton, QSpinBox, QTabWidget, QVBoxLayout, QWidget)
 
 from . import __version__, user_dict
 from .audio import list_input_devices
 from .config import Config
 from .dictation import USER_CORRECTIONS, USER_LEXICON, ensure_user_files
-from .engines.registry import discover_models
+from .engines.registry import discover_models, resolve_model
 from .hotkey import is_valid, pynput_to_qt, qt_to_pynput
+from .lexicon_editor import LexiconEditor
 from .licensing import license as lic
 from .paths import install_dir
 from .ptt import PTT_KEYS
@@ -32,7 +32,7 @@ class SettingsWindow(QDialog):
         super().__init__(parent)
         self.cfg = cfg
         self.setWindowTitle("Tıbbi Dikte — Ayarlar")
-        self.setMinimumSize(560, 460)
+        self.setMinimumSize(760, 560)
         self.tabs = QTabWidget()
         self.tabs.addTab(self._general_tab(), "Genel")
         self.tabs.addTab(self._lexicon_tab(), "Sözlük")
@@ -52,10 +52,14 @@ class SettingsWindow(QDialog):
         w = QWidget()
         f = QFormLayout(w)
         self.model_box = QComboBox()
-        for m in discover_models():
-            self.model_box.addItem(m.name, str(m.dir))
-        idx = self.model_box.findData(self.cfg.model_dir)
-        self.model_box.setCurrentIndex(max(0, idx))
+        models = discover_models()
+        self._default_model_dir = str(resolve_model(models, "").dir) if models else ""
+        for m in models:
+            label = f"{m.name} (varsayılan)" if str(m.dir) == self._default_model_dir else m.name
+            self.model_box.addItem(label, str(m.dir))
+        if models:
+            self.model_box.setCurrentIndex(
+                max(0, self.model_box.findData(str(resolve_model(models, self.cfg.model_dir).dir))))
         f.addRow("Konuşma modeli:", self.model_box)
 
         self.mic_box = QComboBox()
@@ -100,94 +104,49 @@ class SettingsWindow(QDialog):
         self.cb_space.setChecked(self.cfg.add_trailing_space)
         self.cb_overlay = QCheckBox("Dinlerken ekranda gösterge ve canlı metin göster")
         self.cb_overlay.setChecked(self.cfg.show_overlay)
-        for cb in (self.cb_live, self.cb_hot, self.cb_fuzzy, self.cb_ctx, self.cb_itn, self.cb_space, self.cb_overlay):
+        self.cb_post = QCheckBox("Tıbbi düzeltmeleri uygula (sayı, terim, sözlük) — kapalıysa model ne duyduysa o yazılır")
+        self.cb_post.setChecked(self.cfg.use_postprocess)
+        self.cb_post.toggled.connect(self._post_toggled)
+        self._post_toggled(self.cfg.use_postprocess)
+        for cb in (self.cb_live, self.cb_hot, self.cb_post, self.cb_fuzzy, self.cb_ctx, self.cb_itn, self.cb_space,
+                   self.cb_overlay):
             f.addRow(cb)
         return w
+
+    def _post_toggled(self, on: bool) -> None:
+        for cb in (self.cb_fuzzy, self.cb_ctx, self.cb_itn):
+            cb.setEnabled(on)
 
     # ------------------------------------------------------------ Sözlük
     def _lexicon_tab(self) -> QWidget:
         ensure_user_files()
         w = QWidget()
         v = QVBoxLayout(w)
-        info = QLabel("Her satır bir terim: <b>doğru yazımı</b> ve modelin onu yazabileceği <b>söyleniş "
-                      "varyantları</b> (virgülle). Dikte sırasında varyant doğru yazıma çevrilir ve terim modele "
-                      "öncelikli tanıtılır. Varyantın sonundaki <b>*</b> ekleri korur: <i>protezyon*</i> → "
-                      "protrüzyonu. Sesli komutlar da varyant alabilir: <i>alt sağa geç</i> → alt satıra geç.")
+        info = QLabel("Sözlük, modelin <b>yanlış yazdığı</b> kelimeleri sizin istediğiniz <b>doğru yazıma</b> çevirir. "
+                      "Örnek: model <i>protrüzyon</i> yerine <i>protezyon</i> yazıyorsa doğru yazım "
+                      "<b>protrüzyon</b>, söyleniş <b>protezyon</b>. Söyleniş olmadan eklenen terim de işe yarar: "
+                      "büyük/küçük harfi korunur (<i>Doppler</i>) ve 8+ harfli terime çok yakın yazımlar ona "
+                      "düzeltilir. Söyleniş bir sesli komuta da bağlanabilir (<i>alt sağa geç</i> → alt satıra geç).")
         info.setWordWrap(True)
         info.setTextFormat(Qt.RichText)
         v.addWidget(info)
-        self.lex_search = QLineEdit()
-        self.lex_search.setPlaceholderText("Ara…")
-        self.lex_search.setClearButtonEnabled(True)
-        self.lex_search.textChanged.connect(self._filter_lexicon)
-        v.addWidget(self.lex_search)
-        self.lex_table = QTableWidget(0, 2)
-        self.lex_table.setHorizontalHeaderLabels(list(user_dict.HEADER))
-        self.lex_table.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
-        self.lex_table.horizontalHeader().setSectionResizeMode(1, QHeaderView.Stretch)
-        self.lex_table.verticalHeader().setVisible(False)
-        self.lex_table.setSelectionBehavior(QAbstractItemView.SelectRows)
-        v.addWidget(self.lex_table, 1)
         self._lex_loaded = user_dict.load(USER_LEXICON, USER_CORRECTIONS)
-        self._fill_lexicon(self._lex_loaded)
+        self.lex_editor = LexiconEditor(self._lex_loaded)
+        v.addWidget(self.lex_editor, 1)
 
         row = QHBoxLayout()
-        add = QPushButton("+ Terim ekle")
-        add.clicked.connect(lambda: self._add_lexicon_row())  # clicked(bool) terim yerine geçmesin
-        rem = QPushButton("Seçiliyi sil")
-        rem.clicked.connect(self._remove_lexicon_rows)
+        row.addStretch()
         imp = QPushButton("İçe aktar…")
         imp.clicked.connect(self._import_lexicon)
         exp = QPushButton("Dışa aktar…")
         exp.clicked.connect(self._export_lexicon)
-        for b in (add, rem):
-            row.addWidget(b)
-        row.addStretch()
         for b in (imp, exp):
             row.addWidget(b)
         v.addLayout(row)
         return w
 
-    def _fill_lexicon(self, entries: list[user_dict.Entry]) -> None:
-        self.lex_table.setRowCount(0)
-        for e in entries:
-            self._add_lexicon_row(e.term, ", ".join(e.variants), edit=False)
-        self._filter_lexicon(self.lex_search.text())
-
-    def _add_lexicon_row(self, term: str = "", variants: str = "", edit: bool = True) -> None:
-        r = self.lex_table.rowCount()
-        self.lex_table.insertRow(r)
-        self.lex_table.setItem(r, 0, QTableWidgetItem(term))
-        self.lex_table.setItem(r, 1, QTableWidgetItem(variants))
-        if edit:
-            self.lex_search.clear()
-            self.lex_table.scrollToBottom()
-            self.lex_table.setCurrentCell(r, 0)
-            self.lex_table.editItem(self.lex_table.item(r, 0))
-
-    def _remove_lexicon_rows(self) -> None:
-        for r in sorted({i.row() for i in self.lex_table.selectedIndexes()}, reverse=True):
-            self.lex_table.removeRow(r)
-
-    def _filter_lexicon(self, text: str) -> None:
-        q = text.strip().casefold()
-        for r in range(self.lex_table.rowCount()):
-            cells = " ".join((self.lex_table.item(r, c) or QTableWidgetItem()).text() for c in (0, 1))
-            self.lex_table.setRowHidden(r, bool(q) and q not in cells.casefold())
-
     def _lexicon_entries(self) -> list[user_dict.Entry]:
-        entries, index = [], {}
-        for r in range(self.lex_table.rowCount()):
-            term = " ".join((self.lex_table.item(r, 0) or QTableWidgetItem()).text().split())
-            if not term:
-                continue
-            variants = user_dict.parse_variants((self.lex_table.item(r, 1) or QTableWidgetItem()).text(), term)
-            if term in index:  # aynı terim iki satırda: tek satırda birleştir
-                index[term].variants += [x for x in variants if x not in index[term].variants]
-            else:
-                index[term] = user_dict.Entry(term, variants)
-                entries.append(index[term])
-        return entries
+        return self.lex_editor.entries()
 
     def _import_lexicon(self) -> None:
         path, _ = QFileDialog.getOpenFileName(self, "Sözlüğü içe aktar", "",
@@ -200,7 +159,7 @@ class SettingsWindow(QDialog):
             QMessageBox.warning(self, "İçe aktar", f"Dosya okunamadı:\n{e}")
             return
         merged, nt, nv = user_dict.merge(self._lexicon_entries(), incoming)
-        self._fill_lexicon(merged)
+        self.lex_editor.set_entries(merged)
         QMessageBox.information(self, "İçe aktar", f"{nt} yeni terim, {nv} yeni varyant eklendi; mevcut "
                                                    "sözlük korundu.\nUygulamak için Kaydet'e basın.")
 
@@ -279,12 +238,9 @@ class SettingsWindow(QDialog):
         return w
 
     def _update_attribution(self) -> None:
-        text = ""
-        for m in discover_models():
-            if str(m.dir) == (self.model_box.currentData() or ""):
-                text = m.attribution
-        if not self.model_box.currentData() and discover_models():
-            text = discover_models()[0].attribution
+        models = discover_models()
+        m = resolve_model(models, self.model_box.currentData() or "") if models else None
+        text = f"{m.name} ({m.attribution})" if m is not None and m.attribution else ""
         self.attribution.setText(f"Konuşma tanıma: {text}" if text else "")
         self.attribution.setVisible(bool(text))
 
@@ -311,7 +267,9 @@ class SettingsWindow(QDialog):
             return
         old = (self.cfg.model_dir, self.cfg.num_threads, self.cfg.use_hotwords, self.cfg.use_itn,
                self.cfg.fuzzy_correction, self.cfg.use_context)
-        self.cfg.model_dir = self.model_box.currentData() or ""
+        chosen = self.model_box.currentData() or ""
+        # varsayılan seçiliyse boş bırak: sonraki sürümde varsayılan değişirse kullanıcı da geçer
+        self.cfg.model_dir = "" if chosen == self._default_model_dir else chosen
         self.cfg.input_device = self.mic_box.currentData()
         self.cfg.hotkey = hk
         self.cfg.ptt_key = self.ptt_box.currentData()
@@ -320,6 +278,7 @@ class SettingsWindow(QDialog):
         self.cfg.fuzzy_correction = self.cb_fuzzy.isChecked()
         self.cfg.use_context = self.cb_ctx.isChecked()
         self.cfg.use_itn = self.cb_itn.isChecked()
+        self.cfg.use_postprocess = self.cb_post.isChecked()
         self.cfg.add_trailing_space = self.cb_space.isChecked()
         self.cfg.live_typing = self.cb_live.isChecked()
         self.cfg.show_overlay = self.cb_overlay.isChecked()

@@ -16,6 +16,7 @@ class Config:
     num_threads: int = 2
     use_hotwords: bool = True
     hotwords_score: float = 2.0
+    use_postprocess: bool = True        # False: model ne duyduysa o yazılır (sayı/terim/sözlük düzeltmesi yok)
     use_itn: bool = True                # sayı/yüzde/tarih -> yazılı biçim
     fuzzy_correction: bool = True       # tıbbi terimlere bulanık düzeltme
     use_context: bool = True            # rapor dil modeliyle bağlamsal düzeltme (model dosyası varsa)
@@ -24,6 +25,7 @@ class Config:
     live_typing: bool = True            # kelimeleri konuşurken yaz; cümle sonunda düzeltilmiş hâliyle güncelle
     show_overlay: bool = True           # dinlerken ekranın altında nabız + canlı metin
     extra: dict = field(default_factory=dict)
+    config_version: int = 2             # 2: model_dir boşsa model.json "default" modeli (v3-tam) kullanılır
 
     @classmethod
     def load(cls) -> "Config":
@@ -31,6 +33,11 @@ class Config:
             try:
                 data = json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
                 known = {k: v for k, v in data.items() if k in cls.__dataclass_fields__}
+                # Sürüm 1'de tek model v2'ydi ve Ayarlar kaydedilince listedeki ilk model yazılıyordu:
+                # bu kayıt bir tercih değil -> varsayılan modele geç
+                if "config_version" not in data and str(known.get("model_dir", "")).rstrip("\\/").endswith(
+                        "tibbi-tr-v2"):
+                    known["model_dir"] = ""
                 return cls(**known)
             except (json.JSONDecodeError, TypeError):
                 pass

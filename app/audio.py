@@ -1,8 +1,12 @@
 """Mikrofon yakalama: float32 mono, modelin örnekleme hızında, kuyruğa parça parça."""
+import logging
 import queue
 
 import numpy as np
 import sounddevice as sd
+
+
+log = logging.getLogger(__name__)
 
 
 def list_input_devices() -> list[tuple[int, str]]:
@@ -22,6 +26,8 @@ class Microphone:
         self._stream: sd.InputStream | None = None
 
     def _cb(self, indata, frames, time, status):  # noqa: ARG002
+        if status:  # ör. input overflow: ses kartı verisi zamanında alınamadı, ses parçası kayboldu
+            log.warning("mikrofon: %s", status)
         self.q.put(indata[:, 0].copy())
 
     def start(self) -> None:

@@ -34,6 +34,15 @@ def discover_models(extra_dirs: list[Path] | None = None) -> list[ModelInfo]:
     return found
 
 
+def resolve_model(models: list[ModelInfo], model_dir: str) -> ModelInfo:
+    """Kullanıcının seçtiği model (model_dir), yoksa "default": true olan, o da yoksa ilk model."""
+    if model_dir:
+        for m in models:
+            if str(m.dir) == model_dir:
+                return m
+    return next((m for m in models if m.is_default), models[0])
+
+
 def load_engine(model: ModelInfo, **kw) -> SttEngine:
     factory = ENGINES.get(model.engine)
     if factory is None:

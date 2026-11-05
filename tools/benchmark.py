@@ -35,7 +35,7 @@ BUILTIN_LEXICON, RADIOLOGY_LEXICON = MED / "lexicon_tr.txt", MED / "radiology_te
 BUILTIN_CORRECTIONS, RADIOLOGY_FUZZY, RADIOLOGY_KNOWN = (MED / "corrections_tr.tsv", MED / "radiology_fuzzy_tr.txt",
                                                          MED / "radiology_known_tr.txt")
 from app.engines.base import ModelInfo  # noqa: E402
-from app.engines.registry import discover_models, load_engine  # noqa: E402
+from app.engines.registry import discover_models, load_engine, resolve_model  # noqa: E402
 from app.medical.postprocess import MedicalPostProcessor, read_lexicon, tr_capitalize, tr_lower  # noqa: E402
 
 
@@ -227,7 +227,7 @@ def main() -> int:
         print(write_report())
         return 0
 
-    model = ModelInfo.from_dir(Path(a.model)) if a.model else discover_models()[0]
+    model = ModelInfo.from_dir(Path(a.model)) if a.model else resolve_model(discover_models(), "")
     label = a.label or model.name
     names = [s.strip() for s in a.sets.split(",") if s.strip()]
     terms = {tr_lower(t) for f in (BUILTIN_LEXICON, RADIOLOGY_LEXICON) for t in read_lexicon(f) if " " not in t}

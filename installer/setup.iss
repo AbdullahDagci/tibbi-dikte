@@ -30,12 +30,15 @@ Name: "desktopicon"; Description: "Masaüstü kısayolu oluştur"; GroupDescript
 
 [Files]
 Source: "{#SrcDir}\*"; DestDir: "{app}"; Flags: recursesubdirs ignoreversion
-Source: "..\models\tibbi-tr-v2\*"; DestDir: "{app}\models\tibbi-tr-v2"; Excludes: ".cache\*,config.json"; Flags: recursesubdirs ignoreversion
+; Kurulum yalnızca kendi eğittiğimiz modeli taşır (06.11 kullanıcı kararı; v2 artık paketlenmez)
+Source: "..\models\tibbi-tr-v3-tam\*"; DestDir: "{app}\models\tibbi-tr-v3-tam"; Excludes: ".cache\*,config.json,LICENSE"; Flags: recursesubdirs ignoreversion
 Source: "..\NOTICE.txt"; DestDir: "{app}"
 
 [InstallDelete]
 ; 1.1 öncesi model klasör adı (model listesinde çift görünmesin)
 Type: filesandordirs; Name: "{app}\models\mihu-turkish-v2"
+; 1.1 kurulumlarındaki v2 modeli (artık paketlenmiyor; seçili kalan kullanıcı varsayılana geçer)
+Type: filesandordirs; Name: "{app}\models\tibbi-tr-v2"
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\TibbiDikte.exe"

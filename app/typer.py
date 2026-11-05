@@ -4,9 +4,12 @@ Unicode olay gönderildiği için klavye düzeninden bağımsızdır; ş, ğ, ı
 ve pano değiştirilmez.
 """
 import ctypes
+import logging
 import sys
 import time
 from ctypes import wintypes
+
+log = logging.getLogger(__name__)
 
 INPUT_KEYBOARD = 1
 KEYEVENTF_KEYUP = 0x0002
@@ -66,14 +69,23 @@ def wait_modifiers_released(timeout: float = 2.0) -> None:
         time.sleep(0.02)
 
 
+def _send(events: list[INPUT], what: str) -> int:
+    """SendInput + tanı kaydı (süre, gönderilen olay sayısı)."""
+    arr = (INPUT * len(events))(*events)
+    t0 = time.perf_counter()
+    sent = ctypes.windll.user32.SendInput(len(events), arr, ctypes.sizeof(INPUT))
+    ms = (time.perf_counter() - t0) * 1000
+    level = logging.WARNING if ms > 250 or sent != len(events) else logging.DEBUG
+    log.log(level, "SendInput %s: %d/%d olay, %.0f ms", what, sent, len(events), ms)
+    return sent
+
+
 def type_text(text: str) -> None:
     if not text or sys.platform != "win32":
         return
     wait_modifiers_released()
     events = _events_for(text)
-    arr = (INPUT * len(events))(*events)
-    sent = ctypes.windll.user32.SendInput(len(events), arr, ctypes.sizeof(INPUT))
-    if sent != len(events):
+    if _send(events, f"yaz {len(text)} karakter") != len(events):
         raise OSError("SendInput başarısız (hedef pencere yönetici yetkisiyle çalışıyor olabilir)")
 
 
@@ -88,5 +100,4 @@ def backspace(n: int) -> None:
     events = []
     for _ in range(n):
         events += [_key(vk=VK_BACK), _key(vk=VK_BACK, flags=KEYEVENTF_KEYUP)]
-    arr = (INPUT * len(events))(*events)
-    ctypes.windll.user32.SendInput(len(events), arr, ctypes.sizeof(INPUT))
+    _send(events, f"sil {n}")
