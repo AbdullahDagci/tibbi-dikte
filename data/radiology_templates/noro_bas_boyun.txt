@@ -1,0 +1,626 @@
+# Nöroradyoloji ve baş-boyun şablonları (biçim: FORMAT.md)
+
+# Beyin BT - teknik
+Kontrastsız beyin BT incelemesinde kafa tabanından vertekse kadar aksiyel kesitler elde edilmiş, {koronal ve sagittal|sagittal ve koronal} reformat görüntüler değerlendirilmiştir.
+İnceleme {kontrastsız|kontrastsız ve kontrastlı} olarak {3|5} mm kesit kalınlığında gerçekleştirilmiştir.
+Görüntüler parankim ve kemik pencerelerinde ayrı ayrı değerlendirilmiştir.
+{Hasta hareketine bağlı artefaktlar|Kafa tabanı kemik yapılarına bağlı ışın sertleşmesi artefaktları} nedeniyle posterior fossa değerlendirmesi {sınırlıdır|suboptimaldir}.
+Beyin BT incelemesi {kafa travması|ani başlangıçlı baş ağrısı|bilinç değişikliği|akut nörolojik defisit} endikasyonu ile acil koşullarda yapılmıştır.
+İntravenöz kontrast madde enjeksiyonu sonrası {erken|geç} fazda ek aksiyel kesitler alınmıştır.
+
+# Beyin BT - normal bulgular
+Beyin parankim dansitesi {normal sınırlardadır|olağandır|doğaldır}.
+Gri-beyaz cevher ayrımı {korunmuştur|net olarak seçilmektedir|doğal görünümdedir}.
+Ventriküler sistem {normal genişlikte|yaşla uyumlu genişlikte|simetrik ve normal konfigürasyonda} izlenmiştir.
+Kortikal sulkuslar ve Sylvian fissürler {doğal genişliktedir|yaşla uyumlu belirginliktedir|normal görünümdedir}.
+Orta hat yapıları {santral konumdadır|ortadadır|şift göstermemektedir}.
+Akut intrakranial kanama {veya|ya da} {yer kaplayan lezyon|kitle etkisi|ekstraaksiyel koleksiyon} {saptanmamıştır|izlenmemiştir|görülmemiştir}.
+Bazal sisternalar ve perimezensefalik sisternalar açık olarak izlenmiştir.
+Posterior fossada serebellar hemisferler, vermis ve beyin sapı {doğal görünümdedir|normal dansitededir}.
+İzlenen kalvaryal kemik yapılarda {fraktür hattı|litik veya sklerotik lezyon|akut travmatik değişiklik} {saptanmamıştır|izlenmemiştir}.
+Bilateral globus pallidusta {fizyolojik|yaşa bağlı|nonspesifik} kalsifikasyonlar izlenmiştir.
+Pineal bezde ve koroid pleksuslarda fizyolojik kalsifikasyonlar mevcuttur.
+Görüntüleme alanına giren paranazal sinüslerin ve mastoid hücrelerin havalanması {doğaldır|normaldir|olağandır}.
+Serebral ve serebellar parankimde akut iskemi ile uyumlu dansite değişikliği {saptanmamıştır|izlenmemiştir}.
+Beyin parankiminde patolojik {dansite|kontrastlanma} alanı {izlenmedi|izlenmemiştir|görülmedi}.
+Kafa tabanı ve kranioservikal bileşke doğal görünümdedir.
+Sella tursika boyutları ve konfigürasyonu normaldir.
+Bulbus okuliler ve retrobulber alanlar tabiidir.
+Ventriküler sistem ve sisternalar tabiidir.
+Serebellar tonsiller foramen magnum hizasında normal konumdadır.
+İnternal karotis arterlerin kavernöz segmentlerinde ve vertebral arterlerde {yaşla uyumlu|belirgin} aterosklerotik kalsifikasyonlar izlenmiştir.
+
+# Beyin BT - kanama
+{Sağ|Sol} frontoparietal konveksite boyunca maksimum kalınlığı {4|5|6|8|10|12|15} mm ölçülen, hilal şeklinde {akut dönemle uyumlu hiperdens|subakut dönemle uyumlu izodens|kronik dönemle uyumlu hipodens} subdural hematom izlendi.
+Subdural hematoma sekonder komşu sulkuslarda silinme ve orta hat yapılarında karşı tarafa doğru {3|4|5|6|8|10} mm şift izlenmiştir.
+{Sağ|Sol} temporal bölgede bikonveks şekilli, kalınlığı {8|10|12|15|18|22} mm'ye ulaşan akut epidural hematom {izlendi|saptandı}.
+Epidural hematom komşuluğunda {sağ|sol} temporal kemik skuamöz kesiminde lineer fraktür hattı eşlik etmektedir.
+Bilateral {frontal|frontoparietal} konveksitede BOS dansitesinde, kitle etkisi oluşturmayan subdural higroma ile uyumlu koleksiyonlar izlendi.
+Kronik subdural hematom içerisinde akut kanama ile uyumlu hiperdens alanlar ve septasyonlar izlenmiştir.
+Bazal sisternalarda, Sylvian fissürlerde ve kortikal sulkuslarda subaraknoid kanama ile uyumlu {hiperdensite|hiperdens görünüm} izlendi.
+{Sağ|Sol} frontal lob konveksitesinde birkaç sulkus içerisinde sınırlı {minimal|ince} subaraknoid kanama {izlendi|izlenmiştir|dikkati çekti}.
+Subaraknoid kanama {modifiye Fisher|Fisher} skalasına göre grade {1|2|3|4} ile uyumludur.
+Perimezensefalik sisternalarda sınırlı, anevrizmal olmayan subaraknoid kanama paterni ile uyumlu hiperdensite izlenmektedir.
+{Sağ|Sol} {putamen|eksternal kapsül|talamus} düzeyinde {mm}x{mm} mm boyutlarında, çevresinde {ince|belirgin} ödem halkası bulunan akut intraparankimal hematom izlendi.
+Hematom hacmi yaklaşık {8|12|18|25|30|40|55} ml olarak hesaplanmıştır.
+Hematom ventriküler sisteme açılmış olup lateral ventrikül oksipital boynuzlarında kan-sıvı seviyelenmesi izlenmiştir.
+Üçüncü ve dördüncü ventriküllerde intraventriküler kanama ile uyumlu hiperdens içerik izlenmektedir.
+{Sağ|Sol} serebellar hemisferde {mm} mm çaplı akut hematom ve dördüncü ventriküle bası etkisi {izlendi|saptandı}.
+{Sağ|Sol} {parietal|oksipital|temporal} lobda lobar yerleşimli, heterojen dansiteli, subakut dönem hematomu ile uyumlu lezyon izlendi.
+Hematom çevresinde perihematomal vazojenik ödem ve komşu sulkuslarda silinme izlenmektedir.
+Hematom içerisinde {sıvı-sıvı seviyelenmesi|heterojen dansite alanları} izlenmiş olup koagülopati açısından klinik korelasyon önerilir.
+BT anjiyografide hematom içerisinde kontrast ekstravazasyonu ile uyumlu spot işareti {izlenmiştir|izlenmemiştir}.
+Akut subaraknoid ya da intraparankimal kanama lehine bulgu saptanmamıştır.
+{Sağ|Sol} {frontal|temporal} lobda {hemorajik|travmatik} kontüzyon ile uyumlu, çevresinde ödem bulunan milimetrik hiperdens odaklar izlendi.
+Tentoryum ve falks serebri boyunca {ince|minimal} subdural kanama ile uyumlu hiperdensite izlenmektedir.
+Gri-beyaz cevher bileşkesinde diffüz aksonal hasar ile uyumlu milimetrik hemorajik odaklar izlenmiştir.
+Hematomun dansite değeri yaklaşık {55|60|65|70|75} HU olarak ölçülmüştür.
+Hematom çevresinde belirgin ödem izlenmemiş olup ventriküler sisteme açılım saptanmamıştır.
+Ekstraaksiyel kanama ile uyumlu koleksiyon {izlenmedi|izlenmemiştir|saptanmadı}.
+Hematom {T1 ağırlıklı görüntülerde hiperintens, T2 ağırlıklı görüntülerde hipointens olup erken subakut|T1 ve T2 ağırlıklı görüntülerde hiperintens olup geç subakut|T1 ağırlıklı görüntülerde izointens, T2 ağırlıklı görüntülerde hipointens olup akut} dönemle uyumludur.
+
+# Beyin BT - iskemi, ödem ve kitle etkisi
+{Sağ|Sol} orta serebral arter sulama alanında {frontotemporal|frontoparietal|insular} bölgede gri-beyaz cevher ayrımında silinme ile karakterize akut enfarkt ile uyumlu hipodens alan izlendi.
+{Sağ|Sol} orta serebral arter M1 segmentinde hiperdens arter işareti {izlenmiştir|dikkati çekmiştir}.
+ASPECTS skoru {6|7|8|9|10} olarak değerlendirilmiştir.
+İnsular korteks ve lentiform nükleus sınırlarında silinme izlenmekte olup erken iskemik değişiklik ile uyumludur.
+{Sağ|Sol} {posterior serebral|anterior serebral|orta serebral} arter sulama alanında {subakut|kronik} enfarkt ile uyumlu hipodens alan izlendi.
+{Sağ|Sol} serebellar hemisferde {posterior inferior serebellar|superior serebellar} arter sulama alanında akut enfarkt ile uyumlu hipodensite izlendi.
+Bilateral bazal ganglionlarda ve {sağ|sol} talamusta kronik laküner enfarkt ile uyumlu milimetrik hipodens odaklar izlenmiştir.
+{Sağ|Sol} {frontal|parietal|temporal|oksipital} lobda kronik enfarkt sekeli ile uyumlu, BOS dansitesinde ensefalomalazik alan izlendi.
+Ensefalomalazik alana komşu lateral ventrikülde ex vacuo genişleme izlenmektedir.
+Periventriküler beyaz cevherde kronik küçük damar hastalığına bağlı simetrik hipodens alanlar izlendi.
+{Sağ|Sol} sentrum semiovalede sınır bölgesi enfarktı ile uyumlu, sıralı dizilim gösteren hipodens odaklar izlenmektedir.
+Enfarkt alanında hemorajik transformasyon ile uyumlu hiperdens {odaklar|alanlar} izlenmiştir.
+Enfarkt alanında hemorajik transformasyon lehine bulgu {saptanmamıştır|izlenmemiştir}.
+Enfarkt alanında sitotoksik ödeme bağlı şişlik ve komşu sulkuslarda silinme izlenmektedir.
+Malign orta serebral arter enfarktına sekonder belirgin kitle etkisi ve subfalsin herniasyon izlenmiştir.
+Vazojenik ödem, kitle etkisi ve orta hat şifti {saptanmamıştır|izlenmemiştir}.
+Kitle etkisine bağlı olarak {sağ|sol} lateral ventrikül komprese olup orta hat yapılarında karşı tarafa doğru {3|4|5|6|8|10|12} mm şift izlendi.
+Unkal herniasyon bulgusu {izlenmedi|saptanmadı|görülmedi}.
+Suprasellar ve perimezensefalik sisternalarda silinme izlenmiş olup transtentoryal herniasyon ile uyumludur.
+Diffüz serebral ödem ile uyumlu olarak sulkuslarda silinme ve ventriküllerde küçülme izlendi.
+Hipoksik iskemik hasar ile uyumlu olarak gri-beyaz cevher ayrımında diffüz kayıp izlenmektedir.
+Serebellar tonsillerde foramen magnumdan aşağıya herniasyon {izlenmemiştir|izlenmektedir}.
+{Sağ|Sol} frontal lobda {mm} mm çaplı, çevresinde parmaksı tarzda vazojenik ödem bulunan izodens kitle lezyonu izlenmiş olup kontrastlı MR ile değerlendirilmesi önerilir.
+Bilateral serebral hemisferlerde farklı yaşlarda kronik iskemik değişiklikler izlenmiştir.
+Akut iskemik değişiklik BT'de henüz belirgin olmayabileceğinden klinik şüphe varlığında difüzyon ağırlıklı MR önerilir.
+Kronik iskemik zeminde {sağ|sol} parietal lobda yeni gelişen hipodens alan dikkati çekmiştir.
+
+# Kalvaryum, kafa tabanı ve travma
+{Sağ|Sol} {frontal|parietal|temporal|oksipital} kemikte {deplase olmayan|minimal deplase} lineer fraktür hattı izlendi.
+{Sağ|Sol} parietal kemikte yaklaşık {3|4|5|6|8|10} mm depresyon gösteren çökme kırığı izlendi.
+Kalvaryumda akut {fraktür hattı|kırık hattı} {saptanmamıştır|izlenmemiştir|görülmemiştir}.
+{Sağ|Sol} {frontal|parietal|temporal|oksipital} bölgede ciltaltı yumuşak dokuda {hematom|ödem} ile uyumlu kalınlaşma izlendi.
+Skalp hematomu dışında intrakranial travmatik patoloji saptanmamıştır.
+{Sağ|Sol} temporal kemikte {longitudinal|transvers|mikst} fraktür hattı ve mastoid hücrelerde hemorajik içerik izlendi.
+Fraktür hattı otik kapsülü {tutan|koruyan} tiptedir.
+Kafa tabanında {sfenoid sinüs duvarında|klivusta|oksipital kondilde} fraktür hattı izlenmektedir.
+İntrakranial alanda pnömosefali ile uyumlu {milimetrik|minimal} hava dansiteleri izlenmektedir.
+{Sağ|Sol} orbita {medial duvarında|tabanında|lateral duvarında} fraktür hattı izlenmiş olup orbital yağlı dokuda herniasyon {izlenmektedir|izlenmemiştir}.
+Nazal kemikte {deplase|deplase olmayan} fraktür hattı izlendi.
+{Sağ|Sol} maksiller sinüs ön ve lateral duvarlarında fraktür ile sinüs içerisinde hemorajik içerikle uyumlu hava-sıvı seviyesi izlendi.
+Kalvaryumda {multipl litik lezyonlar|birkaç adet litik lezyon} izlenmiş olup metastaz ve multipl miyelom açısından değerlendirilmesi önerilir.
+{Sağ|Sol} parietal kemikte {mm} mm çaplı, trabeküler paternde, ekspansil kalvaryal hemanjiyom ile uyumlu lezyon izlendi.
+Frontal kemik iç tablasında hiperostozis frontalis interna ile uyumlu kortikal kalınlaşma izlendi.
+{Sağ|Sol} {frontal|parietal|temporal|frontotemporal} kraniotomi ve kemik flep ile uyumlu postoperatif değişiklikler izlenmektedir.
+Kraniotomi defekti altında {ensefalomalazi ve gliozis|ekstraaksiyel sıvı koleksiyonu} izlenmektedir.
+Ventriküloperitoneal şant kateterinin ucu {sağ|sol} lateral ventrikül frontal boynuzunda izlenmektedir.
+Kalvaryumda fibröz displazi ile uyumlu, buzlu cam görünümünde ekspansil kemik lezyonu izlendi.
+
+# Beyin MR - teknik
+Beyin MR incelemesi aksiyel, sagittal ve koronal planlarda T1 ve T2 ağırlıklı, FLAIR ve difüzyon ağırlıklı sekanslarla gerçekleştirilmiştir.
+İntravenöz kontrast madde enjeksiyonu sonrası {aksiyel ve koronal|üç planda|üç boyutlu} T1 ağırlıklı {fatsat|volümetrik} görüntüler elde edilmiştir.
+Difüzyon ağırlıklı görüntüler b 0 ve b 1000 değerlerinde alınmış, ADC haritaları oluşturulmuştur.
+SWI sekansı ile mikrokanama, hemosiderin ve kalsifikasyon açısından değerlendirme yapılmıştır.
+İnceleme hasta hareketine bağlı artefaktlar nedeniyle {suboptimal|sınırlı} kalitededir.
+Kontrast madde verilmeden yapılan incelemede {neoplastik|inflamatuar} süreçlerin değerlendirilmesi sınırlıdır.
+Epilepsi protokolüne uygun olarak hipokampus düzlemine dik koronal ince kesit T2 ağırlıklı ve FLAIR sekanslar elde edilmiştir.
+Üç boyutlu T1 ağırlıklı volümetrik sekans ile ince kesit görüntüler elde edilmiş ve çok planlı rekonstrüksiyonlar yapılmıştır.
+Metalik {dental materyal|şant valvi|anevrizma klipsi} kaynaklı duyarlılık artefaktları nedeniyle komşu alanların değerlendirmesi sınırlıdır.
+İnceleme {1,5|3} Tesla MR cihazında gerçekleştirilmiştir.
+
+# Beyin MR - normal bulgular
+Beyin parankiminde T1 ve T2 ağırlıklı sekanslarda patolojik sinyal değişikliği {izlenmemiştir|saptanmamıştır|görülmemiştir}.
+Difüzyon ağırlıklı görüntülerde akut iskemi ile uyumlu difüzyon kısıtlanması {izlenmedi|saptanmadı|görülmedi}.
+Gri-beyaz cevher ayrımı ve kortikal sinyal özellikleri doğaldır.
+Ventriküler sistem orta hatta, simetrik ve normal genişliktedir.
+Korpus kallozum, beyin sapı ve serebellum {doğal görünümdedir|normal sinyal özelliğindedir}.
+Serebellopontin köşeler ve internal akustik kanallar simetrik ve doğal görünümdedir.
+Ana intrakranial arteryal yapılarda ve dural venöz sinüslerde akım boşlukları {korunmuştur|izlenmektedir}.
+Ekstraaksiyel {sıvı koleksiyonu|patolojik kontrastlanma|kitle lezyonu} izlenmemiştir.
+Kontrastlı serilerde parankimal, leptomeningeal veya pakimeningeal patolojik kontrastlanma saptanmamıştır.
+Hipokampuslar simetrik boyut ve sinyal özelliğindedir.
+Kalvaryum ve kafa tabanında kemik iliği sinyali {doğaldır|normaldir}.
+SWI sekansında mikrokanama veya patolojik sinyal kaybı {izlenmemiştir|saptanmamıştır}.
+Bilateral bazal ganglionlar ve talamuslar simetrik olup sinyal özellikleri doğaldır.
+Kortikal gelişim anomalisi lehine bulgu {saptanmamıştır|izlenmemiştir}.
+Serebellar tonsiller foramen magnum seviyesinin {5|6|7|8|10} mm altına uzanmakta olup Chiari tip 1 malformasyonu ile uyumludur.
+Serebellar tonsiller foramen magnum seviyesinin {2|3|4} mm altında olup tonsiller ektopi olarak değerlendirilmiştir.
+Pineal bezde {5|6|8|10|12} mm çaplı, ince duvarlı, kontrastlanmayan basit pineal kist izlendi.
+
+# Difüzyon ve akut iskemi
+{Sağ|Sol} {frontal|parietal|temporal|oksipital} lobda DWI'da hiperintens, ADC haritasında hipointens izlenen, akut enfarkt ile uyumlu difüzyon kısıtlanması {saptandı|mevcuttur}.
+{Sağ|Sol} {korona radiatada|kapsula interna arka bacağında|talamusta|lentiform nükleusta} {5|6|8|10|12|14} mm çaplı akut laküner enfarkt ile uyumlu difüzyon kısıtlanması izlenmiştir.
+{Sağ|Sol} orta serebral arter sulama alanında kortikal ve subkortikal yerleşimli, yamasal tarzda difüzyon kısıtlanması {izlenmiştir|dikkati çekmektedir}.
+Difüzyon kısıtlanması gösteren alanlar {FLAIR sekansta henüz belirgin sinyal artışı göstermemekte olup hiperakut|FLAIR sekansta hafif hiperintens izlenmekte olup akut} dönem ile uyumludur.
+Enfarkt alanında DWI-FLAIR uyumsuzluğu {mevcuttur|izlenmemiştir}.
+{Sağ|Sol} serebellar hemisferde ve vermiste akut enfarkt ile uyumlu difüzyon kısıtlanması izlendi.
+{Sağ|Sol} talamusta ve oksipital lobda posterior sirkülasyon enfarktı ile uyumlu difüzyon kısıtlanması izlenmektedir.
+Bilateral serebral hemisferlerde farklı vasküler alanlarda multipl milimetrik akut enfarkt odakları izlenmiş olup kardiyoembolik etiyoloji açısından değerlendirilmesi önerilir.
+Ponsun {sağ|sol} paramedian kesiminde akut enfarkt ile uyumlu difüzyon kısıtlanması izlendi.
+{Sağ|Sol} medulla oblongata lateralinde difüzyon kısıtlanması izlenmiş olup lateral medüller enfarkt ile uyumludur.
+Lezyonlarda ADC değerlerinde düşüklük izlenmemiş olup görünüm T2 shine-through etkisi ile uyumludur.
+Subakut evredeki enfarkt alanında giral tarzda kortikal kontrastlanma izlendi.
+Bilateral bazal ganglionlarda ve kortekste simetrik difüzyon kısıtlanması izlenmiş olup hipoksik iskemik ensefalopati ile uyumludur.
+Bilateral parietooksipital subkortikal beyaz cevherde difüzyon kısıtlanması göstermeyen vazojenik ödem izlenmiş olup posterior reversibl ensefalopati sendromu ile uyumlu olabilir.
+Enfarkt alanında SWI sekansında hemorajik transformasyon ile uyumlu sinyal kaybı {izlenmiştir|izlenmemiştir}.
+Akut enfarkt alanının hacmi yaklaşık {n} ml olarak hesaplanmıştır.
+Enfarkt alanı {sağ|sol} {orta serebral|anterior serebral|posterior serebral} arter kortikal dal sulama alanına uymaktadır.
+Kronik dönem enfarkt alanlarında difüzyon kısıtlanması izlenmemiş olup T2 ağırlıklı görüntülerde gliotik değişiklikler mevcuttur.
+Wallerian dejenerasyon ile uyumlu olarak {sağ|sol} serebral pedinkülde ve ponsta kortikospinal trakt trasesinde T2 hiperintensite izlendi.
+
+# Beyaz cevher, küçük damar hastalığı ve SWI
+Bilateral periventriküler ve subkortikal beyaz cevherde T2 ağırlıklı ve FLAIR sekanslarda hiperintens, nonspesifik milimetrik odaklar izlendi.
+Bu odaklar kronik küçük damar hastalığına bağlı iskemik gliotik değişiklikler ile uyumlu olarak değerlendirilmiştir.
+Beyaz cevher hiperintensiteleri Fazekas skalasına göre grade {1|2|3} ile uyumludur.
+Bilateral sentrum semiovalede ve korona radiatada {birkaç adet nonspesifik gliotik odak|multipl nonspesifik gliotik odaklar|milimetrik iskemik gliotik odaklar} izlenmiştir.
+Lateral ventrikül frontal ve oksipital boynuz komşuluğunda ince kapping ve düzgün bant tarzında periventriküler hiperintensite izlenmiş olup yaşla uyumludur.
+Pons santralinde kronik iskemik değişiklik ile uyumlu, kitle etkisi oluşturmayan T2 hiperintens alan izlendi.
+SWI sekanslarında bilateral bazal ganglionlarda, talamuslarda ve ponsta hipertansif mikroanjiyopati ile uyumlu mikrokanama odakları izlendi.
+SWI sekansında lobar ve kortikal-subkortikal yerleşimli multipl mikrokanama odakları izlenmiş olup serebral amiloid anjiyopati açısından anlamlıdır.
+SWI sekanslarında {sağ|sol} {frontal|parietal} sulkuslarda kortikal superfisyal siderozis ile uyumlu lineer sinyal kaybı izlendi.
+Bilateral periventriküler beyaz cevherde birleşme eğiliminde hiperintens alanlar izlenmiş olup ileri derecede küçük damar hastalığı ile uyumludur.
+Bilateral bazal ganglionlarda ve mezensefalonda genişlemiş Virchow-Robin perivasküler boşlukları izlenmektedir.
+{Sağ|Sol} {kapsula interna arka bacağında|talamusta|lentiform nükleusta|korona radiatada} FLAIR sekansında santrali hipointens, periferi hiperintens kronik laküner enfarkt izlendi.
+Lezyonların hiçbirinde difüzyon kısıtlanması ya da kontrastlanma {izlenmemiştir|saptanmamıştır}.
+Subkortikal beyaz cevherde izlenen milimetrik odaklar nonspesifik olup ayırıcı tanıda {migren|vaskülit|demiyelinizan hastalık|kronik iskemi} düşünülebilir.
+Beyaz cevher lezyonları önceki tetkike göre {sayıca artmıştır|stabildir|belirgin değişiklik göstermemektedir}.
+SWI sekansında {sağ|sol} {frontal|temporal|parietal} lobda {3|4|5|6|8|10|12} mm çaplı, periferinde hemosiderin halkası bulunan kavernöz malformasyon ile uyumlu lezyon izlendi.
+Kavernom T2 ağırlıklı görüntülerde santrali heterojen, periferi hipointens patlamış mısır görünümündedir.
+{Sağ|Sol} {frontal|parietal|serebellar} bölgede gelişimsel venöz anomali ile uyumlu, kontrastlı serilerde medusa başı görünümünde venöz yapı izlendi.
+Beyaz cevher hiperintensitelerinin dağılımı ve morfolojisi demiyelinizan hastalık lehine değildir.
+{Sağ|Sol} frontal subkortikal beyaz cevherde {2|3|4|5|6} mm çaplı nonspesifik gliotik odak izlenmiştir.
+
+# Demiyelinizan hastalık
+Periventriküler beyaz cevherde lateral ventriküllere dik uzanımlı, ovoid şekilli, T2 ve FLAIR hiperintens demiyelinizan plaklar izlendi.
+Kallozoseptal bileşkede ve korpus kallozum alt yüzünde demiyelinizan plaklar izlenmektedir.
+{Sağ|Sol} {frontal|parietal|temporal} lobda jukstakortikal yerleşimli {3|4|5|6|8|10} mm çaplı demiyelinizan plak {izlendi|saptandı}.
+İnfratentoryal yerleşimli, {ponsta|sağ orta serebellar pedinkülde|sol orta serebellar pedinkülde|dördüncü ventrikül tabanında} demiyelinizan plak izlendi.
+Plaklardan {biri|birkaçı} kontrastlı serilerde {nodüler|halka tarzında|açık halka tarzında} kontrastlanma göstermekte olup aktif demiyelinizasyon ile uyumludur.
+Plakların hiçbirinde kontrastlanma izlenmemiş olup aktif plak lehine bulgu saptanmamıştır.
+Lezyon dağılımı revize McDonald kriterlerine göre yerde yayılım kriterini {karşılamaktadır|karşılamamaktadır}.
+Aynı incelemede kontrastlanan ve kontrastlanmayan lezyonların birlikteliği zamanda yayılım kriterini karşılamaktadır.
+Önceki MR incelemesi ile karşılaştırıldığında {yeni gelişen|boyut artışı gösteren} T2 hiperintens plak {izlenmiştir|izlenmemiştir}.
+Önceki tetkiklere kıyasla plak sayısı ve boyutları {stabildir|belirgin değişiklik göstermemektedir}.
+T1 ağırlıklı görüntülerde hipointens izlenen kara delik ile uyumlu kronik plaklar mevcuttur.
+Görüntüleme alanına giren servikal spinal kordda {C2|C3|C4} vertebra hizasında demiyelinizan plak izlendi.
+Lezyonların bir kısmında SWI sekansında santral ven işareti izlenmektedir.
+Açık halka tarzında kontrastlanan, kitle etkisi boyutuna göre hafif olan {20|25|30|35|40} mm çaplı tümefaktif demiyelinizan lezyon izlendi.
+Bulgular öncelikle demiyelinizan hastalık ile uyumlu olup klinik ve BOS bulguları ile korelasyon önerilir.
+Ayırıcı tanıda {vaskülit|nöromiyelitis optika spektrum hastalığı|akut dissemine ensefalomiyelit} düşünülebilir.
+Korpus kallozumda diffüz incelme ve atrofi izlenmektedir.
+Beyin sapı ve serebellar pedinküllerde demiyelinizan plak {saptanmamıştır|izlenmemiştir}.
+
+# Atrofi, hidrosefali ve ventriküller
+Kortikal sulkuslarda ve Sylvian fissürlerde yaşla beklenenden belirgin genişleme izlenmiş olup diffüz serebral atrofi ile uyumludur.
+Bilateral hipokampuslarda volüm kaybı ve temporal boynuzlarda genişleme izlenmiş olup medial temporal atrofi skoru {2|3|4} olarak değerlendirilmiştir.
+{Frontotemporal|Parietal} ağırlıklı serebral atrofi izlenmektedir.
+Atrofi frontal loblarda daha belirgindir.
+Serebellar folyalarda belirginleşme ile karakterize serebellar atrofi {izlendi|dikkati çekti}.
+Lateral ve üçüncü ventriküllerin dilate, dördüncü ventrikülün normal boyutta olması akuaduktal stenoza bağlı obstrüktif hidrosefali lehinedir.
+Ventriküllerde sulkuslarla orantısız genişleme, Evans indeksinin {0,32|0,34|0,36|0,38} olması ve yüksek konveksite sulkuslarında daralma normal basınçlı hidrosefali açısından anlamlıdır.
+Lateral ventriküllerin çevresinde transependimal BOS geçişi ile uyumlu periventriküler FLAIR hiperintensitesi izlenmiştir.
+Ventriküler sistemde {hafif|orta derecede|belirgin} genişleme izlendi.
+Lateral ventriküller asimetrik olup {sağ|sol} lateral ventrikül daha geniş izlenmiş, normal varyasyon olarak değerlendirilmiştir.
+Kavum septum pellusidum ve kavum vergae normal varyant olarak izlenmiştir.
+Serebral akuaduktta akım boşluğu korunmuştur.
+Önceki tetkike kıyasla ventrikül boyutlarında {belirgin değişiklik izlenmemiştir|artış izlenmiştir|azalma izlenmiştir}.
+Ventriküler sistemde hidrosefali bulgusu {saptanmamıştır|izlenmemiştir}.
+Bilateral parietal loblarda ve prekuneusta belirgin atrofi izlenmektedir.
+Şant kateteri {sağ|sol} lateral ventrikül içerisinde olup ventrikül boyutları önceki tetkike göre {stabildir|azalmıştır}.
+Sulkuslarda ve sisternalarda {yaşla uyumlu|hafif} belirginleşme izlenmektedir.
+
+# Kitle lezyonları - glial tümörler
+{Sağ|Sol} {frontal|temporal|parietal} lobda {mm}x{mm} mm boyutlarında, T1 ağırlıklı görüntülerde hipointens, T2 ağırlıklı ve FLAIR görüntülerde hiperintens, sınırları silik kitle lezyonu izlendi.
+Lezyon kontrastlı serilerde belirgin kontrastlanma göstermemekte olup düşük dereceli glial tümör ile uyumlu olabilir.
+Kitle düzensiz kalın duvarlı periferik kontrastlanma ve santral nekroz göstermekte olup yüksek dereceli glial tümör ile uyumludur.
+Lezyon çevresinde parmak benzeri uzanımlar gösteren vazojenik ödem izlenmektedir.
+Kitle korpus kallozum aracılığıyla karşı hemisfere uzanım göstermektedir.
+Lezyon {sağ|sol} lateral ventrikül {frontal|temporal|oksipital} boynuzuna bası etkisi oluşturmaktadır.
+Lezyonun solid komponentinde ADC değerlerinde düşüklük izlenmiş olup yüksek sellülarite ile uyumludur.
+Lezyon içerisinde SWI sekansında {hemoraji|kalsifikasyon|hemoraji ve kalsifikasyon} ile uyumlu sinyal kayıpları izlenmektedir.
+{Sağ|Sol} temporal lobda kortikal yerleşimli, kalsifikasyon içeren, kistik-solid görünümlü lezyon izlenmiş olup {oligodendrogliom|gangliogliom} açısından değerlendirilmesi önerilir.
+{Sağ|Sol} serebellar hemisferde kistik komponenti ve kontrastlanan mural nodülü bulunan lezyon izlenmiş olup {pilositik astrositom|hemanjiyoblastom} ile uyumlu olabilir.
+Lezyonun kontrastlanma paterni heterojen olup içerisinde nekrotik ve kistik alanlar izlenmektedir.
+Kontrast madde sonrası lezyonda {homojen|heterojen|periferik} boyanma izlenmiştir.
+Kitle etkisine bağlı olarak {sağ|sol} lateral ventrikülde silinme ve subfalsin herniasyon izlenmektedir.
+{Sağ|Sol} insular kortekste ve temporal lobda ekspansiyon gösteren, kontrastlanmayan, T2 hiperintens infiltratif lezyon izlendi.
+
+# Kitle lezyonları - metastaz ve lenfoma
+Bilateral serebral ve serebellar hemisferlerde gri-beyaz cevher bileşkesine yerleşimli, en büyüğü {mm} mm çaplı multipl kontrastlanan lezyonlar izlendi.
+Lezyonlar {halka tarzında|nodüler tarzda|solid} kontrastlanma göstermekte olup çevrelerinde orantısız vazojenik ödem izlenmektedir.
+Bulgular öncelikle {multipl|soliter} metastaz ile uyumlu olarak değerlendirilmiştir.
+{Sağ|Sol} serebellar hemisferde {mm} mm çaplı, halka tarzında kontrastlanan, çevresinde ödem bulunan metastatik lezyon izlendi.
+Serebellar folyalar ve beyin sapı yüzeyi boyunca lineer leptomeningeal kontrastlanma izlenmiş olup leptomeningeal metastaz açısından anlamlıdır.
+Kalvaryumda kemik iliği sinyalinde {fokal|multipl} T1 hipointens alanlar izlenmiş olup kemik metastazı açısından anlamlıdır.
+Önceki incelemeye göre metastatik lezyonların sayısında ve boyutlarında {artış|azalma} izlenmiştir.
+Radyocerrahi sonrası lezyonda radyasyon nekrozu ile tümör progresyonu ayrımı için perfüzyon incelemesi önerilir.
+Periventriküler yerleşimli, homojen kontrastlanan, belirgin difüzyon kısıtlanması gösteren lezyon primer santral sinir sistemi lenfoması açısından anlamlıdır.
+Lezyonların bir kısmı hemorajik olup SWI sekansında belirgin sinyal kaybı göstermektedir.
+Kontrastlı serilerde en büyüğü {mm} mm olan {2|3|4|5|6|8} adet metastaz ile uyumlu lezyon izlenmiştir.
+
+# Ekstraaksiyel lezyonlar, menenjiyom ve kistler
+{Sağ|Sol} {frontal|parietal|temporal} konveksitede duraya geniş tabanla oturan, {mm}x{mm} mm boyutlarında, homojen kontrastlanan ekstraaksiyel kitle izlendi.
+Lezyonda dural kuyruk işareti izlenmiş olup bulgular menenjiyom ile uyumludur.
+Kitle T1 ve T2 ağırlıklı sekanslarda gri cevher ile izointens sinyal özelliğindedir.
+Kitle komşuluğunda kalvaryumda hiperostoz {izlenmektedir|dikkati çekmektedir}.
+Kitlenin komşu beyin parankimine bası etkisi mevcut olup parankimde {minimal|hafif|belirgin} vazojenik ödem izlenmektedir.
+Kitle ile beyin parankimi arasında BOS yarığı izlenmekte olup ekstraaksiyel yerleşimi desteklemektedir.
+Falks serebri boyunca {6|8|10|12|15|18} mm çaplı, kalsifiye, menenjiyom ile uyumlu ekstraaksiyel lezyon izlendi.
+Planum sfenoidale ve tüberkulum sella düzeyinde {mm} mm çaplı, homojen kontrastlanan menenjiyom ile uyumlu kitle izlendi.
+Lezyon {sağ|sol} kavernöz sinüse uzanım göstermekte olup internal karotis arteri {kısmen|tamamen} çevrelemektedir.
+{Sağ|Sol} serebellopontin köşede internal akustik kanala uzanan, {mm} mm çaplı, heterojen kontrastlanan kitle izlenmiş olup vestibüler schwannom ile uyumludur.
+Lezyon internal akustik kanal içerisinde sınırlı olup {3|4|5|6|8} mm çaplı intrakanaliküler vestibüler schwannom ile uyumludur.
+{Sağ|Sol} serebellopontin köşede difüzyon kısıtlanması gösteren, FLAIR sekansında baskılanmayan epidermoid kist ile uyumlu lezyon izlendi.
+{Sağ|Sol} temporal kutup önünde orta kranial fossada BOS ile izointens, difüzyon kısıtlanması göstermeyen, kistik natürde araknoid kist izlendi.
+Retroserebellar yerleşimli, kitle etkisi oluşturmayan mega sisterna magna ile uyumlu BOS sinyalinde alan izlendi.
+Üçüncü ventrikül anteriorunda foramen Monro düzeyinde kolloid kist ile uyumlu, T1 hiperintens {6|8|10|12} mm çaplı lezyon izlendi.
+Ekstraaksiyel kitle {sağ|sol} transvers sinüse invazyon göstermektedir.
+Menenjiyom ile uyumlu lezyonun boyutları önceki tetkike göre {stabildir|hafif artmıştır}.
+Pakimeningeal düzgün kalın kontrastlanma izlenmiş olup intrakranial hipotansiyon açısından anlamlıdır.
+Görünüm öncelikle {menenjiyom|schwannom} düşündürmektedir.
+
+# Enfeksiyon ve inflamasyon
+{Sağ|Sol} {frontal|parietal|temporal} lobda ince düzgün duvarlı, halka tarzında kontrastlanan, santralinde belirgin difüzyon kısıtlanması gösteren apse ile uyumlu lezyon izlendi.
+Bilateral temporal loblarda ve insular kortekste T2 ve FLAIR hiperintens, difüzyon kısıtlanması gösteren alanlar izlenmiş olup herpes ensefaliti açısından klinik korelasyon önerilir.
+Sulkuslarda FLAIR sekansında baskılanmayan hiperintensite ve leptomeningeal kontrastlanma izlenmiş olup menenjit açısından BOS bulguları ile korelasyonu önerilir.
+Bazal sisternalarda belirgin leptomeningeal kontrastlanma izlenmiş olup tüberküloz menenjit açısından değerlendirilmesi önerilir.
+
+# Perfüzyon ve spektroskopi
+Perfüzyon MR incelemesinde lezyonun solid komponentinde rCBV değerlerinde {belirgin|hafif} artış izlenmiştir.
+Perfüzyon incelemesinde lezyonda rCBV artışı izlenmemiş olup radyasyon nekrozu lehine değerlendirilmiştir.
+Peritümöral ödem alanında rCBV artışı izlenmesi infiltratif tümör lehinedir.
+Dinamik duyarlılık kontrastlı perfüzyon incelemesinde lezyonda rCBV değeri kontralateral normal beyaz cevhere göre {2|3|4|5} kat artmış olarak ölçülmüştür.
+BT perfüzyon incelemesinde {sağ|sol} orta serebral arter sulama alanında MTT ve Tmax değerlerinde uzama, CBV değerlerinde korunma izlenmiş olup penumbra ile uyumludur.
+CBF ve CBV değerlerinde eşleşen belirgin azalma izlenmiş olup enfarkt çekirdeği ile uyumludur.
+Enfarkt çekirdeği ile hipoperfüze alan arasında belirgin uyumsuzluk mevcut olup kurtarılabilir doku lehinedir.
+Enfarkt çekirdeği hacmi yaklaşık {8|12|18|25|35} ml, hipoperfüze alan hacmi yaklaşık {40|60|80|100|120} ml olarak hesaplanmıştır.
+Tek voksel MR spektroskopi incelemesinde lezyonda kolin pikinde artış ve NAA pikinde azalma izlenmiştir.
+Spektroskopide lezyonun santralinde lipid-laktat piki izlenmektedir.
+Kolin-kreatin oranı {1,8|2,2|2,6|3,1} olarak ölçülmüş olup neoplastik süreç lehinedir.
+Spektroskopide metabolit oranları normal sınırlarda olup neoplastik süreç lehine bulgu saptanmamıştır.
+
+# Hipofiz MR
+Hipofiz MR incelemesi sellar bölgeye yönelik ince kesit koronal ve sagittal T1 ve T2 ağırlıklı sekanslar ile gerçekleştirilmiştir.
+Hipofiz bezi {normal boyutta|sınırda boyutta} olup yüksekliği {4|5|6|7|8|9} mm olarak ölçülmüştür.
+Hipofiz bezinin üst konturu {düz|hafif konveks|konkav} görünümdedir.
+Hipofiz sapı {orta hatta konumlanmıştır|hafif sağa deviyedir|hafif sola deviyedir}.
+Dinamik kontrastlı serilerde hipofiz bezinin {sağ|sol} yarısında, normal hipofiz dokusuna göre geç kontrastlanan {3|4|5|6|7|8} mm çaplı hipointens lezyon izlenmiş olup mikroadenom ile uyumludur.
+Mikroadenom T2 ağırlıklı görüntülerde {hafif hiperintens|izointens|hipointens} sinyal özelliğindedir.
+Hipofiz bezinde {12|15|18|22|25|30} mm boyutlu, suprasellar sisternaya uzanan ve optik kiazmaya bası oluşturan makroadenom izlendi.
+Makroadenom {sağ|sol} kavernöz sinüse uzanım göstermekte olup Knosp skalasına göre grade {2|3|4} ile uyumludur.
+Makroadenom diyafragma sella düzeyinde bel vererek kardan adam görünümü oluşturmaktadır.
+Nörohipofizde T1 ağırlıklı görüntülerde fizyolojik parlak nokta {izlenmektedir|izlenmemiştir}.
+{Kısmi|Total} boş sella görünümü mevcut olup hipofiz bezi sella tabanında incelmiştir.
+Optik kiazma normal konum ve sinyal özelliğindedir.
+Rathke kleft kisti ile uyumlu, kontrastlanmayan, T1 hiperintens {4|5|6|8|10} mm çaplı kistik lezyon izlendi.
+Hipofiz bezinde mikroadenom lehine fokal sinyal değişikliği veya kontrastlanma farklılığı saptanmamıştır.
+Kavernöz sinüsler simetrik olup patolojik sinyal veya kontrastlanma izlenmemiştir.
+Hipofiz sapında kalınlaşma ve belirgin kontrastlanma izlenmiş olup ayırıcı tanıda {lenfositik hipofizit|Langerhans hücreli histiyositoz|germinom} düşünülmelidir.
+Suprasellar yerleşimli, kistik-solid, periferik kalsifikasyon içeren kitle kraniofarenjiyom ile uyumludur.
+Opere hipofiz adenomu ile uyumlu postoperatif değişiklikler izlenmiş olup rezidü tümör lehine kontrastlanan doku {izlenmektedir|saptanmamıştır}.
+Adenomun boyutları önceki tetkike göre {stabildir|küçülmüştür|artmıştır}.
+Makroadenom içerisinde hemorajik komponent ile uyumlu T1 hiperintens alanlar izlenmiş olup hipofizer apopleksi açısından klinik korelasyon önerilir.
+
+# Orbita
+Her iki bulbus okuli simetrik olup normal boyut ve sinyal özelliğindedir.
+Retrobulber yağlı dokuda patolojik sinyal değişikliği veya kitle {saptanmamıştır|izlenmemiştir}.
+Ekstraoküler kaslar normal kalınlıkta ve sinyal özelliğindedir.
+Bilateral ekstraoküler kaslarda, özellikle {inferior|medial} rektus kaslarında tendonları korunmuş kalınlaşma izlenmiş olup tiroid oftalmopatisi ile uyumludur.
+{Sağ|Sol} optik sinirde T2 ve STIR sekanslarda hiperintensite ve kontrastlanma izlenmiş olup optik nörit ile uyumludur.
+Optik sinirler ve optik sinir kılıfları doğal görünümdedir.
+{Sağ|Sol} orbitada intrakonal yerleşimli, {mm}x{mm} mm boyutlarında, düzgün sınırlı, progresif dolum gösteren kavernöz hemanjiyom ile uyumlu lezyon izlendi.
+{Sağ|Sol} orbitada preseptal yumuşak dokularda kalınlaşma ve ödem izlenmiş olup postseptal uzanım saptanmamıştır.
+{Sağ|Sol} orbita medial duvarı komşuluğunda subperiostal apse ile uyumlu, periferik kontrastlanan koleksiyon izlendi.
+Lakrimal bezler simetrik ve doğal görünümdedir.
+{Sağ|Sol} lakrimal bezde diffüz büyüme ve kontrastlanma izlenmiş olup inflamatuar süreç ile uyumlu olabilir.
+{Sağ|Sol} superior oftalmik ven {dilate görünümdedir|normal kalibrededir}.
+Orbita apeksi ve superior orbital fissür doğal görünümdedir.
+Optik sinir kılıfı çapı {sağda|solda} {6|6,5|7} mm olarak ölçülmüş olup artmış intrakranial basınç açısından anlamlıdır.
+
+# Paranazal sinüsler ve nazal kavite
+Paranazal sinüs BT incelemesi koronal ve aksiyel planlarda kemik penceresinde değerlendirilmiştir.
+{Sağ|Sol} maksiller sinüste {3|4|5|6|8|10} mm kalınlığa ulaşan mukozal kalınlaşma izlendi.
+Bilateral maksiller sinüslerde ve etmoid hücrelerde {minimal|hafif|belirgin} mukozal kalınlaşma izlenmektedir.
+{Sağ|Sol} maksiller sinüs tabanında {8|10|12|14|16|18|22} mm çaplı, düzgün konturlu, kubbe şeklinde retansiyon kisti izlendi.
+{Sağ|Sol} maksiller sinüste hava-sıvı seviyesi izlenmiş olup akut sinüzit ile uyumludur.
+Paranazal sinüslerin havalanması {normaldir|doğaldır|olağandır}.
+Görüntülenen paranazal sinüsler tabiidir.
+Nazal septumda {sağa|sola} konveks deviasyon izlendi.
+Nazal septumda {sağa|sola} doğru uzanan spur oluşumu ile birlikte deviasyon izlenmektedir.
+{Sağ|Sol} orta konkada konka bülloza izlenmektedir.
+Bilateral alt konkalarda {hipertrofi|mukozal kalınlaşma} izlendi.
+Ostiomeatal kompleksler açık olarak izlenmiştir.
+{Sağ|Sol} ostiomeatal kompleks mukozal kalınlaşma nedeniyle oblitere görünümdedir.
+{Sağ|Sol} maksiller sinüs lümenini tamamen dolduran, santralinde hiperdens alanlar içeren yumuşak doku dansitesi izlenmiş olup fungal sinüzit açısından anlamlıdır.
+Nazal kavitede ve maksiller sinüslerde multipl polipoid yumuşak doku dansiteleri izlenmiş olup sinonazal polipozis ile uyumludur.
+{Sağ|Sol} maksiller sinüsten koanaya uzanan antrokoanal polip ile uyumlu yumuşak doku dansitesi izlendi.
+Sinüs duvarlarında kemik destrüksiyonu {izlenmemiştir|saptanmamıştır}.
+Sinüs duvarlarında kronik inflamasyona sekonder kortikal kalınlaşma ve skleroz izlenmektedir.
+Lund-Mackay skoru {4|6|8|10|12|14} olarak hesaplanmıştır.
+Kribriform plaka simetrik olup olfaktör fossa derinliği Keros tip {1|2|3} ile uyumludur.
+{Sağ|Sol} frontal sinüste {4|6|8|10|12|15} mm çaplı, kemik dansitesinde osteom izlendi.
+{Sağ|Sol} sfenoid sinüste mukosel ile uyumlu, sinüs duvarlarını ekspanse eden homojen içerikli lezyon izlendi.
+Adenoid dokusu nazofarenks hava yolunu yaklaşık {%40|%50|%60|%70} oranında daraltmaktadır.
+{Sağ|Sol} maksiller sinüs tabanında dental köke komşu, odontojenik kaynaklı olabilecek mukozal kalınlaşma izlenmiştir.
+Nazal kavitede {sağ|sol} tarafta kemik erozyonuna neden olan, heterojen kontrastlanan yumuşak doku kitlesi izlenmiş olup endoskopik biyopsi önerilir.
+
+# Temporal kemik ve mastoid
+Temporal kemik BT incelemesi aksiyel ve koronal planlarda ince kesit kemik algoritması ile değerlendirilmiştir.
+Bilateral mastoid hücreler {normal havalanmıştır|havalı olarak izlenmiştir}.
+{Sağ|Sol} mastoid hücrelerde ve orta kulak kavitesinde {sıvı|yumuşak doku dansitesi} ile uyumlu içerik izlendi.
+{Sağ|Sol} mastoid hücrelerde havalanma azalmış olup kronik mastoidit ile uyumlu sklerotik değişiklikler izlenmektedir.
+{Sağ|Sol} Prussak boşluğunda, skutum ve kemikçik zincirde erozyona neden olan yumuşak doku dansitesi izlenmiş olup kolesteatom ile uyumludur.
+Non-EPI difüzyon ağırlıklı sekansta {sağ|sol} orta kulakta difüzyon kısıtlanması izlenmiş olup kolesteatom lehinedir.
+Kemikçik zincir bütünlüğü korunmuştur.
+Skutum keskin olarak izlenmektedir.
+Koklea, vestibül ve semisirküler kanallar doğal görünümdedir.
+İnternal akustik kanallar simetrik olup genişlikleri normaldir.
+Fasiyal sinir kanalının {timpanik|mastoid} segmentinde dehisans izlenmiştir.
+{Sağ|Sol} superior semisirküler kanal tavanında dehisans izlenmektedir.
+Labirentte T2 ağırlıklı görüntülerde sıvı sinyali korunmuştur.
+Juguler bulbus {sağda|solda} yüksek yerleşimli olup normal varyasyon olarak değerlendirilmiştir.
+{Sağ|Sol} dış kulak yolunda yumuşak doku dansitesi ve lümen daralması izlendi.
+{Sağ|Sol} oval pencere önünde fenestral otoskleroz ile uyumlu hipodens odak izlendi.
+Yedinci ve sekizinci kranial sinir kompleksleri her iki tarafta simetrik ve doğal görünümdedir.
+
+# BT ve MR anjiyografi
+BT anjiyografi incelemesinde arteryal fazda ince kesit aksiyel görüntüler elde edilmiş, MIP ve üç boyutlu rekonstrüksiyonlar ile değerlendirilmiştir.
+Üç boyutlu TOF MR anjiyografi incelemesinde Willis poligonu ve ana intrakranial arterler değerlendirilmiştir.
+Willis poligonunu oluşturan arteryal yapıların kalibrasyonu ve akım sinyalleri {doğaldır|normaldir}.
+{Sağ|Sol} orta serebral arter bifurkasyonunda {3|4|5|6|7|8|10|12}x{3|4|5|6|8} mm boyutlarında, {geniş|dar} boyunlu sakküler anevrizma izlendi.
+Anterior komünikan arter düzeyinde {3|4|5|6|7} mm çaplı, {inferiora|anteriora|superiora} yönelen sakküler anevrizma izlenmektedir.
+{Sağ|Sol} internal karotis arter supraklinoid segmentinde posterior komünikan arter çıkışı düzeyinde {3|4|5|6|8} mm çaplı anevrizma izlendi.
+Anevrizmanın kubbe boyun oranı {1,5|1,8|2,4|2,8} olarak hesaplanmıştır.
+Baziller arter tepesinde {3|4|5|6|8|10} mm çaplı sakküler anevrizma izlendi.
+İntrakranial arterlerde anevrizma, stenoz veya oklüzyon {saptanmamıştır|izlenmemiştir}.
+{Sağ|Sol} posterior serebral arter fetal tip orijinli olup normal varyasyon olarak değerlendirilmiştir.
+Anterior serebral arter A1 segmenti {sağda|solda} hipoplaziktir.
+{Sağ|Sol} vertebral arter hipoplazik olup karşı taraf vertebral arter dominanttır.
+{Sağ|Sol} orta serebral arter M1 segmentinde ani akım kesilmesi ile karakterize tam oklüzyon izlendi.
+{Sağ|Sol} internal karotis arter {kavernöz|petröz|supraklinoid} segmentinde {%50|%60|%70|%80} darlık oluşturan aterosklerotik plak izlendi.
+{Sağ|Sol} orta serebral arter M2 dallarında akım sinyalinde azalma ve kesilme izlenmiş olup oklüzyon ile uyumludur.
+Oklüzyon distalinde leptomeningeal kollateral dolum {iyi|orta derecede|zayıf} olarak değerlendirilmiştir.
+Baziller arterde ektazi ve elongasyon izlenmiş olup vertebrobaziler dolikoektazi ile uyumludur.
+Dural venöz sinüslerde ve derin venöz yapılarda dolum defekti {saptanmamıştır|izlenmemiştir}.
+{Sağ|Sol} transvers ve sigmoid sinüste trombüs ile uyumlu dolum defekti izlenmiş olup dural venöz sinüs trombozu ile uyumludur.
+Superior sagittal sinüste kontrastlı serilerde boş delta işareti izlenmektedir.
+MR venografide {sağ|sol} transvers sinüste akım sinyali izlenmemiş olup hipoplazi ile tromboz ayrımı için kontrastlı inceleme önerilir.
+{Sağ|Sol} {parietal|oksipital|frontal} lobda dilate damar yumağı ve erken venöz drenaj gösteren arteriyovenöz malformasyon izlendi.
+Nidus boyutu yaklaşık {mm} mm olup venöz drenaj {yüzeyel|derin} venöz sisteme olmaktadır.
+Lezyon Spetzler-Martin skalasına göre grade {1|2|3|4} ile uyumludur.
+Distal intrakranial dallarda multifokal kalibrasyon düzensizlikleri izlenmiş olup vaskülit açısından değerlendirilmesi önerilir.
+Servikal BT anjiyografide {sağ|sol} internal karotis arter proksimalinde {kalsifik|nonkalsifik|mikst} plak ve NASCET kriterlerine göre {%50|%60|%70|%80|%90} darlık izlendi.
+{Sağ|Sol} internal karotis arterde diseksiyon ile uyumlu intimal flep ve lümen daralması izlenmektedir.
+Fatsat T1 ağırlıklı görüntülerde {sağ|sol} vertebral arter duvarında hilal şeklinde intramural hematom izlenmiş olup diseksiyon ile uyumludur.
+Aortik arkın dallanma paterni {olağandır|bovin varyasyon ile uyumludur}.
+Ana karotis arterler ve internal karotis arterlerin servikal segmentleri açık olup hemodinamik anlamlı darlık saptanmamıştır.
+Koil embolizasyonu yapılmış anevrizmada {rekanalizasyon lehine bulgu saptanmamıştır|boyun düzeyinde rezidü dolum izlenmektedir}.
+Anevrizmada {lobülasyon|bleb oluşumu} izlenmiş olup rüptür riski açısından anlamlıdır.
+
+# Boyun - teknik ve genel
+Boyun ultrasonografisinde bilateral servikal lenf nodu istasyonları yüksek frekanslı lineer prob ile değerlendirilmiştir.
+Boyun BT incelemesi intravenöz kontrast madde enjeksiyonu sonrası venöz fazda kafa tabanından aortik arka kadar gerçekleştirilmiştir.
+Boyun MR incelemesinde aksiyel ve koronal planlarda T1, T2 ağırlıklı ve fatsat sekanslar elde edilmiştir.
+Boyun yumuşak dokularında apse veya koleksiyon {izlenmemiştir|saptanmamıştır}.
+Boyun damar yapıları açık olup trase ve kalibrasyonları doğaldır.
+{Sağ|Sol} submandibular bölgede periferik kontrastlanan apse ile uyumlu koleksiyon izlenmiş olup çevre yağlı doku planları ödemlidir.
+
+# Boyun - lenf nodları
+Bilateral servikal level {2|3|4} düzeyinde, en büyüğü {8|10|12|14|16|18}x{4|5|6|7} mm boyutlarında, yağlı hilusu korunmuş reaktif görünümde lenf nodları izlendi.
+{Sağ|Sol} level {2|3|4} düzeyinde, kısa aksı {8|10|12|15|18} mm ölçülen, yağlı hilusu seçilemeyen, yuvarlak şekilli patolojik lenf nodu izlendi.
+Lenf nodunun korteksi {asimetrik|ekzantrik} olarak kalınlaşmış olup kortikal kalınlık {3|4|5} mm ölçülmüştür.
+Lenf nodunda kistik nekroz alanları ve {mikrokalsifikasyonlar|periferik vaskülarizasyon} izlenmiş olup metastatik lenf nodu açısından anlamlıdır.
+Renkli Doppler incelemede lenf nodunda {hiler|periferik|mikst} tipte kanlanma izlenmiştir.
+Bilateral juguler zincir boyunca {multipl reaktif lenf nodları|birkaç adet reaktif lenf nodu|milimetrik lenf nodları} izlendi.
+{Sağ|Sol} supraklavikular bölgede {8|10|12|15|20} mm boyutlu, yağlı hilusu izlenmeyen patolojik görünümde lenf nodu izlendi.
+Boyunda patolojik boyut ve görünümde lenf nodu {saptanmamıştır|izlenmemiştir}.
+Lenf nodları konglomere görünümde olup çevre yağlı dokuda kirlenme izlenmesi ekstranodal yayılım lehinedir.
+Bilateral servikal bölgede subsantimetrik reaktif lenf nodları izlenmiştir.
+Lenf nodlarının yağlı hilusu korunmuş olup ovoid şekilli ve normal kortikal kalınlıktadır.
+{Sağ|Sol} posterior servikal üçgende level 5 düzeyinde {6|8|10|12|15} mm boyutlu lenf nodu izlendi.
+Kontrastlı boyun BT'de {sağ|sol} level 2A düzeyinde santrali nekrotik, periferik kontrastlanan lenf nodu izlendi.
+Lenf nodu ile internal juguler ven arasındaki yağlı doku planı silinmiştir.
+{Sağ|Sol} level 3 düzeyinde kistik görünümlü, ince duvarlı lenf nodu izlenmiş olup papiller tiroid karsinomu metastazı açısından değerlendirilmesi önerilir.
+Lenf nodunun kısa aksının uzun aksına oranı {0,4|0,5|0,6|0,7|0,8} olarak hesaplanmıştır.
+{Sağ|Sol} sternokleidomastoid kas anteromedialinde ince duvarlı, anekoik, ikinci brankial yarık kisti ile uyumlu kistik lezyon izlendi.
+Orta hatta hyoid kemik düzeyinde tiroglossal kanal kisti ile uyumlu {8|10|12|15|20} mm çaplı kistik lezyon izlendi.
+{Sağ|Sol} karotis bifurkasyonunda internal ve eksternal karotis arterleri birbirinden ayıran, belirgin vaskülarize kitle izlenmiş olup karotis cisim tümörü ile uyumludur.
+Lenf nodları önceki tetkike göre {küçülmüştür|stabildir|boyut artışı göstermiştir}.
+Boyunda ciltaltı yağlı dokuda {15|20|25|30|35|40} mm ebatlı, ekojen bantlar içeren, kapsüllü lipom ile uyumlu lezyon izlendi.
+Bulgular öncelikle reaktif lenfadenopati lehine düşünülmüştür.
+
+# Tükürük bezleri
+Bilateral parotis bezleri normal boyutta olup parankim ekojenitesi homojendir.
+{Sağ|Sol} parotis bezi yüzeyel lobunda {mm}x{mm} mm boyutlarında, lobüle konturlu, hipoekoik, posterior akustik güçlenme gösteren solid lezyon izlenmiş olup pleomorfik adenom ile uyumludur.
+{Sağ|Sol} parotis bezi alt kutbunda {mm}x{mm} mm ebadında, septalı kistik komponentleri olan, Warthin tümörü ile uyumlu lezyon izlendi.
+Bilateral parotis bezlerinde heterojen parankim ve multipl milimetrik hipoekoik alanlar izlenmiş olup Sjögren sendromu açısından değerlendirilmesi önerilir.
+{Sağ|Sol} submandibular bez boyutları artmış, parankimi heterojen ve kanlanması artmış olup akut sialoadenit ile uyumludur.
+{Sağ|Sol} submandibular kanal dilate olup distal kesiminde {3|4|5|6|8} mm'lik posterior akustik gölge veren taş izlendi.
+Submandibular bezler simetrik olup patolojik ekojenite {izlenmemiştir|saptanmamıştır}.
+Parotis bezleri içerisinde yağlı hilusu korunmuş intraparotid lenf nodları izlenmiştir.
+{Sağ|Sol} parotis bezinde derin loba uzanım gösteren lezyon parafaringeal alana doğru uzanmaktadır.
+Parotis ve submandibular bezlerde kitle lezyonu {saptanmamıştır|izlenmemiştir}.
+{Sağ|Sol} parotis bezinde düzensiz sınırlı, heterojen hipoekoik, belirgin kanlanan solid lezyon izlenmiş olup malignite açısından doku örneklemesi önerilir.
+
+# Larinks ve farinks
+Nazofarenks, orofarenks ve hipofarenks hava yolu açık olup duvar kalınlıkları doğaldır.
+Larinks yapıları simetrik olup vokal kordlarda kalınlaşma veya kitle izlenmemiştir.
+{Sağ|Sol} vokal kordda {4|5|6|8|10} mm kalınlığa ulaşan, anterior komissüre uzanan yumuşak doku kitlesi izlendi.
+Kitle paraglottik alana uzanım göstermekte olup tiroid kıkırdakta erozyon {izlenmektedir|izlenmemiştir}.
+Preepiglottik ve paraglottik yağ planları korunmuştur.
+{Sağ|Sol} piriform sinüste asimetrik mukozal kalınlaşma ve kontrastlanma izlenmiş olup endoskopik korelasyon önerilir.
+Nazofarenks {sağ|sol} lateral duvarında Rosenmüller fossasını silen asimetrik yumuşak doku kalınlaşması izlenmiştir.
+Palatin tonsiller simetrik olup boyutları doğaldır.
+{Sağ|Sol} palatin tonsilde asimetrik büyüme ve peritonsiller apse ile uyumlu periferik kontrastlanan koleksiyon izlendi.
+Retrofaringeal alanda ödem veya koleksiyon {izlenmemiştir|saptanmamıştır}.
+Epiglot ve ariepiglottik plikalar doğal kalınlıktadır.
+Trakea orta hatta olup lümeni açıktır.
+{Sağ|Sol} vokal kord paramedian pozisyonda olup ipsilateral piriform sinüste genişleme izlenmesi vokal kord paralizisi ile uyumludur.
+
+# Tiroid ultrasonografisi
+Tiroid ultrasonografisi yüksek frekanslı lineer prob ile gerçekleştirilmiştir.
+Tiroid bezi normal boyutta olup parankim ekojenitesi {homojen|hafif heterojen} izlenmiştir.
+Tiroid bezi boyut ve ekojenitesi tabiidir.
+Sağ lob {14|15|16|17|18}x{15|16|18|20}x{40|42|45|48|50} mm, sol lob {13|14|15|16|17}x{14|15|17|19}x{38|40|43|46|49} mm boyutlarında ölçülmüştür.
+İstmus kalınlığı {2|3|4|5|6} mm olarak ölçülmüştür.
+Tiroid bezinin toplam volümü yaklaşık {9|11|13|15|18|22|26} ml olarak hesaplanmıştır.
+Her iki lob boyutları artmış olup diffüz guatr ile uyumludur.
+Tiroid parankim ekosu diffüz heterojen ve psödonodüler görünümde olup kronik lenfositik tiroidit ile uyumludur.
+Tiroidit zemininde psödonodüler görünüm izlenmekte olup gerçek nodül ayrımı güçtür.
+Renkli Doppler incelemede tiroid parankiminde {diffüz artmış|hafif artmış|normal} vaskülarite izlenmiştir.
+Parankimde {ince|kaba} ekojen fibrotik septasyonlar ve mikronodüler görünüm izlenmektedir.
+Diffüz artmış vaskülarite ile birlikte tiroid boyutlarında artış izlenmiş olup Graves hastalığı ile uyumlu olabilir.
+{Sağ|Sol} lob {üst|orta|alt} kesiminde {mm}x{mm} mm boyutlarında, {solid|ağırlıklı solid|ağırlıklı kistik|spongiform} yapıda nodül izlendi.
+Nodül {solid|ağırlıklı solid|mikst kistik-solid|spongiform} kompozisyonda olup {hipoekoik|izoekoik|hiperekoik|belirgin hipoekoik} ekojenitededir.
+Nodül {düzgün|belirsiz|lobüle|düzensiz} konturlu olup ekstratiroidal uzanım {izlenmemiştir|saptanmamıştır}.
+Nodül içerisinde {punktat ekojen odaklar|makrokalsifikasyon|periferik rim kalsifikasyonu|büyük kuyruklu yıldız artefaktı} izlenmektedir.
+Nodülün ön-arka çapı transvers çapından büyük olup genişliğinden uzun şekildedir.
+Nodül ACR TI-RADS sınıflamasına göre TI-RADS {2|3|4|5} olarak değerlendirilmiştir.
+TI-RADS {4|5} kategorisindeki nodüle ultrasonografi eşliğinde ince iğne aspirasyon biyopsisi önerilir.
+Nodül boyutu {25|28|30|35} mm olup TI-RADS 3 kriterlerine göre ince iğne aspirasyon biyopsisi önerilir.
+Nodül boyutu {15|18|20|22} mm olup TI-RADS 3 kriterlerine göre ultrasonografik takip önerilir.
+Tiroid {sağ|sol} lobda birkaç adet {anekoik kistik|spongiform} nodül izlenmiş olup en büyüğü {4|5|6|8|10|12} mm çaplıdır.
+{Sağ|Sol} lobda içerisinde kuyruklu yıldız artefaktları bulunan {3|4|5|6} mm çaplı kolloid kist izlendi.
+Nodül çevresinde ince hipoekoik halo izlenmekte olup renkli Doppler incelemede periferik vaskülarizasyon mevcuttur.
+Tiroid bezinde her iki lobda multipl nodüller izlenmiş olup multinodüler guatr ile uyumludur.
+Tiroid bezinde nodül {saptanmamıştır|izlenmemiştir}.
+Önceki tetkike göre nodül boyutlarında {anlamlı değişiklik izlenmemiştir|artış izlenmiştir|küçülme izlenmiştir}.
+Elastografide nodül {yumuşak|orta derecede sert|sert} olarak kodlanmıştır.
+Tiroid parankiminde subakut tiroidit ile uyumlu, sınırları belirsiz, hipoekoik ve hipovasküler alanlar izlenmiştir.
+Total tiroidektomi sonrası tiroid lojlarında rezidü veya nüks lehine doku izlenmemiştir.
+{Sağ|Sol} tiroid lojunda {5|6|8|10|12} mm çaplı, hipoekoik, vaskülarize, nüks açısından şüpheli nodüler lezyon izlendi.
+Nodül kistik dejenere görünümde olup içerisinde {ince septasyonlar|ekojen debris} izlenmektedir.
+Nodül komşuluğunda tiroid kapsülünde düzensizlik izlenmiş olup ekstratiroidal uzanım açısından şüphelidir.
+Tiroid bezinin retrosternal uzanımı {izlenmektedir|izlenmemiştir}.
+İstmusta {4|5|6|8|10} mm çaplı izoekoik solid nodül izlendi.
+İstmustan superiora uzanan piramidal lob izlenmektedir.
+Tiroid parankim ekojenitesi submandibular bez ekojenitesine göre {azalmıştır|benzerdir}.
+Periferik rim kalsifikasyonunda kesintiye uğrama ve kalsifikasyon dışına taşan yumuşak doku izlenmektedir.
+{Sağ|Sol} lobektomi sonrası opere lojda rezidü doku izlenmemiş olup karşı lob boyutları ve ekojenitesi doğaldır.
+Tiroid bezi atrofik görünümde olup parankim ekojenitesi diffüz azalmıştır.
+Tiroid bezinde {2|3|4|5|6} adet nodül izlenmiş olup en büyüğü {sağ|sol} lobdadır.
+Santral kompartmanda level 6 düzeyinde patolojik lenf nodu {saptanmamıştır|izlenmemiştir}.
+{Sağ|Sol} lobda kistik natürde, ince duvarlı, anekoik {4|5|6|8} mm çaplı nodül izlendi.
+
+# Paratiroid
+Tiroid {sağ|sol} lob {alt|üst} pol posteriorunda {6|8|10|12|14|16}x{4|5|6|8} mm boyutlarında, oval şekilli, homojen hipoekoik paratiroid adenomu ile uyumlu lezyon izlendi.
+Renkli Doppler incelemede lezyonda periferik ark tarzında kanlanma ve polar besleyici arter izlenmiştir.
+Tiroid lobları posteriorunda paratiroid adenomu lehine lezyon {saptanmamıştır|izlenmemiştir}.
+Paratiroid bezler ultrasonografik olarak seçilememiştir.
+Bulguların paratiroid sintigrafisi ile korelasyonu önerilir.
+Dört fazlı paratiroid BT incelemesinde {sağ|sol} {alt|üst} paratiroid lokalizasyonunda arteryal fazda belirgin kontrastlanan ve geç fazda kontrast yıkanması gösteren lezyon izlendi.
+Bilateral paratiroid bez lokalizasyonlarında multipl hipoekoik lezyonlar izlenmiş olup paratiroid hiperplazisi ile uyumlu olabilir.
+Lezyon tiroid parankiminden ince ekojen bir plan ile ayrılmaktadır.
+
+# Karotis ve vertebral arter Doppler
+Karotis ve vertebral arter Doppler incelemesi B-mod, renkli ve spektral Doppler teknikleri ile gerçekleştirilmiştir.
+Bilateral ana karotis arter intima-media kalınlığı sağda {0,6|0,7|0,8|0,9} mm, solda {0,6|0,7|0,8|0,9} mm olarak ölçülmüştür.
+{Sağ|Sol} ana karotis arterde intima-media kalınlığı {1,1|1,2|1,3|1,4} mm ölçülmüş olup artmıştır.
+{Sağ|Sol} karotis bulbusunda {8|10|12|15|18|20}x{2|3|4|5} mm boyutlarında, {kalsifik|hipoekoik|heterojen ekojenitede|mikst} aterosklerotik plak izlendi.
+Plak {düzgün|düzensiz} yüzeyli olup ülserasyon {izlenmemiştir|izlenmektedir}.
+{Sağ|Sol} internal karotis arter proksimalinde plağa bağlı {%50|%60|%70|%80|%90} darlık izlenmiştir.
+Darlık bölgesinde zirve sistolik hız {125|150|180|230|280} santimetre saniye olarak ölçülmüştür.
+İnternal karotis arter ile ana karotis arter zirve sistolik hız oranı {2,1|2,8|3,5|4,2} olarak hesaplanmıştır.
+Diyastol sonu hız {40|60|85|110} santimetre saniye olarak ölçülmüştür.
+Darlık distalinde spektral genişleme ve poststenotik türbülan akım izlenmektedir.
+{Sağ|Sol} internal karotis arter lümeninde akım izlenmemiş olup tam oklüzyon ile uyumludur.
+Bilateral ana, internal ve eksternal karotis arterlerde akım paternleri ve hızları normal sınırlardadır.
+Bilateral internal karotis arterlerde hemodinamik olarak anlamlı darlık {saptanmamıştır|izlenmemiştir}.
+Bilateral vertebral arterlerde akım antegrad yönde olup spektral dalga formları doğaldır.
+{Sağ|Sol} vertebral arterde akım {retrograd|alternan} yönde olup subklavian çalma fenomeni ile uyumludur.
+{Sağ|Sol} vertebral arter hipoplazik olup çapı {1,8|2,1|2,3} mm ölçülmüştür.
+{Sağ|Sol} ana karotis arterde intimal kalınlaşma ve milimetrik kalsifik plaklar izlenmiştir.
+Plaklar ağırlıklı olarak kalsifik olup posterior akustik gölgelenme nedeniyle lümen değerlendirmesi sınırlıdır.
+Hipoekoik, heterojen ve düzensiz yüzeyli plak yapısı instabil plak lehinedir.
+İnternal juguler venler açık ve kompresibl olup lümende trombüs izlenmemiştir.
+{Sağ|Sol} internal juguler vende ekojen trombüs ile uyumlu dolum defekti izlendi.
+Konsensüs kriterlerine göre {sağ|sol} internal karotis arterde {%50-69 aralığında|%70 ve üzerinde} darlık ile uyumlu hemodinamik bulgular izlenmiştir.
+{Sağ|Sol} internal karotis arterde akım hızında azalma ve tardus parvus dalga formu izlenmiş olup proksimal ciddi darlık açısından anlamlıdır.
+Akım hızlarında sağ-sol asimetrisi izlenmemiştir.
+Plak yükü {hafif|orta|belirgin} düzeyde olup lümende hemodinamik anlamlı daralma oluşturmamaktadır.
+{Sağ|Sol} vertebral arter V1 segmentinde orijin düzeyinde darlık ile uyumlu akım hızı artışı izlenmiştir.
+Stent yerleştirilmiş {sağ|sol} internal karotis arterde stent lümeni açık olup stent içi darlık lehine akım hızı artışı izlenmemiştir.
+Karotis endarterektomi sonrası {sağ|sol} karotis bifurkasyonunda rezidü plak veya darlık izlenmemiştir.
+İnternal karotis arterlerde kıvrımlanma izlenmiş olup akım hızlarında anlamlı artış saptanmamıştır.
+
+# Karşılaştırma
+Önceki {BT|MR} incelemesi ile karşılaştırıldığında belirgin değişiklik {izlenmemiştir|saptanmamıştır}.
+Önceki tetkike göre lezyon boyutlarında {anlamlı değişiklik izlenmemiştir|belirgin artış izlenmiştir|belirgin küçülme izlenmiştir}.
+Önceki incelemede tanımlanan {hematomda|ödemde|kitle etkisinde} belirgin gerileme izlenmiştir.
+Önceki tetkikte izlenen {subdural hematom|subaraknoid kanama|intraventriküler kanama} tamamen rezorbe olmuştur.
+Önceki tetkike kıyasla yeni gelişen lezyon {saptanmamıştır|izlenmemiştir}.
+Karşılaştırma amacıyla sistemde önceki {BT|MR|USG} incelemesine ulaşılamamıştır.
+{n} ay önceki incelemeye göre {tiroid nodülünün|lenf nodunun|lezyonun} boyutları stabildir.
+Önceki tetkik ile kıyaslandığında kontrastlanan komponentte {artış|azalma} izlenmiştir.
+Postoperatif kontrol incelemesinde önceki tetkike göre rezidü tümör boyutlarında değişiklik izlenmemiştir.
+Önceki incelemede {mm} mm ölçülen lezyon güncel incelemede {mm} mm olarak ölçülmüştür.
+Önceki tetkikte izlenen akut enfarkt alanı kronik evreye geçmiş olup ensefalomalazi gelişmiştir.
+Önceki tetkike göre orta hat şiftinde {azalma|artış} izlenmiştir.
+Bulgular önceki tetkik ile benzer olup stabil seyir lehinedir.
+{n} ay arayla yapılan iki inceleme arasında anlamlı farklılık saptanmamıştır.
+Tedavi sonrası kontrol incelemesinde önceki tetkike göre {sinüslerdeki mukozal kalınlaşmalarda|lenf nodlarında} belirgin regresyon izlenmiştir.
+
+# Sonuç
+Sonuç olarak, akut intrakranial patoloji {saptanmamıştır|izlenmemiştir}.
+Sonuç olarak, {sağ|sol} orta serebral arter sulama alanında akut enfarkt ile uyumlu bulgular izlenmiştir.
+Bulgular {sağ|sol} frontoparietal akut subdural hematom ve buna sekonder kitle etkisi ile uyumlu olarak değerlendirildi.
+Bulgular {kronik küçük damar hastalığı|kronik iskemik gliotik değişiklikler} ile uyumlu olarak değerlendirildi.
+Bulgular öncelikle {yüksek dereceli glial tümör|metastaz|menenjiyom|lenfoma} lehine değerlendirilmiştir.
+Görünüm demiyelinizan hastalık ile uyumlu olarak değerlendirildi.
+Sonuç olarak, hipofiz bezinin {sağ|sol} yarısında mikroadenom ile uyumlu lezyon izlenmiştir.
+{Kronik pansinüzit|Kronik maksiller sinüzit|Kronik etmoid sinüzit} ile uyumlu bulgular izlenmiştir.
+Sonuç olarak, tiroid {sağ|sol} lobda TI-RADS {3|4|5} kategorisinde nodül izlenmiştir.
+Tiroid bulguları kronik lenfositik tiroidit ile uyumlu olarak değerlendirildi.
+Sonuç olarak, {sağ|sol} internal karotis arterde {%50-69 aralığında|%70 ve üzerinde} darlık oluşturan aterosklerotik plak izlenmiştir.
+Bilateral karotis arterlerde hemodinamik anlamlı darlık saptanmamış olup erken ateroskleroz ile uyumlu intima-media kalınlaşması izlenmiştir.
+Sonuç olarak, boyunda reaktif özellikte lenf nodları dışında patolojik bulgu saptanmamıştır.
+Bulgular metastatik lenfadenopati açısından şüpheli olarak değerlendirildi.
+Sonuç olarak, intrakranial anevrizma, stenoz veya oklüzyon {saptanmamıştır|izlenmemiştir}.
+Bulgular {sağ|sol} transvers sinüs trombozu ile uyumlu olarak değerlendirildi.
+Sonuç olarak, yaşla uyumlu {hafif|orta derecede} serebral atrofi ve Fazekas grade {1|2} beyaz cevher değişiklikleri izlenmiştir.
+Normal basınçlı hidrosefali ile uyumlu olabilecek bulgular izlenmiş olup klinik korelasyon önerilir.
+{Sağ|Sol} orta kulakta ve mastoid hücrelerde kolesteatom ile uyumlu bulgular izlenmiştir.
+Sonuç olarak, {sağ|sol} parotis bezinde pleomorfik adenom ile uyumlu solid lezyon izlenmiştir.
+Bulgular paratiroid adenomu ile uyumlu olarak değerlendirildi.
+Görünüm benign özellikte olup malignite lehine bulgu saptanmamıştır.
+Mevcut bulgular {sağ|sol} optik nörit ile uyumludur.
+Bulgular tiroid oftalmopatisi ile uyumlu olarak değerlendirildi.
+Ayırıcı tanıda {apse|nekrotik metastaz|yüksek dereceli glial tümör} düşünülmelidir.
+Sonuç olarak, {sağ|sol} serebellopontin köşede vestibüler schwannom ile uyumlu kitle izlenmiştir.
+Sonuç olarak, {anterior komünikan arter|sağ orta serebral arter bifurkasyonu|sol orta serebral arter bifurkasyonu} düzeyinde sakküler anevrizma izlenmiştir.
+Bulgular multinodüler guatr ile uyumlu olup malignite şüphesi taşıyan nodül izlenmemiştir.
+Sonuç olarak, beyin MR incelemesinde yaşla uyumlu değişiklikler dışında patolojik bulgu saptanmamıştır.
+Bulgular olasılıklı {menenjiyom|schwannom|araknoid kist} lehine değerlendirilmiştir.
+
+# Öneri
+Klinik ve laboratuvar bulguları ile korelasyon önerilir.
+Kontrastlı beyin MR incelemesi ile ileri değerlendirme önerilir.
+Lezyonun karakterizasyonu için kontrastlı MR, perfüzyon ve spektroskopi incelemesi önerilir.
+{3|6|12} ay sonra kontrol {MR|USG|BT} incelemesi önerilir.
+Nodüle ultrasonografi eşliğinde ince iğne aspirasyon biyopsisi önerilir.
+Beyin cerrahisi kliniği ile konsültasyon önerilir.
+Anevrizmanın ileri değerlendirmesi için dijital subtraksiyon anjiyografi önerilir.
+Lenf noduna ultrasonografi eşliğinde trucut biyopsi önerilir.
+Kulak burun boğaz muayenesi ve endoskopik değerlendirme ile korelasyon önerilir.
+Tiroid fonksiyon testleri ve otoantikor düzeyleri ile birlikte değerlendirilmesi önerilir.
+{Nöroloji|Endokrinoloji|Göz hastalıkları} kliniği ile birlikte değerlendirilmesi önerilir.
+Akut iskemi açısından difüzyon ağırlıklı MR incelemesi önerilir.
+Venöz tromboz açısından MR venografi ile değerlendirme önerilir.
+Takip incelemesinin aynı protokolde ve aynı cihazda yapılması önerilir.
+Gerekirse kontrastlı inceleme ile tamamlanması önerilir.
+Kesin tanı için histopatolojik değerlendirme önerilir.
+{Altı ay|Bir yıl|İki yıl} sonra ultrasonografik kontrol önerilir.
+Hipofiz hormon profili ile korelasyon önerilir.
+Karotis darlığının doğrulanması için BT anjiyografi önerilir.

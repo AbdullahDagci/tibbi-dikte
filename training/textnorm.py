@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from collections import Counter
 
 _ONES = ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"]
 _TENS = ["", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"]
@@ -83,6 +84,8 @@ def normalize(text: str, *, restore_case: bool = False) -> str:
     t = unicodedata.normalize("NFC", text)
     t = t.replace("’", "'").replace("`", "'").replace("“", '"').replace("”", '"')
     t = re.sub(r"(\d)\s*/\s*(\d)", r"\1 \2", t)  # "140/90" -> "140 90" (söylendiği gibi)
+    t = re.sub(r"(?<=\d)\s*[xX×]\s*(?=\d)", " çarpı ", t)  # "12x8 mm" -> "12 çarpı 8 mm"
+    t = re.sub(r"(?<=\d)-(?=\w)|(?<=\w)-(?=[A-Za-z]?\d)", " ", t)  # "L4-L5", "C5-6", "3-4 mm": tire okunmaz
     t = _UNIT_RE.sub(lambda m: " " + _UNITS[m.group(1)] + (m.group(2) or "").replace("'", ""), t)
     t = _NUM_RE.sub(lambda m: f" {number_to_words(m.group(0))} ", t)
     t = re.sub(r"\s+([.,!?;:])", r"\1", t)  # noktalama öncesi boşluk
@@ -92,6 +95,74 @@ def normalize(text: str, *, restore_case: bool = False) -> str:
         if t[-1] not in ".!?":
             t += "."
     return t
+
+
+# ------------------------------------------------------------------ ISSAI TSC onarımı
+# Kaynak metin küçük harfe çevrilirken iki bozulma oluşmuş (satırların ~%4'ü ve ~%7'si):
+#   * "İ" -> "i" + boşluk:            "i srail", "i nsan hakları", "i yi akşamlar"
+#   * kesme işareti boşluğa dönmüş:    "türkiye nin", "ankara nın", "ege deki"
+# Kesme işareti Türkçede yalnızca özel isim/kısaltma/sayıdan sonra gelir -> önceki kelime büyük harfle başlatılır.
+# Gerçek kelime de olabilen ekler ("ya", "ye", "da", "de", "a", "e" ...) belirsiz olduğu için dokunulmaz.
+_TSC_SUFFIXES = {"nin", "nın", "nun", "nün", "ın", "in", "un", "ün", "dan", "den", "tan", "daki", "deki", "taki",
+                 "teki", "nda", "nde", "ndan", "nden", "ndaki", "ndeki", "yi", "yı", "yu", "yü"}
+_NUMBER_WORDS = set(_ONES + _TENS) - {""} | {"yüz", "bin", "milyon", "milyar", "trilyon", "sıfır"}
+_TR_WORD_RE = re.compile(r"[a-zçğıöşüâîû]+")
+_TRAIL_PUNCT_RE = re.compile(r"^(.*?)([.,!?;:]*)$")
+
+
+def _tr_lower(s: str) -> str:
+    """Türkçe küçük harf: str.lower() "İ"yi "i̇" (birleşik nokta) yapar."""
+    return s.replace("İ", "i").replace("I", "ı").lower()
+
+
+def tsc_vocab(texts) -> Counter[str]:
+    """Korpustaki bozulmamış kelime sıklıkları (bölünmüş "İ" kararını vermek için). Tek başına "i"den hemen
+    sonra gelen parça sayılmaz: hep bölünen kelimelerin parçası ("mparatorluğu") kelime gibi görünmesin."""
+    c: Counter[str] = Counter()
+    for t in texts:
+        prev = ""
+        for tok in t.split():
+            tok = tok.strip(".,!?;:")
+            if prev != "i":
+                c[tok] += 1
+            prev = tok
+    return c
+
+
+def repair_tsc(text: str, vocab, min_count: int = 3) -> str:
+    """Tek başına "i": birleşik hâli ("i"+sonraki) korpusta kelimeyse ya da sonraki parça kelime değilse bölünmüş
+    "İ"dir; aksi hâlde kopmuş belirtme ekidir ("İsrail i en geç" -> "İsrail'i en geç")."""
+    def known(w: str) -> bool:
+        return vocab.get(w, 0) >= min_count
+
+    def attach(prev: str, suffix: str) -> str:
+        if prev in _NUMBER_WORDS:
+            return prev + suffix  # sayılar yazıyla: "üçün" (kesme işareti yok)
+        return tr_capitalize(prev) + "'" + suffix
+
+    toks = text.split()
+    out: list[str] = []
+    i = 0
+    while i < len(toks):
+        core, punct = _TRAIL_PUNCT_RE.match(toks[i]).groups()
+        prev_ok = bool(out) and "'" not in out[-1] and _TR_WORD_RE.fullmatch(_tr_lower(out[-1])) is not None
+        if core == "i" and not punct and i + 1 < len(toks):
+            nxt_core, nxt_punct = _TRAIL_PUNCT_RE.match(toks[i + 1]).groups()
+            if _TR_WORD_RE.fullmatch(nxt_core) and len(nxt_core) >= 2:
+                if known("i" + nxt_core) or not (known(nxt_core) and prev_ok):
+                    out.append("İ" + nxt_core + nxt_punct)
+                    i += 2
+                    continue
+                out[-1] = attach(out[-1], "i")
+                i += 1
+                continue
+        if core in _TSC_SUFFIXES and prev_ok:
+            out[-1] = attach(out[-1], core) + punct
+            i += 1
+            continue
+        out.append(toks[i])
+        i += 1
+    return " ".join(out)
 
 
 def looks_uncased(texts: list[str]) -> bool:

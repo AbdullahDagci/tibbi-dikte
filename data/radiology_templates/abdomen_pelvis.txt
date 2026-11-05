@@ -1,0 +1,632 @@
+# Teknik ve inceleme yöntemi
+Tüm batın ultrasonografisi transabdominal yolla {konveks|konveks ve lineer} prob kullanılarak yapılmıştır.
+Üst batın USG incelemesinde karaciğer, safra kesesi, pankreas, dalak ve her iki böbrek değerlendirilmiştir.
+Alt batın USG incelemesi {yeterli|optimal} mesane dolumu sağlanarak yapılmıştır.
+Pelvik değerlendirme {transabdominal|transabdominal ve transvajinal} yolla yapılmıştır.
+{Barsak gazı|Yoğun barsak gazı|Hastanın vücut habitusu} nedeniyle {pankreas|pankreas kuyruk kesimi|retroperitoneal alan} {optimal olarak değerlendirilememiştir|net olarak seçilememiştir}.
+Mesane dolumu yetersiz olduğundan pelvik organların değerlendirmesi {suboptimaldir|kısıtlıdır}.
+Hastanın aç olmaması nedeniyle safra kesesi kontrakte olup duvar değerlendirmesi suboptimaldir.
+İnceleme {altı|sekiz} saatlik açlık sonrasında yapılmıştır.
+Abdomen BT incelemesi {kontrastsız|IVKM verilmesini takiben|kontrastsız ve IVKM verilmesini takiben} aksiyel planda yapılmış, koronal ve sagittal reformat görüntüler oluşturulmuştur.
+Oral ve intravenöz kontrast madde verilmesini takiben {portal venöz fazda|arteryal ve portal venöz fazlarda} {abdomen ve pelvis|tüm batın} BT incelemesi yapılmıştır.
+Trifazik karaciğer BT incelemesinde kontrastsız, arteryal, portal venöz ve geç faz görüntüler elde edilmiştir.
+{Böbrek taşı|Üriner sistem taşı|Renal kolik} ön tanısıyla kontrastsız {düşük doz |}abdomen BT incelemesi yapılmıştır.
+Böbrek fonksiyon bozukluğu nedeniyle inceleme kontrastsız olarak yapılmıştır.
+Kontrastsız inceleme ile solid organ ve vasküler yapıların değerlendirilmesi {sınırlıdır|kısıtlıdır}.
+BT ürografi incelemesinde ürografik faz görüntülerde toplayıcı sistemler ve üreterler kontrast madde ile {dolmuştur|opaklanmıştır}.
+Abdomen MR incelemesi {1,5|3} Tesla cihazda T1 ağırlıklı, T2 ağırlıklı, yağ baskılı ve difüzyon ağırlıklı sekanslar ile yapılmıştır.
+IVKM verilmesini takiben dinamik {T1 ağırlıklı|yağ baskılı T1 ağırlıklı} görüntüler arteryal, portal venöz ve geç fazlarda elde edilmiştir.
+Hepatobiliyer spesifik kontrast madde verilmesini takiben {20 dakikalık|geç} hepatobiliyer faz görüntüleri alınmıştır.
+In-phase ve out-of-phase T1 ağırlıklı görüntüler {yağ içeriğinin|sürrenal lezyonun} karakterizasyonu amacıyla alınmıştır.
+MRCP incelemesinde ince ve kalın kesit T2 ağırlıklı koronal oblik görüntüler ile üç boyutlu rekonstrüksiyonlar değerlendirilmiştir.
+Pelvik MR incelemesi aksiyel, koronal ve sagittal planlarda {yüksek çözünürlüklü T2 ağırlıklı|T2 ağırlıklı ve difüzyon ağırlıklı} sekanslarla yapılmıştır.
+Multiparametrik prostat MR incelemesi T2 ağırlıklı, difüzyon ağırlıklı ve dinamik kontrastlı sekanslardan oluşan protokol ile yapılmıştır.
+Difüzyon ağırlıklı görüntülerde b {800|1000|1400} değeri kullanılmış ve ADC haritaları oluşturulmuştur.
+{Solunum|Hareket} artefaktları nedeniyle incelemenin duyarlılığı {azalmıştır|azalmaktadır}.
+Kolesistektomi lojundaki metalik klips artefaktları komşu yapıların değerlendirilmesini kısıtlamaktadır.
+Görüntüler PACS sistemi üzerinden {multiplanar olarak|aksiyel, koronal ve sagittal planlarda} değerlendirilmiştir.
+Tetkik {sağ üst kadran ağrısı|yaygın karın ağrısı|açıklanamayan kilo kaybı|makroskopik hematüri|karaciğer enzim yüksekliği|malignite evrelemesi} nedeniyle istenmiştir.
+Renal arter Doppler USG incelemesinde her iki renal arter orijinden hilusa kadar değerlendirilmiştir.
+Portal Doppler incelemesi açlık durumunda, sırtüstü pozisyonda yapılmıştır.
+
+# Karaciğer: boyut, kontur ve parankim
+Karaciğer boyutları normal olup parankim ekosu homojendir.
+Karaciğer boyutu ve parankim ekosu tabiidir.
+Karaciğer {14|15|16} cm boyutunda olup parankim ekojenitesi {homojendir|olağandır|tabiidir}.
+Karaciğer midklavikular hatta {17|18|19|20|21} cm ölçülmüş olup hepatomegali mevcuttur.
+Karaciğer boyutları {hafif|belirgin} artmış olup parankim ekosu {homojendir|hafif heterojendir}.
+Karaciğer konturları {düzgün|düzenli}, parankim ekosu homojen olup fokal lezyon {izlenmemiştir|saptanmamıştır}.
+Karaciğer parankim ekojenitesi diffüz artmış olup grade {1|2|3} hepatosteatoz ile uyumludur.
+Karaciğer parankim ekojenitesi hafif artmış olup {grade 1 hepatosteatoz|hafif derecede steatoz} ile uyumludur.
+Karaciğer parankim ekojenitesi artmış ve intrahepatik damar duvarları silikleşmiş olup grade 2 hepatosteatoz ile uyumludur.
+Karaciğer ekojenitesi belirgin artmış olup derin parankim ve diyafragma güçlükle seçilebilmektedir, grade 3 hepatosteatoz ile uyumludur.
+Karaciğer boyutları normal sınırlarda olup parankim {steatotiktir|hafif steatotik görünümdedir}.
+Karaciğer ekojenitesindeki diffüz artış steatoza sekonder olarak değerlendirilmiştir.
+Karaciğerde diffüz yağlı infiltrasyon ile uyumlu {ekojenite artışı|dansite azalması} {izlendi|izlenmiştir|dikkati çekti}.
+Kontrastsız BT'de karaciğer dansitesi dalağa göre {belirgin|hafif} düşük olup diffüz yağlanma ile uyumludur.
+Out-of-phase görüntülerde karaciğer parankiminde diffüz sinyal kaybı izlenmiş olup hepatosteatoz ile uyumludur.
+Safra kesesi komşuluğunda segment 4b düzeyinde {fokal yağdan korunmuş alan|fokal yağlanma alanı} {izlendi|izlenmiştir}.
+Steatotik zeminde portal hilus çevresinde kitle etkisi oluşturmayan hipoekoik alan izlenmiş olup fokal yağdan korunma lehine değerlendirilmiştir.
+Karaciğer parankim ekosu {kaba ve heterojen|kabalaşmış} görünümde olup kronik parankimal karaciğer hastalığı ile uyumludur.
+Karaciğer konturları {lobüle|nodüler|hafif düzensiz} olup parankim ekosu heterojen ve kabalaşmıştır.
+Karaciğer sağ lobu atrofik, kaudat lob ve sol lob lateral segment hipertrofik görünümde olup sirotik morfoloji ile uyumludur.
+Kaudat lobun sağ loba oranı artmış olup sirotik değişiklikler ile uyumludur.
+Sirotik karaciğerde belirgin kontrastlanma göstermeyen {5|6|8|10} mm boyutlu nodül rejeneratif nodül lehine değerlendirilmiştir.
+Karaciğer sağ lobu inferiora doğru uzanım göstermekte olup Riedel lobu ile uyumlu anatomik varyasyon olarak değerlendirilmiştir.
+Karaciğer parankiminde fokal veya diffüz patolojik lezyon {izlenmemiştir|saptanmamıştır|görülmemiştir}.
+Karaciğerde yer kaplayan {lezyon|kitle} {saptanmadı|izlenmedi|saptanmamıştır|görülmedi}.
+Karaciğer parankiminde portal ven dalları boyunca periportal ödem {dikkati çekmektedir|izlenmiştir}.
+Karaciğer parankiminde mozaik kontrastlanma paterni izlenmiş olup konjestif hepatopati ile uyumlu olabilir.
+Karaciğer parankiminde T2 ağırlıklı ve in-phase görüntülerde diffüz sinyal kaybı izlenmiş olup demir birikimi ile uyumludur.
+Karaciğer parankim dansitesi homojen olup kontrastlı serilerde patolojik kontrastlanma {izlenmedi|saptanmadı|izlenmemiştir}.
+
+# Karaciğer: kistik lezyonlar ve apse
+Karaciğer {segment 6|segment 7|segment 8|segment 2|segment 3|segment 4a|segment 5} düzeyinde {mm} mm çaplı, düzgün sınırlı, posterior akustik güçlenme gösteren anekoik basit kist {izlendi|izlenmiştir|saptandı}.
+Karaciğer sağ lobda en büyüğü {mm} mm çaplı birkaç adet basit kist {izlendi|izlenmiştir}.
+Karaciğer her iki lobunda en büyüğü {segment yedide|segment sekizde|segment ikide|segment altıda} {mm} mm ölçülen multipl basit kistler izlenmiştir.
+Karaciğer sol lobda {mm}x{mm} mm ebatlı, ince cidarlı, septasyon içermeyen kistik lezyon {izlendi|izlenmiştir}.
+Karaciğerde karakterize edilemeyecek kadar küçük, milimetrik hipodens lezyonlar izlenmiş olup öncelikle basit kist lehine değerlendirilmiştir.
+Kontrastsız ve kontrastlı serilerde {2|5|8|10} HU dansitede, kontrastlanma göstermeyen {mm} mm boyutlu hipodens lezyon basit kist ile uyumludur.
+T2 ağırlıklı serilerde belirgin hiperintens, T1 ağırlıklı serilerde hipointens, kontrastlanma göstermeyen {mm} mm boyutlu lezyon basit kist ile uyumludur.
+Karaciğer {sağ|sol} lobda {mm}x{mm} mm boyutlu, ince septalı kistik lezyon izlenmiş olup kontrastlı MR ile değerlendirilmesi önerilir.
+Karaciğer {segment 6|segment 7|segment 8} düzeyinde {cm} cm çaplı, içerisinde kız vezikülleri izlenen multiveziküler kistik lezyon kist hidatik ile uyumludur.
+Karaciğer sağ lobda {cm} cm çaplı, germinatif membran ayrışması ve nilüfer işareti gösteren kistik lezyon kist hidatik ile uyumlu olarak değerlendirildi.
+Lezyon WHO sınıflamasına göre {CE1|CE2|CE3a|CE3b|CE4|CE5} kist hidatik olarak değerlendirilmiştir.
+Lezyon Gharbi sınıflamasına göre tip {1|2|3|4|5} kist hidatik ile uyumludur.
+Karaciğer {segment 7|segment 8} düzeyinde duvarı kaba kalsifiye, inaktif görünümde kist hidatik ile uyumlu lezyon {izlendi|izlenmiştir}.
+Karaciğer sağ lobda {cm} cm boyutlu, solid ve kistik alanlar içeren heterojen ekojenitede lezyon izlenmiş olup kist hidatik olasılıklı olarak değerlendirilmiştir.
+Karaciğer sağ lobda {mm}x{mm} mm boyutlu, kalın ve düzensiz duvarlı, içerisinde debris ve septasyonlar bulunan kompleks kistik lezyon apse ile uyumludur.
+Lezyon duvarında periferik kontrastlanma ve çevre parankimde ödem izlenmiş olup piyojenik apse lehine değerlendirilmiştir.
+Karaciğerde {mm} mm boyutlu, içerisinde hava dansiteleri bulunan, periferik kontrastlanan koleksiyon {apse|enfekte koleksiyon} ile uyumludur.
+Karaciğer parankiminde dağınık yerleşimli, {3|4|5} mm'yi aşmayan çok sayıda kistik odak izlenmiş olup biliyer hamartom ile uyumludur.
+
+# Karaciğer: solid lezyonlar
+Karaciğer {segment 6|segment 7|segment 8|segment 5|segment 4a|segment 2} düzeyinde {mm} mm çaplı, düzgün sınırlı, homojen hiperekoik lezyon izlenmiş olup hemanjiyom {lehine|olasılıklı olarak} değerlendirilmiştir.
+Karaciğer sağ lob posterior segmentte {mm}x{mm} mm boyutlu, keskin sınırlı hiperekoik nodül tipik hemanjiyom ile uyumludur.
+Lezyon arteryal fazda periferik nodüler kontrastlanma göstermekte, portal venöz ve geç fazlarda santripetal dolum göstermektedir.
+Periferik nodüler kontrastlanma ve geç fazda tama yakın dolum gösteren {mm} mm boyutlu lezyon hemanjiyom ile uyumludur.
+T2 ağırlıklı serilerde belirgin hiperintens, difüzyon kısıtlanması göstermeyen, periferik nodüler kontrastlanan lezyon hemanjiyom ile uyumludur.
+Karaciğer sağ lobda {6|7|8|9} cm çaplı, santralinde kontrastlanmayan skar alanı bulunan dev hemanjiyom {izlendi|izlenmiştir|dikkati çekti}.
+Arteryal fazda hızlı ve homojen kontrastlanan, tüm fazlarda kan havuzunu izleyen {6|8|10|12|15} mm boyutlu lezyon flash dolum gösteren hemanjiyom ile uyumludur.
+Karaciğer {segment 4a|segment 4b|segment 3|segment 6|segment 5} düzeyinde arteryal fazda homojen ve yoğun kontrastlanan, portal venöz fazda parankim ile izodens hale gelen {mm} mm boyutlu lezyon izlendi.
+Lezyonun santralinde T2 ağırlıklı serilerde hiperintens, geç fazda kontrastlanan santral skar izlenmiş olup fokal nodüler hiperplazi ile uyumludur.
+Bulgular öncelikle fokal nodüler hiperplazi lehine değerlendirilmiş olup ayırıcı tanıda hepatoselüler adenom düşünülmelidir.
+Hepatobiliyer fazda {izointens|hiperintens} kalan lezyon FNH ile uyumludur.
+Hepatobiliyer fazda hipointens izlenen ve out-of-phase görüntülerde sinyal kaybı gösteren lezyon hepatoselüler adenom lehine değerlendirilmiştir.
+Karaciğer her iki lobunda en büyüğü {segment yedide|segment sekizde|segment altıda|segment beşte} {mm} mm çaplı, çevresinde hipoekoik halo bulunan hedef görünümlü multipl lezyonlar izlenmiş olup metastaz ile uyumludur.
+Karaciğer parankiminde dağınık yerleşimli, en büyüğü {mm}x{mm} mm boyutlu, periferik halka şeklinde kontrastlanan multipl hipodens lezyonlar metastaz lehine değerlendirilmiştir.
+Portal venöz fazda hipovasküler görünümde, en büyüğü {mm} mm boyutlu multipl metastatik lezyonlar {izlendi|izlenmiştir|saptanmıştır}.
+Arteryal fazda belirgin kontrastlanan multipl hipervasküler lezyonlar {nöroendokrin tümör|renal hücreli karsinom|melanom} metastazı ile uyumlu olabilir.
+Difüzyon ağırlıklı görüntülerde belirgin kısıtlanma gösteren, T2 ağırlıklı serilerde hafif hiperintens lezyonlar metastaz açısından şüphelidir.
+Karaciğerde {4|5|6|7|8} mm boyutlu, karakterize edilemeyen subsantimetrik hipodens lezyon izlenmiş olup metastaz açısından MR ile ileri değerlendirme önerilir.
+Sirotik zeminde segment {5|6|7|8} düzeyinde {mm} mm boyutlu, arteryal fazda belirgin kontrastlanan, portal venöz fazda wash-out gösteren lezyon {izlendi|izlenmiştir}.
+Lezyon çevresinde geç fazda kontrastlanan kapsül görünümü mevcut olup bulgular hepatoselüler karsinom ile uyumludur.
+Lezyon LI-RADS {3|4|5} kategorisinde değerlendirilmiştir.
+Arteryal faz hiperenhansmanı, portal venöz fazda wash-out ve kapsül görünümü gösteren {12|15|18|22|25|30|35} mm lezyon LI-RADS 5 kategorisinde olup HCC ile uyumludur.
+Arteryal fazda kontrastlanan, wash-out göstermeyen {6|7|8|9} mm boyutlu nodül LI-RADS 3 olarak değerlendirilmiş olup {3|6} ay sonra kontrol önerilir.
+Karaciğer sağ lobda {cm} cm boyutlu, mozaik görünümlü, nekrotik alanlar içeren heterojen kitle izlenmiş olup HCC ile uyumludur.
+Portal ven sağ dalında kontrastlanan tümör trombüsü {izlendi|izlenmiştir|dikkati çekti}.
+Karaciğerde sınırları net seçilemeyen, difüzyon kısıtlanması gösteren infiltratif tipte {heterojen |}kitle izlenmiştir.
+Arteryal fazda geçici kontrastlanan, diğer fazlarda parankim ile izodens, kama şeklindeki alan {arterioportal şant|geçici hepatik dansite farkı} ile uyumludur.
+Karaciğer hilusunda safra yollarında dilatasyona neden olan, geç fazda progresif kontrastlanan kitle kolanjiyokarsinom açısından şüphelidir.
+Karaciğer sağ lobda {3|4|5|6|8} mm çaplı, akustik gölgelenme gösteren hiperekojen odak {kalsifik granülom|parankimal kalsifikasyon} ile uyumludur.
+Karaciğerde {mm} mm boyutlu, T1 ağırlıklı serilerde hiperintens, yağ baskılı serilerde sinyal kaybı gösteren lezyon {anjiyomiyolipom|lipom} lehine değerlendirilmiştir.
+Karaciğer sol lobda {mm} mm boyutlu, {hipoekoik|izoekoik|heterojen ekojenitede} solid lezyon izlenmiş olup ileri tetkik ile değerlendirilmesi önerilir.
+Lezyon {sağ hepatik vene|orta hepatik vene|portal ven sağ dalına} {mm} mm mesafede yer almaktadır.
+Karaciğer sağ lob lateralinde {mm} mm kalınlığa ulaşan, hilal şeklinde subkapsüler hematom izlenmiştir.
+Karaciğer {segment 6|segment 7|segment 5} düzeyinde travmaya sekonder {mm} mm uzunluğunda laserasyon ile uyumlu lineer hipodens alan izlendi.
+
+# Karaciğer damarları ve portal sistem
+Portal ven çapı {9|10|11|12} mm olup lümeni açıktır.
+Portal ven ana trunkusu {14|15|16|17} mm çapında olup dilatedir.
+Portal ven ana trunkusu ve intrahepatik dalları açık olup lümenlerinde trombüs {izlenmedi|saptanmadı|izlenmemiştir}.
+Portal ven lümeninde {parsiyel|tama yakın} oklüzyona neden olan {ekojen|hipodens} trombüs {izlendi|izlenmiştir|saptandı}.
+Portal ven trasesinde normal portal yapı izlenmemiş olup hiler bölgede kollateral damar yapıları ile kavernöz transformasyon izlenmiştir.
+Hepatik venler ve vena kava inferior açık olup lümenlerinde trombüs izlenmemiştir.
+Hepatik venlerde ve vena kava inferiorda genişleme izlenmiş olup {konjestif hepatopati|sağ kalp yetmezliği} ile uyumlu olabilir.
+Hepatik venler seçilememiş olup kaudat lob hipertrofisi ve heterojen kontrastlanma Budd-Chiari sendromu açısından anlamlıdır.
+Splenik ven ve superior mezenterik ven açık olup lümenlerinde trombüs {izlenmemiştir|saptanmamıştır}.
+Rekanalize umbilikal ven ve {perigastrik|splenorenal} kollateraller izlenmiş olup portal hipertansiyon ile uyumludur.
+Gastroözofageal bileşke düzeyinde ve özofagus distalinde varisler ile uyumlu dilate venöz yapılar {izlendi|dikkati çekti}.
+
+# Safra kesesi
+Safra kesesi normal distansiyonda olup duvar kalınlığı ve lümeni tabiidir.
+Safra kesesi {normal|yeterli} distansiyonda, duvar kalınlığı normal olup lümeninde taş veya çamur {izlenmedi|izlenmemiştir|saptanmamıştır|görülmedi}.
+Safra kesesi duvar kalınlığı {2|3} mm olup normaldir.
+Safra kesesi lümeninde en büyüğü {6|8|10|12|15|18|20|25} mm çaplı, posterior akustik gölgelenme veren multipl taşlar {izlendi|izlenmiştir|dikkati çekti}.
+Safra kesesi lümeninde {8|10|12|15|20|25|30} mm çaplı, {pozisyon değişikliği ile yer değiştiren|mobil}, posterior akustik gölgelenme gösteren soliter taş {izlendi|izlenmiştir|saptandı}.
+Safra kesesi boyun kesiminde {10|12|15|18|20} mm çaplı {impakte|hareketsiz} taş izlenmiştir.
+Safra kesesi lümenini dolduran çok sayıda taş ve duvar-eko-gölge işareti izlenmiştir.
+Safra kesesi lümeninde {milimetrik|2-3 mm boyutlu} çok sayıda taş izlenmiş olup mikrolitiazis ile uyumludur.
+Safra kesesi lümeninde {seviyelenme gösteren|bağımlı kesimde yerleşimli} ekojen safra çamuru {izlendi|izlenmiştir}.
+Safra kesesi lümeninde safra çamuru ile birlikte {8|10|12|15|20} mm'ye ulaşan taşlar izlendi.
+Safra kesesi lümeninde {tümefaktif çamur|akustik gölge vermeyen hareketsiz ekojen içerik} izlenmiş olup kontrol USG ile değerlendirilmesi önerilir.
+Safra kesesi duvarından kaynaklanan, akustik gölge vermeyen, pozisyon değişikliği ile yer değiştirmeyen {3|4|5|6} mm boyutlu polip {izlendi|izlenmiştir}.
+Safra kesesi duvarında en büyüğü {3|4|5} mm boyutlu multipl {polipler|kolesterol polipleri} izlenmiştir.
+Safra kesesi fundusunda {8|10|12|15} mm boyutlu, Doppler'de kanlanma gösteren polipoid lezyon izlenmiş olup cerrahi değerlendirme önerilir.
+Safra kesesi duvarı {4|5|6|7|8} mm kalınlıkta olup {ödemli|katmanlı} görünümdedir.
+Safra kesesi distandü, duvarı {5|6|7|8} mm kalınlaşmış ve ödemli olup perikolesistik sıvı izlenmiştir.
+Sonografik Murphy bulgusu {pozitiftir|negatiftir|pozitif olarak değerlendirilmiştir}.
+Safra kesesi duvarında fokal kalınlaşma ve kuyruklu yıldız artefaktı veren ekojen odaklar izlenmiş olup adenomiyomatozis ile uyumludur.
+Safra kesesi duvarında diffüz kalınlaşma izlenmiş olup {asit|hipoalbuminemi|akut hepatit} gibi sistemik nedenlere sekonder olabilir.
+Safra kesesi duvarında kesintili kontrastlanma ve perikolesistik koleksiyon izlenmiş olup gangrenöz kolesistit ile uyumludur.
+Safra kesesi duvarında ve lümeninde hava dansiteleri izlenmiş olup amfizematöz kolesistit ile uyumludur.
+Safra kesesi duvarı yaygın kalsifiye olup porselen kese ile uyumludur.
+Safra kesesi lojunda {cm} cm boyutlu, karaciğer parankimine invaze, heterojen kontrastlanan kitle izlenmiş olup safra kesesi karsinomu açısından şüphelidir.
+Safra kesesi {kontrakte|kollabe} görünümde olup duvar kalınlığı değerlendirilememiştir.
+Safra kesesi {hidropik|distandü} görünümde olup uzun aksı {11|12|13} cm ölçülmüştür.
+Safra kesesi fundusunda katlantı izlenmiş olup frigya şapkası varyasyonu ile uyumludur.
+Kontrastsız BT'de safra kesesinde {8|10|12|15|20} mm çaplı, {periferik halkasal kalsifikasyonlu|opak} taş izlenmiştir.
+Safra kesesi taşları BT'de safra ile izodens veya radyolusen olabileceğinden USG ile korelasyon önerilir.
+Safra kesesi opere olup kolesistektomi lojunda {koleksiyon|patolojik bulgu} {izlenmemiştir|saptanmamıştır}.
+Kolesistektomi lojunda {mm}x{mm} mm boyutlu, {safra kaçağı ile uyumlu|loküle} sıvı koleksiyonu izlenmiştir.
+
+# Safra yolları ve MRCP
+İntrahepatik ve ekstrahepatik safra yollarında dilatasyon {izlenmedi|izlenmemiştir|saptanmamıştır|görülmedi}.
+Koledok çapı {3|4|5|6} mm olup normaldir.
+Koledok {8|9|10|11|12|14} mm çapında olup dilatedir.
+İntrahepatik safra yollarında {her iki lobda|sağ lobda|sol lobda} {hafif|ılımlı|belirgin} dilatasyon {izlendi|izlenmiştir|dikkati çekti}.
+İntrahepatik safra yollarında hafif belirginleşme dikkati çekmektedir.
+Koledok distal kesiminde {5|6|8|10|12} mm çaplı, posterior akustik gölgelenme veren taş izlenmiş olup koledokolitiazis ile uyumludur.
+Koledok distali barsak gazı nedeniyle {net olarak değerlendirilememiştir|seçilememiştir}.
+Kolesistektomi sonrası koledok çapı {7|8|9} mm olup postoperatif durum ile uyumlu kabul edilebilir.
+Safra yollarında lineer hava ekojeniteleri izlenmiş olup {sfinkterotomi|biliyer anastomoz} sonrası değişikliklere bağlı olabilir.
+Koledok lümeninde {plastik|metalik} biliyer stent izlenmiş olup proksimalinde safra yolu dilatasyonu izlenmemiştir.
+Hiler düzeyde sağ ve sol hepatik kanal birleşim yerinde {mm} mm boyutlu kitle ve buna bağlı intrahepatik safra yollarında dilatasyon izlenmiştir.
+Bulgular {Klatskin tümörü|hiler kolanjiyokarsinom} açısından şüpheli olup MRCP ile ileri değerlendirme önerilir.
+Koledok ve Wirsung kanalında birlikte dilatasyon izlenmiş olup çift kanal işareti mevcuttur.
+Koledok {fuziform|kistik} dilate görünümde olup koledok kisti ile uyumludur.
+Duodenum ikinci kısmında periampuller yerleşimli {15|20|25|30} mm boyutlu divertikül izlenmiştir.
+MRCP incelemesinde intrahepatik ve ekstrahepatik safra yolları normal kalibrede izlenmiştir.
+MRCP'de koledok distal kesiminde T2 ağırlıklı görüntülerde {hipointens|sinyalsiz} {4|5|6|8|10} mm boyutlu dolum defekti izlenmiş olup taş ile uyumludur.
+Koledok distalinde {mm} mm uzunlukta {düzgün konturlu|düzensiz konturlu} daralma ve proksimalinde dilatasyon izlenmiştir.
+İntrahepatik safra yollarında multifokal darlık ve dilatasyonlar ile boncuk dizisi görünümü izlenmiş olup primer sklerozan kolanjit ile uyumludur.
+Wirsung kanalı {2|3} mm çapında olup normaldir.
+Wirsung kanalı {4|5|6|7|8} mm çapında olup {düzgün|düzensiz} konturlu dilatasyon göstermektedir.
+Dorsal pankreatik kanalın minör papillaya açıldığı izlenmiş olup pankreas divisum ile uyumludur.
+Kolesistektomi sonrası sistik kanal güdüğünde {5|6|8|10} mm boyutlu taş izlenmiştir.
+
+# Pankreas
+Pankreas boyutları ve parankim ekosu tabiidir.
+Pankreas baş, gövde ve kuyruk kesimleri normal boyut ve ekojenitededir.
+Pankreas baş ve gövde kesimi izlenebildiği kadarıyla tabiidir, kuyruk kesimi barsak gazı nedeniyle değerlendirilememiştir.
+Pankreas başı {22|24|25|26|28} mm, gövdesi {12|14|15|16} mm, kuyruğu {18|20|22} mm ölçülmüştür.
+Pankreas parankiminde yaşla uyumlu {lipomatöz değişiklikler|yağlı infiltrasyon} izlenmiştir.
+Pankreas parankiminde fokal veya diffüz patolojik lezyon {saptanmamıştır|izlenmemiştir|görülmemiştir}.
+Pankreas parankimi atrofik görünümde olup Wirsung kanalı {normal çaptadır|hafif belirgindir}.
+Pankreas diffüz ödemli ve boyutları artmış olup peripankreatik yağlı planlarda kirlenme ve sıvı izlenmiştir.
+Bulgular akut ödematöz pankreatit ile uyumludur.
+Pankreas {gövde|kuyruk|baş} kesiminde parankimin yaklaşık %{30|50} kadarını içeren, kontrastlanmayan nekroz alanları izlenmiştir.
+Bulgular akut nekrotizan pankreatit ile uyumlu olup modifiye BT şiddet indeksi {6|8|10} olarak hesaplanmıştır.
+Balthazar sınıflamasına göre evre {C|D|E} pankreatit ile uyumludur.
+Peripankreatik alanda {mm}x{mm} mm {boyutlu|ebatlı}, düzgün duvarlı, homojen sıvı içerikli psödokist {izlendi|izlenmiştir}.
+Pankreas gövdesi komşuluğunda {cm} cm boyutlu, kalın duvarlı, içerisinde nekrotik debris bulunan duvarlanmış nekroz izlenmiştir.
+Pankreas parankiminde {yaygın|multipl} kalsifikasyonlar, parankimal atrofi ve Wirsung kanalında düzensiz dilatasyon izlenmiş olup kronik pankreatit ile uyumludur.
+Wirsung kanalı içerisinde {3|4|5|6|8} mm boyutlu kalkül izlenmiştir.
+Pankreas başında {mm}x{mm} mm boyutlu, sınırları düzensiz, hipovasküler hipodens solid kitle {izlendi|izlenmiştir|saptandı}.
+Pankreas gövde ve kuyruk kesiminde Wirsung kanalı dilate olup parankimal atrofi eşlik etmektedir.
+Kitle superior mezenterik ven ile {90|180} derecenin {altında|üzerinde} temas göstermekte olup aradaki yağ planı silinmiştir.
+Kitlenin superior mezenterik arter ve çölyak trunkus ile yağ planı korunmuştur.
+Bulgular öncelikle pankreas duktal adenokarsinomu lehine değerlendirilmiş olup vasküler tutulum açısından {sınırda rezektabl|lokal ileri} hastalık ile uyumludur.
+Pankreas {gövde|kuyruk} kesiminde {mm} mm boyutlu, arteryal fazda belirgin kontrastlanan solid lezyon izlenmiş olup nöroendokrin tümör lehine değerlendirilmiştir.
+Pankreas {başında|unsinat proçesinde|gövdesinde|kuyruğunda} Wirsung kanalı ile ilişkili {mm} mm boyutlu kistik lezyon izlenmiş olup yan dal IPMN ile uyumludur.
+Kistik lezyonda mural nodül, duvar kalınlaşması veya Wirsung dilatasyonu gibi endişe verici bulgu {izlenmemiştir|saptanmamıştır}.
+Pankreas kuyruk kesiminde {cm} cm boyutlu, ince septalı, mikrokistik görünümde, santral kalsifikasyon içeren lezyon seröz kistadenom ile uyumludur.
+Pankreas gövde-kuyruk bileşkesinde {cm} cm boyutlu, kalın duvarlı, makrokistik lezyon izlenmiş olup müsinöz kistik neoplazi açısından değerlendirilmelidir.
+
+# Dalak
+Dalak boyutu {9|10|11|12} cm olup parankim ekosu homojendir.
+Dalak normal boyutta olup parankim ekosu tabiidir.
+Dalak uzun aksı {13,5|14|15} cm ölçülmüş olup hafif splenomegali mevcuttur.
+Dalak uzun aksı {17|18|19|20} cm olup belirgin splenomegali {izlenmiştir|dikkati çekmektedir}.
+Dalak hilusunda {8|10|12|15} mm çaplı, dalak ile izoekoik aksesuar dalak {izlendi|izlenmiştir}.
+Dalak parankiminde {milimetrik|punktat} kalsifik granülomlar izlenmiştir.
+Dalak parankiminde {mm} mm çaplı, posterior akustik güçlenme gösteren anekoik basit kist izlenmiştir.
+Dalakta {mm} mm {boyutlu|ebadında}, homojen hiperekoik, düzgün sınırlı lezyon hemanjiyom {lehine|olasılıklı olarak} değerlendirilmiştir.
+Dalak parankiminde periferik yerleşimli, kama şeklinde, kontrastlanmayan hipodens alan izlenmiş olup dalak infarktı ile uyumludur.
+Dalak parankiminde multipl hipoekoik nodüler lezyonlar izlenmiş olup lenfoma tutulumu açısından değerlendirilmelidir.
+Dalakta {mm} mm uzunluğunda laserasyon ve perisplenik hematom {izlendi|izlenmiştir}.
+Dalak opere olup splenektomi lojunda {patolojik bulgu|koleksiyon} {izlenmemiştir|saptanmamıştır}.
+Splenektomi lojunda {mm} mm boyutlu, splenozis ile uyumlu yumuşak doku nodülü izlenmiştir.
+Splenik ven {7|8|9} mm çapında olup lümeni açıktır.
+Dalak parankiminde {mm} mm boyutlu, Doppler'de kanlanmayan, kalın duvarlı kistik lezyon {apse|enfekte kist} açısından değerlendirilmelidir.
+
+# Sürrenaller
+Her iki sürrenal bez normal boyut ve görünümdedir.
+Her iki sürrenal bez {tabiidir|olağan görünümdedir|kalınlık ve konfigürasyon olarak normaldir}.
+Bilateral sürrenal alanda kitle lezyonu {izlenmemiştir|saptanmamıştır|görülmedi}.
+{Sağ|Sol} sürrenal bezde {10|12|14|15|18|20} mm boyutlu, düzgün sınırlı, kontrastsız serilerde {5|8|10} HU dansitede nodül izlenmiş olup lipidden zengin adenom ile uyumludur.
+{Sağ|Sol} sürrenal bezde {12|15|18|20} mm boyutlu nodül karşıt faz görüntülerde belirgin sinyal kaybı göstermesi nedeniyle adenom lehine değerlendirilmiştir.
+Sürrenal nodülde mutlak wash-out oranı %{60|65|70} üzerinde olup adenom ile uyumludur.
+{Sağ|Sol} sürrenal bezde {cm} cm boyutlu, makroskopik yağ içeren heterojen lezyon miyelolipom ile uyumludur.
+{Sağ|Sol} sürrenal bezde {cm} cm boyutlu, heterojen kontrastlanan, nekrotik alanlar içeren kitle izlenmiş olup {metastaz|adrenokortikal karsinom} açısından şüphelidir.
+Her iki sürrenal bezde diffüz kalınlaşma izlenmiş olup sürrenal hiperplazi ile uyumlu olabilir.
+Sürrenal lezyon nonspesifik özellikte olup {kimyasal şift MR|sürrenal protokol BT} ile değerlendirilmesi önerilir.
+{Sağ|Sol} sürrenal bezde kalsifikasyon izlenmiş olup {geçirilmiş kanama|granülomatöz hastalık} sekeli olabilir.
+{Sağ|Sol} sürrenal bezde T2 ağırlıklı serilerde belirgin hiperintens, heterojen kontrastlanan kitle feokromositoma açısından şüphelidir.
+
+# Böbrekler: boyut, konum ve parankim
+Her iki böbrek normal boyut, konum ve parankim kalınlığındadır.
+Sağ böbrek {10|10,5|11|11,5} cm, sol böbrek {10,5|11|11,5|12} cm uzunluğunda olup parankim kalınlıkları normaldir.
+{Sağ|Sol} böbrek boyutu {10|10,5|11|11,5|12} cm, parankim kalınlığı {15|16|17|18|19|20} mm ölçülmüştür.
+Her iki böbrekte kortikomedüller ayrım {korunmuştur|belirgindir|seçilebilmektedir}.
+Her iki böbrek tabiidir, parankim ekosu ve kortikomedüller ayrım olağandır.
+Her iki böbrek parankim ekojenitesi artmış olup grade {1|2|3} renal parankimal hastalık ile uyumludur.
+Her iki böbrekte parankim ekojenitesi artmış ve kortikomedüller ayrım silikleşmiştir.
+Her iki böbrek boyutları küçülmüş, parankim incelmiş ve ekojenitesi artmış olup kronik böbrek hastalığı ile uyumludur.
+{Sağ|Sol} böbrek {7|7,5|8|8,5} cm boyutunda olup atrofik görünümdedir, parankim kalınlığı {6|7|8|9} mm ölçülmüştür.
+{Sağ|Sol} böbrek kompansatuvar hipertrofik görünümdedir.
+{Sağ|Sol} böbrek konturlarında {fetal lobulasyon|dromedar hörgücü} izlenmiş olup normal varyant olarak değerlendirilmiştir.
+{Sağ|Sol} böbrek üst polde parankimal skar ile uyumlu kontur çekintisi ve parankim incelmesi {izlendi|izlenmiştir|dikkati çekti}.
+{Sağ|Sol} böbrek pelvik lokalizasyonda olup ektopik böbrek ile uyumludur.
+Her iki böbrek alt polleri orta hatta birleşmiş olup at nalı böbrek ile uyumludur.
+{Sağ|Sol} böbrekte {duplike toplayıcı sistem|bifid renal pelvis} ile uyumlu görünüm izlenmiştir.
+{Sağ|Sol} böbrek opere olup nefrektomi lojunda {nüks|koleksiyon|patolojik kitle} {izlenmemiştir|saptanmamıştır}.
+{Sağ|Sol} böbrek lojunda böbrek izlenmemiş olup agenezi veya nefrektomi açısından klinik bilgi ile korelasyon önerilir.
+Sağ iliak fossada transplant böbrek izlenmiş olup boyutu {11|11,5|12} cm, parankim ekosu {normaldir|tabiidir}.
+Transplant böbrekte pelvikaliksiyel sistem {dilate değildir|hafif ektazik görünümdedir} ve perirenal koleksiyon izlenmemiştir.
+Her iki böbrekte renal sinüs lipomatozu izlenmiştir.
+
+# Böbrekler: taş ve toplayıcı sistem
+Her iki böbrekte taş veya hidronefroz {izlenmedi|izlenmemiştir|saptanmamıştır|görülmedi}.
+Her iki böbrek pelvikaliksiyel sistemi dilate değildir.
+{Sağ|Sol} böbrek {alt|orta|üst} grup kaliksinde {3|4|5|6|7|8|10|12} mm çaplı, posterior akustik gölgelenme veren taş {izlendi|izlenmiştir|saptandı}.
+{Sağ|Sol} böbrekte en büyüğü {alt grup kalikste|orta grup kalikste|renal pelviste} {5|6|8|10|12|15} mm ölçülen multipl taşlar izlenmiştir.
+{Sağ|Sol} böbrek renal pelvisini dolduran ve kalikslere uzanan {cm} cm boyutlu {staghorn taş|mercan taşı} izlenmiştir.
+Her iki böbrekte {1|2|3} mm boyutlu, akustik gölge vermeyen punktat ekojen odaklar izlenmiş olup mikrolitiazis ile uyumlu olabilir.
+Kontrastsız BT'de {sağ|sol} böbrek {alt|orta|üst} grup kaliksinde {3|4|5|6|8|10} mm boyutlu, {500|800|1000|1200} HU dansitede opak taş izlenmiştir.
+Kontrastsız serilerde her iki böbrek ve üreter trasesinde opak taş {izlenmemiştir|saptanmamıştır}.
+Her iki böbrekte medüller piramitlerde yaygın ekojenite artışı izlenmiş olup medüller nefrokalsinozis ile uyumludur.
+{Sağ|Sol} böbrekte {grade 1|grade 2|grade 3|grade 4} hidronefroz {izlendi|izlenmiştir}.
+{Sağ|Sol} böbrek pelvikaliksiyel sisteminde {hafif|ılımlı|orta|ileri} derecede dilatasyon izlenmiştir.
+{Sağ|Sol} böbrek pelvikaliksiyel sistemi ektazik olup renal pelvis AP çapı {10|12|15|18|20} mm ölçülmüştür.
+{Sağ|Sol} böbrekte hafif pelvikaliektazi izlenmiş olup mesane doluluğuna sekonder olabilir, miksiyon sonrası kontrol önerilir.
+{Sağ|Sol} renal pelvis ekstrarenal yerleşimli olup kaliksiyel dilatasyon eşlik etmemektedir.
+{Sağ|Sol} böbrekte parankim incelmesi ile birlikte ileri derecede hidronefroz izlenmiştir.
+{Sağ|Sol} hidroüreteronefroz izlenmiş olup distal obstrüksiyon açısından {değerlendirilmelidir|BT ürografi önerilir}.
+{Sağ|Sol} böbrek çevresinde perirenal yağlı dokuda kirlenme ve ince sıvı izlenmiş olup akut obstrüksiyona sekonder olabilir.
+{Sağ|Sol} tarafta proksimal ucu renal pelviste, distal ucu mesane lümeninde izlenen DJ kateter mevcuttur.
+{Sağ|Sol} böbrekte ucu {renal pelviste|alt grup kalikste} yer alan nefrostomi kateteri izlenmiştir.
+
+# Böbrekler: kist ve kitle
+{Sağ|Sol} böbrek {üst polde|orta kesimde|alt polde|interpolar bölgede} {mm} mm çaplı, düzgün sınırlı, anekoik basit kortikal kist {izlendi|izlenmiştir|saptandı}.
+Her iki böbrekte en büyüğü {sağ|sol} böbrek {üst polde|alt polde} {mm} mm ölçülen birkaç adet basit kortikal kist izlenmiştir.
+{Sağ|Sol} böbrek hilusunda {mm} mm boyutlu, renal sinüse uzanan parapelvik kist izlenmiştir.
+{Sağ|Sol} böbrek {üst|alt} polde {mm} mm boyutlu, ince septalı kist izlenmiş olup Bosniak 2 kategorisindedir.
+Kist Bosniak {1|2|2F} olarak değerlendirilmiştir.
+{Sağ|Sol} böbrekte {10|12|15|18|20|25} mm boyutlu, kontrastsız serilerde {60|70|75} HU dansitede, kontrastlanma göstermeyen hiperdens kist Bosniak 2 ile uyumludur.
+{Sağ|Sol} böbrekte {mm} mm boyutlu, duvarında ve septalarında minimal kalınlaşma bulunan kist Bosniak 2F kategorisinde değerlendirilmiş olup takibi önerilir.
+{Sağ|Sol} böbrekte {cm} cm boyutlu, kalın ve düzensiz septalı, septalarda ölçülebilir kontrastlanma gösteren kistik lezyon Bosniak 3 olarak değerlendirilmiştir.
+{Sağ|Sol} böbrekte {cm} cm boyutlu, kontrastlanan solid komponent içeren kompleks kistik kitle Bosniak 4 ile uyumludur.
+{Sağ|Sol} böbrekte içerisinde ince internal ekolar bulunan {mm} mm boyutlu komplike kist izlenmiştir.
+{Sağ|Sol} böbrekte T1 ağırlıklı serilerde hiperintens, kontrastlanmayan {mm} mm boyutlu lezyon hemorajik veya proteinöz içerikli kist ile uyumludur.
+Her iki böbrek boyutları artmış, parankimde değişik boyutlarda çok sayıda kist izlenmiş olup otozomal dominant polikistik böbrek hastalığı ile uyumludur.
+{Sağ|Sol} böbrek {üst|alt} polde {mm} mm çaplı, belirgin hiperekoik, düzgün sınırlı lezyon anjiyomiyolipom {lehine|olasılıklı olarak} değerlendirilmiştir.
+{Sağ|Sol} böbrekte {mm} mm boyutlu, makroskopik yağ dansitesi içeren lezyon anjiyomiyolipom ile uyumludur.
+{Sağ|Sol} böbrek {üst|orta|alt} kesiminde {cm} cm boyutlu, korteksten eksofitik uzanım gösteren, heterojen kontrastlanan solid kitle {izlendi|izlenmiştir|saptandı}.
+Bulgular öncelikle renal hücreli karsinom lehine değerlendirilmiştir.
+Kitle perirenal yağlı dokuya uzanım göstermekte olup renal ven ve vena kava inferiorda tümör trombüsü {izlenmemiştir|izlenmiştir}.
+Kitlenin toplayıcı sisteme {uzanımı|invazyonu} {izlenmemiştir|saptanmamıştır}.
+{Sağ|Sol} böbrekte {cm} cm boyutlu, santral yıldız şeklinde skar içeren, homojen kontrastlanan kitle izlenmiş olup ayırıcı tanıda onkositom düşünülmelidir.
+{Sağ|Sol} böbrekte {mm} mm boyutlu, nonspesifik özellikte, {hipoekoik|izoekoik} solid lezyon izlenmiş olup kontrastlı BT veya MR ile değerlendirilmesi önerilir.
+{Sağ|Sol} böbrek parankiminde kama şeklinde, kontrastlanması azalmış alanlar izlenmiş olup akut piyelonefrit ile uyumludur.
+{Sağ|Sol} böbrekte {mm} mm boyutlu, kalın duvarlı, periferik kontrastlanan, difüzyon kısıtlanması gösteren koleksiyon renal apse ile uyumludur.
+{Sağ|Sol} böbrek parankiminde, toplayıcı sistemde ve perirenal alanda hava dansiteleri izlenmiş olup amfizematöz piyelonefrit ile uyumludur.
+Ürografik fazda {sağ|sol} toplayıcı sistemde {5|8|10|12|15} mm boyutlu dolum defekti izlenmiş olup ürotelyal karsinom açısından şüphelidir.
+Kontrastlı serilerde her iki böbrek simetrik kontrastlanmakta olup kontrast atılımı {simetriktir|normal zamanlıdır}.
+{Sağ|Sol} böbrekte gecikmiş nefrogram ve kontrast atılımında gecikme {izlendi|izlenmiştir}.
+
+# Üreterler
+Her iki üreter {izlenebildiği kadarıyla |}dilate değildir.
+Her iki üreter normal kalibrede olup lümenlerinde taş {izlenmemiştir|saptanmamıştır}.
+{Sağ|Sol} üreter {proksimal|orta|distal} kesiminde {3|4|5|6|7|8} mm çaplı taş ve proksimalinde {hafif|orta derecede} hidroüreteronefroz izlenmiştir.
+{Sağ|Sol} üreterovezikal bileşkede {3|4|5|6} mm çaplı taş {izlendi|izlenmiştir|saptandı}.
+{Sağ|Sol} üreter distal kesiminde, üreterovezikal bileşkeye {5|10|15|20} mm mesafede {3|4|5|6} mm boyutlu taş izlenmiştir.
+{Sağ|Sol} üreteropelvik bileşkede {3|4|5|6|8} mm çaplı taş ve buna bağlı pelvikaliektazi izlenmiştir.
+{Sağ|Sol} üreteropelvik bileşkede taş veya kitle izlenmeksizin pelvikaliksiyel sistemde dilatasyon izlenmiş olup UP bileşke darlığı açısından değerlendirilmelidir.
+Pelvik düzeyde izlenen kalsifik odaklar flebolit ile uyumlu olup üreter trasesi dışında yer almaktadır.
+Renkli Doppler incelemede her iki üreteral jet simetrik olarak izlenmiştir.
+{Sağ|Sol} üreteral jet izlenmemiş olup obstrüksiyon açısından anlamlı olabilir.
+{Sağ|Sol} üreterovezikal bileşkede mesane lümenine protrüde olan kistik görünümde üreterosel izlenmiştir.
+{Sağ|Sol} üreter distalinde {10|15|20|25} mm'lik segmentte düzensiz duvar kalınlaşması ve kontrastlanma izlenmiş olup ürotelyal tümör açısından şüphelidir.
+Aorta ve iliak arterleri çevreleyen, üreterleri mediale çeken yumuşak doku dansitesi retroperitoneal fibrozis ile uyumludur.
+
+# Mesane
+Mesane {yeterli|optimal} dolumda olup duvar kalınlığı normaldir, lümeninde patolojik ekojenite {izlenmemiştir|saptanmamıştır}.
+Mesane {kısmi|yetersiz} dolumda olduğundan duvar değerlendirmesi {suboptimaldir|kısıtlıdır}.
+Mesane duvarı düzgün konturlu olup kalınlığı {3|4} mm ölçülmüştür.
+Mesane duvarı diffüz olarak {6|7|8|10} mm kalınlaşmış ve {trabeküle görünümde|belirgin trabekülasyon göstermekte} olup {kronik obstrüksiyona sekonder|nörojen mesane ile ilişkili} olabilir.
+Mesane duvarında yaygın trabekülasyon ve multipl psödodivertiküller {izlendi|izlenmiştir|dikkati çekti}.
+Mesane {sağ|sol} posterolateral duvarında {mm}x{mm} mm boyutlu divertikül izlenmiştir.
+Mesane {sağ|sol} lateral duvarında {mm} mm boyutlu, lümene uzanan, Doppler'de kanlanma gösteren polipoid solid lezyon izlenmiş olup sistoskopik değerlendirme önerilir.
+Mesane tabanında {mm} mm boyutlu, düzensiz konturlu, kontrastlanan duvar kalınlaşması izlenmiş olup ürotelyal karsinom açısından şüphelidir.
+Mesane lümeninde {5|8|10|15|20} mm çaplı, posterior akustik gölgelenme veren, pozisyon değişikliği ile hareket eden taş {izlendi|izlenmiştir}.
+Mesane lümeninde bağımlı kesimde seviyelenme gösteren ekojen {debris|sediment} izlenmiştir.
+Mesane lümeninde Foley kateter balonu izlenmiş olup duvar değerlendirmesi {suboptimaldir|kısıtlıdır}.
+Miksiyon öncesi mesane hacmi {250|300|350|400|450} ml olarak ölçülmüştür.
+Miksiyon sonrası rezidü idrar miktarı {10|15|20|25|30} ml olup anlamlı değildir.
+Miksiyon sonrası {100|120|150|200|250} ml rezidü idrar izlenmiş olup anlamlı düzeydedir.
+Mesane {belirgin|aşırı} distandü olup yaklaşık {600|700|800} ml idrar içermektedir.
+Mesane boş olduğundan duvar ve lümen değerlendirmesi yapılamamıştır.
+Perivezikal yağlı planlar {korunmuştur|olağandır}.
+Mesane duvarında {fokal|diffüz} kalınlaşma ve perivezikal kirlenme izlenmiş olup sistit ile uyumlu olabilir.
+
+# Prostat ve seminal veziküller
+Prostat hacmi {18|20|22|25|28} ml olup normal sınırlardadır.
+Prostat boyutları {45x40x38|50x45x42|55x48x45} mm olup hacmi yaklaşık {40|45|50|60} ml ölçülmüştür.
+Prostat hacmi {45|50|55|60|70|80} ml ölçülmüş olup artmıştır.
+Prostat boyutları artmış olup mesane tabanına {hafif|belirgin} bası oluşturmakta, mesane duvarında {hafif|yaygın} trabekülasyon izlenmektedir.
+Prostat median lobu mesane lümenine {10|12|15|20} mm protrüzyon göstermektedir.
+Prostat parankimi heterojen olup içerisinde {milimetrik|kaba} kalsifikasyonlar izlenmiştir.
+Bulgular benign prostat hiperplazisi ile uyumludur.
+Transizyonel zonda heterojen sinyalli, kapsüllü, iyi sınırlı {BPH nodülleri|adenomatöz nodüller} izlenmiştir.
+Periferik zon T2 ağırlıklı serilerde homojen hiperintens olup {fokal|şüpheli} lezyon {izlenmemiştir|saptanmamıştır}.
+Periferik zonda {sağ|sol} {posterolateral kesimde|apeks düzeyinde|orta bez düzeyinde|baz düzeyinde} {6|8|10|12|14} mm boyutlu, T2 ağırlıklı serilerde hipointens, belirgin difüzyon kısıtlanması gösteren lezyon izlenmiştir.
+Lezyon ADC haritasında belirgin hipointens olup erken dinamik kontrastlanma göstermektedir.
+Lezyon PI-RADS {3|4|5} olarak değerlendirilmiştir.
+{15|18|20|22} mm boyutlu ve ekstraprostatik uzanım şüphesi bulunan lezyon PI-RADS 5 olarak değerlendirilmiştir.
+Transizyonel zonda {8|10|12} mm boyutlu, belirsiz sınırlı, homojen T2 hipointens, lentiküler şekilli lezyon izlenmiş olup PI-RADS {3|4} olarak değerlendirilmiştir.
+Prostat kapsülü düzgün ve devamlı izlenmiş olup ekstraprostatik uzanım {izlenmemiştir|saptanmamıştır}.
+Lezyon düzeyinde kapsülde düzensizlik ve {nörovasküler demete|periprostatik yağlı dokuya} uzanım izlenmiş olup ekstraprostatik yayılım ile uyumludur.
+Seminal veziküller {simetrik ve tabiidir|normal sinyal özelliğindedir}, invazyon bulgusu izlenmemiştir.
+Her iki nörovasküler demet {korunmuştur|simetrik görünümdedir}.
+Periferik zonda {difüz|yamasal} T2 hipointens alanlar izlenmiş olup {prostatit|postinflamatuar değişiklikler} ile uyumlu olabilir.
+Prostat biyopsisi sonrası kanama ile uyumlu, T1 ağırlıklı serilerde hiperintens alanlar izlenmiştir.
+Radikal prostatektomi lojunda {nüks lehine bulgu|kontrastlanan nodüler lezyon} {izlenmemiştir|saptanmamıştır}.
+Prostat {TUR-P sonrası|transüretral rezeksiyon sonrası} değişiklikler ile uyumlu olarak santral defekt içermektedir.
+Pelvik lenf nodlarında ve kemik yapılarda metastaz ile uyumlu bulgu saptanmamıştır.
+
+# Uterus ve serviks
+Uterus antevert pozisyonda olup boyutları {70|75|80|85}x{38|40|45}x{40|45|50} mm ölçülmüştür.
+Uterus {antevert|retrovert|antevert antefleks} pozisyonda, normal boyutlarda olup myometrium ekosu homojendir.
+Uterus boyutları artmış olup myometrium ekosu {heterojen|kaba heterojen} görünümdedir.
+Endometrium kalınlığı {6|7|8|9|10|11|12} mm olup siklusla uyumludur.
+Endometrium {sekretuar|proliferatif} faz ile uyumlu görünümde olup kalınlığı {8|9|10|11|12} mm ölçülmüştür.
+Endometrium ince çizgisel görünümde olup kalınlığı {2|3|4} mm ölçülmüştür.
+Postmenopozal hastada endometrium kalınlığı {2|3|4} mm olup atrofik görünümdedir.
+Postmenopozal hastada endometrium {6|8|10|12|15} mm kalınlıkta olup endometrial hiperplazi veya polip açısından histopatolojik değerlendirme önerilir.
+Endometrial kavitede {5|6|8|10|12|15} mm boyutlu, Doppler'de besleyici damar izlenen hiperekoik polipoid lezyon endometrial polip ile uyumludur.
+Endometrial kavitede {minimal|az miktarda} sıvı {izlendi|izlenmiştir}.
+Endometrium heterojen ve düzensiz konturlu olup myometriuma invazyon açısından MR ile değerlendirilmesi önerilir.
+Endometrial kavitede {rahim içi araç|RİA} izlenmiş olup {yerleşimi uygundur|fundusa yakın uygun konumdadır}.
+Rahim içi aracın {alt kesime|servikal kanala} doğru yer değiştirdiği izlenmiştir.
+Uterus {ön|arka} duvarında {mm} mm çaplı, iyi sınırlı, hipoekoik intramural myom {izlendi|izlenmiştir|saptandı}.
+Uterus fundusunda {mm}x{mm} mm {boyutlu|ebatlı}, dışa doğru uzanan subseröz myom izlenmiştir.
+Endometrial kaviteye bası oluşturan {mm} mm boyutlu submüköz myom izlenmiştir.
+Uterusta en büyüğü {fundusta|ön duvarda|arka duvarda} {mm} mm ölçülen multipl myomlar izlenmiş olup uterus boyutları artmıştır.
+Myom içerisinde {kaba kalsifikasyonlar|kistik dejenerasyon alanları} izlenmiştir.
+Uterus {sağ|sol} lateralinde {mm} mm boyutlu, uterus ile ilişkili pediküllü subseröz myom izlenmiş olup adneksiyel kitle ile karıştırılmamalıdır.
+Myometriumda heterojenite, {arka|ön} duvarda asimetrik kalınlaşma ve subendometrial mikrokistler izlenmiş olup adenomyozis ile uyumludur.
+MR'da bileşke zon kalınlığı {12|13|14|15} mm ölçülmüş olup diffüz adenomyozis ile uyumludur.
+Serviks normal görünümde olup birkaç adet Naboth kisti izlenmiştir.
+Serviks düzeyinde {mm} mm boyutlu, T2 ağırlıklı serilerde orta derecede hiperintens, difüzyon kısıtlanması gösteren kitle izlenmiş olup parametriyal invazyon {izlenmemiştir|şüphelidir}.
+Histerektomi sonrası vajinal kaf {düzgün görünümdedir|olağandır}, nüks lehine bulgu izlenmemiştir.
+Uterus atrofik görünümde olup postmenopozal dönem ile uyumludur.
+Uterus fundusunda iki ayrı endometrial kavite izlenmiş olup {septat|bikornuat} uterus ile uyumludur.
+
+# Overler ve adneksler
+Her iki over normal boyut ve görünümde olup foliküler yapılar içermektedir.
+Overler normal boyutta olup {yaşla uyumlu|menstrüel siklusla uyumlu} görünümdedir.
+Sağ over {30x18|32x20|35x22} mm, sol over {28x17|30x19|33x21} mm boyutlarında olup normal görünümdedir.
+{Sağ|Sol} overde {16|18|20|22|24} mm çaplı dominant folikül {izlendi|izlenmiştir}.
+{Sağ|Sol} overde {mm} mm {çaplı|ebadında}, ince duvarlı, posterior akustik güçlenme gösteren anekoik basit kist {izlendi|izlenmiştir|saptandı}.
+Kist O-RADS {1|2} kategorisinde olup benign özelliktedir.
+{Sağ|Sol} overde {mm} mm boyutlu, içerisinde ince retiküler internal ekolar bulunan, Doppler'de internal kanlanma izlenmeyen hemorajik kist izlenmiştir.
+{Sağ|Sol} overde {20|25|30|35} mm boyutlu, periferik çember şeklinde kanlanma gösteren, kalın duvarlı kistik yapı korpus luteum kisti ile uyumludur.
+{Sağ|Sol} overde {mm} mm boyutlu, homojen buzlu cam görünümünde düşük seviyeli internal ekolar içeren kistik lezyon endometrioma ile uyumludur.
+MR incelemede T1 ağırlıklı serilerde belirgin hiperintens, T2 ağırlıklı serilerde gölgelenme gösteren adneksiyel lezyon endometrioma ile uyumludur.
+{Sağ|Sol} overde {mm} mm boyutlu, içerisinde hiperekoik nodül ve akustik gölgelenme bulunan kistik lezyon matür kistik teratom ile uyumludur.
+Lezyon içerisinde yağ dansitesi ve kalsifikasyon izlenmiş olup dermoid kist ile uyumludur.
+Her iki over boyutları artmış olup her birinde periferik dizilimli {12|15|20} adetten fazla küçük folikül izlenmiştir.
+Bulgular polikistik over morfolojisi ile uyumludur.
+{Sağ|Sol} adneksiyel alanda {cm} cm boyutlu, kalın septalı, solid komponent içeren kompleks kistik kitle {izlendi|izlenmiştir|saptandı}.
+Kitlenin solid komponentinde ve septalarında renkli Doppler incelemede belirgin kanlanma izlenmiştir.
+Lezyon içerisinde {papiller projeksiyonlar|düzensiz duvarlı solid alanlar} izlenmiş olup O-RADS {4|5} kategorisinde değerlendirilmiştir.
+{Sağ|Sol} adneksiyel alanda {cm} cm boyutlu, multiloküle, ince septalı, solid komponent içermeyen kistik lezyon izlenmiştir.
+{Sağ|Sol} adneksiyel alanda overden ayrı olarak izlenen, tübüler şekilli, inkomplet septalar içeren sıvı dolu yapı hidrosalpenks ile uyumludur.
+{Sağ|Sol} over boyutları artmış ve ödemli görünümde olup periferik yerleşimli foliküller ve Doppler'de kanlanma kaybı izlenmiştir.
+Bulgular over torsiyonu açısından şüpheli olup acil jinekoloji konsültasyonu önerilir.
+{Sağ|Sol} adneksiyel alanda overden ayrı, {mm} mm boyutlu anekoik kistik yapı paraovaryan kist ile uyumludur.
+Her iki adneksiyel alanda kitle lezyonu {izlenmemiştir|saptanmamıştır|görülmemiştir}.
+Postmenopozal hastada overler atrofik olup {net seçilememiştir|güçlükle seçilebilmiştir}.
+Douglas boşluğunda {minimal|az miktarda} serbest sıvı izlenmiş olup fizyolojik olarak değerlendirilmiştir.
+Douglas boşluğunda {ekojen|ince internal ekolu} {mm} mm derinliğe ulaşan serbest sıvı izlenmiş olup hemorajik sıvı ile uyumlu olabilir.
+{Sağ|Sol} overde {mm} mm boyutlu, T2 ağırlıklı serilerde belirgin hipointens, homojen solid lezyon {fibrom|fibrotekom} ile uyumlu olabilir.
+
+# Barsaklar ve apendiks
+Barsak ansları normal kalibrede olup duvar kalınlaşması {izlenmemiştir|saptanmamıştır}.
+Sağ alt kadranda apendiks {4|5|6} mm çapında, kompresibl ve normal görünümde izlenmiştir.
+Apendiks {seçilememiştir|izlenememiştir}, sağ alt kadranda akut apendisit lehine dolaylı bulgu {izlenmemiştir|saptanmamıştır}.
+Sağ alt kadranda apendiks {8|9|10|11|12} mm çapında, non-kompresibl, kör uçlu tübüler yapı olarak izlenmiştir.
+Apendiks çevresinde periapendiküler yağlı planlarda kirlenme ve {minimal|az miktarda} serbest sıvı {izlendi|izlenmiştir|dikkati çekti}.
+Apendiks lümeninde {5|6|8|10} mm çaplı, posterior akustik gölgelenme veren apendikolit izlenmiştir.
+Bulgular akut apendisit ile uyumlu olarak değerlendirilmiştir.
+Sağ alt kadranda {mm}x{mm} mm boyutlu, içerisinde apendikolit bulunan, periferik kontrastlanan koleksiyon periapendiküler apse ile uyumludur.
+Sağ alt kadranda apendiks komşuluğunda barsak ansları ve omentum ile sınırlanmış heterojen flegmon alanı izlenmiştir.
+Apendiks {14|15|18|20} mm çapında olup lümeni sıvı ile dolu ve duvarında kalsifikasyon mevcuttur, mukosel açısından değerlendirilmelidir.
+Terminal ileumda {5|6|7|8|10} mm'ye ulaşan duvar kalınlaşması ve mural kontrastlanma izlenmiştir.
+Terminal ileumda {10|15|20} cm'lik segmentte duvar kalınlaşması, tarak işareti ve mezenterik yağlı dokuda kirlenme izlenmiş olup aktif Crohn hastalığı ile uyumludur.
+İnce barsak anslarında {25|30|35|40} mm'ye ulaşan dilatasyon ve hava-sıvı seviyelenmeleri izlenmiş olup mekanik ileus ile uyumludur.
+Dilate ve kollabe barsak ansları arasında {distal ileum|jejunum} düzeyinde geçiş zonu izlenmiştir.
+Geçiş zonunda kitle izlenmemiş olup {bride|adezyon} ile ilişkili olabilir.
+Barsak anslarında peristaltizm {azalmıştır|artmıştır|normaldir}.
+{Sigmoid kolonda|İnen kolonda|Sigmoid ve inen kolonda} multipl divertiküller {izlendi|izlenmiştir}.
+Sigmoid kolonda divertiküller, segmental duvar kalınlaşması ve perikolonik yağlı planlarda kirlenme izlenmiş olup akut divertikülit ile uyumludur.
+Divertikülit komşuluğunda {mm} mm boyutlu perikolonik apse izlenmiştir.
+{Çekumda|Çıkan kolonda|Transvers kolonda|İnen kolonda|Sigmoid kolonda} {30|40|50|60} mm'lik segmentte lümeni daraltan, düzensiz ve asimetrik duvar kalınlaşması izlenmiştir.
+Kitlenin perikolonik yağlı dokuya uzanımı mevcut olup komşu perikolonik alanda birkaç adet lenf nodu izlenmiştir.
+Sağ alt kadranda barsak içinde barsak görünümü ve hedef işareti izlenmiş olup invajinasyon ile uyumludur.
+Mide duvarında {antrum|korpus} düzeyinde {10|12|15|20} mm'ye ulaşan {düzensiz|diffüz} kalınlaşma {izlendi|izlenmiştir}.
+Mide {distandü|yoğun içerikle dolu} olup değerlendirme suboptimaldir.
+Mezenterik kökte yağ dokusunda dansite artışı ve çevresinde yağlı halo bulunan küçük lenf nodları izlenmiş olup mezenterik paniküllit ile uyumludur.
+Barsak duvarında pnömatozis ve portal vende hava izlenmiş olup mezenterik iskemi açısından acil klinik değerlendirme önerilir.
+Kolon segmentleri ve rektum normal kalibrede olup belirgin duvar kalınlaşması izlenmemiştir.
+Rektumda anal vergeden {30|40|50|60|70|80} mm uzaklıkta başlayan, {30|40|50} mm uzunlukta asimetrik duvar kalınlaşması izlenmiştir.
+Tümörün mezorektal fasyaya en yakın mesafesi {1|2|3|5|8} mm olarak ölçülmüştür.
+Mezorektal fasya tutulumu ve ekstramural venöz invazyon {izlenmemiştir|saptanmamıştır}.
+Anal kanalda saat {n} hizasında iç açıklığı bulunan, intersfinkterik seyirli fistül traktı izlenmiştir.
+Fistül traktı T2 ağırlıklı ve yağ baskılı serilerde hiperintens olup aktif inflamasyon ile uyumludur.
+Fistül traktı {transsfinkterik|intersfinkterik} seyirli olup {iskiyoanal|perianal} alanda {mm} mm boyutlu apse ile ilişkilidir.
+
+# Periton, serbest sıvı ve koleksiyonlar
+Batın içinde serbest sıvı {izlenmedi|izlenmemiştir|saptanmamıştır|görülmedi}.
+Batın içinde {perihepatik|perisplenik|pelvik} alanda {minimal|az miktarda} serbest sıvı {izlendi|izlenmiştir|saptandı}.
+Perihepatik, perisplenik alanda, barsak ansları arasında ve pelvik alanda {orta|yoğun} miktarda asit izlenmiştir.
+Morison poşunda {ince|minimal} serbest sıvı izlenmiştir.
+{Batın içinde|Peritoneal boşlukta} serbest hava {izlenmemiştir|saptanmamıştır}.
+Diyafragma altında ve barsak ansları arasında serbest hava dansiteleri izlenmiş olup içi boş organ perforasyonu ile uyumludur.
+Serbest sıvı içerisinde {ince septasyonlar|debris} izlenmiş olup kompleks asit olarak değerlendirilmiştir.
+Pelvik alanda {mm}x{mm} mm {boyutlu|ebatlı}, düzgün duvarlı, periferik kontrastlanan loküle sıvı koleksiyonu izlenmiştir.
+{Sağ subfrenik|Sol subfrenik|Subhepatik|Pelvik} alanda {mm}x{mm} mm boyutlu, içerisinde hava kabarcıkları bulunan koleksiyon apse ile uyumludur.
+Koleksiyon perkütan drenaj için uygun lokalizasyondadır.
+Peritoneal yüzeylerde düzensiz kalınlaşma ve kontrastlanma ile omentumda nodüler implantlar izlenmiş olup peritoneal karsinomatozis ile uyumludur.
+Omentumda yaygın yumuşak doku infiltrasyonu ile omental kek görünümü {izlendi|izlenmiştir|dikkati çekti}.
+Operasyon lojunda {mm}x{mm} mm boyutlu, ince duvarlı, seroma ile uyumlu sıvı koleksiyonu izlenmiştir.
+Batın ön duvarında insizyon hattı altında {mm} mm boyutlu {hematom|seroma} ile uyumlu koleksiyon izlenmiştir.
+Retroperitoneal alanda {psoas kası komşuluğunda|perirenal alanda} {mm}x{mm} mm boyutlu hematom ile uyumlu hiperdens koleksiyon izlenmiştir.
+{Sağ|Sol} psoas kası içerisinde {mm} mm boyutlu, periferik kontrastlanan psoas apsesi {izlendi|izlenmiştir}.
+Pelvik alanda postoperatif değişikliklere bağlı fibrotik yumuşak doku dansiteleri izlenmiştir.
+Pelvik alanda dren kateteri izlenmiş olup çevresinde {koleksiyon|sıvı} izlenmemiştir.
+
+# Lenf nodları
+Batın içi ve retroperitoneal alanda patolojik boyutta lenf nodu {saptanmamıştır|izlenmemiştir|görülmemiştir}.
+Paraaortik ve parakaval alanda kısa aksı {12|15|18|20|25} mm'ye ulaşan multipl lenfadenopatiler {izlendi|izlenmiştir|saptandı}.
+Mezenterik alanda kısa aksı {5|6|7|8} mm'yi aşmayan, reaktif görünümlü lenf nodları izlenmiştir.
+Mezenterik kökte konglomere görünümde, damarları sarmalayan {cm} cm boyutlu lenfadenopati kitlesi izlenmiş olup lenfoma açısından değerlendirilmelidir.
+{Sağ|Sol|Her iki} {eksternal iliak|internal iliak|obturator} zincirde kısa aksı {10|12|14|16} mm ölçülen lenf nodları izlenmiştir.
+{Sağ|Sol|Bilateral} inguinal alanda yağlı hilusu korunmuş, reaktif görünümlü lenf nodları izlenmiştir.
+Lenf nodlarının bazılarında santral nekroz izlenmiş olup metastatik tutulum açısından anlamlıdır.
+Çölyak trunkus ve hepatik hilus çevresinde kısa aksı {10|12|15} mm ölçülen lenf nodları izlenmiştir.
+Portokaval alanda {10|12|14} mm boyutlu, yağlı hilusu seçilebilen lenf nodu reaktif olarak değerlendirilmiştir.
+Mezenterik alanda çok sayıda küçük lenf nodu izlenmiş olup mezenterik lenfadenit ile uyumlu olabilir.
+Retroperitoneal alanda subsantimetrik boyutlarda birkaç adet lenf nodu {izlendi|izlenmiştir}.
+
+# Herni ve karın duvarı
+Umbilikal düzeyde {mm} mm genişliğinde fasyal defekt ve içerisinden {yağ dokusu|omentum} herniasyonu izlenmiştir.
+{Sağ|Sol} inguinal kanalda {barsak ansı|yağ dokusu} içeren {indirekt|direkt} inguinal herni {izlendi|izlenmiştir}.
+Valsalva manevrası ile {belirginleşen|boyutları artan} {sağ|sol} inguinal herni izlenmiştir.
+Herni kesesi içerisindeki barsak ansında {inkarserasyon veya strangülasyon|obstrüksiyon} bulgusu {izlenmemiştir|saptanmamıştır}.
+İnsizyon hattında {mm} mm genişliğinde fasyal defekt ve buradan barsak anslarının herniasyonu ile uyumlu insizyonel herni izlenmiştir.
+Herni kesesinde barsak duvarında kalınlaşma ve çevresinde sıvı izlenmiş olup inkarserasyon açısından {şüphelidir|acil cerrahi değerlendirme önerilir}.
+Linea alba boyunca rektus kasları arasında diastaz izlenmiştir.
+Mide fundusunun bir kısmı özofageal hiatustan toraks içine uzanmakta olup hiatal herni ile uyumludur.
+Karın ön duvarında ciltaltı yağlı dokuda {mm} mm boyutlu, düzgün sınırlı lipom izlenmiştir.
+Karın duvarında {herni|fasyal defekt} {izlenmemiştir|saptanmamıştır}.
+Epigastrik bölgede linea alba düzeyinde {mm} mm boyutlu fasyal defektten preperitoneal yağ dokusu herniasyonu izlenmiştir.
+
+# Abdominal aorta ve damarlar
+Abdominal aorta normal çapta olup lümeni açıktır.
+Abdominal aorta duvarında {yaygın|yer yer} kalsifik aterom plakları {izlendi|izlenmiştir}.
+İnfrarenal abdominal aortada {3,5|4|4,5|5|5,5|6} cm çapa ulaşan fuziform anevrizmatik dilatasyon izlenmiştir.
+Anevrizma lümeninde {5|8|10|12|15|20} mm kalınlığa ulaşan {mural|ekzantrik mural} trombüs izlenmiştir.
+Abdominal aorta {2,6|2,8|2,9} cm çapında olup ektazik görünümdedir.
+Anevrizma renal arterlerin {10|15|20|25} mm distalinden başlamakta ve aortik bifurkasyona kadar uzanmaktadır.
+Anevrizma çevresinde retroperitoneal hematom veya rüptür bulgusu {izlenmemiştir|saptanmamıştır}.
+Abdominal aortada intimal flep izlenmiş olup {Stanford tip B |}diseksiyon ile uyumludur.
+Çölyak trunkus, superior mezenterik arter ve her iki renal arter orijinleri açık izlenmiştir.
+Her iki ana iliak arterde {kalsifik plaklar|aterosklerotik değişiklikler} izlenmiştir.
+Vena kava inferior normal kalibrede olup lümeninde trombüs izlenmemiştir.
+Sol renal ven aorta ile superior mezenterik arter arasında daralmış olup proksimalinde dilatasyon izlenmiştir.
+Sol renal ven {retroaortik|sirkumaortik} seyirli olup anatomik varyasyon olarak değerlendirilmiştir.
+Endovasküler aort tamiri sonrası stent greft lümeni açık olup endoleak {izlenmemiştir|saptanmamıştır}.
+Superior mezenterik arterde orijinine yakın düzeyde tıkayıcı trombüs ve ince barsak anslarında kontrastlanma azalması izlenmiştir.
+
+# Renal ve portal Doppler
+Renal arter Doppler incelemesinde her iki renal arterde akım paterni {normaldir|tabiidir}.
+Sağ böbrekte rezistif indeks {0,60|0,62|0,65}, sol böbrekte {0,61|0,63|0,66} olarak ölçülmüştür.
+Rezistif indeks değerleri {0,72|0,75|0,78|0,80} olup artmıştır.
+{Sağ|Sol} renal arter orijininde pik sistolik hız artışı ve poststenotik türbülans izlenmiş olup renal arter stenozu açısından anlamlıdır.
+{Sağ|Sol} böbrek intraparankimal arterlerinde akselerasyon zamanı uzamış olup tardus parvus akım paterni izlenmiştir.
+Renkli Doppler incelemede her iki böbrekte parankimal kanlanma {simetrik|normal} olarak izlenmiştir.
+Portal ven Doppler incelemesinde akım hepatopetal yönde ve fazik paternde izlenmiştir.
+Portal vende akım hepatofugal yönde izlenmiş olup portal hipertansiyon ile uyumludur.
+Portal vende {akım hızında azalma|monofazik akım paterni} izlenmiştir.
+Portal ven lümeninde renkli Doppler incelemede akım izlenmemiş olup tromboz ile uyumludur.
+Hepatik venlerde {trifazik|fazik} akım paterni izlenmiştir.
+Hepatik venlerde akım paterni monofazik olup {diffüz parankimal karaciğer hastalığı|hepatik konjesyon} ile ilişkili olabilir.
+Hepatik arter rezistif indeksi {0,60|0,65|0,70} olarak ölçülmüş olup normal sınırlardadır.
+Transplant böbrekte anastomoz düzeyinde akım hızları normal olup intraparankimal rezistif indeks {0,62|0,68|0,70} ölçülmüştür.
+Renkli Doppler incelemede {sağ|sol} böbrekte segmental kanlanma defekti izlenmiş olup renal infarkt açısından değerlendirilmelidir.
+
+# Alt toraks ve kemik yapılar
+Kesitlere giren akciğer bazallerinde patolojik bulgu {saptanmamıştır|izlenmemiştir}.
+Akciğer bazallerinde {bilateral|sağda|solda} minimal plevral efüzyon ve komşu pasif atelektazi izlenmiştir.
+Kesitlere giren kemik yapılarda {litik veya sklerotik|metastatik} lezyon {izlenmemiştir|saptanmamıştır}.
+Lomber vertebralarda {dejeneratif değişiklikler ve osteofitler|spondilotik değişiklikler} izlenmiştir.
+{L1|L2|L3|L4} vertebra korpusunda {hemanjiyom|kemik adacığı} ile uyumlu görünüm izlenmiştir.
+
+# Karşılaştırma
+Sistemimizde kayıtlı önceki {BT|MR|USG} incelemesi ile {karşılaştırıldığında|kıyaslandığında} belirgin değişiklik {izlenmemiştir|saptanmamıştır}.
+Önceki tetkik ile kıyaslandığında {karaciğerdeki|böbrekteki|overdeki|dalaktaki} lezyonun boyutlarında belirgin değişiklik izlenmemiş olup stabildir.
+Önceki incelemeye göre lezyon boyutlarında {artış|belirgin artış} izlenmiş olup progresyon ile uyumludur.
+Önceki tetkikte {mm} mm ölçülen lezyon bu incelemede {belirgin küçülmüş|tama yakın kaybolmuş} olarak izlenmiştir.
+Önceki incelemede tariflenen {hidronefroz|safra kesesi çamuru|serbest sıvı|koleksiyon} bu incelemede izlenmemiştir.
+Önceki tetkike göre yeni gelişen {lezyon|lenfadenopati|serbest sıvı} {izlenmemiştir|saptanmamıştır}.
+Önceki tetkik ile {karşılaştırıldığında|kıyaslandığında} karaciğerde yeni gelişen {mm} mm boyutlu lezyon {izlendi|izlenmiştir|dikkati çekti}.
+Tedavi öncesi incelemeye göre {metastatik lezyonlarda|primer kitlede|lenfadenopatilerde} belirgin {regresyon|küçülme} izlenmiş olup tedaviye yanıt ile uyumludur.
+Karşılaştırma için önceki tetkik mevcut olmadığından değerlendirme bu inceleme ile sınırlıdır.
+Önceki tetkik raporuna ulaşılamamış olup karşılaştırma yapılamamıştır.
+Önceki tetkikte izlenen {sağ|sol} hidronefrozun derecesinde {azalma|artış} izlenmiştir.
+Önceki incelemeye göre safra kesesi taşlarının boyut ve sayısında belirgin değişiklik izlenmemiştir.
+Bosniak 2F kist önceki tetkike göre {stabil olup|boyut ve morfolojik olarak değişmemiş olup} takibe devam edilmesi önerilir.
+Önceki tetkikteki hemanjiyom ile uyumlu lezyon boyut ve özellik olarak stabildir.
+Daha önce {RFA|TACE|cerrahi rezeksiyon} uygulanan alanda kontrastlanan rezidü veya nüks tümör izlenmemiştir.
+Ablasyon alanında periferik nodüler kontrastlanma izlenmiş olup rezidü tümör açısından şüphelidir.
+Önceki tetkike göre karaciğerdeki metastatik lezyonların sayı ve boyutlarında artış izlenmiş olup progresyon ile uyumludur.
+Önceki tetkike göre lenfadenopatilerin boyutlarında {belirgin|hafif} regresyon izlenmiş olup diğer bulgular stabildir.
+Önceki tetkiklerde de mevcut olan {sağ|sol} böbrek kisti boyut ve morfolojik olarak değişmemiştir.
+Önceki incelemeye göre asit miktarında {azalma|artış} izlenmiştir.
+
+# Sonuç ve öneriler
+Sonuç olarak grade {1|2|3} hepatosteatoz ile uyumlu bulgular izlenmiştir.
+Sonuç olarak {kolelitiazis|safra kesesinde multipl taşlar} izlenmiş olup akut kolesistit lehine bulgu saptanmamıştır.
+Bulgular {akut taşlı kolesistit|akut taşsız kolesistit} ile uyumlu olarak değerlendirildi.
+Sonuç olarak {sağ|sol} üreter distalinde taşa sekonder {grade 1|grade 2|hafif|orta derecede} hidroüreteronefroz izlenmiştir.
+Sonuç olarak {sağ|sol} böbrekte Bosniak {1|2} kist dışında patolojik bulgu saptanmamıştır.
+Bulgular {benign prostat hiperplazisi|mesane çıkım obstrüksiyonu} ile uyumlu olarak değerlendirilmiştir.
+Tüm batın incelemesinde {belirgin |}patolojik bulgu {saptanmamıştır|izlenmemiştir}.
+Üst batın ultrasonografisi {normal sınırlardadır|olağan olarak değerlendirilmiştir}.
+Sonuç olarak bulgular {siroz ve portal hipertansiyon|kronik parankimal karaciğer hastalığı} ile uyumludur.
+Bulgular öncelikle metastaz lehine değerlendirilmiş olup primer odak açısından araştırılması önerilir.
+Bulgular akut apendisit ile uyumlu olup {acil |}cerrahi konsültasyon önerilir.
+Sonuç olarak {sağ|sol} overde {hemorajik kist|korpus luteum kisti} ile uyumlu görünüm izlenmiş olup {6|8} hafta sonra kontrol USG önerilir.
+Bulgular endometrioma ile uyumlu olarak değerlendirilmiştir.
+Sonuç olarak O-RADS {4|5} adneksiyel kitle izlenmiş olup jinekolojik onkoloji konsültasyonu önerilir.
+Bulgular mekanik ince barsak obstrüksiyonu ile uyumlu olup acil cerrahi değerlendirme önerilir.
+Ayırıcı tanıda {metastaz|lenfoma|primer malignite} ekarte edilemediğinden histopatolojik korelasyon önerilir.
+Lezyonun ayırıcı tanısında {atipik hemanjiyom|metastaz|HCC} düşünülmüş olup dinamik kontrastlı MR ile ileri değerlendirme önerilir.
+Klinik ve laboratuar bulgular ile korelasyonu önerilir.
+Klinik ve laboratuar bulgular eşliğinde değerlendirilmesi önerilir.
+{3|6} ay sonra kontrol {USG|MR|BT} ile takibi önerilir.
+Lezyonun {yıllık|altı aylık} USG ile takibi önerilir.
+Bosniak 2F kist nedeniyle {6|12} ay sonra kontrastlı BT veya MR ile takip önerilir.
+Kist hidatik açısından serolojik tetkikler ile birlikte değerlendirilmesi önerilir.
+Hepatoselüler karsinom açısından AFP düzeyi ile birlikte değerlendirilmesi önerilir.
+Koledokolitiazis nedeniyle ERCP açısından gastroenteroloji konsültasyonu önerilir.
+Taşa sekonder obstrüksiyon nedeniyle üroloji konsültasyonu önerilir.
+Endometrial kalınlaşma nedeniyle endometrial örnekleme önerilir.
+Böbrek kitlesi nedeniyle evreleme amacıyla toraks BT önerilir.
+Pankreas kistik lezyonu nedeniyle {MRCP|endoskopik ultrasonografi} ile takibi önerilir.
+Sürrenal insidentalom nedeniyle {endokrinoloji konsültasyonu|hormonal değerlendirme} önerilir.
+Bulgular {sigmoid divertikülit|perfore divertikülit} ile uyumlu olup cerrahi değerlendirme önerilir.
+Sonuç olarak abdominal aortada {4|4,5|5|5,5} cm çapında infrarenal anevrizma izlenmiş olup damar cerrahisi konsültasyonu önerilir.
+Lezyon karakterizasyonu için kontrastlı dinamik {BT|MR} ile değerlendirilmesi önerilir.
+Mesane dolu iken kontrol USG ile değerlendirilmesi önerilir.
+Barsak gazı nedeniyle değerlendirilemeyen alanlar için {aç karnına kontrol USG|BT} önerilebilir.
+Ürotelyal malignite açısından sistoskopik değerlendirme önerilir.
+Multiparametrik prostat MR bulguları PI-RADS {4|5} ile uyumlu olup hedefe yönelik biyopsi önerilir.
+PSA değeri ile birlikte değerlendirilmesi ve gerekirse MR füzyon eşliğinde biyopsi yapılması önerilir.
+Bulgular {akut pankreatit|kronik pankreatit} ile uyumlu olup klinik ve laboratuar korelasyonu önerilir.
+Bulgular basit kist lehine değerlendirilmiş olup ek tetkik veya takip gerekmemektedir.
+Sonuç olarak {sağ|sol} böbrekte {4|5|6|8} mm boyutlu non-obstrüktif taş izlenmiş olup hidronefroz saptanmamıştır.
+Sonuç olarak her iki böbrekte grade {1|2} renal parankimal hastalık ile uyumlu bulgular izlenmiştir.
+Sonuç olarak splenomegali ve {asit|portal ven dilatasyonu} izlenmiş olup portal hipertansiyon açısından değerlendirilmelidir.
+Bulgular otozomal dominant polikistik böbrek hastalığı ile uyumlu olup aile taraması önerilir.
+Sonuç olarak {multipl uterin myomlar|adenomyozis ile uyumlu bulgular} izlenmiştir.
+Peritoneal karsinomatozis bulguları nedeniyle primer odak açısından {jinekolojik|gastrointestinal} sistemin değerlendirilmesi önerilir.
+Lezyondan USG eşliğinde trucut biyopsi ile histopatolojik tanı önerilir.
+Kistik lezyondan tanısal amaçlı ince iğne aspirasyonu yapılabilir.
+Kolon duvar kalınlaşması nedeniyle malignite açısından kolonoskopik değerlendirme önerilir.
+Lezyon benign natürde değerlendirilmiş olup ek tetkike gerek görülmemiştir.
+Sonuç olarak {sağ|sol} böbrekte Bosniak 3 kistik lezyon izlenmiş olup üroloji konsültasyonu önerilir.
+Sonuç olarak karaciğerde kist hidatik ile uyumlu lezyon izlenmiş olup genel cerrahi konsültasyonu önerilir.

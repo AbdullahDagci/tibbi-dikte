@@ -1,0 +1,654 @@
+# Teknik: MR
+İnceleme {kontrastsız|intravenöz kontrast madde verilerek} {sagittal ve aksiyel|sagittal, koronal ve aksiyel} planlarda {T1 ve T2 ağırlıklı|T1, T2 ağırlıklı ve STIR|T1, T2 ağırlıklı ve yağ baskılı} sekanslar ile yapılmıştır.
+Tetkik {1,5|3} Tesla MR cihazında {sagittal ve aksiyel planlarda|üç ortogonal planda} elde edilen görüntüler ile değerlendirilmiştir.
+Kontrast madde enjeksiyonu sonrası yağ baskılı T1 ağırlıklı {aksiyel ve sagittal|koronal ve sagittal} görüntüler elde edilmiştir.
+İntravenöz kontrast madde verilmeden {T1 ve T2 ağırlıklı|proton dansite ağırlıklı yağ baskılı} sekanslarda inceleme yapılmıştır.
+Fatsat sekanslar kullanılarak {sagittal, koronal ve aksiyel|koronal ve sagittal} planlarda görüntüler alınmıştır.
+Difüzyon ağırlıklı görüntüler ve ADC haritaları da değerlendirmeye dahil edilmiştir.
+Kontrast madde verilmesi sonrası {dinamik|geç faz} seriler elde edilmiştir.
+Tüm omurga sagittal STIR sekansı ile tarama amacıyla değerlendirilmiştir.
+İnceleme {sağ|sol} {diz|omuz|kalça|ayak bileği|el bileği|dirsek} eklemine yönelik özel koil kullanılarak yapılmıştır.
+Hasta hareketine bağlı artefaktlar nedeniyle incelemenin değerlendirme duyarlılığı {azalmıştır|sınırlıdır}.
+Hareket artefaktları nedeniyle inceleme suboptimaldir.
+Metalik implantlara bağlı duyarlılık artefaktları nedeniyle {komşu yapıların|operasyon lojunun} değerlendirilmesi sınırlıdır.
+Hastanın klostrofobisi nedeniyle inceleme {kısıtlı sekanslar ile tamamlanmıştır|yarıda sonlandırılmıştır}.
+Kontrastlı serilerde patolojik kontrastlanma {izlenmemiştir|saptanmamıştır|görülmemiştir}.
+Metal artefaktını azaltıcı sekanslar kullanılmıştır.
+
+# Teknik: BT
+İnceleme çok kesitli BT cihazında {kontrastsız|intravenöz kontrast madde verilerek} {1|2|3} mm kesit kalınlığında yapılmıştır.
+Aksiyel kesitlerden {sagittal ve koronal|multiplanar} reformat görüntüler elde edilerek değerlendirilmiştir.
+Görüntüler kemik ve yumuşak doku pencerelerinde değerlendirilmiştir.
+Kırık konfigürasyonunun değerlendirilmesi amacıyla üç boyutlu rekonstrüksiyon görüntüleri elde edilmiştir.
+BT anjiyografi incelemesi intravenöz kontrast madde verilerek arteriyel fazda yapılmıştır.
+İnceleme {lomber|servikal|torakal} vertebraları kapsayacak şekilde kontrastsız olarak yapılmıştır.
+
+# Teknik: USG, Doppler ve grafi
+İnceleme yüksek frekanslı lineer prob ile {gri skala|gri skala ve renkli Doppler} ultrasonografi tekniği kullanılarak yapılmıştır.
+{Sağ|Sol} alt ekstremite venöz sistemi gri skala, renkli ve spektral Doppler ile değerlendirilmiştir.
+Bilateral alt ekstremite {venöz|arteriyel} sistemi renkli ve spektral Doppler ultrasonografi ile değerlendirilmiştir.
+Venöz yetmezlik açısından inceleme ayakta pozisyonda Valsalva manevrası ve distal kompresyon ile yapılmıştır.
+Derin ven trombozu açısından inceleme supin pozisyonda kompresyon ultrasonografisi ile yapılmıştır.
+Arteriyel sistem ana femoral arterden ayak bileği düzeyine kadar renkli ve spektral Doppler ile incelenmiştir.
+Hastanın {obez habitusu|ekstremitedeki yaygın ödemi} nedeniyle sonografik değerlendirme sınırlıdır.
+İnceleme dinamik olarak {aktif ve pasif hareketler sırasında|karşı taraf ile karşılaştırmalı olarak} yapılmıştır.
+{Sağ|Sol} {diz|ayak bileği|el bileği|omuz|kalça} ekleminin iki yönlü grafileri değerlendirilmiştir.
+Ayakta yük verilerek çekilen bilateral diz grafileri değerlendirilmiştir.
+Lomber vertebraların fleksiyon ve ekstansiyon pozisyonlarında dinamik grafileri elde edilmiştir.
+Ayakta çekilen tüm omurga grafisinde skolyoz açısından değerlendirme yapılmıştır.
+
+# Servikal omurga
+Sagittal görüntülerde servikal lordoz {düzleşmiştir|korunmuştur|azalmıştır}.
+Servikal lordozda düzleşme izlendi, {kas spazmı ile ilişkili olabilir|pozisyonel olabilir}.
+Servikal lordoz {C4-C5|C5-C6} seviyesinde kifotik açılanma göstermektedir.
+Servikal disklerde T2 ağırlıklı görüntülerde sinyal kaybı ile uyumlu dejenerasyon {izlendi|izlenmiştir|dikkati çekti}.
+{C4-C5 ve C5-C6|C5-C6 ve C6-C7|C3-C4, C4-C5 ve C5-C6} disklerinde {dehidratasyon|hidrasyon kaybı} ve disk yüksekliğinde azalma izlendi.
+Servikal vertebra korpuslarının ön ve arka köşelerinde dejeneratif osteofit oluşumları mevcuttur.
+{C4-C5|C5-C6|C6-C7} seviyesinde diffüz bulging ve posterior osteofitler spinal kanalda {hafif|orta derecede} daralmaya neden olmaktadır.
+{C5-C6|C6-C7} seviyesinde santral protrüzyon izlenmiş olup tekal kese ön yüzüne bası oluşturmaktadır.
+{C5-C6|C6-C7} seviyesinde {sağ|sol} paramedian protrüzyon kord ön yüzüne temas etmektedir, kordda sinyal değişikliği {izlenmedi|izlenmemiştir|saptanmadı}.
+C5-C6 seviyesinde {sağ|sol} posterolateral disk osteofit kompleksi ipsilateral nöral foramende daralmaya ve C6 sinir kökünde basıya neden olmaktadır.
+C6-C7 seviyesinde {sağ|sol} foraminal protrüzyon ipsilateral C7 sinir kökünü komprese etmektedir.
+C4-C5 seviyesinde {sağ|sol} foraminal disk herniasyonu ipsilateral C5 sinir kökü ile temas halindedir.
+{C5-C6|C6-C7} seviyesinde santral ekstrüzyon spinal kanalı daraltarak kordda bası oluşturmaktadır.
+{C4-C5|C5-C6|C6-C7} seviyesinde unkovertebral eklem hipertrofisi nedeniyle {sağ nöral foramende|sol nöral foramende|bilateral nöral foramenlerde} {hafif|orta derecede|ileri derecede} daralma izlendi.
+{C5-C6|C6-C7} seviyesinde spinal kanal anteroposterior çapı {8|9|10|11} mm olarak ölçülmüştür.
+{C4-C5|C5-C6} seviyesinde kordda bası ile birlikte T2 ağırlıklı görüntülerde fokal hiperintens sinyal artışı izlenmiş olup miyelopati ile uyumludur.
+Servikal kord kalibrasyonu ve sinyal intensitesi normaldir.
+Servikal kordda patolojik sinyal değişikliği {izlenmedi|izlenmemiştir|saptanmamıştır}.
+Kord çevresindeki beyin omurilik sıvısı mesafesi {korunmuştur|silinmiştir}.
+Kranioservikal bileşke normal görünümdedir.
+Serebellar tonsiller foramen magnum düzeyinde olup tonsiller ektopi izlenmemiştir.
+Atlantodental mesafe normal olup dens bütünlüğü korunmuştur.
+C3 ile C6 seviyeleri arasında posterior longitudinal ligamanda ossifikasyon izlendi.
+Prevertebral yumuşak doku kalınlığı normaldir.
+{C5|C6|C7} vertebra korpusunda T1 ve T2 ağırlıklı görüntülerde hiperintens {5|6|8|10} mm çaplı hemanjiyom izlendi.
+Servikal faset eklemlerde {hafif|belirgin} dejeneratif değişiklikler izlendi.
+C5 ile C7 seviyeleri arasında kord santralinde siringohidromiyeli ile uyumlu sıvı intensitesinde kavite izlendi.
+Servikal spondiloz ile uyumlu dejeneratif değişiklikler mevcuttur.
+{C5-C6|C6-C7} seviyesinde anterior servikal diskektomi ve füzyon materyalleri izlendi, {füzyon kafesi yerindedir|vida çevresinde gevşeme lehine bulgu saptanmamıştır}.
+Füzyon seviyesine komşu {C4-C5|C6-C7} seviyesinde dejeneratif değişiklikler belirginleşmiştir.
+
+# Torakal omurga
+Sagittal planda torakal kifoz {korunmuştur|artmıştır|normal sınırlardadır}.
+Torakal disklerde dejenerasyona bağlı sinyal kaybı {izlendi|izlenmiştir}.
+{T6-T7|T7-T8|T8-T9} seviyesinde santral protrüzyon izlenmiş olup tekal keseye hafif bası oluşturmaktadır.
+{T10-T11|T11-T12} seviyesinde {sağ|sol} paramedian protrüzyon kord ön yüzüne temas etmekte olup kordda sinyal değişikliği izlenmemiştir.
+Torakal kordda patolojik sinyal değişikliği {görülmedi|izlenmedi|saptanmadı}.
+{T7|T8|T9|T10|T11} vertebra korpusunda T1 ve T2 ağırlıklı görüntülerde hiperintens {6|8|10|12|15} mm çaplı tipik hemanjiyom izlendi.
+Torakal vertebralarda anterior longitudinal ligaman boyunca akan tarzda ossifikasyonlar diffüz idiyopatik iskelet hiperostozu ile uyumludur.
+Kostovertebral eklemlerde dejeneratif değişiklikler mevcuttur.
+Torakal bölgede {sağa|sola} konveks skolyotik eğrilik izlendi.
+Torakolomber bileşkede {sağa|sola} konveks skolyoz {izlendi|izlenmiştir}, Cobb açısı yaklaşık {12|15|18|22|25|30|35} derece olarak ölçülmüştür.
+Orta torakal vertebra korpuslarının ön kesimlerinde kama tarzında yükseklik kaybı izlendi.
+{T5|T6|T8} vertebra seviyesinde kord içinde T2 ağırlıklı görüntülerde hiperintens {8|10|12|15} mm uzunluğunda sinyal artışı izlendi.
+Paravertebral yumuşak dokularda kitle veya koleksiyon izlenmemiştir.
+
+# Lomber omurga: disk dejenerasyonu ve herniasyon
+Sagittal görüntülerde lomber lordoz {korunmuştur|düzleşmiştir|azalmıştır|artmıştır}.
+Lomber lordozda düzleşme izlendi, {kas spazmı ile ilişkili olabilir|ağrıya bağlı kas spazmına sekonder olabilir}.
+Vertebra korpus yükseklikleri {korunmuştur|normaldir}.
+Vertebra korpuslarının köşelerinde {anterior|anterolateral} osteofit oluşumları {izlendi|izlenmiştir|dikkati çekti}.
+{L3-L4|L4-L5|L5-S1} seviyesinde disk yüksekliğinde {hafif|belirgin} azalma ve T2 ağırlıklı görüntülerde sinyal kaybı izlendi.
+{L2-L3, L3-L4 ve L4-L5|L3-L4, L4-L5 ve L5-S1|L4-L5 ve L5-S1} disklerinde dejenerasyona bağlı sinyal kaybı mevcuttur.
+{L3-L4|L4-L5|L5-S1} seviyesinde diffüz bulging {izlendi|izlenmiştir}, spinal kanal ve nöral foramenlerde daralma {izlenmedi|izlenmemiştir|saptanmadı}.
+{L3-L4|L4-L5} seviyesinde diffüz anüler bulging tekal kese ön yüzüne {hafif|belirgin} bası oluşturmaktadır.
+{L4-L5|L5-S1} seviyesinde santral protrüzyon izlenmiş olup tekal kese ön yüzünde indentasyona neden olmaktadır.
+{L4-L5|L5-S1} düzeyinde diffüz bulging zemininde santral protrüzyon {izlendi|saptandı|dikkati çekti}.
+L4-L5 seviyesinde {sağ|sol} paramedian protrüzyon izlenmiş olup ipsilateral lateral reseste daralmaya ve L5 sinir kökünde basıya neden olmaktadır.
+L5-S1 seviyesinde {sağ|sol} paramedian protrüzyon ipsilateral S1 sinir kökü ile temas halindedir.
+L5-S1 seviyesinde {sağ|sol} paramedian ekstrüzyon izlenmiş olup ipsilateral S1 sinir kökünü {posteriora doğru itmektedir|belirgin olarak komprese etmektedir}.
+L4-L5 seviyesinde {sağ|sol} paramedian ekstrüzyon ipsilateral L5 sinir kökünü posteriora doğru itmekte olup kök ödemli görünümdedir.
+L5-S1 seviyesinde santral ve bilateral paramedian uzanımlı ekstrüzyon her iki S1 sinir kökünü komprese etmektedir.
+L4-L5 seviyesinde santral ve {sağ|sol} paramedian yerleşimli disk ekstrüzyonu kaudal yönde yaklaşık {5|6|8|10|12} mm migrasyon göstermektedir.
+{L3-L4|L4-L5|L5-S1} seviyesinde ekstrüde disk materyali {kranial|kaudal} yönde migre olmuştur.
+{L3-L4|L4-L5|L5-S1} seviyesinde ana disk materyali ile bağlantısı seçilemeyen sekestre disk fragmanı izlendi.
+L5-S1 seviyesinde {sağ|sol} lateral reseste yerleşen sekestre disk fragmanı S1 sinir kökünü komprese etmektedir.
+Sekestre fragman çevresinde periferik kontrastlanma izlenmiş olup santrali kontrastlanmamaktadır.
+{L3-L4 seviyesinde sağ foraminal protrüzyon sağ L3|L4-L5 seviyesinde sol foraminal protrüzyon sol L4|L4-L5 seviyesinde sağ foraminal protrüzyon sağ L4|L5-S1 seviyesinde sol foraminal protrüzyon sol L5} sinir kökünü komprese etmektedir.
+L4-L5 seviyesinde {sağ|sol} foraminal protrüzyon ipsilateral nöral foramende daralmaya ve çıkan L4 sinir kökünde basıya neden olmaktadır.
+L5-S1 seviyesinde {sağ|sol} ekstraforaminal protrüzyon ipsilateral L5 sinir kökünü foramen dışında komprese etmektedir.
+L3-L4 seviyesinde {sağ|sol} ekstraforaminal disk herniasyonu ipsilateral L3 sinir kökü ile temas etmektedir.
+{L4-L5|L5-S1} seviyesinde {sağ|sol} subartiküler zonda yerleşen protrüzyon ipsilateral sinir kökünü itmektedir.
+{L4-L5|L5-S1} seviyesinde geniş tabanlı protrüzyon her iki lateral resesi daraltmaktadır.
+{L4-L5|L5-S1} seviyesinde disk posteriorunda T2 ağırlıklı görüntülerde hiperintens odak şeklinde anüler fissür {izlendi|izlenmiştir}.
+{L4-L5|L5-S1} seviyesinde santral anüler yırtık ile birlikte {minimal|hafif} protrüzyon izlendi.
+Disk herniasyonunun {kraniokaudal|anteroposterior} boyutu yaklaşık {5|6|7|8|10} mm olarak ölçülmüştür.
+{L3-L4|L4-L5|L5-S1} seviyesinde disk herniasyonu {izlenmedi|izlenmemiştir|saptanmadı|saptanmamıştır}.
+Disk materyali ile sinir kökleri arasında temas izlenmemiştir.
+L2-L3 seviyesinde {minimal|hafif} diffüz bulging dışında patolojik bulgu saptanmamıştır.
+Lomber spondiloz ile uyumlu dejeneratif değişiklikler {izlendi|mevcuttur|dikkati çekti}.
+
+# Lomber omurga: kanal, foramen, faset, flavum, Modic, konus
+{L3-L4|L4-L5} seviyesinde diffüz bulging, faset eklem hipertrofisi ve ligamentum flavum hipertrofisi birlikteliğinde spinal kanalda {orta|ileri} derecede daralma izlendi.
+{L3-L4|L4-L5} seviyesinde spinal kanal anteroposterior çapı {8|9|10|11} mm olarak ölçülmüştür.
+{L3-L4|L4-L5} seviyesinde dural kese alanı belirgin azalmış olup kauda ekina liflerinde kümelenme izlendi.
+Spinal kanal darlığının üst seviyesinde kauda ekina liflerinde kıvrımlanma dikkati çekti.
+Bilateral nöral foramenlerde {hafif|orta derecede|belirgin} daralma izlendi.
+{L4-L5|L5-S1} seviyesinde {sağ nöral foramende|sol nöral foramende|bilateral nöral foramenlerde} disk materyali ve osteofitlere bağlı daralma {izlenmiştir|saptanmıştır}.
+{L4-L5|L5-S1} seviyesinde {sağ|sol} nöral foramende ileri derecede daralma izlenmiş olup çıkan sinir kökü çevresindeki yağ planı silinmiştir.
+Nöral foramenler açıktır, sinir köklerine bası {izlenmemiştir|saptanmamıştır}.
+Spinal kanal ve nöral foramenlerde anlamlı daralma {izlenmedi|görülmedi|saptanmadı}.
+{L4-L5|L5-S1} seviyesinde bilateral lateral reseslerde daralma mevcuttur.
+{L3-L4|L4-L5|L5-S1} seviyesinde bilateral faset eklemlerde hipertrofik dejeneratif değişiklikler ve eklem aralığında sıvı artışı izlendi.
+Faset eklemlerde artroz ile uyumlu eklem aralığında daralma, subkondral skleroz ve osteofitler izlendi.
+Alt lomber seviyelerde faset artrozu {izlendi|dikkati çekti|mevcuttur}.
+L4-L5 seviyesinde {sağ|sol} faset eklem komşuluğunda spinal kanala uzanan {5|6|8|10|12} mm çaplı sinovyal kist izlendi.
+{L3-L4|L4-L5} seviyesinde ligamentum flavum hipertrofisi {izlendi|izlenmiştir|saptandı}.
+{L4-L5|L5-S1} seviyesinde ligamentum flavum kalınlığı {4|5|6} mm olarak ölçülmüştür.
+Ligamentum flavum kalınlıkları normaldir.
+Epidural yağ dokusunda artış ile uyumlu epidural lipomatozis izlendi.
+{L4-L5|L5-S1} seviyesinde komşu son plaklarda T1 ağırlıklı görüntülerde hipointens, T2 ağırlıklı görüntülerde hiperintens Modic tip 1 değişiklikler izlendi.
+{L4-L5|L5-S1} seviyesinde komşu vertebra son plaklarında yağlı dejenerasyon ile uyumlu Modic tip 2 değişiklikler mevcuttur.
+{L3-L4|L4-L5|L5-S1} düzeyinde son plaklarda T1 ve T2 ağırlıklı görüntülerde hipointens Modic tip 3 sklerotik değişiklikler izlendi.
+Disk mesafesinde sıvı sinyali ve paravertebral yumuşak doku komponenti izlenmemesi Modic tip 1 değişikliklerin dejeneratif natürünü desteklemektedir.
+{L1|L2|L3|L4} vertebra {üst|alt} son plağında Schmorl nodu izlendi.
+Multipl seviyede vertebra son plaklarında Schmorl nodları dikkati çekti.
+Konus medullaris {L1|L1-L2} seviyesinde sonlanmakta olup sinyal intensitesi normaldir.
+Konus medullaris ve kauda ekina lifleri normal görünümdedir.
+Filum terminale kalınlığı normaldir, gergin omurilik lehine bulgu saptanmamıştır.
+Paravertebral yumuşak dokular normal görünümdedir.
+Paravertebral kaslarda {hafif|belirgin} yağlı atrofi izlendi.
+Bilateral sakroiliak eklemlerde {dejeneratif değişiklikler|subkondral skleroz} izlendi.
+Sakroiliak eklemlerde aktif sakroiliit lehine kemik iliği ödemi saptanmamıştır.
+{Sağ|Sol} sakroiliak eklem iliak yüzünde subkondral kemik iliği ödemi izlenmiş olup aktif sakroiliit ile uyumludur.
+S2 seviyesinde {6|8|10|12|15|18} mm ebadında Tarlov kisti izlendi.
+Sakral kanalda perinöral Tarlov kistleri izlendi.
+Lumbosakral bileşkede transizyonel vertebra izlendi, {S1 vertebrada lumbarizasyon|L5 vertebrada sakralizasyon} mevcuttur.
+L5 vertebranın {sağ|sol} transvers proçesi sakrum ile psödoartroz oluşturmaktadır.
+S1 vertebra posterior elemanlarında spina bifida okulta ile uyumlu füzyon defekti izlendi.
+
+# Omurga: postoperatif
+L4-L5 seviyesinde {sağ|sol} hemilaminektomi defekti izlendi.
+Opere {L4-L5|L5-S1} seviyesinde epidural fibrozis ile uyumlu kontrastlanan granülasyon dokusu izlendi.
+Kontrast madde sonrası periferik kontrastlanma gösteren, santrali kontrastlanmayan lezyon nüks disk herniasyonu ile uyumludur.
+Operasyon lojunda {mm}x{mm} mm boyutlarında postoperatif seroma ile uyumlu sıvı koleksiyonu izlendi.
+L4 ve L5 vertebralarda transpediküler vidalar ve interkorporeal kafes izlendi.
+Vida çevresinde gevşeme lehine lüsen alan izlenmemiştir.
+{L3|L4|L5} vertebrada {sağ|sol} pedikül vidası medial korteksi aşarak spinal kanala uzanmaktadır.
+Füzyon seviyesinin üstünde {L2-L3|L3-L4} seviyesinde komşu segment dejenerasyonu izlendi.
+Postoperatif değişiklikler dışında spinal kanalda belirgin bası izlenmemiştir.
+Operasyon sahasında insizyon hattı boyunca ciltaltı dokularda ödem {izlendi|dikkati çekti}.
+Laminektomi sahasında psödomeningosel ile uyumlu sıvı koleksiyonu izlendi.
+Opere seviyede rezidü ya da nüks disk herniasyonu {izlenmemiştir|saptanmamıştır}.
+Operasyon sahasında sütur materyaline ve metalik kliplere bağlı artefaktlar izlendi.
+
+# Omurga: listezis, kırık, kemik lezyonları, kord
+L4 vertebranın L5 vertebra üzerinde grade {1|2} anterolistezisi izlendi.
+L5 vertebrada bilateral pars interartikülaris defekti ve S1 vertebra üzerinde grade 1 istmik spondilolistezis izlendi.
+L4-L5 seviyesinde faset artrozuna sekonder grade 1 dejeneratif spondilolistezis mevcuttur.
+{L3|L4} vertebranın alttaki vertebra üzerinde {3|4|5} mm retrolistezisi izlendi.
+Fleksiyon ve ekstansiyon grafilerinde instabilite lehine anlamlı kayma artışı saptanmamıştır.
+Listezis seviyesinde disk psödobulging görünümündedir.
+Spondilolistezise bağlı {L4-L5|L5-S1} seviyesinde bilateral nöral foramenlerde daralma izlendi.
+{L4|L5} vertebrada bilateral pars interartikülaris defekti spondilolizis ile uyumludur.
+{T12|L1|L2} vertebra korpusunda {%20|%30|%40} oranında yükseklik kaybına neden olan kompresyon kırığı izlendi.
+{T12|L1|L2|L3} vertebra korpusunda STIR serilerde kemik iliği ödeminin eşlik ettiği akut kompresyon kırığı izlendi.
+{T11|L1|L2} vertebra korpusunda kemik iliği ödemi izlenmeyen, kronik görünümde kama deformitesi mevcuttur.
+Vertebra korpus arka duvarı korunmuş olup spinal kanala retropulsiyon izlenmemiştir.
+Arka duvar retropulsiyonu nedeniyle spinal kanalda yaklaşık {%30|%40|%50} oranında daralma izlendi.
+{L1|L2} vertebra korpusunda kırık hattının korpus arka duvarına uzanması patlama kırığı ile uyumludur.
+Vertebra korpusunda kontrastlanan yumuşak doku komponenti ve pedikül tutulumu izlenmemesi benign osteoporotik kırık lehine yorumlanmıştır.
+Patolojik kırık lehine bulgu saptanmamıştır.
+Posterior ligamentöz kompleks bütünlüğü korunmuştur.
+{L1|L2|L3|L4|L5} vertebra korpusunda T1 ve T2 ağırlıklı görüntülerde hiperintens, yağ baskılı serilerde baskılanan {6|8|10|12|15|20} mm çaplı hemanjiyom izlendi.
+BT incelemede {T12|L2|L3} vertebra korpusunda kaba trabeküler paternde tipik hemanjiyom görünümü izlendi.
+T1 ağırlıklı görüntülerde hipointens, kontrastlanan atipik hemanjiyom ayırıcı tanısında metastaz ekarte edilemez.
+Vertebra korpuslarında multipl, T1 ağırlıklı görüntülerde hipointens, kontrastlanan metastaz ile uyumlu lezyonlar {izlendi|saptandı}.
+{T10|L2|L3} vertebra korpusunda pedikülü de tutan, yumuşak doku komponenti içeren litik lezyon izlendi.
+Kemik iliği sinyalinde diffüz heterojenite izlendi, hematolojik açıdan değerlendirilmesi önerilir.
+Vertebra korpuslarında fokal yağlı dejenerasyon ile uyumlu T1 hiperintens alanlar izlendi.
+Vertebra korpuslarında milimetrik boyutlu hemanjiyomlar {izlendi|görülmektedir}.
+{L3-L4|L4-L5} seviyesinde disk mesafesinde T2 ağırlıklı görüntülerde sinyal artışı, komşu son plaklarda erozyon ve kemik iliği ödemi spondilodiskit ile uyumludur.
+Paravertebral ve epidural apse formasyonu {izlenmedi|saptanmadı}.
+{Sağ|Sol} psoas kası içinde {mm}x{mm} mm boyutlarında periferik kontrastlanan apse ile uyumlu koleksiyon izlendi.
+Sakrumun {sağ|sol} ala kesiminde STIR serilerde kemik iliği ödemi ile birlikte lineer hipointens hat sakral yetmezlik kırığı ile uyumludur.
+Koksiks {anteriora|posteriora} angule görünümdedir.
+Kord sinyal intensitesi ve kalibrasyonu doğaldır.
+İntradural ekstramedüller yerleşimli kitle {izlenmedi|saptanmadı}.
+Epidural mesafede patolojik kontrastlanma {izlenmemiştir|görülmemiştir}.
+{T11-T12|T12-L1} seviyesinde intradural ekstramedüller yerleşimli, homojen kontrastlanan {8|10|12|15} mm boyutlu lezyon izlendi, ayırıcı tanıda {schwannom ve menenjiyom|nörofibrom} düşünülmüştür.
+
+# Diz: menisküs
+Medial menisküs arka boynuzunda alt eklem yüzeyine uzanan {horizontal|oblik} yırtık {izlendi|izlenmiştir|saptandı}.
+{Medial|Lateral} menisküs arka boynuzunda eklem yüzeyine ulaşmayan grade {1|2} sinyal artışı intrasubstans dejenerasyon ile uyumludur.
+{Medial|Lateral} menisküs {arka boynuzunda|ön boynuzunda|gövdesinde} eklem yüzeyine uzanan lineer sinyal artışı grade 3 yırtık ile uyumludur.
+Medial menisküs arka boynuzundan gövdeye uzanan vertikal longitudinal yırtık izlendi.
+Medial menisküste kova sapı yırtığı izlenmiş olup yer değiştiren fragman interkondiler çentiğe uzanmaktadır.
+Sagittal görüntülerde çift arka çapraz bağ işareti kova sapı yırtığını desteklemektedir.
+Lateral menisküs {gövdesinde|ön boynuzunda} serbest kenara uzanan radyal yırtık izlendi.
+Medial menisküs arka kök yapışma yerinde radyal yırtık ve gövdede {3|4|5} mm ekstrüzyon izlendi.
+Lateral menisküs diskoid konfigürasyondadır.
+Medial menisküs arka boynuzunda kompleks yırtık ve komşuluğunda {6|8|10|12|15}x{5|6|8|10} mm boyutlu parameniskal kist izlendi.
+Medial menisküs arka boynuzunda flap yırtık izlenmiş olup ayrılan fragman inferiora yer değiştirmiştir.
+Menisküslerde yırtık lehine sinyal değişikliği {izlenmemiştir|saptanmamıştır|görülmemiştir}.
+Medial ve lateral menisküslerin morfolojisi ve sinyal intensitesi normaldir.
+Medial menisküs {parsiyel menisektomi|onarım} sonrası görünümdedir.
+
+# Diz: bağlar
+Ön çapraz bağda süreklilik kaybı ve diffüz sinyal artışı ile birlikte tam kat yırtık {izlendi|saptandı}.
+Ön çapraz bağ {kalınlaşmış ve heterojen sinyalde olup|liflerinin devamlılığı kısmen korunmuş olup} parsiyel yırtık ile uyumludur.
+Ön çapraz bağda T2 ağırlıklı görüntülerde sinyal artışı ve kalınlaşma mukoid dejenerasyon ile uyumludur.
+Ön çapraz bağ femoral yapışma yerinden ayrılmış görünümde olup tam kat yırtık ile uyumludur.
+Ön çapraz bağ yırtığına eşlik eden lateral femoral kondil ve posterolateral tibial platoda kemik kontüzyonu izlendi.
+Ön çapraz bağ rekonstrüksiyonu sonrası greft bütünlüğü korunmuştur, tünel genişlemesi izlenmemiştir.
+Tibial tünel çevresinde sıvı ve greftte sinyal artışı izlendi, parsiyel greft yırtığı ekarte edilemez.
+Ön ve arka çapraz bağların bütünlüğü korunmuştur.
+Arka çapraz bağda {parsiyel|tam kat} yırtık izlendi.
+Arka çapraz bağ bütünlüğü ve sinyal intensitesi normaldir.
+Medial kollateral ligaman çevresinde ödem izlendi, grade 1 hasar ile uyumludur.
+Medial kollateral ligamanda kalınlaşma ve kısmi lif devamsızlığı grade 2 hasar ile uyumludur.
+Medial kollateral ligaman femoral yapışma yerinde tam kat yırtık izlendi.
+Lateral kollateral ligaman kompleksi ve popliteus tendonu intakttır.
+Medial ve lateral kollateral ligamanlar intakttır.
+Biseps femoris tendonu fibula başı yapışma yerinde {kalınlaşmış|heterojen sinyalde} olup tendinopati ile uyumludur.
+
+# Diz: kıkırdak ve kemik iliği
+Medial femorotibial kompartmanda eklem kıkırdağında {diffüz incelme|fokal tam kat defekt} {izlendi|izlenmiştir}.
+Patella {medial|lateral} fasetinde grade {2|3|4} kondromalazi ile uyumlu kıkırdak hasarı izlendi.
+Medial femoral kondil yük taşıyan yüzeyinde {5|8|10|12|15} mm boyutlu osteokondral lezyon izlendi.
+Osteokondral fragman çevresinde sıvı sinyali izlenmesi lezyonun instabil olduğunu düşündürmektedir.
+Eklem kıkırdağı kalınlığı ve sinyal intensitesi normaldir.
+{Medial femoral kondilde|Lateral femoral kondilde|Medial tibial platoda|Lateral tibial platoda} subkondral kemik iliği ödemi {izlendi|dikkati çekti|saptandı}.
+Medial femoral kondilde subkondral yetmezlik kırığı ile uyumlu lineer hipointens hat ve çevresinde kemik iliği ödemi izlendi.
+Medial tibial platoda subkondral kistler ve skleroz izlendi.
+Kemik iliği sinyal intensitesi normaldir, kontüzyon veya kırık {izlenmemiştir|saptanmamıştır}.
+Lateral tibial platoda kemik iliği ödemi ile birlikte {nondeplase|minimal çökme gösteren} kırık hattı izlendi.
+Distal femur metafizinde {10|15|20|25|30} mm boyutlu, lobüle konturlu, T2 ağırlıklı görüntülerde hiperintens enkondrom ile uyumlu lezyon izlendi.
+Distal femur metafizinde serpijinöz kenarlı kemik infarktı ile uyumlu lezyon izlendi.
+
+# Diz: efüzyon, Baker kisti, tendon ve bursalar
+Eklem aralığında {minimal|hafif|orta miktarda|belirgin} efüzyon izlendi.
+Suprapatellar reseste {minimal|belirgin} sıvı artışı mevcuttur.
+Eklem sıvısında sinovyal kalınlaşma ve debris izlendi, sinovit ile uyumludur.
+Eklem aralığında yağ sıvı seviyelenmesi gösteren lipohemartroz izlendi, intraartiküler kırık açısından değerlendirilmelidir.
+Popliteal fossada medial gastroknemius ile semimembranozus tendonu arasında uzanan {mm}x{mm} mm boyutlarında Baker kisti izlendi.
+Baker kisti septalı olup içerisinde debris izlenmektedir.
+Baker kistinin distal ucunda rüptür ile uyumlu sıvı sızıntısı ve çevre yumuşak dokularda ödem izlendi.
+Popliteal fossada Baker kisti {izlenmedi|izlenmemiştir|görülmedi}.
+Patellar tendonun proksimal kesiminde kalınlaşma ve sinyal artışı patellar tendinopati ile uyumludur.
+Kuadriseps ve patellar tendonlar intakttır.
+Hoffa yağ yastığında {superolateral kesimde|yaygın} ödem izlendi.
+Patella lateral tilt göstermekte olup troklear displazi ile uyumlu sığ troklear oluk izlendi.
+Medial patellofemoral ligamanda yırtık, patella medial fasetinde ve lateral femoral kondilde kemik kontüzyonu geçirilmiş patella çıkığını düşündürmektedir.
+Pes anserin bursasında sıvı artışı bursit ile uyumludur.
+Prepatellar bursada sıvı artışı ve çevre ciltaltı dokularda ödem izlendi.
+İliotibial bant çevresinde ödem izlenmiş olup iliotibial bant sürtünme sendromu ile uyumludur.
+Mediopatellar plika {kalınlaşmış|belirgin} görünümdedir.
+Medial femorotibial eklem aralığında daralma, marjinal osteofitler ve subkondral skleroz dejeneratif osteoartrit ile uyumludur.
+Diz eklemi kemik yapıları, menisküsler, çapraz ve kollateral bağlar normal görünümdedir.
+Diz eklemi USG incelemesinde suprapatellar bursada {minimal|belirgin} efüzyon izlendi.
+
+# Omuz
+Supraspinatus tendonunda kalınlaşma ve T2 ağırlıklı görüntülerde ara sinyal artışı tendinoz ile uyumludur.
+Supraspinatus tendonunda {eklem yüzünde|bursal yüzde} parsiyel yırtık {izlendi|izlenmiştir|saptandı}.
+Supraspinatus tendonunda büyük tüberkül yapışma yerinde {5|8|10|12|15|20} mm genişliğinde tam kat yırtık izlendi.
+Tam kat yırtık nedeniyle supraspinatus tendonu {10|15|20|25|30} mm medial yönde retrakte olmuştur.
+Supraspinatus kasında Goutallier evre {1|2|3} yağlı dejenerasyon izlendi.
+Supraspinatus tendonunda intrasubstans {delaminasyon|yırtık} izlendi.
+Supraspinatus tendonu içinde {4|6|8|10|12} mm boyutlu kalsifik tendinit ile uyumlu kalsifikasyon izlendi.
+İnfraspinatus ve teres minör tendonları intakttır.
+İnfraspinatus tendonunda tendinoz ile uyumlu sinyal artışı izlendi.
+Subskapularis tendonunun {üst kesiminde|yapışma yerinde} parsiyel yırtık izlendi.
+Biseps uzun başı tendonu bisipital olukta yerleşmiş olup tendon kılıfında sıvı artışı tenosinovit ile uyumludur.
+Biseps uzun başı tendonu bisipital oluktan medial yönde {subluksedir|dislokedir}.
+Biseps uzun başı tendonu bisipital olukta izlenmemekte olup tam kat yırtık ile uyumludur.
+Subakromiyal subdeltoid bursada sıvı artışı bursit ile uyumludur.
+Subakromiyal subdeltoid bursada {minimal|belirgin} sıvı {izlendi|dikkati çekti}.
+Akromiyoklaviküler eklemde kapsüler hipertrofi ve osteofitler supraspinatus kas tendon bileşkesine bası oluşturmaktadır.
+Akromiyoklaviküler eklemde {hafif|belirgin} hipertrofik dejeneratif değişiklikler {izlendi|mevcuttur}.
+Akromiyon Bigliani tip {1|2|3} morfolojidedir.
+Akromiyon alt yüzünde subakromiyal sıkışmaya yatkınlık oluşturan entezofit izlendi.
+Akromiyoklaviküler eklem aralığında genişleme ve klavikula distal ucunda superior yer değiştirme izlendi.
+Anteroinferior labrumda yırtık ve glenoid kenarında kemik defekti Bankart lezyonu ile uyumludur.
+Humerus başı posterolateralinde Hill-Sachs lezyonu ile uyumlu kortikal çökme ve kemik iliği ödemi izlendi.
+Superior labrumda anteriordan posteriora uzanan SLAP lezyonu ile uyumlu sinyal artışı izlendi.
+Posterosuperior labrumda yırtık ve komşuluğunda spinoglenoid çentiğe uzanan paralabral kist izlendi.
+Glenoid labrum morfolojisi ve sinyal intensitesi normaldir.
+Glenohumeral eklemde {minimal|hafif|belirgin} efüzyon izlendi.
+Rotator aralıkta yağ dokusunda silinme ve korakohumeral ligamanda kalınlaşma adeziv kapsülit ile uyumlu olabilir.
+Aksiller reseste kapsüler kalınlaşma ve perikapsüler ödem izlendi.
+Büyük tüberkülde nondeplase kırık ile uyumlu lineer hipointens hat ve kemik iliği ödemi izlendi.
+Rotator manşet tendonlarında yırtık lehine bulgu {saptanmamıştır|izlenmemiştir}.
+USG incelemede supraspinatus tendonu kalınlığı {4|5|6|7} mm olup ekojenitesi {heterojen|azalmış} olarak izlendi.
+Dinamik incelemede subakromiyal sıkışma bulgusu saptanmamıştır.
+Supraspinatus tendonunda hipoekoik fokal alan izlenmiş olup parsiyel yırtık lehine yorumlanmıştır.
+Supraspinatus tendonu {izlenememekte olup|incelmiş ve kontur kaybı göstermekte olup} tam kat yırtık ile uyumludur.
+Humerus başı superiora yer değiştirmiş olup akromiyohumeral mesafe {4|5|6} mm olarak ölçülmüştür.
+Biseps tendon kılıfında sıvı artışı {izlenmedi|görülmedi}.
+
+# Kalça ve pelvis
+Bilateral femur başlarında T1 ağırlıklı görüntülerde hipointens bant ile sınırlı subkondral alanlar avasküler nekroz ile uyumludur.
+T2 ağırlıklı görüntülerde çift çizgi işareti izlenmesi avasküler nekrozu desteklemektedir.
+{Sağ|Sol} femur başında yük taşıyan yüzeyde avasküler nekroz izlenmiş olup eklem yüzeyinde çökme {izlenmemiştir|mevcuttur}.
+Femur başı sferisitesi korunmuştur.
+{Sağ|Sol} kalça eklem aralığında {minimal|belirgin} efüzyon izlendi.
+{Sağ|Sol} asetabular labrumun anterosuperior kesiminde yırtık izlendi.
+Femur baş boyun bileşkesinde kam tipi femoroasetabular sıkışma ile uyumlu kemik çıkıntı izlendi, alfa açısı yaklaşık {60|65|70|75} derece olarak ölçülmüştür.
+Bilateral kalça eklemlerinde eklem aralığında daralma, osteofitler ve subkondral kistler koksartroz ile uyumludur.
+{Sağ|Sol} trokanterik bursada sıvı artışı bursit ile uyumludur.
+Gluteus medius tendonunda büyük trokanter yapışma yerinde kalınlaşma ve sinyal artışı tendinopati ile uyumludur.
+{Sağ|Sol} femur boynunda kemik iliği ödemi ile birlikte lineer hipointens hat stres kırığı ile uyumludur.
+Hamstring tendonlarının iskial tüberozite yapışma yerinde {parsiyel|tam kat} yırtık izlendi.
+İliopsoas bursasında sıvı artışı izlendi.
+Pubik simfiz komşuluğunda kemik iliği ödemi osteitis pubis ile uyumlu olabilir.
+Kalça USG incelemesinde alfa açısı {60|62|65|68} derece olup Graf tip 1 ile uyumludur.
+Femur başlarının asetabulum ile ilişkisi normaldir.
+Kalça eklem kıkırdağı ve labrum normal görünümdedir.
+
+# Ayak bileği ve ayak
+Aşil tendonunda kalkaneal yapışma yerinin {2|3|4|5} cm proksimalinde fuziform kalınlaşma ve sinyal artışı tendinopati ile uyumludur.
+Aşil tendonunda tam kat yırtık izlenmiş olup tendon uçları arasında {10|15|20|25|30} mm aralık mevcuttur.
+Aşil tendonu kalınlığı {6|7|8|9|10} mm olarak ölçülmüştür.
+Retrokalkaneal bursada sıvı artışı bursit ile uyumludur.
+Anterior talofibular ligamanda {parsiyel|tam kat} yırtık {izlendi|saptandı}.
+Kalkaneofibular ligaman ve deltoid ligaman kompleksi intakttır.
+Anterior talofibular ligaman kalınlaşmış ve dalgalı konturlu olup eski yaralanma sekeli ile uyumludur.
+Tibialis posterior tendon kılıfında sıvı artışı tenosinovit ile uyumludur.
+Peroneus brevis tendonunda longitudinal ayrışma yırtığı izlendi.
+Peroneal tendonlar retromalleolar olukta normal pozisyondadır.
+Plantar fasya kalkaneal yapışma yerinde {5|6|7|8} mm kalınlıkta olup plantar fasiit ile uyumludur.
+Kalkaneus plantar yüzünde topuk dikeni izlendi.
+Talus kubbesi {medialinde|lateralinde} {6|8|10|12}x{5|6|8} mm boyutlu osteokondral lezyon izlendi.
+Sinüs tarside yağ dokusunda silinme ve ödem izlendi.
+Üçüncü intermetatarsal aralıkta {6|8|10|12} mm ebatlı Morton nöromu ile uyumlu hipoekoik lezyon izlendi.
+İkinci metatars diafizinde periost reaksiyonu ve kemik iliği ödemi stres kırığı ile uyumludur.
+Tibiotalar eklemde {minimal|hafif} efüzyon izlendi.
+Ayak bileği eklem aralıkları korunmuştur, kemik iliği ödemi izlenmemiştir.
+Kalkaneusta {10|15|20|25|30} mm ebatlı, düzgün sınırlı, sıvı intensitesinde basit kemik kisti izlendi.
+
+# El bileği, el ve dirsek
+Median sinir karpal tünel girişinde kalınlaşmış ve hipoekoik olup kesit alanı {12|13|14|15|16} mm kare olarak ölçülmüştür.
+Bulgular karpal tünel sendromu ile uyumludur.
+Fleksör retinakulumda palmar bombeleşme izlendi.
+Triangüler fibrokartilaj kompleksinde {santral|periferik} yırtık izlendi.
+Skafoid bel kesiminde kırık hattı ve kemik iliği ödemi izlendi.
+Skafoid proksimal polünde T1 ağırlıklı görüntülerde sinyal kaybı avasküler nekroz açısından anlamlıdır.
+El bileği dorsalinde skafolunat eklem komşuluğunda {6|8|10|12|15|18}x{5|6|8|10} mm boyutlu ganglion kisti izlendi.
+Birinci ekstansör kompartmanda tendon kılıfında sıvı artışı ve kalınlaşma De Quervain tenosinoviti ile uyumludur.
+Skafolunat ve lunotriketral ligamanlar intakttır.
+{İkinci|Üçüncü|Dördüncü} parmak fleksör tendon kılıfında sıvı artışı ve A1 pulley düzeyinde kalınlaşma tetik parmak ile uyumludur.
+Ortak ekstansör tendon lateral epikondil yapışma yerinde kalınlaşmış ve hipoekoik görünümde olup lateral epikondilit ile uyumludur.
+Ortak fleksör tendon medial epikondil yapışma yerinde tendinopati ile uyumlu görünüm izlendi.
+Olekranon bursasında sıvı artışı bursit ile uyumludur.
+Ulnar sinir kubital tünel düzeyinde kalınlaşmış ve hipoekoik görünümdedir.
+Distal biseps tendonu radial tüberozite yapışma yerinde {parsiyel|tam kat} yırtık izlendi.
+Dirsek ekleminde efüzyon ve posterior yağ yastığı işareti izlendi, okkült kırık açısından değerlendirilmelidir.
+Metakarpofalangeal eklemlerde sinovyal kalınlaşma ve renkli Doppler incelemede artmış vaskülarite aktif sinovit ile uyumludur.
+El bileği eklem aralıkları korunmuştur.
+
+# Yumuşak doku kitleleri, tendinit, tenosinovit
+{Sağ|Sol} {uyluk|kol|ön kol|bacak|omuz} bölgesinde ciltaltı yağ dokusunda {mm}x{mm} mm boyutlarında, düzgün sınırlı, çevre yağ dokusu ile izoekoik lipom ile uyumlu lezyon izlendi.
+Lezyon T1 ve T2 ağırlıklı görüntülerde subkutan yağ ile izointens olup yağ baskılı serilerde tamamen baskılanmaktadır, lipom ile uyumludur.
+Lezyon içinde kalın septalar ve kontrastlanan nodüler komponent izlenmesi nedeniyle atipik lipomatöz tümör ekarte edilemez.
+{Sağ|Sol} uyluk {anterior|medial|posterior} kompartmanda kas içi yerleşimli {cm}x{cm} cm boyutlarında heterojen kontrastlanan solid kitle izlendi.
+Kitlenin komşu nörovasküler yapılar ile yağ planı {korunmuştur|izlenmemektedir}.
+Kitle T1 ağırlıklı görüntülerde kas ile izointens, T2 ağırlıklı görüntülerde heterojen hiperintens olup santralinde kontrastlanmayan nekrotik alanlar mevcuttur.
+Bulgular yumuşak doku sarkomu açısından şüpheli olup doku örneklemesi önerilir.
+Komşu kemik yapılarda kortikal erozyon veya kemik iliği invazyonu {izlenmemiştir|saptanmamıştır}.
+{Sağ|Sol} {uyluk|baldır} kas planları arasında {mm}x{mm} mm boyutlarında, heterojen ekojenitede, kanlanma göstermeyen hematom ile uyumlu koleksiyon izlendi.
+T1 ağırlıklı görüntülerde hiperintens komponent içeren lezyon subakut hematom ile uyumludur.
+{Sağ|Sol} gluteal bölgede ciltaltında {mm}x{mm} mm boyutlarında, kalın duvarlı, debris içeren ve periferik kanlanma gösteren apse ile uyumlu koleksiyon izlendi.
+Ciltaltı yağ dokusunda ekojenite artışı ve kaldırım taşı görünümünde ödem selülit ile uyumludur.
+Fasya düzeyinde sıvı ve gaz izlenmedi, nekrotizan fasiit lehine bulgu saptanmamıştır.
+Kas liflerinde ödem izlenmesi miyozit ile uyumlu olabilir.
+Koleksiyon içinde difüzyon kısıtlanması izlenmesi apse ile uyumludur.
+Medial gastroknemius kas tendon bileşkesinde sıvı koleksiyonu ve lif devamsızlığı parsiyel yırtık ile uyumludur.
+Kas liflerinin pennat paterni korunmuştur, kas yırtığı lehine bulgu saptanmamıştır.
+{Sağ|Sol} {ön kol fleksör|ön kol ekstansör|ayak bileği peroneal} tendon kılıfında sıvı artışı tenosinovit ile uyumludur.
+Tendon kılıfında sıvı artışı ve renkli Doppler incelemede artmış vaskülarite aktif tenosinovit ile uyumludur.
+Tendonda fibriler yapı kaybı ve hipoekoik görünüm tendinopati ile uyumludur.
+Tendonun fibriler yapısı korunmuştur.
+{Sağ|Sol} inguinal bölgede yağlı hilusu korunmuş reaktif görünümde lenf nodları izlendi.
+İnceleme alanında patolojik boyut ve görünümde lenf nodu {izlenmedi|saptanmadı}.
+{Sağ|Sol} inguinal bölgede subsantimetrik boyutlu, reaktif natürde lenf nodları görülmüştür.
+Ciltaltı dokuda {3|4|5|6|8|10} mm uzunluğunda lineer hiperekoik yabancı cisim ve çevresinde hipoekoik inflamatuar halo izlendi.
+Ciltaltında posterior akustik güçlenme gösteren, {6|8|10|12|15|20} mm ebatlı epidermoid kist ile uyumlu lezyon izlendi.
+Lezyonda renkli Doppler incelemede {belirgin kanlanma izlenmedi|internal kanlanma izlendi|periferik kanlanma izlendi}.
+Sonografik olarak lezyon {kistik|solid|kompleks kistik solid} karakterdedir.
+Kas içinde periferik kalsifikasyon gösteren lezyon miyozitis ossifikans ile uyumlu olabilir.
+Sinir trasesi boyunca uzanan, fuziform, hedef işareti gösteren lezyon periferik sinir kılıfı tümörü lehine yorumlanmıştır.
+Flebolit içeren lobüle konturlu lezyon venöz malformasyon ile uyumludur.
+Yumuşak doku kitlesinin en büyük boyutu {cm} cm olarak ölçülmüştür.
+Lezyon ciltaltı yağ dokusu yerleşimli olup fasya ile ilişkisi {izlenmemiştir|seçilememiştir}.
+Palpe edilen alanda ciltaltı yağ dokusunda {cm} cm'lik lipom ile uyumlu lezyon izlendi.
+Palpe edilen alanda patolojik bulgu saptanmamıştır.
+
+# Direkt grafi
+Kemik yapılarda {travmatik patoloji|kırık veya çıkık} izlenmedi.
+{Sağ|Sol} distal radiusta eklem yüzüne uzanan {deplase|nondeplase} kırık hattı izlendi.
+Distal radius kırığında dorsal angulasyon ve {2|3|4} mm kısalma mevcuttur.
+{Sağ|Sol} {beşinci|dördüncü} metakarp boynunda volar angulasyon gösteren kırık izlendi.
+{Sağ|Sol} femur boynunda {deplase|impakte} kırık izlendi.
+{Sağ|Sol} tibia diafizinde {oblik|spiral|transvers} kırık hattı izlendi, kırık uçlarında {hafif|belirgin} deplasman mevcuttur.
+{Sağ|Sol} lateral malleolde nondeplase kırık hattı izlendi.
+Beşinci metatars proksimal diafizinde transvers kırık hattı izlendi.
+{Sağ|Sol} {altıncı|yedinci|sekizinci} kosta lateral kesiminde nondeplase kırık izlendi.
+Klavikula orta üçte bir kesiminde deplase kırık izlendi.
+Kırık hattında kallus formasyonu izlenmiş olup iyileşme ile uyumludur.
+Kırık hattında kaynama gecikmesi ile uyumlu lüsen hat devam etmektedir.
+Kırık uçları arasında {2|3|4|5|6|8} mm ayrışma izlendi.
+Humerus başı glenoid fossaya göre anteroinferiora dislokedir, omuz çıkığı ile uyumludur.
+Redüksiyon sonrası çekilen grafide glenohumeral eklem uyumu sağlanmıştır.
+Distal radius fizisinde Salter Harris tip {1|2} kırık izlendi.
+Kemik yapılarda {yaygın|diffüz} osteopeni izlendi.
+Kemik korteksi düzenli olup trabeküler yapı korunmuştur.
+Eklem aralığında daralma, subkondral skleroz ve marjinal osteofitler dejeneratif artroz ile uyumludur.
+{Sağ|Sol} diz ekleminde medial kompartmanda belirgin eklem aralığı daralması izlendi, Kellgren Lawrence evre {2|3|4} gonartroz ile uyumludur.
+Periartiküler osteopeni ve marjinal erozyonlar inflamatuar artrit açısından anlamlıdır.
+Yumuşak dokularda şişlik ve opak yabancı cisim {izlenmedi|izlenmemiştir}.
+{Proksimal tibia|Distal femur|Proksimal humerus} metafizinde dar geçiş zonlu, sklerotik kenarlı litik lezyon izlendi.
+Lezyonda periost reaksiyonu ve kortikal destrüksiyon izlenmemesi benign natürü desteklemektedir.
+Lamelli periost reaksiyonu ve yumuşak doku komponenti malignite açısından şüphelidir.
+Proksimal humerus metafizinde halka ve ark tarzında kondroid kalsifikasyonlar içeren enkondrom ile uyumlu lezyon izlendi.
+Plak ve vidalar ile internal fiksasyon materyalleri izlendi, implant çevresinde gevşeme lehine lüsen alan saptanmamıştır.
+İntramedüller çivi ve kilitleme vidaları yerinde izlenmektedir.
+Total diz artroplastisi komponentleri yerinde olup periprostetik kırık izlenmemiştir.
+Total kalça protezi femoral komponenti çevresinde lüsen hat izlendi, aseptik gevşeme açısından değerlendirilmelidir.
+Periartiküler yumuşak dokularda kalsifik tendinit ile uyumlu kalsifikasyon izlendi.
+Diz ekleminde menisküslerde kondrokalsinozis ile uyumlu lineer kalsifikasyonlar izlendi.
+Lomber vertebralarda dejeneratif osteofitler ve disk mesafelerinde daralma izlendi.
+Vertebral dizilim ve korpus yükseklikleri {korunmuştur|normaldir}.
+Pelvis grafisinde sakroiliak eklemler ve kalça eklemleri tabiidir.
+Kalkaneusta Böhler açısında azalma ile birlikte kırık hattı izlendi.
+Birinci metatarsofalangeal eklemde halluks valgus deformitesi izlendi, halluks valgus açısı yaklaşık {20|25|30|35|40} derece olarak ölçülmüştür.
+Kalça grafisinde femur başı ve boynunda kırık lehine bulgu saptanmamıştır.
+
+# Alt ve üst ekstremite venöz Doppler
+{Sağ|Sol|Bilateral} ana femoral ven, femoral ven ve popliteal ven lümenleri açık olup kompresyonla tam olarak kollabe olmaktadır.
+Derin venlerde spontan ve fazik akım izlenmiş olup distal kompresyonla augmentasyon yanıtı normaldir.
+Ana femoral vende solunumla fazisite gösteren spontan akım izlendi.
+Posterior tibial ve peroneal venler {açıktır|açık olup kompresyonla tam olarak kollabe olmaktadır}.
+Derin venöz sistemde trombüs {izlenmemiştir|saptanmamıştır|görülmemiştir}.
+Derin ven trombozu lehine bulgu saptanmamıştır.
+{Sağ|Sol} {popliteal|femoral|ana femoral} ven kompresyonla kollabe olmamakta olup lümeni genişleten hipoekoik akut trombüs izlendi.
+Trombüs proksimal yönde ana femoral vene kadar uzanmaktadır.
+Trombüsün proksimal ucu {femoral vende|ana femoral vende|eksternal iliak vende} izlenmektedir.
+Trombüslü segmentte renkli Doppler incelemede akım kodlanmamaktadır.
+{Sağ|Sol} femoral vende lümeni kısmen dolduran, çevresinden akım kodlanan nonoklüzif trombüs izlendi.
+Trombüsün proksimal ucunda damar duvarına yapışık olmayan flotan görünüm izlendi.
+Popliteal vende duvar kalınlaşması ve kısmi rekanalizasyon gösteren kronik trombüs ile uyumlu ekojen materyal izlendi.
+{Medial gastroknemius|Soleal} venlerinde izole distal derin ven trombozu ile uyumlu trombüs izlendi.
+{Posterior tibial|Peroneal} venlerde lümeni dolduran trombüs izlendi.
+Ana femoral vende solunumsal fazisitenin korunması proksimal venöz obstrüksiyon lehine değildir.
+Ana femoral vende fazisite kaybı ve sürekli akım paterni proksimal venöz obstrüksiyon açısından anlamlıdır.
+Büyük safen ven safenofemoral bileşkede {6|7|8|9|10} mm çapındadır.
+Valsalva manevrası ile safenofemoral bileşkede {1|2|3} saniyeden uzun süren reflü izlendi.
+Büyük safen ven boyunca {uyluk|diz altı} seviyesine kadar uzanan reflü izlendi.
+Küçük safen vende safenopopliteal bileşkede reflü {izlendi|izlenmedi|saptanmadı}.
+Safenofemoral ve safenopopliteal bileşkelerde yetmezlik saptanmamıştır.
+Derin venlerde patolojik reflü {izlenmemiştir|saptanmamıştır}.
+Femoral ve popliteal venlerde {2|3} saniyeden uzun reflü derin venöz yetmezlik ile uyumludur.
+{Sağ|Sol} bacak medialinde {3|4|5} mm çapında yetmezlikli perforan ven izlendi.
+Bacak {medialinde|posteriorunda} ciltaltında varisöz dilatasyon gösteren yüzeyel venler izlendi.
+Büyük safen vende lümeni dolduran trombüs ve çevre dokularda inflamasyon yüzeyel tromboflebit ile uyumludur.
+Trombüsün safenofemoral bileşkeye uzaklığı {cm} cm olarak ölçülmüştür.
+{Sağ|Sol} internal juguler, aksiller ve brakiyal venler kompresyonla tam olarak kollabe olmakta, subklavyen vende solunumla fazisite gösteren akım izlenmektedir.
+{Sağ|Sol} sefalik vende kateter ile ilişkili yüzeyel trombüs izlendi.
+{Sağ|Sol} bazilik vende {cm} cm uzunluğunda lümeni oklüde eden trombüs izlendi.
+{Sağ|Sol} subklavyen vende kateter trasesi boyunca lümeni kısmen dolduran trombüs izlendi.
+Ödem nedeniyle krural venler optimal değerlendirilememiştir.
+Ciltaltı yağ dokusunda ödem ile uyumlu ekojenite artışı ve anekoik sıvı bantları izlendi.
+Popliteal fossada {mm}x{mm} mm boyutlu Baker kisti izlenmiş olup popliteal vene bası etkisi saptanmamıştır.
+Venöz duvarlar düzgün olup lümen içi ekojenite izlenmemiştir.
+
+# Alt ve üst ekstremite arteriyel Doppler
+{Sağ|Sol} ana femoral, süperfisiyel femoral ve popliteal arterlerde trifazik akım paterni izlendi.
+Krural arterlerde {trifazik|bifazik} akım paterni mevcuttur.
+Anterior tibial, posterior tibial ve peroneal arterlerde akım kodlanmaktadır.
+Dorsalis pedis arterinde {monofazik|tardus parvus} akım paterni izlendi.
+Süperfisiyel femoral arter {proksimal|orta|distal} kesiminde lümende yaklaşık {%50|%60|%70} oranında darlık oluşturan kalsifik plak izlendi.
+Darlık segmentinde pik sistolik akım hızında belirgin artış ve poststenotik türbülan akım izlendi.
+Pik sistolik hız oranı {2,5|3|3,5|4} olarak hesaplanmış olup hemodinamik olarak anlamlı darlık ile uyumludur.
+Süperfisiyel femoral arter {orta|distal} kesiminde yaklaşık {cm} cm uzunluğunda segmentte akım kodlanmamakta olup oklüzyon ile uyumludur.
+Oklüzyon distalinde popliteal arter kollateraller ile dolmakta olup monofazik akım izlenmektedir.
+Arter duvarlarında {yaygın|yer yer} kalsifik aterosklerotik plaklar izlendi.
+Aterosklerotik plaklar hemodinamik olarak anlamlı darlığa neden olmamaktadır.
+Arteriyel sistemde hemodinamik olarak anlamlı darlık ya da oklüzyon {saptanmamıştır|izlenmemiştir}.
+Popliteal arter çapı {12|14|16|18|20} mm olup anevrizmatik dilatasyon ile uyumludur.
+Popliteal arter anevrizması içinde mural trombüs izlendi.
+{Sağ|Sol} ana femoral arterle boyun yapısı aracılığıyla ilişkili, içinde girdap tarzında akım kodlanan {mm}x{mm} mm boyutlu psödoanevrizma izlendi.
+Psödoanevrizma boynunda ileri geri akım paterni izlendi.
+Ana femoral arter ile ana femoral ven arasında arteriyovenöz fistül lehine yüksek hızlı, düşük dirençli akım izlendi.
+{Sağ|Sol} subklavyen, aksiller, brakiyal, radial ve ulnar arterlerde trifazik akım paterni izlendi.
+Ayak bileği brakiyal indeksi {0,5|0,6|0,7|0,8} olarak ölçülmüştür.
+Distal arterlerde akım hızlarında azalma ve monofazik akım paterni proksimalde anlamlı darlık lehine yorumlanmıştır.
+Arter duvarlarında intimal kalınlaşma ve düzensizlik izlendi.
+İliak arterlerin değerlendirilmesi bağırsak gazı nedeniyle sınırlıdır.
+Arteriyel akım paterni {trifazik|bifazik|monofazik} olarak izlendi.
+Popliteal arterde lümeni dolduran ve akım kodlanmayan akut tromboz ile uyumlu görünüm izlendi.
+Tibioperoneal trunkusta yaklaşık %50 oranında darlık izlendi.
+Radial arterde akım {kodlanmakta olup lümen açıktır|kodlanmamaktadır}.
+Tüm segmentlerde arteriyel akım hızları normal sınırlardadır.
+
+# Karşılaştırma
+Önceki tetkik ile karşılaştırıldığında {belirgin değişiklik izlenmemiştir|yeni gelişen patolojik bulgu saptanmamıştır|lezyon boyutlarında artış izlenmiştir|lezyon boyutlarında azalma izlenmiştir}.
+{Üç ay|Altı ay|Bir yıl} önceki MR incelemesi ile kıyaslandığında disk herniasyonu {gerilemiştir|stabil seyretmektedir|belirginleşmiştir}.
+Önceki tetkikte tanımlanan {lezyon|kitle|koleksiyon} {stabildir|boyutça küçülmüştür|boyutça artmıştır}.
+Önceki incelemede {mm} mm ölçülen lezyon bu incelemede {mm} mm olarak ölçülmüştür.
+Önceki tetkike göre kemik iliği ödeminde belirgin regresyon izlenmiştir.
+Önceki grafiye göre kırık hattında kallus formasyonu belirginleşmiştir.
+Önceki tetkike göre kırık hattında deplasman artışı izlenmemiştir.
+Karşılaştırma yapılabilecek önceki tetkik mevcut değildir.
+Karşılaştırma için önceki tetkik sistemimizde bulunmamaktadır.
+Önceki tetkikin raporu ile karşılaştırma yapılmış olup görüntüleri sistemde mevcut değildir.
+Önceki tetkike göre yeni gelişen {T12|L1|L2} vertebra kompresyon kırığı izlenmiştir.
+Bilinen {L4-L5|L5-S1} seviyesindeki disk ekstrüzyonu önceki tetkike göre {küçülmüştür|değişmemiştir|belirgin olarak gerilemiştir}.
+Önceki incelemede izlenen {efüzyon|kemik iliği ödemi|tenosinovit} {gerilemiştir|kaybolmuştur}.
+Postoperatif değişiklikler önceki tetkik ile benzer görünümdedir.
+Önceki tetkike göre progresyon izlenmemiştir.
+Lezyon önceki tetkiklerle kıyaslandığında {iki|üç|beş} yıldır stabil seyretmektedir.
+Önceki tetkike göre trombüste {kısmi|belirgin} rekanalizasyon izlenmiştir.
+Önceki Doppler incelemesinde tanımlanan trombüs bu incelemede izlenmemiştir.
+Önceki tetkik ile kıyaslandığında spinal kanal darlığında belirgin değişiklik izlenmemiştir.
+Önceki incelemeye göre Baker kisti boyutlarında {artış|azalma} izlenmiştir.
+Önceki tetkikte izlenmeyen yeni gelişen kemik iliği ödemi dikkati çekti.
+Önceki tetkike göre lezyonun sinyal özellikleri değişmemiştir.
+
+# Sonuç ve izlenim
+Sonuç olarak, {L4-L5|L5-S1} seviyesinde {sol|sağ} paramedian disk ekstrüzyonu ve ipsilateral sinir kökü basısı izlenmiştir.
+Sonuç olarak, lomber spondiloz ile uyumlu dejeneratif değişiklikler izlenmiştir.
+Sonuç olarak, {L3-L4|L4-L5} seviyesinde dejeneratif spinal kanal stenozu izlenmiştir.
+Sonuç olarak, {C5-C6|C6-C7} seviyesinde disk herniasyonuna bağlı servikal miyelopati bulguları izlenmiştir.
+Sonuç olarak, {L4-L5|L5-S1} seviyesinde grade 1 spondilolistezis ve buna bağlı bilateral foraminal daralma izlenmiştir.
+Bulgular {medial|lateral} menisküs arka boynuz yırtığı ile uyumlu olarak değerlendirildi.
+Bulgular ön çapraz bağ tam kat yırtığı ile uyumlu olarak değerlendirildi.
+Bulgular supraspinatus tendinozu ve subakromiyal subdeltoid bursit ile uyumlu olarak değerlendirildi.
+Bulgular supraspinatus tendonunda {parsiyel|tam kat} yırtık ile uyumlu olarak değerlendirildi.
+Bulgular {sağ|sol} alt ekstremitede akut derin ven trombozu ile uyumlu olarak değerlendirildi.
+Bulgular {benign|dejeneratif} natürde lezyon lehine yorumlanmıştır.
+Bulgular osteoporotik kompresyon kırığı lehine yorumlanmış olup metastatik tutulum ekarte edilememiştir.
+Ayırıcı tanıda {enfeksiyon|metastaz|lenfoma} göz önünde bulundurulmalıdır.
+Mevcut bulgular {dejeneratif|inflamatuar|travmatik} etiyoloji ile uyumludur.
+Bulgular olasılıklı {dejeneratif|posttravmatik} değişiklikler ile uyumludur.
+Bulgular öncelikle enfeksiyöz bir süreci düşündürür.
+Lezyon muhtemel benign natürde olup takip ile değerlendirilmesi düşünülmektedir.
+Bulgular kemik iliği ödemi ile birlikte stres reaksiyonu olarak yorumlandı.
+{Sağ|Sol} alt ekstremite venöz Doppler incelemesi normal sınırlardadır.
+Sonuç olarak, belirgin patoloji saptanmamıştır.
+Sonuç olarak, büyük safen vende safenofemoral bileşkeden başlayan yüzeyel venöz yetmezlik izlenmiştir.
+Sonuç olarak, {sağ|sol} süperfisiyel femoral arterde hemodinamik olarak anlamlı darlık izlenmiştir.
+Bulgular lipom ile uyumlu olarak değerlendirildi.
+Bulgular {sağ|sol} femur başında avasküler nekroz ile uyumlu olarak değerlendirildi.
+Bulgular Aşil tendinopatisi ile uyumlu olarak değerlendirildi.
+Bulgular kemik kontüzyonu ile uyumlu olup belirgin kırık hattı izlenmemiştir.
+Bulgular {akut|subakut} dönem kompresyon kırığı ile uyumlu olarak değerlendirildi.
+Bulgular spondilodiskit ile uyumlu olup klinik ve laboratuvar ile korelasyon önerilir.
+Bulgular aktif sakroiliit ile uyumlu olarak değerlendirildi.
+Sonuç olarak, {sağ|sol} diz ekleminde dejeneratif osteoartrit ve eşlik eden efüzyon izlenmiştir.
+Bulgular plantar fasiit ile uyumlu olarak değerlendirildi.
+Bulgular ganglion kisti ile uyumludur.
+Bulgular yüzeyel tromboflebit ile uyumlu olup derin venöz sisteme uzanım izlenmemiştir.
+Bulgular popliteal arter anevrizması ile uyumlu olarak değerlendirildi.
+Mevcut bulgular kronik derin ven trombozuna bağlı posttrombotik değişiklikler ile uyumludur.
+Bulgular {lateral epikondilit|De Quervain tenosinoviti|tetik parmak} ile uyumlu olarak değerlendirildi.
+
+# Öneri
+Klinik ve laboratuvar ile korelasyon önerilir.
+Klinik ve laboratuvar bulguları ile korele edilmesi önerilir.
+{Üç|Altı} ay sonra kontrol {MR|USG|grafi} önerilir.
+{Kısa aralıklı|Altı aylık|Üç aylık} kontrol önerilir.
+Histopatolojik tanı için doku örneklemesi önerilir.
+Histopatolojik değerlendirme için USG eşliğinde {trucut biyopsi|kalın iğne biyopsisi} önerilir.
+Kontrastlı MR ile ileri değerlendirme önerilir.
+Klinik şüphe devam ediyorsa {MR|BT} ile ileri değerlendirme önerilir.
+Elektromiyografi ile korelasyon önerilir.
+{Ortopedi ve travmatoloji|Beyin ve sinir cerrahisi|Kalp ve damar cerrahisi|Fizik tedavi ve rehabilitasyon} konsültasyonu önerilir.
+Romatolojik açıdan değerlendirilmesi önerilir.
+Kemik mineral dansitometrisi ile değerlendirme önerilir.
+Klinik gereklilik halinde BT anjiyografi ile değerlendirme önerilir.
+Trombüs progresyonu açısından {bir hafta|on gün} sonra kontrol Doppler incelemesi önerilir.
+Bulguların klinik ile birlikte değerlendirilmesi önerilir.
+Bulguların travma öyküsü ile korele edilmesi önerilir.
+Okkült kırık açısından {MR|BT} ile ileri değerlendirme önerilir.
+Fizik muayene bulguları ile korelasyon önerilir.
+Malignite ekarte edilemediğinden doku örneklemesi önerilir.
+Semptomların devamı halinde kontrol önerilir.
+Gerekirse kontrastlı inceleme ile değerlendirilmesi önerilir.
+Bulguların önceki tetkikler ile karşılaştırılması önerilir.
+Enfeksiyon açısından klinik ve laboratuvar ile korelasyon önerilmektedir.
+Lezyonun radyolojik takibi önerilir.
+Tedavi sonrası kontrol MR ile değerlendirilmesi önerilir.
+Bulgular eşliğinde cerrahi konsültasyon önerilebilir.
+Klinik değerlendirme sonrası gerekirse {BT|MR} ile değerlendirme önerildi.
+Karşı taraf ile karşılaştırmalı inceleme önerilir.
+Pulmoner emboli açısından klinik değerlendirme önerilir.
+Venöz yetmezlik açısından ayakta Doppler incelemesi önerilir.
+
+# Normal rapor kalıpları
+Vertebra korpus yükseklikleri, dizilimi ve kemik iliği sinyal intensiteleri normaldir.
+Disk yükseklikleri ve hidrasyonu korunmuştur.
+{Lomber|Servikal|Torakal} MR incelemesi normal sınırlardadır.
+{Diz|Omuz|Kalça|Ayak bileği|El bileği} MR incelemesinde patolojik bulgu saptanmamıştır.
+Görüntülenen kemik yapılar tabiidir.
+Eklem aralıkları normal genişliktedir.
+Kas planları ve yumuşak dokular normal görünümdedir.
+Yumuşak doku planlarında patolojik sinyal değişikliği izlenmemiştir.
+Tendonların kalınlığı, ekojenitesi ve fibriler yapısı normaldir.
+Belirgin kitle, koleksiyon veya apse formasyonu {izlenmedi|saptanmadı}.
+Eklem aralığında efüzyon {izlenmemiştir|görülmemiştir}.
+Kemik iliği ödemi, kırık veya osteonekroz bulgusu saptanmamıştır.
+Bilateral alt ekstremite derin venöz sistemi açıktır, trombüs saptanmamıştır.
+Mevcut incelemede patolojik bir bulgu saptanmamıştır.
+Kemik yapılarda litik veya sklerotik lezyon saptanmamıştır.
+Kemik yapılarda kortikal bütünlük korunmuştur.
+Kemik yapıların mineralizasyonu normal sınırlardadır.
+Eklem yüzeylerinin uyumu normaldir.
+İncelenen alanda patolojik kontrastlanma izlenmemiştir.
+Nörovasküler yapılar normal görünümdedir.
+Eklem kapsülü ve çevre yumuşak dokular olağandır.
+
+# Ek bulgular
+İnceleme alanına giren {sağ|sol} böbrekte {mm} mm çaplı basit kortikal kist izlendi.
+İnceleme alanına giren abdominal aortada {kalsifik aterosklerotik plaklar|ektazi} izlendi.
+Abdominal aortada {28|32|35|40} mm çapında anevrizmatik dilatasyon dikkati çekti.
+İnsidental olarak {T10|T11|L2} vertebra korpusunda hemanjiyom izlendi.
+İnceleme alanına giren retroperitoneal yapılarda patolojik bulgu saptanmamıştır.
+İnceleme alanına giren pelvik yapılarda {serbest sıvı|patolojik bulgu} izlenmemiştir.
+Ayrıca uterusta {mm} mm çaplı miyom ile uyumlu lezyon dikkati çekti.
+Ek olarak ciltaltı yağ dokusunda ödem dikkati çekti.
+İnceleme alanına giren {sağ|sol} böbrekte {hafif|orta derecede} hidronefroz izlendi.
+Ayrıca {sağ|sol} over lojunda {mm} mm çaplı basit kist görünümünde lezyon dikkati çekti.
+İnceleme alanına giren tiroid bezinde {mm} mm çaplı nodül izlendi, tiroid USG ile değerlendirilmesi önerilir.
+Ek olarak mesane duvarında {diffüz kalınlaşma|trabekülasyon} dikkati çekti.
+Ayrıca prostat boyutlarında artış dikkati çekti.

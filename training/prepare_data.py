@@ -39,7 +39,8 @@ import soundfile as sf
 from lhotse import CutSet, Fbank, FbankConfig, LilcomChunkyWriter, Recording, RecordingSet, SupervisionSegment, \
     SupervisionSet
 
-from textnorm import looks_uncased, normalize
+from cvsplit import cv_train_rows
+from textnorm import looks_uncased, normalize, repair_tsc, tsc_vocab
 
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
@@ -51,11 +52,13 @@ AUDIO_EXT = {".wav", ".flac", ".mp3", ".ogg", ".opus", ".m4a"}
 
 # ------------------------------------------------------------------ ortak
 def build_cuts(items: list[tuple[str, Path, str]], name: str, split: str, *, min_dur=0.5, max_dur=20.0,
-               max_unk=0.02) -> CutSet:
-    """items: (id, ses yolu, ham metin). Metni normalize eder, süre/BPE filtreleri uygular, manifest yazar."""
+               max_unk=0.02, uncased: bool | None = None) -> CutSet:
+    """items: (id, ses yolu, ham metin). Metni normalize eder, süre/BPE filtreleri uygular, manifest yazar.
+    uncased: None = metinden tespit et; True/False = zorla (onarılmış küçük harfli kaynaklar için)."""
     sp = spm.SentencePieceProcessor(model_file=str(BPE))
     unk = sp.unk_id()
-    uncased = looks_uncased([t for _, _, t in items])
+    if uncased is None:
+        uncased = looks_uncased([t for _, _, t in items])
     recs, sups, dropped = [], [], {"süre": 0, "boş": 0, "unk": 0, "okunamadı": 0}
     for uid, path, raw in items:
         text = normalize(raw, restore_case=uncased)
@@ -155,16 +158,25 @@ def prep_fleurs(_a) -> None:
 
 
 def prep_issai(_a) -> None:
-    d = hf_download("issai/Turkish_Speech_Corpus", ["ISSAI_TSC_218.tar.gz", "README.md"])
+    d = RAW / "issai__Turkish_Speech_Corpus"
     root = d / "ISSAI_TSC_218"
-    if not root.exists():
+    if not root.exists():  # açılmış klasör varsa 21 GB'lık arşivi yeniden indirme
+        d = hf_download("issai/Turkish_Speech_Corpus", ["ISSAI_TSC_218.tar.gz", "README.md"])
         with tarfile.open(d / "ISSAI_TSC_218.tar.gz") as t:
             t.extractall(d, filter="data")
+    splits = {}
     for split_dir in sorted(p for p in d.iterdir() if p.is_dir() and p.name.startswith("ISSAI")):
         for sub in sorted(p for p in split_dir.iterdir() if p.is_dir()):
             items = collect_dir(sub)
             if items:
-                build_cuts(items, "issai", sub.name.lower())
+                splits[sub.name.lower()] = items
+    # "i srail" / "türkiye nin" bozulmalarını onar (textnorm.repair_tsc); sözlük tüm bölümlerden
+    vocab = tsc_vocab(t for items in splits.values() for _, _, t in items)
+    for split, items in splits.items():
+        fixed = [(u, p, repair_tsc(t, vocab)) for u, p, t in items]
+        changed = sum(a[2] != b[2] for a, b in zip(items, fixed))
+        print(f"issai_{split}: {changed}/{len(items)} satır onarıldı")
+        build_cuts(fixed, "issai", split, uncased=True)
 
 
 def collect_dir(src: Path) -> list[tuple[str, Path, str]]:
@@ -178,15 +190,22 @@ def collect_dir(src: Path) -> list[tuple[str, Path, str]]:
 
 def prep_commonvoice(a) -> None:
     src = Path(a.src)  # cv-corpus-XX/tr
-    for split in ("train", "dev", "test"):
-        tsv = src / f"{split}.tsv"
+
+    def read(name: str) -> list[dict]:
+        tsv = src / f"{name}.tsv"
         if not tsv.exists():
-            continue
-        items = []
+            return []
         with open(tsv, encoding="utf-8") as f:
-            for row in csv.DictReader(f, delimiter="\t", quoting=csv.QUOTE_NONE):
-                items.append((Path(row["path"]).stem, src / "clips" / row["path"], row["sentence"]))
-        build_cuts(items, "commonvoice", split)
+            return list(csv.DictReader(f, delimiter="\t", quoting=csv.QUOTE_NONE))
+
+    dev, test = read("dev"), read("test")
+    validated = read("validated")
+    # validated varsa: eğitim = validated − (dev ∪ test) (train.tsv doğrulanmış verinin küçük bir kısmı)
+    rows = {"train": cv_train_rows(validated, dev, test) if validated else read("train"), "dev": dev, "test": test}
+    for split, split_rows in rows.items():
+        items = [(Path(r["path"]).stem, src / "clips" / r["path"], r["sentence"]) for r in split_rows]
+        if items:
+            build_cuts(items, "commonvoice", split)
 
 
 def prep_dir(a) -> None:
@@ -200,6 +219,11 @@ def prep_testset(a) -> None:
 
 
 def prep_fbank(a) -> None:
+    # Her işçi tek iş parçacığı: aksi hâlde 12 işçi x 16 torch iş parçacığı çekirdekleri boğar (ölçüldü: ~40 kat yavaş).
+    # Ortam değişkeni, lhotse'nin "spawn" ile açtığı işçi süreçlere de geçer.
+    _os.environ["OMP_NUM_THREADS"] = "1"
+    import torch
+    torch.set_num_threads(1)
     out_dir = DATA / "fbank"
     out_dir.mkdir(parents=True, exist_ok=True)
     extractor = Fbank(FbankConfig(num_mel_bins=80, device="cuda" if a.cuda else "cpu"))

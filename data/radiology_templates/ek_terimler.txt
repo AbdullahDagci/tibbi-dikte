@@ -1,0 +1,156 @@
+# Ek şablonlar: rapor terim listesinde (radiology_terms_tr.txt) olup diğer dosyalarda hiç ya da nadiren geçen biçimler.
+# Yazım hatalı rapor biçimleri (ebadlı, milimetirk, asimetirk, bening, reaktiv …) bilinçli olarak dışarıda bırakıldı;
+# yazım uygulama sözlüğünü (lexicon_tr.txt) izler: biyopsi, multipl, spiküler.
+
+# Meme: genel
+Her iki memede fibroglandüler doku zeminine superpoze {şüpheli kitle|mimari distorsiyon|gruplaşmış mikrokalsifikasyon} izlenmedi.
+Her iki memede fibroglandüler doku zemininde {belirgin|şüpheli} lezyon saptanmamıştır.
+Her iki memede yağlı doku hakimiyeti izlenmekte olup ACR sınıflamasına göre A paternindedir.
+Her iki memede fibroglandüler doku hakimiyeti izlenmekte olup ACR sınıflaması {C|D} ile uyumludur.
+Meme dokusu BI-RADS sınıflamasına göre {kategori 1|kategori 2} olarak değerlendirildi.
+Önceki mamogramlar ile karşılaştırıldığında yeni gelişen lezyon {izlenmedi|saptanmamıştır}.
+Önceki mamogramlar mevcut olmadığından karşılaştırma yapılamamıştır.
+Hastanın {altı ay|bir yıl} önce yapılan mamografisi ile karşılaştırıldığında belirgin değişiklik {izlenmedi|saptanmadı}.
+Mamografiye ek olarak yapılan ultrasonografide {şüpheli lezyon izlenmedi|basit kist ile uyumlu lezyon izlendi}.
+Mamografik olarak {stabil|benign görünümlü} kalsifikasyonlar izlendi.
+Mamografik incelemede {sağ|sol} memede santralde yerleşimli {mm} mm boyutlu nodüler opasite izlendi.
+Mamografide örtüşen doku görünümü ile uyumlu fokal asimetri izlendi.
+Memenin {üst dış|üst iç|alt dış|alt iç} kadranında {yuvarlak|oval} şekilli düzgün konturlu lezyon izlendi.
+Memenin retroareoler bölgesinde duktal ektazi izlenmiştir.
+{Sağ|Sol} memede retroareoler alanda {mm} mm boyutlu {hipoekoik|anekoik} lezyon izlendi.
+{Sağ|Sol} memede periareoler alanda cilt kalınlaşması {izlendi|izlenmiştir}.
+Areoladan {mm} mm uzaklıkta saat {n} hizasında hipoekoik lezyon izlendi.
+Lezyonun areolaya uzaklığı {mm} mm olarak ölçülmüştür.
+Lezyon areoladan {cm} cm mesafede yerleşimlidir.
+{Sağ|Sol} meme {üst dış|alt iç} kadrandaki lezyon önceki tetkike göre {stabildir|boyut artışı göstermektedir}.
+{Sağ|Sol} meme {üst dış|üst iç} kadrandaki kitle cilde uzanım göstermektedir.
+Kitle ile pektoral kas arasındaki yağ planı {korunmuştur|silinmiştir}.
+Memenin cildinde kalınlaşma ve ödem dikkati çekti.
+Kitle ciltten {mm} mm uzaklıkta yerleşimlidir.
+Lezyonun pektoral kas ile komşulukta olduğu izlendi.
+Lezyon {mm}x{mm} mm ebatlarında ölçülmüştür.
+Kist {mm}x{mm} mm ebatlarda olup içeriği anekoiktir.
+Lezyon {mm} mm ebatlıdır ve düzgün sınırlıdır.
+Kitlelerin en büyüğünün çapı {mm} mm olarak ölçüldü.
+Multipl kistik lezyonlar izlenmiş olup en büyüğünün çapı {mm} mm ölçülmüştür.
+Her iki memede multipl basit kistler izlendi.
+Lezyon fibroadenomla uyumlu görünümdedir.
+Lezyon görünümü ilk planda fibroadenomla uyumlu olarak değerlendirilmiştir.
+Lezyon spiküler konturlu olup malignite açısından şüphelidir.
+Spiküler kontur ve mimari distorsiyona neden olan kitle izlenmiştir.
+Lezyon çevresinde mimari distorsiyona yol açan çekintiler izlendi.
+Cilde doğru çekintiye neden olan kitle izlenmiştir.
+Meme başında retraksiyon izlendi.
+Cilt retraksiyonu ve meme başı retraksiyonu izlenmedi.
+Lezyon malignite düşündürecek özellik göstermemektedir.
+Bulgular malignite düşündürecek nitelikte olup biyopsi önerilir.
+Lezyondan tru-cut biyopsi yapılması önerilir.
+Bulgular {fibrokistik değişiklik|benign süreç} lehine yorumlanmıştır.
+Benign olarak yorumlanan lezyonun takibi önerilir.
+Mikrokalsifikasyon kümeleri {segmental|bölgesel|gruplaşmış} dağılım göstermektedir.
+Gruplaşmış mikrokalsifikasyon kümeleri izlendi.
+Kalsifikasyonlar {kaba|amorf|ince pleomorfik} karakterdedir.
+Kalsifikasyon kümeleri yaklaşık {mm} mm çaplı bir alana yayılmıştır.
+Kistin içinde ince septa ve lokülasyon izlendi.
+Koleksiyonda septasyon ve lokülasyon izlenmiştir.
+Sıvı koleksiyonunda lokulasyonu düşündüren septalar izlenmedi.
+Septalarla sınırlanan lokalize sıvı koleksiyonu izlendi.
+Lezyon displastik değişiklik ile uyumlu olabilir.
+Kontrast güçlenmesi gösteren lezyon izlendi.
+Lezyonda {homojen|heterojen|periferik} kontrast güçlenmesi izlendi.
+Dinamik serilerde nodüler güçlenmeler dikkati çekti.
+Non mass tarzda kontrast boyanması izlendi.
+Lezyonda erken dönemde belirgin boyanma izlendi.
+Lezyonda periferik halkasal boyanmalar izlendi.
+Parenkimde {asimetrik|fokal} boyanma alanı izlendi.
+Parenkimde belirgin kontrastlanma izlenmedi.
+Meme parenkiminde {fokal|diffüz} ödem izlendi.
+Parenkimal distorsiyon izlenmedi.
+Parenkimal yapı {heterojen|homojen} olarak izlendi.
+Memede adipoz doku içerisinde lipom ile uyumlu lezyon izlendi.
+Lezyonun içerisinde adipoz doku dansitesi izlenmiştir.
+Laktasyonda olan hastada her iki memede glandüler doku artmıştır.
+Laktasyona bağlı fizyolojik değişiklikler izlendi.
+Duktuslarda sekresyon ile uyumlu ekojenik içerik izlendi.
+Retroareoler duktuslarda {hafif|belirgin} genişleme izlendi.
+Duktuslarda belirgin genişlemeler izlenmedi.
+Duktuslarda segmental genişlemeler izlendi.
+Duktuslarda yoğun sekresyonlar izlendi.
+Meme lobülü düzeyinde kistik değişiklik izlendi.
+Lezyonun meme lobülünden kaynaklandığı düşünüldü.
+Lezyonun parankim içindeki uzanımları izlendi.
+Kitlenin posteriora uzanımları izlenmedi.
+Lezyon anteriorda cilde komşu yerleşimlidir.
+Kistin içeriğinde ekojen materyaller izlenmiştir.
+Bölgede cerrahi klipler izlendi.
+Biyopsi yapılan alanda metalik klipler izlendi.
+Operatif alanda {skar dokusu|sıvı koleksiyonu} izlendi.
+Operatif değişikliklere bağlı mimari distorsiyon izlendi.
+Cerrahiye bağlı postoperatif değişiklikler izlendi.
+Neoadjuvan kemoterapi sonrası kontrol incelemesinde lezyon boyutlarında azalma izlendi.
+Neoadjuvan tedavi sonrası lezyon {mm} mm boyuta gerilemiştir.
+Kitlede santral nekrozuyla uyumlu kistik alanlar izlendi.
+Lenf nodlarında kistik nekrozları düşündüren alanlar izlendi.
+Enflamasyon ile uyumlu cilt kalınlaşması izlendi.
+İnflame görünümde cilt ve cilt altı dokular izlendi.
+Hastanın takipli lezyonu stabil görünümdedir.
+Takipli kistik lezyon boyutlarında değişiklik izlenmedi.
+
+# Aksilla ve lenf nodları
+Aksilla taramasında patolojik görünümlü lenf nodu {izlenmedi|saptanmamıştır}.
+{Sağ|Sol} aksilla taramasında {kortikal kalınlaşma gösteren|yağlı hilusu korunmuş} lenf nodları izlendi.
+{Sağ|Sol} aksilladaki lenf nodları reaktif görünümdedir.
+Aksilladaki lenf nodları ince korteksli ve yağlı hiluslu görünümdedir.
+Aksillada korteksleri kalınlaşmış lenf nodları izlendi.
+Lenf nodlarının korteksleri düzgün kalınlıktadır.
+Lenf nodunun hilusundan kortekse doğru kanlanma izlenmektedir.
+Lenf nodlarının uzun ve kısa aksları sırasıyla {mm} mm ve {mm} mm olarak ölçüldü.
+{Sağ|Sol} memede intramamaryan lenf nodu izlendi.
+Lenf nodlarının hatlarında düzensizlik izlenmedi.
+
+# Genel rapor dili
+Bulgular malignite açısından anlamlı değildir, takipli olması önerilir.
+Bulgularda önceki tetkike göre belirgin değişiklik saptanmamıştır.
+Kliniğin tariflediği bölgede {patolojik bulgu izlenmedi|şüpheli lezyon saptanmadı}.
+Hastanın tariflediği ele gelen kitle bölgesinde lezyon izlenmedi.
+Kontrast madde verilmeyen incelemede değerlendirme sınırlıdır.
+İnceleme hareket artefaktı nedeniyle optimal değerlendirme yapılamayan kesitler içermektedir.
+Kontrast madde enjeksiyonu yapılamayan hastada inceleme kontrastsız olarak gerçekleştirildi.
+Lezyonun karakterizasyonu {yapılamadı|kesin olarak yapılamamıştır}.
+Lezyonun kesin ayırımı yapılamadı.
+Bu görünüm ile kesin ayrım edilemedi.
+Lezyonun MR ile teyidi önerilir.
+Bulguların histopatolojik teyidi önerilir.
+Bulgular {inflamatuar|reaktif} süreç ile uyumlu olarak düşünüldü.
+Lezyon ilk planda {fibroadenom|kompleks kist} olarak düşünüldü.
+Bulgular öncelikle {kist|lipom} düşündürür.
+Klinik bilgi belirtilmemiş olup inceleme rutin protokolde yapılmıştır.
+Lezyonun malign olduğunu düşündürecek bulgu saptanmamıştır.
+Patolojik bulgu saptanmayan hastada yıllık tarama önerilir.
+Önceki tetkikte belirtilen lezyon bu incelemede saptanmadı.
+Patolojik bulgu tespit edilmemiştir.
+Lezyonun boyutu {mm} mm civarındadır.
+Kist çapı {cm} cm civarındadır.
+İlk bakıda lezyon {benign|basit kist} görünümündedir.
+Lezyon {mm} mm boyutunda olup önceki tetkike göre değişmeden kalmaktadır.
+Kist boyutları önceki tetkik ile benzer kalmaktadır.
+Odakta belirgin vaskülarite izlenmedi.
+Hipoekoik odakta kanlanma izlenmedi.
+Lezyonun komşulukta yer alan damar yapılarıyla ilişkisi izlenmedi.
+Dens meme dokusu nedeniyle mamografinin duyarlığı azalmıştır.
+Elastografide lezyon {yumuşak|sert} kıvamlıdır.
+Kemik yapıların kortikal bütünlükleri {doğaldır|korunmuştur}.
+Cilt diffüz olarak kalınlaşmıştır ve ödemli görünümdedir.
+Cilt {mm} mm kalınlaşmıştır.
+Görünümler benign süreç ile uyumludur.
+Bulgularda belirgin değişiklik {izlenmedi|saptanmamıştır}.
+Hacim artışı gösteren lezyon izlendi.
+Lezyonun hacmi {n} mililitre olarak hesaplandı.
+Ekojenik {kalsifik|fibrotik} odaklar izlendi.
+Bulguların {benign|reaktif} nitelikte olduğu anlaşılmaktadır.
+Daha önce izlendiği belirtilen lezyon bu incelemede saptanmamıştır.
+Lezyon santralde kistik alan içermektedir.
+Lokalize cilt kalınlaşması izlendi.
+Bölgede {inflamasyon|enflamasyon} ile uyumlu bulgular izlendi.
+Retraksiyon ve cilt kalınlaşması dikkati çekti.
+Bu alan teknik nedenlerle değerlendirilememiştir.

@@ -1,0 +1,625 @@
+# Akciğer grafisi: teknik ve kalite
+PA akciğer grafisinde inspirasyon {yeterlidir|yetersizdir} ve hasta rotasyonu {izlenmemiştir|mevcuttur}.
+Tetkik {PA ve lateral|tek yön PA|yatar AP} akciğer grafisi olarak elde edilmiştir.
+{Yatak başı|Portatif} AP akciğer grafisinde değerlendirme {sınırlıdır|suboptimaldir}.
+Grafi {yetersiz inspirasyonla|rotasyonlu olarak|yatar pozisyonda} elde edildiğinden değerlendirme kısıtlıdır.
+Yumuşak doku süperpozisyonu nedeniyle {bazal|apikal} alanların değerlendirmesi sınırlıdır.
+Lateral grafide retrosternal ve retrokardiyak alanlar {açıktır|doğal görünümdedir}.
+
+# Akciğer grafisi: normal bulgular
+Trakea orta hatta olup lümeni açıktır.
+Her iki kostofrenik sinüs {açıktır|keskin görünümdedir}.
+Bilateral kostofrenik ve kardiyofrenik sinüsler açıktır.
+Kalp boyutları normal sınırlarda olup kardiyotorasik oran {0,42|0,45|0,47} olarak ölçülmüştür.
+Her iki hilus normal boyut ve dansitededir.
+Akciğer parankiminde aktif infiltrasyon {izlenmedi|izlenmemiştir|saptanmadı|görülmedi}.
+Her iki akciğer havalanması {normaldir|olağandır|doğaldır}.
+Diyafram konturları düzgün olup her iki hemidiyafram normal yüksekliktedir.
+Mediasten orta hatta olup genişleme {izlenmedi|izlenmemiştir}.
+Görüntülenen kemik yapılar ve yumuşak dokular olağan görünümdedir.
+Pnömotoraks veya plevral efüzyon lehine bulgu {izlenmedi|saptanmadı|görülmedi}.
+Akciğer grafisi olağan sınırlardadır.
+Pulmoner vasküler yapılar normal dağılım göstermektedir.
+Diyafram altında serbest hava {izlenmedi|izlenmemiştir|saptanmamıştır}.
+{Kalp, mediasten ve hiluslar|Aort topuzu ve kalp gölgesi} tabiidir.
+
+# Akciğer grafisi: patolojik bulgular
+{Sağ|Sol} akciğer {üst|orta|alt} zonda {yamasal|homojen|heterojen} opasite artışı {izlendi|izlenmiştir|dikkati çekti}.
+{Sağ|Sol} akciğer {üst|orta|alt} zonda hava bronkogramları içeren pnömonik infiltrasyon ile uyumlu dansite artışı izlendi.
+{Sağ|Sol} kostofrenik sinüs künttür.
+{Sağ|Sol} kostofrenik sinüste minimal plevral sıvı ile uyumlu küntleşme izlendi.
+Bilateral kostofrenik sinüslerde küntleşme dikkati çekti.
+Kardiyotorasik oran {0,55|0,58|0,60|0,64} olup kardiyomegali ile uyumludur.
+{Sağ kalp konturunu silen opasite orta lob|Sol kalp konturunu silen opasite lingula} tutulumunu düşündürmektedir.
+{Sağ|Sol} hemidiyafram konturunu silen opasite alt lob tutulumu ile uyumludur.
+Her iki akciğerde {perihiler|bazal} ağırlıklı retikülonodüler dansite artışları izlendi.
+Her iki akciğerde bronkovasküler izlerde belirginleşme {izlendi|dikkati çekti|mevcuttur}.
+Her iki hilus {dolgun|belirgin} görünümdedir.
+Vasküler redistribüsyon ve Kerley B çizgileri pulmoner venöz konjesyon lehine değerlendirildi.
+Perihiler yarasa kanadı tarzında opasite artışı alveolar ödem ile uyumludur.
+{Sağ|Sol} hemitoraks apeksinde visseral plevral çizgi ve periferinde akciğer işaretlerinin kaybı pnömotoraks ile uyumludur.
+{Sağ|Sol} hemidiyafram eleve görünümdedir.
+Diyafram altında serbest hava ile uyumlu radyolusen alan izlendi.
+{Sağ|Sol} akciğer {üst|orta|alt} zonda {8|10|12|15|18} mm çaplı nodüler opasite izlenmiş olup BT ile değerlendirilmesi önerilir.
+Trakea {sağa|sola} doğru itilmiş görünümdedir.
+{Sağ hemitoraksı tama yakın dolduran masif plevral efüzyon mediasteni sola|Sol hemitoraksı tama yakın dolduran masif plevral efüzyon mediasteni sağa} doğru itmektedir.
+{Sağ|Sol} hemitoraksta opaklaşma ve mediastende aynı tarafa çekilme total atelektazi lehine değerlendirildi.
+Aort topuzunda {kalsifikasyon|belirginleşme} izlendi.
+Üst mediasten genişlemiş görünümde olup BT ile değerlendirilmesi önerilir.
+{Sağ|Sol} akciğer üst zonda içerisinde hava-sıvı seviyesi bulunan kaviter lezyon izlendi.
+{Sağ|Sol} apikal bölgede plevral kalınlaşma ve fibrotik bant dansiteleri izlendi.
+Her iki akciğerde hiperinflasyon ve diyaframlarda düzleşme izlendi.
+Kontrol grafide önceki grafiye göre {sağ|sol} alt zondaki opasitede gerileme izlendi.
+
+# Tüp, kateter ve cihazlar
+Endotrakeal tüpün ucu karinanın {3|4|5} cm üzerinde izlendi.
+Endotrakeal tüp ucu {sağ ana bronşa|karina düzeyine} kadar ilerlemiş olup geri çekilmesi önerilir.
+{Sağ|Sol} juguler yoldan yerleştirilmiş santral venöz kateterin ucu superior vena kava düzeyindedir.
+{Sağ|Sol} subklavian yoldan yerleştirilmiş santral venöz kateter ucu sağ atriyum düzeyindedir.
+{Sağ|Sol} göğüs tüpü ucu {apikal|bazal} bölgede izlendi.
+{Sağ|Sol} infraklavikular bölgede port kateter izlenmiş olup ucu kavoatriyal bileşkededir.
+Görüntüleme alanında {kateter|tüp} ile ilişkili komplikasyon izlenmemiştir.
+
+# Toraks BT: teknik
+Toraks BT incelemesi {intravenöz kontrast madde verilmeden|intravenöz kontrast madde verilerek} aksiyel planda yapılmıştır.
+İnceleme multidedektör BT cihazı ile {1|1,25|2,5} mm kesit kalınlığında gerçekleştirilmiştir.
+Elde edilen görüntüler akciğer ve mediasten pencerelerinde değerlendirilmiştir.
+Aksiyel kesitlerden koronal ve sagital planlarda multiplanar rekonstrüksiyonlar oluşturulmuştur.
+Düşük doz toraks BT protokolü ile {akciğer kanseri taraması|nodül takibi} amacıyla inceleme yapılmıştır.
+{Solunum hareketlerine|Hasta kooperasyon kusuruna|Metalik materyallere} bağlı artefaktlar değerlendirmeyi kısmen sınırlamaktadır.
+{Kontrast madde alerjisi|Böbrek fonksiyon bozukluğu} nedeniyle inceleme kontrastsız olarak yapılmıştır.
+Kontrastsız incelemede mediastinal vasküler yapılar ve hiler lenf nodları sınırlı olarak değerlendirilmiştir.
+Nodül saptanmasını kolaylaştırmak amacıyla maksimum intensite projeksiyon görüntüleri oluşturulmuştur.
+İnceleme akciğer apekslerinden sürrenal bezler düzeyine kadar yapılmıştır.
+
+# HRCT ve BT anjiyografi: teknik
+Yüksek rezolüsyonlu BT incelemesi {1|1,25} mm kesit kalınlığında yüksek uzaysal frekans algoritması ile yapılmıştır.
+HRCT incelemesi inspiryum ve ekspiryum fazlarında {supin pozisyonda|supin ve prone pozisyonlarda} yapılmıştır.
+Bağımlı alanlardaki dansite artışlarını ayırt etmek amacıyla prone pozisyonda ek kesitler alınmıştır.
+Ekspiryum kesitleri hava hapsi açısından değerlendirilmiştir.
+Pulmoner BT anjiyografi incelemesi bolus takip yöntemi ile pulmoner arteryal fazda yapılmıştır.
+Ana pulmoner arterde kontrastlanma {optimal|yeterli|suboptimal} düzeydedir.
+Aort BT anjiyografi incelemesi {EKG tetiklemeli|EKG tetiklemesiz} olarak kontrastsız ve arteryal fazda yapılmıştır.
+Kontrast madde {antekübital venden|el sırtı veninden} {60|70|80} ml olarak uygulanmıştır.
+
+# Akciğer parankimi: normal bulgular
+Her iki akciğer parankim havalanması {normaldir|doğaldır|olağandır}.
+Akciğer parankiminde {aktif infiltrasyon|konsolidasyon|kitle lezyonu} {izlenmedi|izlenmemiştir|saptanmadı|saptanmamıştır}.
+Her iki akciğerde nodül veya kitle {saptanmamıştır|izlenmemiştir|görülmemiştir}.
+Akciğer parankiminde buzlu cam dansitesi veya konsolidasyon alanı {izlenmedi|görülmedi|saptanmadı}.
+İnterstisyel yapılar doğal görünümdedir.
+Fissürler doğal görünümde olup fissüral kalınlaşma izlenmemiştir.
+Akciğer parankiminde amfizematöz değişiklik veya bül {izlenmemiştir|saptanmamıştır}.
+Değerlendirilen kesitlerde akciğer parankimi tabiidir.
+Her iki akciğerde milimetrik nonspesifik nodüller dışında patolojik bulgu saptanmamıştır.
+Lober ve segmenter bronşlar açık olup bronş duvarları normal kalınlıktadır.
+
+# Nodüller: solid
+{Sağ akciğer üst lob apikal segmentte|Sağ akciğer üst lob posterior segmentte|Sağ akciğer üst lob anterior segmentte|Sağ akciğer orta lob lateral segmentte|Sağ akciğer orta lob medial segmentte|Sağ akciğer alt lob superior segmentte} {4|5|6|7|8|9} mm çaplı {düzgün|lobüle} konturlu solid nodül {izlendi|izlenmiştir|saptandı|dikkati çekti}.
+{Sol akciğer üst lob apikoposterior segmentte|Sol akciğer üst lob anterior segmentte|Lingula superior segmentte|Lingula inferior segmentte|Sol akciğer alt lob superior segmentte|Sol akciğer alt lob laterobazal segmentte} {4|5|6|7|8|9} mm çaplı {düzgün|lobüle} konturlu solid nodül {izlendi|izlenmiştir|saptanmıştır}.
+{Sağ akciğer alt lob mediobazal segmentte|Sağ akciğer alt lob anterobazal segmentte|Sol akciğer alt lob anteromediobazal segmentte|Sol akciğer alt lob posterobazal segmentte} {5|6|8} mm çaplı solid nodül {izlendi|izlenmiştir|saptandı}.
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} subplevral yerleşimli {3|4|5} mm çaplı solid nodül izlendi.
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} {7|9|11|14} mm ebatlı, {lobüle|mikrolobüle} konturlu solid nodül {saptandı|saptanmıştır|izlenmiştir}.
+{Sağ major fissür|Sol major fissür|Minör fissür} komşuluğunda {3|4|5|6} mm boyutlu, üçgen şekilli perifissüral nodül intrapulmoner lenf nodu ile uyumludur.
+{Sağ|Sol} akciğer {üst|alt} lobda tamamen kalsifiye {4|5|6|8} mm çaplı granülom izlendi.
+Her iki akciğerde en büyüğü {4|5|6} mm çaplı birkaç adet milimetrik solid nodül izlenmiştir.
+Her iki akciğerde {n} adet milimetrik nonspesifik nodül izlendi.
+Nodül spiküle konturlu olup komşu plevrada çekinti oluşturmaktadır.
+Nodül {homojen yumuşak doku dansitesinde|heterojen dansitede} olup içerisinde kalsifikasyon veya yağ dansitesi izlenmemiştir.
+Nodül içerisinde {santral|lamellar|diffüz} kalsifikasyon izlenmiş olup benign özelliktedir.
+Nodül içerisinde patlamış mısır tarzı kalsifikasyon ve yağ dansitesi izlenmiş olup hamartom ile uyumludur.
+Nodülün uzun çapı {11|13|15} mm, kısa çapı {6|7|8} mm olarak ölçülmüştür.
+Ortalama nodül çapı {6|7|8} mm olarak hesaplanmıştır.
+{Sağ akciğer üst lob apikal segmentte|Sağ akciğer üst lob posterior segmentte|Sol akciğer üst lob apikoposterior segmentte|Sağ akciğer alt lob superior segmentte|Sol akciğer alt lob superior segmentte} {12|15|18|22|26} mm çaplı spiküle konturlu solid nodül izlenmiş olup malignite açısından şüphelidir.
+Nodül çevresinde {buzlu cam halo|satellit nodüller|amfizematöz değişiklikler} izlendi.
+Nodül içerisinde hava bronkogramı ve psödokavitasyon alanları izlenmiştir.
+Nodül kontrastlı serilerde {belirgin|minimal} kontrastlanma göstermektedir.
+Daha önce tanımlanan nodülün boyutu {5|6|7|8} mm olarak ölçülmüş olup stabil görünümdedir.
+Nodül plevra tabanlı olup plevra ile geniş temas yüzeyi göstermektedir.
+Nodülün konturları {düzgün|düzensiz|kısmen silik} olup komşu parankimde distorsiyon izlenmemiştir.
+
+# Nodüller: subsolid ve buzlu cam
+{Sağ akciğer üst lob apikal segmentte|Sağ akciğer üst lob posterior segmentte|Sol akciğer üst lob apikoposterior segmentte|Sol akciğer üst lob anterior segmentte|Sağ akciğer alt lob superior segmentte} {6|8|10|12|15} mm çaplı saf buzlu cam nodül izlendi.
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} {10|12|15|18} mm boyutlu, {4|5|6|8} mm solid komponent içeren {yarı solid|parsiyel solid|semisolid} nodül izlendi.
+{Sağ|Sol} akciğer üst lobda {5|6|8} mm çaplı, silik konturlu buzlu cam dansitesinde nodül izlendi.
+Buzlu cam nodülün solid komponentinde önceki tetkike göre belirginleşme izlenmiştir.
+Subsolid nodül önceki tetkikle kıyaslandığında boyut ve dansite açısından stabildir.
+Saf buzlu cam nodül {atipik adenomatöz hiperplazi|in situ adenokarsinom|minimal invaziv adenokarsinom} ile uyumlu olabilir.
+Buzlu cam nodülün kontrol tetkikte kaybolması enfeksiyöz veya inflamatuar etiyolojiyi düşündürür.
+Solid komponent boyutu {6|7|8|9} mm olup malignite açısından şüphelidir.
+Yarı solid nodülün solid komponenti {3|4|5} mm olarak ölçülmüştür.
+
+# Fleischner ve Lung-RADS önerileri
+Fleischner kriterlerine göre düşük riskli hastada 6 mm'den küçük {tek|çok sayıda} solid nodül için rutin takip önerilmemektedir.
+Yüksek riskli hastada 6 mm'den küçük solid nodül için 12 ay sonra isteğe bağlı BT kontrolü önerilebilir.
+{6|7|8} mm çaplı tek solid nodül için Fleischner önerilerine göre 6 ila 12 ay sonra BT kontrolü önerilir.
+Yüksek riskli hastada {6|7|8} mm çaplı solid nodül için 6 ila 12 ay sonra, ardından 18 ila 24 ay sonra BT kontrolü önerilir.
+8 mm'den büyük solid nodül için 3 ay sonra BT kontrolü, PET-BT veya doku örneklemesi önerilir.
+Çok sayıda {6|7|8} mm çaplı solid nodül için 3 ila 6 ay sonra BT kontrolü önerilir.
+6 mm'den küçük saf buzlu cam nodül için rutin takip önerilmemektedir.
+{6|8|10|12} mm çaplı saf buzlu cam nodülün kalıcılığını doğrulamak amacıyla 6 ila 12 ay sonra BT kontrolü önerilir.
+Kalıcı saf buzlu cam nodül için 5 yıl süreyle 2 yılda bir BT kontrolü önerilir.
+{7|8|10|12} mm çaplı yarı solid nodül için kalıcılığın doğrulanması amacıyla 3 ila 6 ay sonra BT kontrolü önerilir.
+Solid komponenti 6 mm'den küçük kalıcı yarı solid nodül için 5 yıl boyunca yıllık BT kontrolü önerilir.
+Solid komponenti 6 mm ve üzerinde olan yarı solid nodül yüksek derecede şüpheli olarak değerlendirilmiştir.
+Fleischner önerileri 35 yaş üzeri, bilinen malignitesi veya immünsüpresyonu olmayan hastalar için geçerlidir.
+Nodül Lung-RADS {2|3|4A|4B} kategorisinde değerlendirilmiştir.
+Lung-RADS 2 kategorisinde olup 12 ay sonra düşük doz BT ile yıllık taramaya devam edilmesi önerilir.
+Lung-RADS 3 kategorisinde olup 6 ay sonra düşük doz BT kontrolü önerilir.
+Lung-RADS 4A kategorisinde olup 3 ay sonra düşük doz BT kontrolü önerilir.
+Lung-RADS 4B kategorisinde olup PET-BT ve doku örneklemesi açısından değerlendirilmesi önerilir.
+Nodülün iki yıldan uzun süre stabil kalması benign lehine değerlendirilmiştir.
+Hastanın risk faktörleri göz önüne alınarak takip planlanması önerilir.
+
+# Konsolidasyon ve enfeksiyon
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} hava bronkogramları içeren konsolidasyon alanı {izlendi|izlenmiştir|dikkati çekti}.
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda} lober konsolidasyon izlenmiş olup lober pnömoni ile uyumludur.
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} {segmenter|yamasal|subplevral} konsolidasyon alanları izlendi.
+Konsolidasyon alanının çevresinde buzlu cam dansitesi artışı izlendi.
+Her iki akciğer alt lobda peribronşiyal yamasal konsolidasyon alanları bronkopnömoni ile uyumludur.
+Konsolidasyon alanı içerisinde kontrastlanmayan hipodens alanlar nekrotizan pnömoni açısından anlamlıdır.
+{Sağ|Sol} akciğer alt lob posterobazal segmentte aspirasyon pnömonisi ile uyumlu konsolidasyon izlendi.
+Konsolidasyon alanlarında önceki tetkike göre belirgin regresyon izlenmiştir.
+Peribronkovasküler ve subplevral dağılımlı konsolidasyonlar organize pnömoni ile uyumlu olabilir.
+Konsolidasyon alanının altında kitle ekarte edilememiş olup tedavi sonrası kontrol BT önerilir.
+Yer yer konsolidasyona dönüşen yamasal buzlu cam alanları izlendi.
+Konsolidasyon alanlarında kavitasyon ve apse formasyonu izlenmemiştir.
+Konsolidasyon alanının içerisinde sıvı dansitesinde, periferik kontrastlanan apse ile uyumlu koleksiyon izlendi.
+
+# Buzlu cam ve viral pnömoni
+Her iki akciğerde periferik ve subplevral yerleşimli {yamasal|multifokal} buzlu cam dansiteleri izlendi.
+Her iki akciğerde bazal ve periferik ağırlıklı buzlu cam opasiteleri {izlendi|izlenmiştir|dikkati çekti}.
+Buzlu cam alanları içerisinde interlobüler septal kalınlaşma ile kaldırım taşı görünümü izlendi.
+Bulgular viral pnömoni ile uyumlu olup COVID-19 pnömonisi açısından {tipik|belirsiz|atipik} görünümdedir.
+Akciğer tutulum oranı yaklaşık {%10|%25|%40|%50} olarak tahmin edilmiştir.
+Buzlu cam opasiteleri önceki tetkike göre {gerilemiştir|artmıştır|kısmen konsolidasyona dönüşmüştür}.
+Diffüz buzlu cam dansitesi artışı {pulmoner ödem|hipersensitivite pnömonisi|diffüz alveolar hasar} ile uyumlu olabilir.
+Buzlu cam dansiteleri {sentrilobüler|yamasal|diffüz} dağılım göstermektedir.
+Her iki akciğerde nonspesifik minimal buzlu cam alanları izlenmiştir.
+Viral pnömoni lehine bulgu saptanmamıştır.
+Buzlu cam opasiteleri önceki tetkike göre tama yakın rezolüsyona uğramıştır.
+
+# İnterstisyel akciğer hastalığı
+Her iki akciğerde subplevral ve bazal ağırlıklı retikülasyon izlendi.
+Her iki akciğer alt lob bazal segmentlerinde subplevral bal peteği görünümü izlendi.
+Subplevral alanda birkaç sıra halinde dizilim gösteren bal peteği kistleri izlendi.
+Retiküler opasitelerle birlikte traksiyon bronşiektazileri ve bronşiolektaziler izlendi.
+Bulgular {tipik UIP|olası UIP} paterni ile uyumlu olarak değerlendirildi.
+Bulgular UIP için belirsiz patern olarak değerlendirildi.
+Subplevral alanın korunduğu buzlu cam ve retiküler opasiteler NSIP paterni lehine değerlendirildi.
+Her iki akciğerde {düzgün|nodüler} interlobüler septal kalınlaşmalar izlendi.
+Düzgün interlobüler septal kalınlaşma interstisyel ödem lehine değerlendirildi.
+Nodüler septal kalınlaşma ve peribronkovasküler interstisyel kalınlaşma lenfanjitik karsinomatozis açısından anlamlıdır.
+Fibrotik değişikliklere bağlı akciğer volümlerinde azalma izlenmektedir.
+Peribronkovasküler interstisyel kalınlaşma ve perilenfatik nodüller sarkoidoz açısından anlamlıdır.
+Üst ve orta zon ağırlıklı fibrotik değişiklikler {sarkoidoz|kronik hipersensitivite pnömonisi} ile uyumlu olabilir.
+Her iki akciğer bazalinde subplevral kurvilineer çizgilenmeler izlendi.
+Fibrozisin yaygınlığı önceki tetkikle kıyaslandığında {artmıştır|benzerdir|belirgin değişiklik göstermemektedir}.
+Bal peteği görünümü ve traksiyon bronşiektazisi izlenmemiştir.
+İnterstisyel akciğer hastalığı lehine bulgu saptanmamıştır.
+Prone kesitlerde kaybolan bazal subplevral dansite artışları bağımlı atelektazi ile uyumludur.
+Bulgular fibrotik interstisyel akciğer hastalığı ile uyumlu olup romatolojik değerlendirme önerilir.
+Fibrotik zemin üzerinde yeni gelişen yaygın buzlu cam dansiteleri akut alevlenme açısından anlamlıdır.
+
+# Amfizem
+Her iki akciğerde üst lob ağırlıklı sentrilobüler amfizem izlendi.
+Her iki akciğer apikal kesimlerinde subplevral yerleşimli paraseptal amfizem alanları izlendi.
+Her iki akciğerde alt lob ağırlıklı panlobüler amfizem izlenmiş olup alfa-1 antitripsin eksikliği açısından değerlendirilmesi önerilir.
+{Sağ|Sol} akciğer apeksinde {3|4|5|6} cm çaplı bül izlendi.
+{Sağ|Sol} akciğer {üst|alt} lobda en büyüğü {15|20|25|30|40} mm çaplı büller izlendi.
+{Hafif|Orta|İleri} derecede amfizematöz değişiklikler izlendi.
+Apikal subplevral bleb izlenmiş olup spontan pnömotoraks açısından risk oluşturmaktadır.
+Belirgin amfizematöz değişiklik saptanmamıştır.
+Amfizematöz alanlar akciğer parankiminin yaklaşık {%10|%20|%30} kadarını tutmaktadır.
+Sentrilobüler amfizem ile birlikte bronş duvar kalınlaşması kronik obstrüktif akciğer hastalığı ile uyumludur.
+
+# Bronşiektazi ve hava yolları
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} {silindirik|varikoz|kistik} bronşiektaziler izlendi.
+Bronşiektazik segmentlerde bronş duvar kalınlaşması ve mukus tıkaçları izlendi.
+Bronş lümen çapının eşlik eden arter çapından geniş olduğu taşlı yüzük görünümü izlendi.
+Her iki akciğerde bronş duvarlarında {hafif|belirgin} kalınlaşma izlendi.
+Bronş duvar kalınlaşması {kronik bronşit|astım|küçük hava yolu hastalığı} ile uyumlu olabilir.
+{Sağ|Sol} ana bronş lümeninde {5|7|8|10} mm boyutlu endobronşiyal lezyon izlendi.
+{Sağ|Sol} alt lob bronşunda mukus tıkacına bağlı obstrüksiyon izlendi.
+Endobronşiyal lezyonun ekarte edilmesi amacıyla bronkoskopi önerilir.
+Bronşiektazi bulguları {kistik fibrozis|primer siliyer diskinezi|geçirilmiş enfeksiyon} ile ilişkili olabilir.
+Traksiyon bronşiektazileri fibrotik değişikliklere sekonder olarak değerlendirildi.
+Orta lob ve lingulada bronşiektazi ile birlikte sentrilobüler nodüller atipik mikobakteriyel enfeksiyon açısından anlamlıdır.
+
+# Atelektazi
+{Sağ|Sol} akciğer alt lob bazal segmentlerinde subsegmenter plate atelektazi izlendi.
+Her iki akciğer bazalinde lineer atelektazi bantları izlendi.
+{Sağ|Sol} plevral efüzyona komşu akciğer parankiminde pasif atelektazi izlendi.
+{Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer alt lobda|Sol akciğer üst lobda} volüm kaybı ile birlikte lober atelektazi izlendi.
+Sağ akciğer üst lob atelektazisi ve hiler kitle ile uyumlu ters S işareti izlendi.
+Plevra komşuluğunda kuyruklu yıldız işareti gösteren yuvarlak atelektazi izlendi.
+Atelektatik alan içerisinde santral obstrüktif kitle ekarte edilememiştir.
+Bronş lümeninde obstrüksiyona yol açan lezyon izlenmemiştir.
+Atelektazi alanında önceki tetkike göre {kısmi|belirgin} reekspansiyon izlenmiştir.
+{Sağ|Sol} hemidiyafram elevasyonuna sekonder bazal atelektazi izlendi.
+Lingulada lineer atelektazi ile uyumlu bant dansitesi izlendi.
+
+# Mozaik atenüasyon ve hava hapsi
+Her iki akciğerde mozaik atenüasyon paterni izlendi.
+Ekspiryum görüntülerinde {lobüler|yamasal|yaygın} hava hapsi alanları izlendi.
+Mozaik atenüasyon {küçük hava yolu hastalığı|vasküler hastalık|infiltratif hastalık} ile ilişkili olabilir.
+Hipoatenüe alanlarda damar çaplarının azalması mozaik perfüzyon lehine değerlendirilmiştir.
+Mozaik atenüasyon ve hava hapsi bulguları {konstriktif bronşiolit|hipersensitivite pnömonisi|astım} açısından anlamlıdır.
+Mozaik atenüasyon paterni veya ekspiryumda anlamlı hava hapsi izlenmemiştir.
+
+# Ağaçta tomurcuk, sentrilobüler nodüller ve tüberküloz
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} ağaçta tomurcuk görünümü veren sentrilobüler nodüller izlendi.
+Ağaçta tomurcuk görünümü endobronşiyal yayılım gösteren enfeksiyon ile uyumludur.
+{Sağ akciğer üst lob apikal ve posterior segmentlerde|Sol akciğer üst lob apikoposterior segmentte} kavitasyon ve ağaçta tomurcuk görünümü aktif tüberküloz lehine değerlendirildi.
+Bulgular aktif tüberküloz açısından anlamlı olup balgam ARB incelemesi önerilir.
+Her iki akciğerde rastgele dağılımlı, milimetrik miliyer nodüller izlendi.
+Yaygın miliyer nodüller {tüberküloz|hematojen metastaz} açısından değerlendirilmelidir.
+Apikal bölgelerde fibrotik bant dansiteleri ve kalsifik nodüller geçirilmiş tüberküloz sekeli ile uyumludur.
+Tüberküloz sekeli ile uyumlu kalsifiye granülomlar ve kalsifiye hiler lenf nodları izlendi.
+Ağaçta tomurcuk görünümü izlenmemiştir.
+Tüberküloz sekeline bağlı {sağ|sol} üst lobda volüm kaybı ve bronşiektaziler izlendi.
+
+# Kaviter lezyonlar
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} duvar kalınlığı {4|6|8|12} mm olan kaviter lezyon izlendi.
+{Sağ|Sol} akciğer {üst|alt} lobda {2,5|3,5|4,2|5,5} cm çaplı, {kalın|ince} duvarlı kaviter lezyon izlendi.
+Kavite içerisinde hava-sıvı seviyesi izlenmiş olup akciğer apsesi ile uyumludur.
+Kavite duvar kalınlığı en kalın yerinde {16|18|20} mm olup malignite açısından şüphelidir.
+Kavite içerisinde hilal havası işareti veren yumuşak doku dansitesi aspergillom ile uyumludur.
+Kavite duvarında düzensizlik veya nodüler kalınlaşma izlenmemiştir.
+Periferik yerleşimli, bir kısmı kavite içeren multipl nodüller septik emboli ile uyumludur.
+Kaviter lezyonun ayırıcı tanısında {tüberküloz|skuamöz hücreli karsinom|granülomatozlu polianjiit} düşünülmelidir.
+
+# Kitle ve invazyon
+{Sağ akciğer üst lobda|Sağ akciğer orta lobda|Sağ akciğer alt lobda|Sol akciğer üst lobda|Sol akciğer alt lobda|Lingulada} {3,2|4,5|5,8|6,4} cm çapında {spiküle|lobüle|düzensiz} konturlu kitle lezyonu izlendi.
+{Sağ|Sol} akciğer {üst|alt} lobda {cm}x{cm} cm boyutlarında yumuşak doku dansitesinde kitle {izlendi|izlenmiştir|saptanmıştır}.
+{Sağ|Sol} akciğer üst lobda {cm} cm çaplı, düzensiz konturlu kitlesel opasite izlendi.
+Kitlenin en uzun çapı {cm} cm olarak ölçülmüştür.
+Kitle {heterojen|periferik} kontrastlanma göstermekte olup santralinde nekrotik alanlar izlendi.
+Kitle mediastinal yağlı planları silerek {mediastene|perikarda} invaze görünümdedir.
+Kitlenin göğüs duvarına invazyonu ve komşu kostada destrüksiyon izlendi.
+Kitle ile göğüs duvarı arasındaki yağlı plan korunmuştur.
+Kitle {sağ|sol} ana bronşu daraltarak distalinde postobstrüktif atelektaziye neden olmaktadır.
+Kitle {sağ|sol} pulmoner arteri çevrelemekte ve lümeninde daralmaya yol açmaktadır.
+Kitle {sağ|sol} hiler yerleşimli olup hiler lenf nodlarından ayırt edilememektedir.
+Superior sulkus yerleşimli, apikal göğüs duvarına uzanım gösteren kitle Pancoast tümörü ile uyumludur.
+Kitle komşu plevraya uzanmakta olup visseral plevra invazyonu ekarte edilememiştir.
+Kitle desendan aorta ile 180 derecenin üzerinde temas etmekte olup invazyon açısından şüphelidir.
+Kitle perikarda komşu olup perikardiyal invazyon lehine bulgu saptanmamıştır.
+Kitle boyutlarında önceki tetkike göre belirgin azalma izlenmiş olup tedaviye yanıt ile uyumludur.
+Kitle boyutlarında önceki tetkike göre artış izlenmiş olup progresyon ile uyumludur.
+Bulgular primer akciğer malignitesi ile uyumlu olup histopatolojik korelasyon önerilir.
+Kitle içerisinde {noktasal|amorf|distrofik} kalsifikasyonlar izlendi.
+Kitlenin karina ve trakeaya uzanımı izlenmemiştir.
+Kitle superior vena kavaya bası yaparak lümeninde belirgin daralmaya yol açmaktadır.
+Kitlenin komşuluğunda {buzlu cam dansiteleri|satellit nodüller|postobstrüktif pnömonik infiltrasyon} izlendi.
+
+# Metastaz
+Her iki akciğerde en büyüğü {8|12|15|18|24} mm çaplı, çok sayıda metastatik nodül izlendi.
+Her iki akciğerde periferik ve bazal ağırlıklı, düzgün konturlu multipl nodüller metastaz ile uyumludur.
+Metastatik nodüllerin sayı ve boyutlarında önceki tetkike göre {artış|azalma} izlenmiştir.
+Pulmoner metastaz lehine bulgu saptanmamıştır.
+Yeni gelişen nodüller metastaz açısından şüpheli olarak değerlendirildi.
+Primer malignite öyküsü olan hastada saptanan nodül metastaz açısından şüphelidir.
+Her iki akciğerde çapları {3|4|5} ile {12|15|20} mm arasında değişen multipl nodüller izlendi.
+Yaygın pulmoner metastazlar ile birlikte nodüler plevral kalınlaşma plevral metastaz lehine değerlendirildi.
+
+# Sekel, fibrotik ve postoperatif değişiklikler
+{Sağ|Sol} akciğer {üst|alt} lobda lineer fibrotik bant dansiteleri izlendi.
+Her iki akciğer apikal kesimlerinde plevroparankimal fibrotik değişiklikler izlendi.
+{Sağ|Sol} akciğerde radyoterapiye sekonder, keskin sınırlı fibrotik değişiklikler izlendi.
+Tedavi alanına sınırlı buzlu cam dansiteleri ve konsolidasyon radyasyon pnömonisi ile uyumludur.
+{Sağ|Sol} akciğerde {lobektomi|segmentektomi|wedge rezeksiyon} sonrası değişiklikler izlendi.
+{Sağ pnömonektomi sonrası sağ hemitoraks sıvı ile dolu olup mediasten sağa|Sol pnömonektomi sonrası sol hemitoraks sıvı ile dolu olup mediasten sola} doğru yer değiştirmiştir.
+Bronş güdüğünde nüks lehine yumuşak doku lezyonu izlenmemiştir.
+Operasyon bölgesinde metalik sütur materyalleri ve buna bağlı artefaktlar izlendi.
+Rezeksiyon hattı boyunca lineer fibrotik değişiklikler izlenmiş olup nüks lehine bulgu saptanmamıştır.
+Rezeksiyon hattında yeni gelişen nodüler yumuşak doku dansitesi nüks açısından şüphelidir.
+Postoperatif erken dönemde {sağ|sol} hemitoraksta minimal pnömotoraks ve plevral sıvı izlendi.
+
+# Plevral efüzyon
+{Sağ|Sol} plevral aralıkta en derin yerinde {12|18|25|35|45|60} mm kalınlığa ulaşan plevral efüzyon izlendi.
+{Sağ|Sol} plevral aralıkta en kalın yerinde {mm} mm ölçülen efüzyon {izlendi|izlenmiştir|saptanmıştır}.
+{Sağ|Sol} plevral aralıkta minimal efüzyon izlendi.
+Bilateral, {sağda|solda} daha belirgin olmak üzere plevral efüzyon izlendi.
+Plevral efüzyon serbest karakterde olup komşu parankimde pasif atelektazi oluşturmaktadır.
+{Sağ|Sol} plevral aralıkta septasyonlar içeren loküle efüzyon izlenmiş olup ampiyem açısından anlamlıdır.
+Plevral yapraklarda kalınlaşma ve kontrastlanma ile birlikte ayrık plevra işareti ampiyem lehine değerlendirildi.
+Plevral sıvının dansitesi {4|8|12} HU olup basit sıvı ile uyumludur.
+Plevral sıvı içerisinde yüksek dansiteli alanlar hemotoraks açısından anlamlıdır.
+Plevral efüzyon {izlenmedi|izlenmemiştir|saptanmadı|saptanmamıştır}.
+Plevral efüzyon miktarı önceki tetkike göre {artmıştır|azalmıştır|belirgin değişiklik göstermemektedir}.
+{Sağ|Sol} hemitoraksı tama yakın dolduran masif plevral efüzyon izlendi.
+Plevral efüzyona eşlik eden nodüler plevral kalınlaşma malignite açısından anlamlıdır.
+{Sağ|Sol} plevral aralıkta yaklaşık {200|300|500|800} ml hacminde olduğu tahmin edilen efüzyon izlendi.
+
+# Plevral kalınlaşma ve plaklar
+Bilateral plevral yüzeylerde kalsifik plevral plaklar izlenmiş olup asbest maruziyeti ile uyumludur.
+Diyafragmatik plevrada kalsifiye plevral plaklar izlendi.
+{Sağ|Sol} hemitoraksta {3|5|8|12} mm kalınlığa ulaşan {düzgün|nodüler} plevral kalınlaşma izlendi.
+Mediastinal plevrayı da tutan çevresel nodüler plevral kalınlaşma malign mezotelyoma açısından şüphelidir.
+Plevral kalınlaşma 1 cm'den kalın olup malignite açısından değerlendirilmelidir.
+Apikal plevral kalınlaşma sekel olarak değerlendirildi.
+Plevral kalınlaşma veya plevral plak izlenmemiştir.
+Kalsifikasyon içeren yaygın plevral kalınlaşma fibrotoraks ile uyumludur.
+{Sağ|Sol} hemitoraksta plevra tabanlı, plevra ile geniş açı yapan {15|20|25|30} mm boyutlu yumuşak doku lezyonu izlendi.
+Lezyon plevral kaynaklı olup ayırıcı tanıda soliter fibröz tümör düşünülmelidir.
+Plevral plaklar önceki tetkikle kıyaslandığında stabildir.
+
+# Pnömotoraks
+{Sağ|Sol} hemitoraksta apikal bölgede {8|12|20|25|35} mm kalınlığa ulaşan pnömotoraks izlendi.
+{Sağ|Sol} hemitoraksta {minimal|az miktarda} apikal pnömotoraks izlendi.
+{Sağ|Sol} hemitoraksta apeksten {mm} mm mesafeye ulaşan pnömotoraks {izlendi|izlenmiştir|saptandı}.
+Pnömotoraks oranı yaklaşık {%15|%20|%30|%40} olarak hesaplanmıştır.
+Mediastinal kaymaya neden olan tansiyon pnömotoraks lehine bulgular izlenmiş olup acil klinik değerlendirme önerilir.
+Her iki hemitoraksta pnömotoraks {izlenmedi|izlenmemiştir|saptanmadı|görülmedi}.
+{Sağ|Sol} göğüs tüpü yerleştirilmesi sonrası pnömotoraksta {belirgin gerileme|tama yakın rezolüsyon} izlendi.
+{Sağ|Sol} hemitoraksta hava-sıvı seviyesi içeren hidropnömotoraks izlendi.
+Göğüs duvarı yumuşak dokularında ve boyun bölgesinde subkutan amfizem izlendi.
+Mediastende pnömomediastinum ile uyumlu serbest hava izlendi.
+
+# Mediasten ve hiler lenf nodları
+Mediastende ve her iki hiler bölgede patolojik boyut ve görünümde lenf nodu {saptanmamıştır|izlenmemiştir|görülmemiştir}.
+Mediastende kısa aksı 10 mm'yi aşmayan, yağlı hilusu korunmuş milimetrik lenf nodları izlendi.
+{Sağ alt paratrakeal|Prevasküler|Subkarinal|Aortopulmoner pencere|Sol alt paratrakeal} bölgede kısa aksı {12|14|16|18|22} mm ölçülen lenf nodu izlendi.
+{Sağ|Sol} hiler bölgede kısa aksı {12|15|18} mm olan lenfadenopati izlendi.
+{Prevasküler|Sağ alt paratrakeal|Subkarinal} bölgede {18|22|26|30}x{12|14|16} mm boyutlarında lenfadenopati izlendi.
+Mediastende {prevasküler, paratrakeal ve subkarinal|paratrakeal ve aortopulmoner} istasyonlarda multipl lenfadenopatiler izlendi.
+Bilateral simetrik hiler ve mediastinal lenfadenopatiler sarkoidoz açısından anlamlıdır.
+Mediastinal lenf nodlarında {yumurta kabuğu tarzında|amorf|yoğun} kalsifikasyonlar izlendi.
+Kalsifiye mediastinal ve hiler lenf nodları geçirilmiş granülomatöz enfeksiyon ile uyumludur.
+Subkarinal bölgede santrali nekrotik, konglomere lenfadenopati izlendi.
+Lenf nodları {homojen|heterojen} kontrastlanma göstermektedir.
+Mediastinal lenfadenopatiler {lenfoma|metastaz} açısından değerlendirilmelidir.
+Mediastinal lenf nodları reaktif olarak değerlendirildi.
+{Sağ|Sol} supraklavikular bölgede kısa aksı {9|11|14} mm ölçülen lenf nodu izlendi.
+Mediastinal yağlı planlar korunmuştur.
+Mediastende kitle lezyonu izlenmemiştir.
+Önceki tetkike göre mediastinal lenf nodlarının boyutlarında {belirgin|hafif} küçülme izlendi.
+Mediastende subsantimetrik, nonspesifik lenf nodları izlendi.
+
+# Mediasten: diğer yapılar
+Anterior mediastende {cm}x{cm} cm boyutlarında, {homojen|heterojen} kontrastlanan yumuşak doku kitlesi izlendi.
+Timus yaşa uygun yağlı involüsyona uğramış görünümdedir.
+Anterior mediastende timik rezidü doku ile uyumlu yumuşak doku dansitesi izlendi.
+Posterior mediastende paravertebral yerleşimli, {20|25|30|35} mm boyutlu, nörojenik tümör ile uyumlu lezyon izlendi.
+Mediasten {sağa|sola} doğru yer değiştirmiştir.
+Özofagus {distal|orta} kesiminde {6|8|10|12|15} mm'ye ulaşan duvar kalınlaşması izlenmiş olup endoskopik değerlendirme önerilir.
+Mide kardiyasının diyafram üzerine uzanımı ile karakterize {küçük|orta boyutlu} hiatal herni izlendi.
+Tiroid bezinin görüntülenen kesimlerinde {sağ|sol} lobda {8|12|15|18|22} mm boyutlu hipodens nodül izlenmiş olup ultrasonografi ile değerlendirilmesi önerilir.
+Tiroid bezi retrosternal uzanım göstermekte olup trakeayı {sağa|sola} doğru itmektedir.
+Mediastinal yağ dokusunda {diffüz|yamasal} dansite artışı mediastinit açısından değerlendirilmelidir.
+Görüntülenen özofagus segmentleri doğal görünümdedir.
+
+# Trakea ve bronşlar
+Trakea ve ana bronşların lümenleri açıktır.
+Trakea ve ana bronşlarda patolojik daralma veya endolüminal lezyon izlenmemiştir.
+Trakea {sağ|sol} lateral duvarında {4|5|7|9} mm boyutlu polipoid lezyon izlendi.
+Karina açısı genişlemiş görünümdedir.
+Trakea lümeninde sekresyon ile uyumlu dansite izlendi.
+Trakea ve ana bronşlarda sekresyonla uyumlu dansiteler izlendi.
+Trakeostomi kanülü uygun pozisyonda izlendi.
+Trakea ve ana bronş duvarlarında yaşa bağlı kalsifikasyonlar izlendi.
+Trakea subglottik kesiminde {15|20|25} mm uzunluğunda, entübasyon sonrası stenoz ile uyumlu daralma izlendi.
+Trakea {sağa|sola} doğru deviye olup lümeni açıktır.
+{Sağ|Sol} ana bronşta lenfadenopatiye bağlı dış bası etkisi izlendi.
+
+# Kalp ve perikard
+Kalp boyutları {normaldir|normal sınırlardadır|olağandır|tabiidir}.
+Kalp boyutları artmış olup kardiyomegali ile uyumludur.
+{Sol ventrikül|Sağ ventrikül|Sol atriyum|Sağ atriyum} dilate görünümdedir.
+Perikardiyal aralıkta en kalın yerinde {5|8|10|15|20} mm ölçülen perikardiyal efüzyon izlendi.
+Perikardiyal aralıkta {minimal|az miktarda} sıvı izlendi.
+Perikardiyal efüzyon {izlenmedi|izlenmemiştir|saptanmadı|saptanmamıştır}.
+Perikard kalınlığı normal olup perikardiyal kalsifikasyon izlenmemiştir.
+Perikard kalınlığı {5|6|7} mm olup kalsifikasyonlarla birlikte konstriktif perikardit açısından anlamlıdır.
+Sol ventrikül apeksinde duvar incelmesi ve miyokardiyal kalsifikasyon geçirilmiş enfarkt sekeli ile uyumludur.
+Sol ventrikül apeksinde mural trombüs ile uyumlu dolum defekti izlendi.
+Sol atriyal apendikste dolum defekti izlenmemiştir.
+{Aort kapakta|Mitral anulusta} {kaba|yoğun} kalsifikasyonlar izlendi.
+Protez kalp kapağı ve sternotomi telleri izlendi.
+Perikardiyal efüzyon tamponad açısından ekokardiyografi ile değerlendirilmelidir.
+
+# Koroner arterler
+Koroner arterlerde kalsifik aterosklerotik plaklar izlendi.
+{Sol ana koroner arterde|Sol ön inen arterde|Sirkumfleks arterde|Sağ koroner arterde} {minimal|yoğun|yaygın} kalsifik plaklar izlendi.
+Sol ön inen arter trasesinde yoğun kalsifikasyonlar izlendi.
+Koroner arter kalsifikasyonu görsel olarak {hafif|orta|ağır} derecededir.
+Agatston koroner kalsiyum skoru {0|12|85|240|560} olarak hesaplanmıştır.
+Koroner arterlerde kalsifikasyon izlenmemiştir.
+Koroner bypass cerrahisi ile uyumlu sternotomi telleri ve cerrahi klipsler izlendi.
+{Sol ön inen arterde|Sağ koroner arterde|Sirkumfleks arterde} stent izlendi.
+Koroner arterler bu inceleme ile değerlendirilemediğinden gerekirse koroner BT anjiyografi önerilir.
+Koroner arter kalsifikasyonu kardiyovasküler risk açısından klinik ile değerlendirilmelidir.
+
+# Aorta
+Asendan aorta çapı {32|34|36|38} mm olup normal sınırlardadır.
+Asendan aorta çapı {40|42|44} mm olup ektazik görünümdedir.
+Asendan aorta çapı {36|38|40|42|45|48} mm olarak ölçülmüştür.
+Asendan aortada {46|48|52|55} mm çapa ulaşan anevrizmatik dilatasyon izlendi.
+Arkus aorta çapı {26|28|30|32} mm olarak ölçülmüştür.
+Desendan aorta çapı {22|24|26|28} mm olup normal sınırlardadır.
+İnen torasik aortada {40|45|50|55} mm çapa ulaşan fuziform anevrizma izlendi.
+Arkus aortada {18|22|25|30} mm çaplı sakküler anevrizma izlendi.
+Torasik aortada {yaygın|minimal|yoğun} kalsifik aterosklerotik plaklar izlendi.
+Aort duvarında {4|6|8|10} mm kalınlığa ulaşan yumuşak aterosklerotik plaklar ve mural trombüs izlendi.
+Aort çapları normal sınırlardadır.
+Aortada anevrizma veya diseksiyon {izlenmedi|izlenmemiştir|saptanmadı|saptanmamıştır}.
+Sinüs Valsalva düzeyinde aort kökü çapı {34|36|38|42|45} mm olarak ölçülmüştür.
+Arkus aortadan çıkan supraaortik dallar olağan konfigürasyondadır.
+Anevrizma çapında önceki tetkike göre {anlamlı değişiklik izlenmemiştir|yaklaşık 3 mm artış izlenmiştir}.
+Asendan aorta anevrizması {50|55} mm'yi aştığından kalp damar cerrahisi ile değerlendirilmesi önerilir.
+Asendan aorta ektazisi için yıllık BT veya ekokardiyografi ile takip önerilir.
+Endovasküler stent greft izlenmiş olup endoleak lehine kontrast kaçağı izlenmemiştir.
+Torasik aortada elongasyon ve tortuozite izlendi.
+
+# Aort diseksiyonu ve akut aort sendromu
+Asendan aortadan başlayıp {arkus aortaya|desendan aortaya|abdominal aortaya} uzanan intimal flep Stanford tip A diseksiyon ile uyumludur.
+Sol subklavian arter çıkışının distalinden başlayıp abdominal aortaya uzanan intimal flep Stanford tip B diseksiyon ile uyumludur.
+Gerçek ve yalancı lümen ayırt edilmekte olup yalancı lümen {kısmen trombozedir|açıktır|tamamen trombozedir}.
+Gerçek lümen yalancı lümen tarafından baskılanmış görünümdedir.
+Diseksiyon flebi {çölyak trunkus|superior mezenterik arter|sol renal arter} çıkışına uzanmaktadır.
+Diseksiyon {brakiyosefalik trunkusa|sol ana karotis artere} uzanım göstermektedir.
+Supraaortik dallara diseksiyon uzanımı izlenmemiştir.
+Aort duvarında hilal şeklinde, kontrastlanmayan {6|8|10|12} mm kalınlığında intramural hematom izlendi.
+Kontrastsız serilerde aort duvarında hiperdens hilal görünümü intramural hematom lehine değerlendirildi.
+İnen aortada penetran aterosklerotik ülser ile uyumlu, plak içine uzanan kontrast dolumu izlendi.
+Aort diseksiyonu lehine bulgu saptanmamıştır.
+Perikardiyal ve mediastinal hematom eşliğinde akut aort sendromu ile uyumlu bulgular izlenmiş olup acil cerrahi değerlendirme önerilir.
+Bulgular acil olarak ilgili klinisyene bildirilmiştir.
+
+# Pulmoner BT anjiyografi
+{Sağ|Sol} ana pulmoner arterde dolum defekti izlenmiş olup akut pulmoner emboli ile uyumludur.
+Ana pulmoner arter bifurkasyonuna oturan binici trombüs izlendi.
+{Sağ|Sol} akciğer {üst|alt} lob {segmenter|subsegmenter} arter dallarında dolum defektleri izlendi.
+Sağ akciğer orta lob ve alt lob segmenter dallarında akut emboli ile uyumlu dolum defektleri izlendi.
+Bilateral pulmoner arterlerde yaygın akut emboli ile uyumlu dolum defektleri izlendi.
+Dolum defekti damar lümenini {tamamen|kısmen} tıkamaktadır.
+Damar merkezinde yerleşimli, çevresi kontrastla çevrili dolum defekti akut trombüs ile uyumludur.
+Damar duvarına yapışık, periferik yerleşimli dolum defektleri kronik tromboembolik hastalık lehine değerlendirildi.
+Segmenter arter lümenlerinde bant ve ağ yapıları kronik tromboembolik değişiklikler ile uyumludur.
+Pulmoner arterlerde ana, lober ve segmenter düzeyde dolum defekti {izlenmedi|izlenmemiştir|saptanmadı|saptanmamıştır}.
+Subsegmenter dallar solunum artefaktı nedeniyle optimal değerlendirilememiştir.
+Ana pulmoner arter çapı {30|32|34|36} mm olup pulmoner hipertansiyon açısından anlamlıdır.
+Ana pulmoner arter çapı {22|24|26|27} mm olup normal sınırlardadır.
+Ana pulmoner arter çapı asendan aorta çapından geniştir.
+Pulmoner arterlerde santral dilatasyon ve periferik budanma pulmoner hipertansiyon ile uyumludur.
+{Sağ|Sol} akciğer alt lobda plevra tabanlı, kama şeklinde konsolidasyon pulmoner enfarkt ile uyumludur.
+Bulgular akut pulmoner tromboemboli ile uyumlu olup acil olarak klinisyene bildirilmiştir.
+Alt ekstremite venöz Doppler ultrasonografi ile derin ven trombozu açısından değerlendirilmesi önerilir.
+Önceki tetkike göre dolum defektlerinde belirgin azalma izlenmiş olup tedaviye yanıt ile uyumludur.
+
+# Sağ ventrikül yüklenmesi
+Sağ ventrikül çapının sol ventrikül çapına oranı {1,1|1,2|1,4|1,6} olup sağ ventrikül yüklenmesi ile uyumludur.
+Sağ ventrikül sol ventrikül çap oranı {0,7|0,8|0,9} olup sağ ventrikül yüklenmesi lehine bulgu saptanmamıştır.
+İnterventriküler septumda sol ventriküle doğru {düzleşme|bombeleşme} izlendi.
+İnferior vena kava ve hepatik venlere kontrast madde reflüsü izlendi.
+Sağ ventrikül ve sağ atriyum dilate görünümdedir.
+Sağ kalp yüklenmesi bulguları izlenmiş olup ekokardiyografik değerlendirme önerilir.
+Sağ ventrikül yüklenmesi lehine bulgu saptanmamıştır.
+
+# Göğüs duvarı ve aksilla
+Göğüs duvarı yumuşak dokuları olağan görünümdedir.
+Her iki aksillada patolojik boyut ve görünümde lenf nodu saptanmamıştır.
+{Sağ|Sol} aksillada kısa aksı {12|15|18|22} mm ölçülen, yağlı hilusu silinmiş lenf nodu izlendi.
+{Sağ|Sol} aksillada yağlı hilusu korunmuş reaktif görünümde lenf nodları izlendi.
+{Sağ|Sol} mastektomi sonrası değişiklikler izlendi.
+{Sağ|Sol} mastektomi lojunda nüks lehine kitle izlenmemiştir.
+{Sağ|Sol} aksiller lojda cerrahi klipsler izlendi.
+{Sağ|Sol} memede {8|10|12|15|18} mm boyutlu nodüler lezyon izlenmiş olup meme ultrasonografisi ile değerlendirilmesi önerilir.
+Bilateral jinekomasti ile uyumlu retroareolar glandüler doku izlendi.
+{Sağ|Sol} pektoral kas komşuluğunda ciltaltı yağlı dokuda {25|30|40|45} mm boyutlu, ince kapsüllü lipom ile uyumlu lezyon izlendi.
+Göğüs duvarında yumuşak doku kitlesi veya koleksiyon izlenmemiştir.
+{Sağ|Sol} göğüs duvarında ciltaltı yağlı dokuda {ödem|hematom|koleksiyon} izlendi.
+{Sağ|Sol} torakotomi sonrası göğüs duvarında cerrahi değişiklikler izlendi.
+Bilateral meme protezleri izlenmiş olup protez bütünlüğü bu tetkikle değerlendirilememiştir.
+Her iki meme parankimi görüntülenen kesimlerde doğal görünümdedir.
+
+# Kemik yapılar
+Görüntülenen kemik yapılarda litik veya blastik lezyon izlenmemiştir.
+Torakal vertebralarda dejeneratif osteofit oluşumları izlendi.
+Torakal vertebra korpuslarında anterior osteofitler ve disk mesafelerinde daralma izlendi.
+{T7|T8|T10|T11|T12} vertebra korpusunda {hafif|belirgin} yükseklik kaybı ile uyumlu kompresyon fraktürü izlendi.
+{T5|T6|T9} vertebra korpusunda trabeküler yapıda kabalaşma ile karakterize hemanjiyom izlendi.
+{Sağ|Sol} {altıncı|yedinci|sekizinci|dokuzuncu} kostada kallus formasyonu içeren iyileşmiş fraktür izlendi.
+{Sağ|Sol} {üçüncü|dördüncü|beşinci|altıncı} kosta {anterior|lateral|posterior} arkında deplase olmayan fraktür hattı izlendi.
+{Sağ|Sol} {dördüncü|beşinci|altıncı|yedinci} kostada ekspansil litik lezyon izlenmiş olup metastaz açısından değerlendirilmelidir.
+Sternumda fraktür veya litik lezyon izlenmemiştir.
+Median sternotomi sonrası sternal teller izlendi.
+Görüntülenen kemik yapılarda multipl sklerotik odaklar izlenmiş olup metastaz açısından değerlendirilmelidir.
+{Sağ|Sol} skapulada kortikal destrüksiyon içeren litik lezyon izlendi.
+Torakal vertebralarda {sağa|sola} konveks skolyoz izlendi.
+Her iki klavikula ve skapula olağan görünümdedir.
+Kemik yapılarda yaygın demineralizasyon izlendi.
+{Sağ|Sol} klavikulada iyileşmiş fraktür sekeli izlendi.
+Kemik adacığı ile uyumlu {3|4|6|8} mm çaplı sklerotik odak izlendi.
+
+# Üst batın kesitleri
+Görüntülenen üst batın kesitlerinde belirgin patolojik bulgu saptanmamıştır.
+Karaciğer parankim dansitesi diffüz olarak azalmış olup {hepatosteatoz|hepatik steatoz} ile uyumludur.
+Karaciğer {sağ|sol} lobda {6|8|12|15|20} mm çaplı, sıvı dansitesinde basit kist ile uyumlu lezyon izlendi.
+Karaciğerde karakterize edilemeyecek kadar küçük hipodens lezyon izlendi.
+Karaciğerde metastaz açısından şüpheli, periferik kontrastlanan hipodens lezyonlar izlendi.
+Safra kesesi lümeninde {6|8|12|15} mm çaplı hiperdens taş izlendi.
+Safra kesesi kolesistektomize görünümdedir.
+{Sağ|Sol} sürrenal bezde {12|15|18|22} mm boyutlu, kontrastsız serilerde {2|5|8} HU dansiteli, lipidden zengin adenom ile uyumlu nodül izlendi.
+{Sağ|Sol} sürrenal bezde {20|25|30|35} mm boyutlu, karakterize edilemeyen nodül için sürrenal protokol BT veya MR önerilir.
+Her iki sürrenal bez normal görünümdedir.
+Dalak {13|14|15|16} cm boyutunda olup splenomegali ile uyumludur.
+{Sağ|Sol} böbrek üst polde {10|15|20|25|30} mm çaplı basit kortikal kist izlendi.
+Pankreasın görüntülenen kesimleri doğal görünümdedir.
+Görüntülenen kesimlerde mide fundusunda duvar kalınlaşması izlenmiş olup endoskopik korelasyon önerilir.
+Görüntülenen kesimlerde batın içi serbest sıvı izlenmemiştir.
+Görüntülenen abdominal aorta normal çaptadır.
+
+# Karşılaştırma
+Önceki tetkik ile karşılaştırıldığında belirgin değişiklik {izlenmedi|izlenmemiştir|saptanmadı|saptanmamıştır}.
+{Üç|Altı|On iki} ay önceki tetkik ile kıyaslandığında nodül boyutu stabildir.
+Önceki tetkike göre {sağ|sol} plevral efüzyonda {artış|azalma} izlendi.
+Önceki tetkike kıyasla {yeni gelişen|boyutları artmış} nodüller izlenmiştir.
+Önceki BT ile karşılaştırıldığında konsolidasyon alanlarında {belirgin gerileme|tama yakın rezolüsyon|artış} izlendi.
+Karşılaştırma yapılabilecek önceki tetkik sistemde bulunmamaktadır.
+Önceki tetkikte tarif edilen {nodül|konsolidasyon alanı|plevral efüzyon} bu incelemede izlenmemektedir.
+Mevcut bulgular önceki tetkikle benzerdir.
+Lezyonda önceki tetkike göre progresyon izlenmiştir.
+Tedavi öncesi tetkik ile karşılaştırıldığında kitle boyutlarında yaklaşık {%30|%40|%50} oranında azalma izlendi.
+Önceki PET-BT raporunda artmış FDG tutulumu gösterdiği belirtilen nodül bu incelemede {stabil|küçülmüş} görünümdedir.
+Önceki tetkikte izlenen buzlu cam alanları tamamen kaybolmuştur.
+Önceki tetkike göre yeni gelişen patolojik bulgu saptanmamıştır.
+Bir önceki kontrol ile kıyaslandığında {aort çapında|pulmoner nodülde|lenf nodlarında} anlamlı değişiklik izlenmemiştir.
+Önceki tetkike ait görüntüler sistemde bulunmadığından karşılaştırma rapor üzerinden yapılmıştır.
+Önceki tetkikte {6|7|8} mm ölçülen nodül bu incelemede {9|10|11} mm olarak ölçülmüş olup büyüme göstermektedir.
+
+# Sonuç cümleleri
+Sonuç olarak {sağ akciğer üst lob apikal segmentte|sağ akciğer alt lob superior segmentte|sol akciğer üst lob apikoposterior segmentte|lingulada|sol akciğer alt lobda} malignite açısından şüpheli nodül izlenmiştir.
+Sonuç olarak akciğer parankiminde aktif enfeksiyon lehine bulgu saptanmamıştır.
+Bulgular {sağ|sol} akciğer alt lobda pnömoni ile uyumlu olarak değerlendirildi.
+Bulgular {bilateral pnömoni|pulmoner ödem|fibrotik interstisyel akciğer hastalığı} ile uyumlu olarak değerlendirildi.
+Sonuç olarak toraks BT incelemesi olağan sınırlardadır.
+Sonuç olarak {tipik|olası} UIP paterni ile uyumlu fibrotik interstisyel akciğer hastalığı izlenmiştir.
+Sonuç olarak asendan aortada anevrizmatik dilatasyon izlenmiştir.
+Sonuç olarak santral yerleşimli kitle ve mediastinal lenfadenopatiler primer akciğer malignitesi lehine değerlendirilmiştir.
+Sonuç olarak her iki akciğerde metastaz ile uyumlu multipl nodüller izlenmiştir.
+Sonuç olarak sentrilobüler amfizem ve bronş duvar kalınlaşması kronik obstrüktif akciğer hastalığı ile uyumludur.
+Sonuç olarak aktif tüberküloz ile uyumlu bulgular izlenmiş olup klinik korelasyon önerilir.
+Mevcut bulgularla {enfeksiyöz|inflamatuar} süreç ön planda düşünülmüştür.
+Ayırıcı tanıda {organize pnömoni|lenfoma|müsinöz adenokarsinom} düşünülmelidir.
+Malignite lehine bulgu saptanmamıştır.
+Akut kardiyopulmoner patoloji saptanmamıştır.
+Bulgular nonspesifik olup klinik ile korele edilmesi önerilir.
+Tanımlanan nodül {intrapulmoner lenf nodu|kalsifiye granülom} lehine düşünülmüştür.
+Sonuç olarak {sağ|sol} plevral efüzyon ve komşu pasif atelektazi izlenmiştir.
+Kardiyomegali ve bilateral plevral efüzyon {konjestif kalp yetmezliği|sıvı yüklenmesi} ile uyumlu olabilir.
+Bulgular {pnömotoraks|hidropnömotoraks} ile uyumlu olarak değerlendirilmiş olup klinisyene bildirilmiştir.
+Sonuç olarak Stanford tip {A|B} aort diseksiyonu ile uyumlu bulgular izlenmiştir.
+Sonuç olarak pulmoner emboli lehine bulgu saptanmamıştır.
+Bulgular geçirilmiş enfeksiyona ait sekel değişiklikler olarak yorumlanmıştır.
+Bulgular radyoterapiye sekonder fibrotik değişiklikler ile uyumlu olarak yorumlanmıştır.
+Sonuç olarak koroner arter kalsifikasyonu ve torasik aortada aterosklerotik değişiklikler izlenmiştir.
+Sonuç olarak mediastinal ve hiler lenfadenopatiler sarkoidoz ile uyumlu olabilir.
+Mevcut bulgular ile malignite ekarte edilememektedir.
+Sonuç olarak önceki tetkike göre {stabil hastalık|kısmi yanıt|progresif hastalık} ile uyumlu bulgular izlenmiştir.
+Sonuç olarak {sağ|sol} hemitoraksta pnömotoraks izlenmiş olup göğüs cerrahisi ile değerlendirilmesi önerilir.
+
+# Öneriler
+Klinik ve laboratuvar bulguları ile korelasyon önerilir.
+Antibiyotik tedavisi sonrası {4 ila 6|6 ila 8} hafta içinde kontrol BT önerilir.
+Doku tanısı için {BT eşliğinde transtorasik biyopsi|bronkoskopik biyopsi|EBUS eşliğinde örnekleme} önerilir.
+Evreleme amacıyla PET-BT önerilir.
+Göğüs cerrahisi kliniği ile değerlendirilmesi önerilir.
+Ekokardiyografi ile değerlendirilmesi önerilir.
+Solunum fonksiyon testleri ile korelasyon önerilir.
+{3|6|12} ay sonra kontrol BT önerilir.
+Düşük doz BT ile yıllık tarama önerilir.
+Gerekirse kontrastlı toraks BT ile ileri değerlendirme önerilir.
+Lezyonun karakterizasyonu için {MR|PET-BT|kontrastlı BT} ile değerlendirilmesi önerilir.
+Hastanın önceki tetkikleri temin edilirse karşılaştırma yapılması önerilir.
+Klinik şüphe devam ederse kısa aralıklı kontrol önerilir.
+Torasentez ile sıvının biyokimyasal ve sitolojik incelemesi önerilir.
+Takip ve tedavi planı açısından multidisipliner konsey değerlendirmesi önerilir.
+Bulguların klinik ile birlikte değerlendirilmesi önerilmektedir.
+Tedavi sonrası kontrol grafi ile takip önerilir.
+Klinik gerekirse yüksek rezolüsyonlu BT ile değerlendirilmesi önerilir.
+Bronkoskopi ve bronkoalveolar lavaj ile değerlendirilmesi önerilir.
+Pulmoner hipertansiyon açısından ekokardiyografik değerlendirme önerilir.
+Nodül takibinin aynı merkezde ve benzer teknikle yapılması önerilir.
+Sigara bırakma programına yönlendirilmesi önerilir.

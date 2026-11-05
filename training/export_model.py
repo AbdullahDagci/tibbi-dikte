@@ -34,6 +34,9 @@ def main() -> int:
     ap.add_argument("--lang-dir", help="B yolu: kendi bpe.model/tokens.txt klasörümüz (train_bpe.py çıktısı)")
     ap.add_argument("--independent", action="store_true",
                     help="B yolu: mihu ağırlıklarından bağımsız eğitildi -> mihu atfı/lisansı eklenmez")
+    ap.add_argument("--hotwords", action="store_true",
+                    help="uygulama bu modelde hotword kullansın (varsayılan: kapalı — radyoloji ince ayarlı model "
+                         "terimleri kendisi öğrendi; testte hotword hatayı %%5'ten %%7,6'ya çıkardı)")
     a = ap.parse_args()
 
     ck = torch.load(a.ckpt, map_location="cpu")
@@ -62,7 +65,8 @@ def main() -> int:
         shutil.copy(BASE / "LICENSE", out / "LICENSE")
     spec = json.loads((BASE / "model.json").read_text(encoding="utf-8"))
     spec.update(name=a.title, encoder="encoder.int8.onnx", decoder="decoder.int8.onnx", joiner="joiner.int8.onnx",
-                tokens="tokens.txt", bpe_vocab="bpe.vocab", modeling_unit="bpe", finetuned_from=str(Path(a.ckpt).name))
+                tokens="tokens.txt", bpe_vocab="bpe.vocab", modeling_unit="bpe", finetuned_from=str(Path(a.ckpt).name),
+                hotwords=a.hotwords)
     if a.independent:  # B yolu: kendi modelimiz
         spec.pop("attribution", None)
         spec.update(base_model="(bağımsız; mihu ağırlıkları kullanılmadı)", license="Ertansa — tescilli")

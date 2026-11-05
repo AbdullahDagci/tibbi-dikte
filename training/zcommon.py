@@ -7,7 +7,6 @@ mihuai/turkish-stt ile aynı yapılandırma (ONNX metadata'sından ve ağırlık
 """
 from __future__ import annotations
 
-import argparse
 import importlib.util
 import os
 import sys
@@ -34,14 +33,15 @@ STREAMING = dict(causal=True, chunk_size="16", left_context_frames="128")
 
 
 def get_params(vocab_size: int = VOCAB_SIZE, **overrides):
-    parser = argparse.ArgumentParser()
-    _train.add_model_arguments(parser)
-    args = parser.parse_args([])
+    # Tam icefall ayrıştırıcısı: model ayarları + compute_loss'un kullandığı eğitim varsayılanları
+    # (prune_range, lm_scale, am_scale, simple_loss_scale …); yalnızca model ayarları eğitimi kırar.
+    args = _train.get_parser().parse_args([])
     params = _train.get_params()
     params.update(vars(args))
     params.update(STREAMING)
     params.update(vocab_size=vocab_size, blank_id=0, context_size=2,
-                  use_transducer=True, use_ctc=False, use_attention_decoder=False)
+                  use_transducer=True, use_ctc=False, use_attention_decoder=False,
+                  spec_aug_time_warp_factor=80)  # veri modülü ayarı; compute_loss koşulsuz okur
     params.update(overrides)
     return params
 
