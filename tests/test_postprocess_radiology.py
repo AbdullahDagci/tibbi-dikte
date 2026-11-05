@@ -62,3 +62,7 @@ def test_correct_text_is_left_alone(pp, text):
 def test_itn_keeps_words_and_spine_levels(pp_itn, src, expected):
     assert pp_itn(src) == expected
 
+
+def test_short_known_root_does_not_block_correction(pp):
+    # radiology_known'daki "intra" parçası "intravenez"i "intra" + ek sanıp doğru kelime sayıyordu
+    assert "intravenöz" in pp("Pantoprazol kırk miligram intravenez olarak uygulandı.")

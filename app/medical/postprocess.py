@@ -128,6 +128,20 @@ def protect_number_words(text: str) -> tuple[str, list[str]]:
     return "".join(out), saved
 
 
+_BACK_VOWELS, _FRONT_VOWELS = set("aıou"), set("eiöü")
+
+
+def _harmonic_suffix(root: str, suffix: str) -> bool:
+    """Türkçe ekler kökün son ünlüsüyle kalın/ince uyumludur ("odakla|ndı", "milimetre|dir"). Uymayan kalan ek
+    değil, başka bir kelimenin devamıdır: radiology_known'daki "intra" parçası "intra|venez"i doğru sanıyordu."""
+    rv = [c for c in root if c in _BACK_VOWELS or c in _FRONT_VOWELS]
+    sv = [c for c in suffix if c in _BACK_VOWELS or c in _FRONT_VOWELS]
+    if not rv or not sv:
+        return True
+    back = rv[-1] in _BACK_VOWELS
+    return all((c in _BACK_VOWELS) == back for c in sv)
+
+
 # ------------------------------------------------------------------ omurga seviyeleri
 _SPINE_MAX = {"C": 7, "T": 12, "L": 5, "S": 5}
 _SPINE_BRIDGE = {("C", 7, "T", 1), ("T", 12, "L", 1), ("L", 5, "S", 1)}
@@ -359,7 +373,8 @@ class MedicalPostProcessor:
         if low in self._protected:
             return True
         for w in self._protected_prefix.get(low[:3], ()):
-            if len(low) - len(w) <= 5 and len(w) >= max(5, len(low) - 5) and low.startswith(w):
+            if (len(low) - len(w) <= 5 and len(w) >= max(5, len(low) - 5) and low.startswith(w)
+                    and _harmonic_suffix(w, low[len(w):])):
                 return True
         return False
 
