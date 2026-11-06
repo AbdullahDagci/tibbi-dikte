@@ -9,7 +9,7 @@ from cryptography.hazmat.primitives import serialization  # noqa: E402
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey  # noqa: E402
 from PySide6.QtCore import QCoreApplication, QDate, QEvent  # noqa: E402
 from PySide6.QtGui import QColor, QGuiApplication  # noqa: E402
-from PySide6.QtWidgets import QApplication, QDialog, QMessageBox  # noqa: E402
+from PySide6.QtWidgets import QApplication, QDialog, QMessageBox, QPushButton  # noqa: E402
 
 from app import theme  # noqa: E402
 from app.licensing import license as lic  # noqa: E402
@@ -407,3 +407,131 @@ def test_two_machines_of_same_customer_stay_separate_rows(window, paths):
     add(paths, "X", dt.date(2026, 11, 20), other_code(1))
     add(paths, "X", dt.date(2026, 11, 20), other_code(2))
     assert len(window().table.filtered_rows()) == 2
+
+
+# ------------------------------------------------------------ listeden kaldırma
+def test_row_has_a_remove_action(window, paths):
+    add(paths, "X", dt.date(2026, 11, 21))
+    win = window()
+    t = win.table.table
+    assert len(t.cellWidget(0, t.columnCount() - 1).findChildren(QPushButton)) == 3
+
+
+def test_removing_a_license_removes_all_its_keys_after_confirmation(window, paths, monkeypatch):
+    add(paths, "X", dt.date(2026, 11, 20))
+    add(paths, "X", dt.date(2027, 11, 20))
+    add(paths, "Y", dt.date(2027, 11, 20), other_code(2))
+    win = window()
+    monkeypatch.setattr(win, "_confirm_remove", lambda text: True)
+    row = next(r for r in win.table.filtered_rows() if r.record.customer == "X")
+    win.remove_license(row)
+    assert [r.record.customer for r in win.table.filtered_rows()] == ["Y"]
+    assert [r.customer for r in store.load_records(paths[1])] == ["Y"]
+
+
+def test_cancelling_keeps_the_license(window, paths, monkeypatch):
+    add(paths, "X", dt.date(2026, 11, 21))
+    win = window()
+    monkeypatch.setattr(win, "_confirm_remove", lambda text: False)
+    win.remove_license(win.table.visible_rows()[0])
+    assert len(win.table.filtered_rows()) == 1 and len(store.load_records(paths[1])) == 1
+
+
+def test_removing_old_key_from_history_keeps_the_license(window, paths, monkeypatch):
+    old = add(paths, "X", dt.date(2026, 11, 20))
+    add(paths, "X", dt.date(2027, 11, 20))
+    win = window()
+    win.show_history.setChecked(True)
+    monkeypatch.setattr(win, "_confirm_remove", lambda text: True)
+    win.remove_license(next(r for r in win.table.filtered_rows() if r.record.customer_id == old.customer_id))
+    rows = win.table.filtered_rows()
+    assert len(rows) == 1 and rows[0].status == store.ACTIVE and rows[0].renewals == 0
+
+
+def _remove_text(win, row):
+    captured = []
+    win._confirm_remove = lambda text: captured.append(text) or False
+    win.remove_license(row)
+    return captured[0]
+
+
+def test_warning_says_key_keeps_working_until_expiry(window, paths):
+    add(paths, "X Hastanesi", dt.date(2026, 11, 21))
+    win = window()
+    text = _remove_text(win, win.table.visible_rows()[0])
+    assert "X Hastanesi" in text and "iptal olmaz" in text and "21.11.2026" in text
+
+
+def test_warning_for_perpetual_key(window, paths):
+    add(paths, "X", None)
+    win = window()
+    text = _remove_text(win, win.table.visible_rows()[0])
+    assert "iptal olmaz" in text and "süresiz" in text
+
+
+def test_no_warning_when_key_has_already_expired(window, paths):
+    add(paths, "X", dt.date(2026, 11, 2), today=dt.date(2026, 11, 1))
+    win = window()
+    assert "iptal olmaz" not in _remove_text(win, win.table.visible_rows()[0])
+
+
+def test_message_counts_older_keys(window, paths):
+    add(paths, "X", dt.date(2026, 11, 20))
+    add(paths, "X", dt.date(2026, 12, 20))
+    add(paths, "X", dt.date(2027, 11, 20))
+    win = window()
+    assert "2 eski anahtar" in _remove_text(win, win.table.visible_rows()[0])
+
+
+def test_cancel_is_the_default_choice(window, monkeypatch):
+    seen = []
+    monkeypatch.setattr(QMessageBox, "exec", lambda self: seen.append(self.defaultButton().text()))
+    assert window()._confirm_remove("emin misiniz") is False
+    assert seen == ["Vazgeç"]
+
+
+# ------------------------------------------------------------ pencereye dönünce tablo gereksiz yere kurulmaz
+def _action_cell(win):
+    t = win.table.table
+    return t.cellWidget(0, t.columnCount() - 1)
+
+
+def test_reload_does_not_rebuild_buttons_when_nothing_changed(window, paths):
+    """Fare altındaki düğme silinip yeniden yaratılırsa ipucu ve üzerine gelme durumu yanıp söner."""
+    add(paths, "X", dt.date(2026, 11, 21))
+    win = window()
+    cell = _action_cell(win)
+    win.reload()
+    assert _action_cell(win) is cell
+
+
+def test_reload_rebuilds_when_file_changed(window, paths):
+    add(paths, "X", dt.date(2026, 11, 21))
+    win = window()
+    add(paths, "Y", dt.date(2026, 11, 22), other_code(2))
+    win.reload()
+    assert len(win.table.filtered_rows()) == 2
+
+
+def test_reload_updates_when_day_changes(window, paths):
+    add(paths, "X", dt.date(2026, 11, 21))
+    days = [TODAY]
+    win = manager.LicenseManagerWindow(private_key=paths[0], log=paths[1], today=lambda: days[0])
+    assert cells(win)[4] == "14 gün"
+    days[0] = TODAY + dt.timedelta(days=1)
+    win.reload()
+    assert cells(win)[4] == "13 gün" and win.date_label.text() == "08.11.2026"
+    dispose(win)
+
+
+def test_activation_does_not_reload_while_a_dialog_is_open(window, paths, monkeypatch):
+    win = window()
+    calls = []
+    monkeypatch.setattr(win, "isActiveWindow", lambda: True)
+    monkeypatch.setattr(win, "reload", lambda: calls.append(True))
+    monkeypatch.setattr(QApplication, "activeModalWidget", staticmethod(lambda: win))
+    win.changeEvent(QEvent(QEvent.ActivationChange))
+    assert calls == []
+    monkeypatch.setattr(QApplication, "activeModalWidget", staticmethod(lambda: None))
+    win.changeEvent(QEvent(QEvent.ActivationChange))
+    assert calls == [True]

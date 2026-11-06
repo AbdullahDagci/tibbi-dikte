@@ -204,3 +204,44 @@ def test_rows_count_earlier_keys_of_a_license():
 def test_current_rows_leave_out_renewed_keys():
     rows = store.build_rows([record(1, expires=dt.date(2026, 11, 20)), record(2, expires=dt.date(2027, 1, 1))], TODAY)
     assert [r.record.customer_id for r in store.current_rows(rows)] == [2]
+
+
+# ------------------------------------------------------------ listeden kaldırma
+def test_removing_keeps_other_records_unchanged(paths):
+    first, second = issue(paths, customer="A"), issue(paths, customer="B")
+    store.remove([first], log=paths[1])
+    assert store.load_records(paths[1]) == [second]
+
+
+def test_removed_key_is_kept_in_archive_not_lost(paths):
+    rec = issue(paths)
+    store.remove([rec], log=paths[1])
+    assert store.load_records(store.removed_log(paths[1])) == [rec]
+
+
+def test_customer_number_is_not_reused_after_removal(paths):
+    rec = issue(paths)
+    store.remove([rec], log=paths[1])
+    assert issue(paths).customer_id == rec.customer_id + 1
+
+
+def test_removing_last_record_leaves_empty_readable_file(paths):
+    rec = issue(paths)
+    store.remove([rec], log=paths[1])
+    assert store.load_records(paths[1]) == []
+    assert issue(paths).customer == "X Hastanesi"
+
+
+def test_removal_leaves_no_temporary_file(paths):
+    store.remove([issue(paths)], log=paths[1])
+    assert sorted(f.name for f in paths[1].parent.glob("*issued*")) == ["issued.csv", "issued_removed.csv"]
+
+
+def test_all_keys_of_a_license_are_found():
+    old, new, other = record(1), record(2), record(3, customer="Başka", machine="B")
+    assert store.keys_of([old, new, other], new) == [old, new]
+
+
+def test_key_files_never_reach_public_repository():
+    ignore = (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()
+    assert "tools/issued_keys*" in ignore

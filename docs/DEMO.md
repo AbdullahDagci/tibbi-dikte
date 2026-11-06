@@ -3,7 +3,9 @@
 ## Lisans Yöneticisi
 Verilen anahtarlar, kalan günler, yenileme ve yeni anahtar üretimi için `tools\LisansYoneticisi.cmd` dosyasını çalıştırın.
 Yalnızca bu bilgisayarda çalışır (`tools/private_key.pem` gerekir) ve müşteri paketine girmez. Kayıtlar
-`tools/issued_keys.csv` dosyasındadır; bu iki dosya git'e girmez, şifreli olarak yedekleyin.
+`tools/issued_keys.csv` dosyasındadır; bu iki dosya git'e girmez, şifreli olarak yedekleyin. Listeden kaldırılan
+kayıtlar `tools/issued_keys_removed.csv` dosyasına taşınır. Kaldırmak anahtarı iptal etmez: uygulama internete
+bağlanmadığı için anahtar süresi bitene kadar kurulu olduğu bilgisayarda çalışır.
 
 ## Müşteriye deneme lisansı
 Müşteriye **o bilgisayara bağlı**, kısa süreli anahtar verilir ve her müşteri için ayrı üretilir:

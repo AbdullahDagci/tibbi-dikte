@@ -284,10 +284,11 @@ class LicenseManagerWindow(QMainWindow):
         self._private_key, self._log, self._today = private_key, log, today
         self._records: list[store.LicenseRecord] = []
         self._error = ""
+        self._shown: tuple | None = None
         self.setWindowTitle(APP_TITLE)
         self.setWindowIcon(theme.app_icon())
         self.setMinimumSize(960, 620)
-        self.resize(1180, 760)
+        self.resize(1320, 780)  # müşteri adları kısalmadan sığsın
 
         title = QLabel("Lisanslar")
         title.setObjectName("pageTitle")
@@ -317,7 +318,8 @@ class LicenseManagerWindow(QMainWindow):
                    Column("Veriliş", _issued, sort_key=_issued_key), Column("Bitiş", _expires, sort_key=_expires_key),
                    Column("Kalan süre", _days_text, sort_key=_days_sort_key), Column("Durum", _status, color=_status_color),
                    Column("Yenileme", _renewals, sort_key=_renewals_key)]
-        actions = [RowAction("copy", "Anahtarı kopyala", self.copy_key), RowAction("refresh", "Lisansı yenile", self.renew)]
+        actions = [RowAction("copy", "Anahtarı kopyala", self.copy_key), RowAction("refresh", "Lisansı yenile", self.renew),
+                   RowAction("trash", "Listeden kaldır", self.remove_license, "ghost-danger")]
         self.table = DataTable(columns, _search_text, normalize=tr_lower, actions=actions,
                                search_placeholder="Müşteri, makine kodu, durum ara…", empty_text="Henüz lisans yok")
         self.show_history = widgets.Switch()
@@ -407,14 +409,19 @@ class LicenseManagerWindow(QMainWindow):
             self._records, error = [], str(e)
         today = self._today()
         rows = store.build_rows(self._records, today)
-        self.table.set_rows(rows if self.show_history.isChecked() else store.current_rows(rows), keep_page=True)
+        visible = rows if self.show_history.isChecked() else store.current_rows(rows)
         s = store.summarize(rows)
+        ready = store.has_private_key(self._private_key)
+        shown = (visible, s, today, ready, error)
+        if shown == self._shown:  # fare altındaki düğmeler boşuna silinip yeniden yaratılmasın
+            return
+        self._shown = shown
+        self.table.set_rows(visible, keep_page=True)
         self.tile_active.set(str(s.active))
         self.tile_expiring.set(str(s.expiring), color=theme.WARNING_TEXT if s.expiring else None)
         self.tile_expired.set(str(s.expired), color=theme.BAD if s.expired else None)
         self.tile_total.set(str(s.total_keys), "yenilemeler dahil")
         self.date_label.setText(f"{today:%d.%m.%Y}")
-        ready = store.has_private_key(self._private_key)
         self.key_badge.set_state("Özel anahtar hazır" if ready else "Özel anahtar yok", "success" if ready else "danger")
         self.btn_new.setEnabled(ready and not error)
         if error != self._error:  # uyarı kapanınca pencere yeniden etkinleşir: aynı hata tekrar tekrar gösterilmesin
@@ -428,7 +435,7 @@ class LicenseManagerWindow(QMainWindow):
     def changeEvent(self, event) -> None:
         """Pencereye dönünce liste ve kalan günler güncellenir (ör. komut satırından anahtar üretildiyse)."""
         super().changeEvent(event)
-        if event.type() == QEvent.ActivationChange and self.isActiveWindow():
+        if event.type() == QEvent.ActivationChange and self.isActiveWindow() and QApplication.activeModalWidget() is None:
             self.reload()
 
     # ------------------------------------------------------------ işlemler
@@ -446,6 +453,45 @@ class LicenseManagerWindow(QMainWindow):
         latest = store.latest_of(self._records, row.record)
         self._run_dialog(LicenseDialog(private_key=self._private_key, log=self._log, today=self._today(), renewing=latest,
                                        parent=self))
+
+    def remove_license(self, row: store.LicenseRow) -> None:
+        """Güncel satır lisansı tüm anahtarlarıyla, eski anahtar satırı yalnızca o anahtarı kaldırır."""
+        old_key_only = row.status == store.RENEWED
+        targets = [row.record] if old_key_only else store.keys_of(self._records, row.record)
+        if not self._confirm_remove(self._remove_message(row, targets, old_key_only)):
+            return
+        try:
+            store.remove(targets, log=self._log)
+        except store.LicenseError as e:
+            QMessageBox.warning(self, APP_TITLE, str(e))
+        self.reload()
+
+    def _remove_message(self, row: store.LicenseRow, targets: list[store.LicenseRecord], old_key_only: bool) -> str:
+        name = row.record.customer
+        lines = [f"{name} için bu eski anahtar listeden kaldırılsın mı?" if old_key_only
+                 else f"{name} lisansı listeden kaldırılsın mı?"]
+        if len(targets) > 1:
+            lines.append(f"{len(targets) - 1} eski anahtar da kaldırılır.")
+        today = self._today()
+        if any(r.expires is None for r in targets):
+            lines.append("Anahtar iptal olmaz: kurulu olduğu bilgisayarda süresiz çalışmaya devam eder.")
+        else:
+            last = max(r.expires for r in targets)
+            if last >= today:
+                lines.append(f"Anahtar iptal olmaz: kurulu olduğu bilgisayarda {_date_text(last)} tarihine kadar çalışmaya devam eder.")
+        return "\n\n".join(lines)
+
+    def _confirm_remove(self, text: str) -> bool:
+        box = QMessageBox(self)
+        box.setIcon(QMessageBox.Warning)
+        box.setWindowTitle("Listeden kaldır")
+        box.setText(text)
+        confirm = box.addButton("Listeden kaldır", QMessageBox.DestructiveRole)
+        box.setDefaultButton(box.addButton("Vazgeç", QMessageBox.RejectRole))
+        box.exec()
+        chosen = box.clickedButton() is confirm
+        box.deleteLater()
+        return chosen
 
     def _run_dialog(self, dialog) -> None:
         issued = dialog.exec() == QDialog.Accepted

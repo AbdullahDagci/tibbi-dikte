@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -83,6 +84,43 @@ def load_records(log: Path = ISSUED_KEYS) -> list[LicenseRecord]:
         raise LicenseError(f"Lisans kayıtları okunamadı ({log.name}): {e}") from e
 
 
+def removed_log(log: Path = ISSUED_KEYS) -> Path:
+    """Listeden kaldırılan anahtarların arşivi: geri dönüş ve müşteri numarasının tekrar kullanılmaması için."""
+    return log.with_name(f"{log.stem}_removed.csv")
+
+
+def _row_values(record: LicenseRecord) -> list:
+    return [record.customer_id, record.customer, record.machine_code, record.expires or NO_EXPIRY, record.issued, record.key]
+
+
+def _append(log: Path, records: list[LicenseRecord]) -> None:
+    new_file = not log.exists()
+    with log.open("a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        if new_file:
+            writer.writerow(FIELDS)
+        writer.writerows(_row_values(r) for r in records)
+
+
+def remove(records: list[LicenseRecord], log: Path = ISSUED_KEYS) -> None:
+    """Kayıtları listeden arşive taşır. Anahtarı iptal etmez: uygulama internete bağlanmadığı için iptal mümkün değildir."""
+    keys = {r.key for r in records}
+    current = load_records(log)
+    leaving = [r for r in current if r.key in keys]
+    if not leaving:
+        return
+    temporary = log.with_name(f"{log.name}.tmp")
+    try:
+        _append(removed_log(log), leaving)
+        with temporary.open("w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(FIELDS)
+            writer.writerows(_row_values(r) for r in current if r.key not in keys)
+        os.replace(temporary, log)
+    except OSError as e:
+        raise LicenseError(f"Lisans kayıtları yazılamadı ({log.name}): {e}") from e
+
+
 def has_private_key(private_key: Path = PRIVATE_KEY) -> bool:
     return private_key.is_file()
 
@@ -113,16 +151,11 @@ def issue(customer: str, machine_code: str | None = None, demo: bool = False, ex
         signer = serialization.load_pem_private_key(private_key.read_bytes(), password=None)
     except (OSError, ValueError) as e:
         raise LicenseError(f"Özel anahtar okunamadı: {private_key}") from e
-    records = load_records(log)
+    records = load_records(log) + load_records(removed_log(log))
     customer_id = max((r.customer_id for r in records), default=0) + 1
     payload = pack_payload(machine, expires, customer_id, issued=today)
     record = LicenseRecord(customer_id, customer, machine_label, expires, today, encode_key(payload, signer.sign(payload)))
-    new_file = not log.exists()
-    with log.open("a", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        if new_file:
-            writer.writerow(FIELDS)
-        writer.writerow([record.customer_id, record.customer, record.machine_code, expires or NO_EXPIRY, today, record.key])
+    _append(log, [record])
     return record
 
 
@@ -132,9 +165,13 @@ def _license_id(record: LicenseRecord) -> tuple[str, str]:
     return record.customer.strip().casefold(), record.machine_code
 
 
+def keys_of(records: list[LicenseRecord], record: LicenseRecord) -> list[LicenseRecord]:
+    """Bir lisansın yenilemeler dahil tüm anahtarları."""
+    return [r for r in records if _license_id(r) == _license_id(record)]
+
+
 def latest_of(records: list[LicenseRecord], record: LicenseRecord) -> LicenseRecord:
-    same = [r for r in records if _license_id(r) == _license_id(record)]
-    return max(same, key=lambda r: r.customer_id, default=record)
+    return max(keys_of(records, record), key=lambda r: r.customer_id, default=record)
 
 
 def build_rows(records: list[LicenseRecord], today: dt.date) -> list[LicenseRow]:

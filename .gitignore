@@ -10,7 +10,7 @@ models/*/tokens.txt
 tools/private_key.pem
 *.wav
 _hotwords.txt
-tools/issued_keys.csv
+tools/issued_keys*
 app/*.onnx
 data/*/audio/
 data/*/synthetic_audio/
