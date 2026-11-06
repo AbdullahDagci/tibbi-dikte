@@ -1,5 +1,5 @@
 {
-  "name": "Tıbbi Türkçe v3 — Radyoloji",
+  "name": "Tıbbi Türkçe v3 (tam veri, karışımsız)",
   "engine": "sherpa-onnx",
   "mode": "online",
   "type": "transducer",
@@ -19,6 +19,5 @@
   "attribution": "Abdullah DAĞCI tarafından radyoloji dikte için eğitildi",
   "finetuned_from": "averaged.pt",
   "hotwords": false,
-  "default": true,
   "base_model": "mihuai/turkish-stt-66m-v2"
 }

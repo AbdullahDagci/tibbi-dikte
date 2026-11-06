@@ -1,4 +1,4 @@
-# Raporlarda geçen kelimeler — bulanık düzeltme bunları DEĞİŞTİRMEZ (otomatik).
+# Raporlarda geçen kelimeler — "sözlükte yok" diye işaretlenmez (otomatik).
 incelemesinde
 lezyon
 bulgular

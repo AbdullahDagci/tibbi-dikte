@@ -3,13 +3,12 @@ import sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-from app.dictation import (BUILTIN_CORRECTIONS, BUILTIN_LEXICON, RADIOLOGY_FUZZY, RADIOLOGY_KNOWN,  # noqa: E402
-                           RADIOLOGY_LEXICON)
+from app.dictation import BUILTIN_CORRECTIONS, BUILTIN_LEXICON, RADIOLOGY_KNOWN, RADIOLOGY_LEXICON  # noqa: E402
 from app.medical.postprocess import MedicalPostProcessor, read_lexicon, tr_lower  # noqa: E402
 from app.scoring import score  # noqa: E402
 
 pp = MedicalPostProcessor.from_files([BUILTIN_LEXICON, RADIOLOGY_LEXICON], [BUILTIN_CORRECTIONS],
-                                     fuzzy_files=[BUILTIN_LEXICON, RADIOLOGY_FUZZY], protected_files=[RADIOLOGY_KNOWN],
+                                     protected_files=[RADIOLOGY_KNOWN],
                                      general_files=[BUILTIN_LEXICON.parent / "general_tr_words.txt"])
 terms = {tr_lower(t) for f in (BUILTIN_LEXICON, RADIOLOGY_LEXICON) for t in read_lexicon(f) if " " not in t}
 for hyp_f in sorted(Path(__file__).parent.glob("*.hyp.txt")):

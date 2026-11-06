@@ -1,4 +1,4 @@
-﻿"""Dinleme göstergesi: ekranın altında, odak ÇALMAYAN yarı saydam kapsül.
+﻿"""Dinleme göstergesi: ekranın sağ alt köşesinde, odak ÇALMAYAN yarı saydam kapsül.
 
 Sol: ses seviyesine göre atan mikrofon küresi ve dalga halkaları. Sağ: bu dikte oturumunda yazılan metin
 (beyaz) + o an söylenmekte olan, henüz kesinleşmemiş kısım (gri).
@@ -16,8 +16,10 @@ from PySide6.QtCore import QEasingCurve, QPointF, QPropertyAnimation, QRectF, Qt
 from PySide6.QtGui import QColor, QCursor, QFont, QGuiApplication, QPainter, QPainterPath, QPen, QRadialGradient
 from PySide6.QtWidgets import QLabel, QWidget
 
-ACCENT = {"listening": QColor("#FF5A5F"), "finishing": QColor("#F5A524"), "done": QColor("#22C55E"),
-          "loading": QColor("#8B95A7"), "error": QColor("#F97316")}
+from . import theme
+
+ACCENT = {"listening": QColor(theme.DANGER), "finishing": QColor(theme.WARNING), "done": QColor(theme.SUCCESS),
+          "loading": QColor(theme.MUTED), "error": QColor(theme.WARNING)}
 CAPTION = {"listening": "DİNLİYOR", "finishing": "SON KELİMELER YAZILIYOR", "done": "YAZILDI",
            "loading": "MODEL YÜKLENİYOR", "error": "HATA"}
 
@@ -136,7 +138,8 @@ class ListeningOverlay(QWidget):
     def _place(self) -> None:
         screen = QGuiApplication.screenAt(QCursor.pos()) or QGuiApplication.primaryScreen()
         g = screen.availableGeometry()
-        self.move(g.center().x() - self.width() // 2, g.bottom() - self.height() - 36)
+        # Pencerenin kenarında gölge için MARGIN kadar saydam pay var; görünen kart köşeye bu kadar daha yakın durur
+        self.move(g.right() - self.width() - 6, g.bottom() - self.height() - 6)
 
     def _render_text(self) -> None:
         committed, partial = self.committed, self.partial
@@ -190,7 +193,7 @@ class ListeningOverlay(QWidget):
         # cam gövde
         path = QPainterPath()
         path.addRoundedRect(body, 28, 28)
-        p.fillPath(path, QColor(16, 19, 27, 250))
+        p.fillPath(path, QColor(15, 39, 68, 250))  # sol menü rengi
         p.setPen(QPen(QColor(255, 255, 255, 22), 1))
         p.drawPath(path)
 

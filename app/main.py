@@ -35,7 +35,9 @@ def main() -> int:
     from .tray import TrayApp
     tray = TrayApp(app)
     tray.start()
-    return app.exec()
+    code = app.exec()
+    tray.dispose()
+    return code
 
 
 if __name__ == "__main__":

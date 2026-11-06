@@ -16,16 +16,16 @@ class Config:
     num_threads: int = 2
     use_hotwords: bool = True
     hotwords_score: float = 2.0
-    use_postprocess: bool = True        # False: model ne duyduysa o yazılır (sayı/terim/sözlük düzeltmesi yok)
     use_itn: bool = True                # sayı/yüzde/tarih -> yazılı biçim
-    fuzzy_correction: bool = True       # tıbbi terimlere bulanık düzeltme
-    use_context: bool = True            # rapor dil modeliyle bağlamsal düzeltme (model dosyası varsa)
-    context_threshold: float = 5.0      # yüksek = daha temkinli (daha az değişiklik)
     add_trailing_space: bool = True
     live_typing: bool = True            # kelimeleri konuşurken yaz; cümle sonunda düzeltilmiş hâliyle güncelle
-    show_overlay: bool = True           # dinlerken ekranın altında nabız + canlı metin
+    show_overlay: bool = True           # dinlerken ekranın sağ altında nabız + canlı metin
+    beep_enabled: bool = True           # dikte başlarken ve biterken bip
+    beep_start_hz: int = 990
+    beep_stop_hz: int = 660
+    beep_ms: int = 70
     extra: dict = field(default_factory=dict)
-    config_version: int = 2             # 2: model_dir boşsa model.json "default" modeli (v3-tam) kullanılır
+    config_version: int = 2             # 2: model_dir boşsa model.json'da "default" olan model kullanılır
 
     @classmethod
     def load(cls) -> "Config":

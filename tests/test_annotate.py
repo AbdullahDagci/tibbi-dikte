@@ -15,7 +15,6 @@ M = Path(__file__).resolve().parent.parent / "app" / "medical"
 def pp() -> MedicalPostProcessor:
     return MedicalPostProcessor.from_files(
         [M / "lexicon_tr.txt", M / "radiology_terms_tr.txt"], [M / "corrections_tr.tsv"],
-        fuzzy_files=[M / "lexicon_tr.txt", M / "radiology_fuzzy_tr.txt"],
         protected_files=[M / "radiology_known_tr.txt"], general_files=[M / "general_tr_words.txt"], use_itn=True)
 
 
@@ -37,12 +36,6 @@ def test_annotate_matches_call(pp: MedicalPostProcessor, text: str) -> None:
 def test_exact_correction_marked_corrected(pp: MedicalPostProcessor) -> None:
     spans = pp.annotate("hasta e ka ge çekildi")
     assert any(status == "corrected" and "EKG" in t for t, status in spans)
-
-
-def test_fuzzy_correction_marked_corrected(pp: MedicalPostProcessor) -> None:
-    spans = pp.annotate("metformın kullanan hastada")
-    assert any(status == "corrected" and tr == "metformin" for tr, status in
-               [(t.lower(), s) for t, s in spans])
 
 
 def test_unmatched_long_word_marked_suspect(pp: MedicalPostProcessor) -> None:

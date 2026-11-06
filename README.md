@@ -47,10 +47,8 @@ dikte uygulaması. Radyoloji ve genel tıbbi terimler için ayarlanmıştır, **
 | Hotword (genel tıbbi + rapor sıklığından 493 radyoloji terimi) | modele terimler öncelikli tanıtılır |
 | Kesin / kök düzeltme (`corrections_tr.tsv`) | `e ka ge → EKG`, `kemik eriği → kemik iliği`, `protezyonu → protrüzyonu` |
 | Bölünmüş kelime birleştirme | `para santralin → parasantralin`, `sekanslar da → sekanslarda` |
-| Bağlamsal düzeltme (rapor metinlerinden 3-gram dil modeli) | `sol bacağı yayılan → sol bacağa yayılan` |
 | Sayı ve birim (ITN) | `beş yüz miligram → 500 mg`, `tansiyon yüz kırk doksan → 140/90` |
 | Omurga seviyesi + sağ/sol | `C5G 6 → C5-C6`, `4C5 → C4-C5`, `son L5 → sol L5` (T1/T2 sekanslarına dokunulmaz) |
-| Bulanık terim düzeltme (raporda geçen kelimeler korunur) | `Tropolin → Troponin`, `intrabenoz → intravenöz` |
 
 Ölçümler (`tests/eval_wer.py`, `tests/cases/score_cases.py`):
 
@@ -73,7 +71,8 @@ uygulamaya dışa aktarma. Ayrıntı ve komutlar: **[docs/EGITIM.md](docs/EGITIM
   | Model | Radyoloji (uygulama) | Genel tıbbi (uygulama) | FLEURS (ham) | ISSAI (ham) |
   |---|---|---|---|---|
   | v2 (taban) | %15,6 | %11,9 | %9,1 | %11,3 |
-  | **`models/tibbi-tr-v3-tam`** (14.750 klip) | **%1,6** (terim %99) | %8,4 | %8,3 | %9,3 |
+  | **`models/tibbi-tr-v3-tam-w07`** (14.750 klip, %70 ince ayar + %30 taban) | **%2,7** (terim %97) | %5,9 | %7,3 | %9,4 |
+  | `models/tibbi-tr-v3-tam` (14.750 klip) | %1,6 (terim %99) | %8,4 | %8,3 | %9,3 |
   | `models/tibbi-tr-v3-aday` (10.888 klip) | %2,3 (terim %98) | %5,0 | %7,8 | %9,3 |
 - **B yolu**: mihu'dan bağımsız kendi modelimiz (kendi BPE, sıfırdan; `--independent` dışa aktarımda atıf eklenmez).
 
@@ -86,18 +85,19 @@ klasörlerini tarar, **Ayarlar › Genel › Konuşma modeli**'nden seçilir:
   "encoder": "small-encoder.int8.onnx", "decoder": "small-decoder.int8.onnx",
   "tokens": "small-tokens.txt", "language": "tr" }
 ```
-Kullanıcı model seçmediyse `"default": true` olan model kullanılır — şu an **`tibbi-tr-v3-tam`**
-(Ayarlar'da "(varsayılan)" yazar; kurulum yalnızca bu modeli kurar, eski kurulumdaki v2 klasörü güncellemede silinir). Varsayılan seçili kaydedilirse ayar boş
+Kullanıcı model seçmediyse `"default": true` olan model kullanılır — şu an **`tibbi-tr-v3-tam-w07`**
+(Ayarlar'da "(varsayılan)" yazar; kurulum yalnızca bu modeli kurar, eski kurulumdaki v2 ve v3-tam klasörleri güncellemede silinir). Varsayılan seçili kaydedilirse ayar boş
 kalır, sonraki sürümde varsayılan değişince kullanıcı da geçer; başka bir model seçen kullanıcının tercihi korunur.
 `mode`: `online` (akış) | `offline` (Silero VAD ile bölünür). `type`: online için `transducer`, `paraformer`,
 `zipformer2_ctc`; offline için `transducer`, `whisper`, `nemo_ctc`, `paraformer`, `sense_voice`.
-Lisansı atıf gerektiren modellerde `"attribution"` alanı Hakkında sekmesinde ve NOTICE.txt'de gösterilir.
+Lisansı atıf gerektiren modellerde `"attribution"` alanı NOTICE.txt'de gösterilir.
 
 ## Lisans anahtarları (yalnızca satıcı)
 ```powershell
+tools\LisansYoneticisi.cmd                                                    # ekranlı yönetim: liste, kalan gün, yenileme, yeni anahtar
 python tools\keygen.py init                                                   # bir kez: imza anahtar çifti
 python tools\keygen.py issue ABCD-EFGH-IJKL-MNOP --customer "Dr. X" --days 365  # makineye bağlı
-python tools\keygen.py issue --demo --customer "Y Hastanesi (demo)" --days 14   # her bilgisayar, en fazla 31 gün
+python tools\keygen.py issue --demo --customer "Y Hastanesi (demo)" --days 14   # yalnız kendi sunumlarınız: her bilgisayar, en fazla 31 gün
 ```
 `tools/private_key.pem` **gizlidir** (`.gitignore`'da): yedekleyin, paylaşmayın. Verilen anahtarlar
 `tools/issued_keys.csv`'ye kaydedilir. Demo akışı: **[docs/DEMO.md](docs/DEMO.md)**.
@@ -115,7 +115,7 @@ py -3.11 -m venv .venv; .\.venv\Scripts\pip install -r requirements-dev.txt
 ```
 app/            uygulama (tepsi, gösterge, dikte, anlık yazım, bas-konuş, test, veri toplama, lisans)
 app/engines/    STT motor arayüzü + sherpa-onnx
-app/medical/    sözlükler, düzeltmeler, sonişleme, bağlamsal dil modeli
+app/medical/    sözlükler, düzeltmeler, sonişleme
 tools/          model kurulumu, anahtar üretici, sözlük üretimi, test kaydı
 training/       checkpoint kurtarma, veri hazırlama, eğitim, dışa aktarma
 tests/          birim testleri, değerlendirme, gerçek vaka puanlaması
@@ -123,7 +123,6 @@ tests/          birim testleri, değerlendirme, gerçek vaka puanlaması
 
 ## Model lisansı
 Varsayılan konuşma tanıma modeli **mihu Community License** kapsamındadır: yıllık ciro < 500.000 USD iken
-ticari kullanım; ücretli üründe dağıtım açıkça izinli değildir (md. 5e); atıf zorunludur (Hakkında sekmesi ve
-NOTICE.txt). v2 ağırlıkları bu depoda yer almaz (`tools/setup_model.py` indirir); radyoloji ince ayarlı
-v3 modelleri (`models/tibbi-tr-v3-tam`, `models/tibbi-tr-v3-aday`) depoyla gelir. Satış ve müşteriye kurulum
+ticari kullanım; ücretli üründe dağıtım açıkça izinli değildir (md. 5e); atıf zorunludur (NOTICE.txt). v2 ağırlıkları bu depoda yer almaz (`tools/setup_model.py` indirir); radyoloji ince ayarlı
+v3 modelleri (`models/tibbi-tr-v3-tam-w07`, `models/tibbi-tr-v3-tam`, `models/tibbi-tr-v3-aday`) depoyla gelir. Satış ve müşteriye kurulum
 vermeden önce mihu'dan yazılı izin alınmalıdır; mihu'dan bağımsız model (B yolu) bu kısıtı kaldırır.

@@ -12,54 +12,37 @@ from pathlib import Path
 from typing import Callable
 
 import numpy as np
-from PySide6.QtCore import QObject, Qt, QTimer, Signal
+from PySide6.QtCore import QObject, QTimer, Signal
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtWidgets import (QCheckBox, QDialog, QFileDialog, QFrame, QHBoxLayout, QLabel, QPlainTextEdit,
-                               QProgressBar, QPushButton, QTabWidget, QTextBrowser, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QFileDialog, QHBoxLayout, QLabel, QPlainTextEdit, QProgressBar, QSizePolicy, QTabWidget,
+                               QTextBrowser, QVBoxLayout, QWidget)
 
 from . import theme
-from .editor import EditorPage
+from .audio import AudioPlayer
+from .audio_file import load_audio
 from .medical.postprocess import read_lexicon, tr_lower
 from .scoring import Score, score
+from .ui import widgets
 
-AUDIO_FILTER = "Ses dosyaları (*.wav *.flac *.mp3 *.ogg *.opus *.m4a);;Tüm dosyalar (*.*)"
+AUDIO_FILTER = "Ses ve video dosyaları (*.wav *.flac *.mp3 *.ogg *.opus *.m4a *.mp4);;Tüm dosyalar (*.*)"
 
 
 class _Signals(QObject):
     done = Signal(object)
     failed = Signal(str)
+    play_ended = Signal()
 
 
-class Card(QFrame):
-    def __init__(self, title: str):
-        super().__init__()
-        self.setObjectName("card")
-        v = QVBoxLayout(self)
-        v.setContentsMargins(16, 12, 16, 12)
-        v.setSpacing(2)
-        t = QLabel(title.upper())
-        t.setObjectName("cardTitle")
-        self.value = QLabel("—")
-        self.value.setObjectName("cardValue")
-        self.sub = QLabel("")
-        self.sub.setObjectName("muted")
-        for w in (t, self.value, self.sub):
-            v.addWidget(w)
+class TestPage(QWidget):
+    __test__ = False  # pytest bunu test sınıfı sanmasın
 
-    def set(self, value: str, sub: str = "", color: str | None = None) -> None:
-        self.value.setText(value)
-        self.value.setStyleSheet(f"color:{color}" if color else "")
-        self.sub.setText(sub)
-
-
-class TestWindow(QDialog):
-    def __init__(self, get_pipeline: Callable[[], tuple], term_files: list[Path], parent=None,
-                 editor_page: EditorPage | None = None):
-        """get_pipeline() -> (engine, postprocessor, meşgul_mu: bool). editor_page: "Canlı dikte" sekmesi."""
+    def __init__(self, get_pipeline: Callable[[], tuple], term_files: list[Path], parent=None):
+        """get_pipeline() -> (engine, postprocessor, meşgul_mu: bool)."""
         super().__init__(parent)
-        self.editor_page = editor_page
+        self.setObjectName("page")
         self.get_pipeline = get_pipeline
-        self.terms = {tr_lower(t) for f in term_files for t in read_lexicon(f) if " " not in t and len(t) >= 6}
+        self._term_files = term_files
+        self._load_terms()
         self.audio: np.ndarray | None = None
         self.sr = 16000
         self.audio_name = ""
@@ -68,99 +51,85 @@ class TestWindow(QDialog):
         self._sig = _Signals()
         self._sig.done.connect(self._show_result)
         self._sig.failed.connect(self._show_error)
-        self.setWindowTitle("Tıbbi Dikte — Test ve Doğruluk")
-        self.resize(980, 760)
+        self._sig.play_ended.connect(self._play_ended)
+        self.player = AudioPlayer(on_finished=self._sig.play_ended.emit)
         self._build()
+
+    def _load_terms(self) -> None:
+        self.terms = {tr_lower(t) for f in self._term_files for t in read_lexicon(f) if " " not in t and len(t) >= 6}
 
     # ------------------------------------------------ arayüz
     def _build(self) -> None:
-        outer = QVBoxLayout(self)
-        outer.setContentsMargins(22, 18, 22, 18)
-        outer.setSpacing(8)
-        h1 = QLabel("Test ve Doğruluk")
-        h1.setObjectName("h1")
-        outer.addWidget(h1)
-        self.mode_tabs = QTabWidget()
-        outer.addWidget(self.mode_tabs, 1)
-        if self.editor_page is not None:
-            self.mode_tabs.addTab(self.editor_page, "Canlı dikte (editör)")
-        file_page = QWidget()
-        self.mode_tabs.addTab(file_page, "Ses dosyası ile test")
-
-        root = QVBoxLayout(file_page)
-        root.setContentsMargins(0, 8, 0, 0)
+        root = QVBoxLayout(self)
+        root.setContentsMargins(22, 18, 22, 18)
         root.setSpacing(12)
-        sub = QLabel("Bir ses dosyası seçin ya da mikrofonla kaydedin. Doğru metni (referans) girerseniz "
-                     "doğruluk oranı ve kelime kelime fark gösterilir.")
-        sub.setObjectName("muted")
-        sub.setWordWrap(True)
-        root.addWidget(sub)
 
-        row = QHBoxLayout()
-        self.btn_open = QPushButton("Ses dosyası seç…")
+        self.btn_open = widgets.button("Dosya seç", "folder-open", "primary")
         self.btn_open.clicked.connect(self._open)
-        self.btn_rec = QPushButton("●  Mikrofonla kaydet")
+        self.btn_rec = widgets.button("Mikrofonla kaydet", "microphone", "info")
         self.btn_rec.clicked.connect(self._toggle_record)
-        self.btn_play = QPushButton("▶  Dinle")
+        self.btn_play = widgets.button("Dinle", "player-play", "light")
         self.btn_play.clicked.connect(self._play)
-        self.btn_play.setEnabled(False)
+        self.btn_pause = widgets.button("Duraklat", "player-pause", "light")
+        self.btn_pause.clicked.connect(self._pause)
+        self.btn_stop = widgets.button("Durdur", "player-stop", "light")
+        self.btn_stop.clicked.connect(self._stop)
+        self._sync_player()
         self.file_label = QLabel("Ses seçilmedi")
         self.file_label.setObjectName("muted")
+        self.file_label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)  # uzun ad pencereyi genişletmesin
         self.rec_level = QProgressBar()
         self.rec_level.setRange(0, 100)
         self.rec_level.setFixedWidth(120)
         self.rec_level.setTextVisible(False)
         self.rec_level.hide()
-        for w in (self.btn_open, self.btn_rec, self.btn_play):
+        row = QHBoxLayout()
+        row.setSpacing(8)
+        for w in (self.btn_open, self.btn_rec, self.btn_play, self.btn_pause, self.btn_stop):
             row.addWidget(w)
-        row.addSpacing(8)
+        row.addSpacing(6)
         row.addWidget(self.file_label, 1)
         row.addWidget(self.rec_level)
-        root.addLayout(row)
 
         self.reference = QPlainTextEdit()
-        self.reference.setPlaceholderText("Referans (doğru) metin — isteğe bağlı. Ses dosyasıyla aynı adlı .txt "
-                                          "dosyası varsa otomatik yüklenir. Kayıt yapacaksanız önce metni yazıp "
-                                          "sonra okuyun.")
-        self.reference.setFixedHeight(90)
-        root.addWidget(self.reference)
+        self.reference.setPlaceholderText("Referans (doğru) metin, isteğe bağlı")
+        self.reference.setFixedHeight(76)
 
-        row2 = QHBoxLayout()
-        self.cb_post = QCheckBox("Tıbbi sonişlemeyi uygula (uygulamanın gerçekte yazacağı metin)")
+        self.cb_post = widgets.Switch()
         self.cb_post.setChecked(True)
-        self.btn_run = QPushButton("Çözümle ve puanla")
-        self.btn_run.setObjectName("primary")
+        self.btn_run = widgets.button("Çözümle ve puanla", "wand", "success")
         self.btn_run.setEnabled(False)
         self.btn_run.clicked.connect(self._run)
         self.progress = QProgressBar()
         self.progress.setRange(0, 0)
         self.progress.setFixedWidth(160)
         self.progress.hide()
-        row2.addWidget(self.cb_post, 1)
+        row2 = QHBoxLayout()
+        row2.setSpacing(8)
+        row2.addWidget(QLabel("Tıbbi sonişleme"))
+        row2.addWidget(widgets.InfoTip("Açıkken uygulamanın gerçekte yazacağı metin puanlanır. Ses dosyasıyla aynı adlı "
+                                       ".txt dosyası varsa referans olarak otomatik yüklenir."))
+        row2.addWidget(self.cb_post)
+        row2.addStretch()
         row2.addWidget(self.progress)
         row2.addWidget(self.btn_run)
-        root.addLayout(row2)
 
-        cards = QHBoxLayout()
-        cards.setSpacing(10)
-        self.c_acc = Card("Kelime doğruluğu")
-        self.c_wer = Card("Kelime hata oranı (WER)")
-        self.c_cer = Card("Karakter hata oranı (CER)")
-        self.c_term = Card("Tıbbi terim isabeti")
-        self.c_speed = Card("Hız")
-        for c in (self.c_acc, self.c_wer, self.c_cer, self.c_term, self.c_speed):
-            cards.addWidget(c, 1)
-        root.addLayout(cards)
+        source = widgets.Card()
+        source.body.addLayout(row)
+        source.body.addWidget(self.reference)
+        source.body.addLayout(row2)
+        root.addWidget(source)
 
-        legend = QLabel(
-            f"<span style='color:#1F2430'>doğru</span> &nbsp;·&nbsp; "
-            f"<span style='color:{theme.BAD}'><b>yanlış</b></span> "
-            f"<span style='color:#98A1B2'><s>referans</s></span> &nbsp;·&nbsp; "
-            f"<span style='background:#FDECEC;color:{theme.BAD}'><s>&nbsp;eksik&nbsp;</s></span> &nbsp;·&nbsp; "
-            f"<span style='background:#FFF4DB;color:{theme.WARN}'>&nbsp;fazla&nbsp;</span>"
-            "&nbsp;&nbsp;&nbsp;<i>(karşılaştırmada sayı ve birimler okunuşuna çevrilir: 6 mm = altı milimetre)</i>")
-        legend.setObjectName("muted")
-        root.addWidget(legend)
+        self.c_acc = widgets.StatTile("Kelime doğruluğu", "circle-check")
+        self.c_wer = widgets.StatTile("Kelime hata oranı", "alert-triangle")
+        self.c_cer = widgets.StatTile("Karakter hata oranı", "table")
+        self.c_term = widgets.StatTile("Terim isabeti", "stethoscope")
+        self.c_speed = widgets.StatTile("Hız", "cpu")
+        tiles = QHBoxLayout()
+        tiles.setSpacing(10)
+        for tile in (self.c_acc, self.c_wer, self.c_cer, self.c_term, self.c_speed):
+            tiles.addWidget(tile, 1)
+        root.addLayout(tiles)
 
         self.tabs = QTabWidget()
         self.diff = QTextBrowser()
@@ -171,36 +140,55 @@ class TestWindow(QDialog):
         self.tabs.addTab(self.diff, "Karşılaştırma")
         self.tabs.addTab(self.out_post, "Uygulamanın yazacağı metin")
         self.tabs.addTab(self.out_raw, "Ham model çıktısı")
-        root.addWidget(self.tabs, 1)
 
-        bottom = QHBoxLayout()
+        legend = QLabel(
+            f"<span style='color:{theme.TEXT}'>doğru</span> &nbsp;·&nbsp; "
+            f"<span style='color:{theme.BAD}'><b>yanlış</b></span> "
+            f"<span style='color:{theme.MUTED}'><s>referans</s></span> &nbsp;·&nbsp; "
+            f"<span style='background:{theme.DANGER_LIGHT};color:{theme.BAD}'><s>&nbsp;eksik&nbsp;</s></span> &nbsp;·&nbsp; "
+            f"<span style='background:{theme.WARNING_LIGHT};color:{theme.WARN}'>&nbsp;fazla&nbsp;</span>")
+        legend.setObjectName("muted")
         self.missed = QLabel("")
         self.missed.setObjectName("muted")
         self.missed.setWordWrap(True)
-        copy = QPushButton("Metni kopyala")
-        copy.clicked.connect(lambda: QGuiApplication.clipboard().setText(self.out_post.toPlainText()))
+        copy = widgets.button("Metni kopyala", "copy", "light")
+        copy.clicked.connect(self._copy_output)
+        bottom = QHBoxLayout()
+        bottom.addWidget(legend)
+        bottom.addWidget(widgets.InfoTip("Karşılaştırmada sayı ve birimler okunuşuna çevrilir: 6 mm = altı milimetre."))
         bottom.addWidget(self.missed, 1)
         bottom.addWidget(copy)
-        root.addLayout(bottom)
+
+        result = widgets.Card()
+        result.body.addWidget(self.tabs, 1)
+        result.body.addLayout(bottom)
+        root.addWidget(result, 1)
+
+    def _copy_output(self) -> None:
+        QGuiApplication.clipboard().setText(self.out_post.toPlainText())
 
     # ------------------------------------------------ ses
     def _set_audio(self, audio: np.ndarray, sr: int, name: str) -> None:
         self.audio, self.sr, self.audio_name = audio.astype(np.float32), sr, name
-        self.file_label.setText(f"{name}  ·  {len(audio) / sr:.1f} sn  ·  {sr // 1000} kHz")
-        self.btn_play.setEnabled(True)
+        self.player.load(self.audio, sr)
+        self._set_file_label(f"{name}  ·  {len(audio) / sr:.1f} sn  ·  {sr // 1000} kHz")
+        self._sync_player()
         self.btn_run.setEnabled(True)
+
+    def _set_file_label(self, text: str) -> None:
+        self.file_label.setText(text)
+        self.file_label.setToolTip(text)
 
     def _open(self) -> None:
         path, _ = QFileDialog.getOpenFileName(self, "Ses dosyası seç", "", AUDIO_FILTER)
         if not path:
             return
         try:
-            import soundfile as sf
-            audio, sr = sf.read(path, dtype="float32", always_2d=True)
+            audio, sr = load_audio(path)
         except Exception as e:  # noqa: BLE001
             self._show_error(f"Ses dosyası okunamadı: {e}")
             return
-        self._set_audio(audio.mean(axis=1), sr, Path(path).name)
+        self._set_audio(audio, sr, Path(path).name)
         txt = Path(path).with_suffix(".txt")
         if txt.exists() and not self.reference.toPlainText().strip():
             self.reference.setPlainText(txt.read_text(encoding="utf-8").strip())
@@ -213,10 +201,11 @@ class TestWindow(QDialog):
                 self._rec_chunks.append(indata[:, 0].copy())
             self._rec_stream = sd.InputStream(samplerate=16000, channels=1, dtype="float32", callback=cb)
             self._rec_stream.start()
+            self.player.stop()  # hoparlörden çıkan ses kayda girmesin
+            self._sync_player()
             self._rec_t0 = time.monotonic()
-            self.btn_rec.setText("■  Kaydı durdur")
-            self.btn_rec.setObjectName("danger")
-            self.btn_rec.setStyle(self.btn_rec.style())
+            self.btn_rec.setText("Kaydı durdur")
+            widgets.set_variant(self.btn_rec, "danger", icon="player-stop")
             self.rec_level.show()
             self._rec_timer = QTimer(self, interval=100)
             self._rec_timer.timeout.connect(self._rec_tick)
@@ -227,9 +216,9 @@ class TestWindow(QDialog):
             self._rec_stream = None
             self._rec_timer.stop()
             self.rec_level.hide()
-            self.btn_rec.setText("●  Mikrofonla kaydet")
-            self.btn_rec.setObjectName("")
-            self.btn_rec.setStyle(self.btn_rec.style())
+            self.btn_rec.setText("Mikrofonla kaydet")
+            widgets.set_variant(self.btn_rec, "info", icon="microphone")
+            self._sync_player()
             if self._rec_chunks:
                 self._set_audio(np.concatenate(self._rec_chunks), 16000, "Mikrofon kaydı")
 
@@ -240,13 +229,34 @@ class TestWindow(QDialog):
         self.file_label.setText(f"Kaydediliyor…  {time.monotonic() - self._rec_t0:.0f} sn")
 
     def _play(self) -> None:
-        import sounddevice as sd
-        if self.audio is not None:
-            sd.stop()
-            sd.play(self.audio, self.sr)
+        try:
+            self.player.play()
+        except Exception as e:  # noqa: BLE001 (ses aygıtı yok ya da meşgul)
+            self._set_file_label(f"Ses çalınamadı: {e}")
+        self._sync_player()
+
+    def _pause(self) -> None:
+        self.player.pause()
+        self._sync_player()
+
+    def _stop(self) -> None:
+        self.player.stop()
+        self._sync_player()
+
+    def _play_ended(self) -> None:
+        self.player.finish()
+        self._sync_player()
+
+    def _sync_player(self) -> None:
+        playing, paused = self.player.is_playing, self.player.is_paused
+        self.btn_play.setEnabled(self.audio is not None and not playing and self._rec_stream is None)
+        self.btn_play.setText("Devam et" if paused else "Dinle")
+        self.btn_pause.setEnabled(playing)
+        self.btn_stop.setEnabled(playing or paused)
 
     # ------------------------------------------------ çözümleme
     def _run(self) -> None:
+        self._load_terms()  # sözlüğe yeni eklenen terimler de sayılsın
         engine, post, busy = self.get_pipeline()
         if engine is None:
             self._show_error("Model henüz yüklenmedi. Birkaç saniye sonra tekrar deneyin.")
@@ -285,13 +295,13 @@ class TestWindow(QDialog):
         self.out_post.setPlainText(r["final"])
         self.out_raw.setPlainText(r["raw"])
         rtf = r["elapsed"] / max(r["duration"], 1e-6)
-        self.c_speed.set(f"{1 / max(rtf, 1e-6):.0f}× gerçek zaman", f"{r['duration']:.1f} sn ses → {r['elapsed']:.1f} sn",
+        self.c_speed.set(f"{1 / max(rtf, 1e-6):.0f}×", f"gerçek zaman · {r['duration']:.1f} sn ses → {r['elapsed']:.1f} sn",
                          theme.GOOD if rtf < 0.5 else theme.WARN)
         s: Score | None = r.get("score")
         if s is None:
             for c in (self.c_acc, self.c_wer, self.c_cer, self.c_term):
                 c.set("—", "referans yok")
-            self.diff.setHtml("<p style='color:#6B7486'>Referans metin girilmedi; yalnızca çıktı gösteriliyor.</p>"
+            self.diff.setHtml(f"<p style='color:{theme.MUTED}'>Referans metin girilmedi; yalnızca çıktı gösteriliyor.</p>"
                               f"<p style='font-size:12pt'>{html.escape(r['final'])}</p>")
             self.missed.setText("")
             return
@@ -316,20 +326,18 @@ class TestWindow(QDialog):
             if a.op == "ok":
                 parts.append(html.escape(a.hyp))
             elif a.op == "sub":
-                parts.append(f"<span style='color:#98A1B2'><s>{html.escape(a.ref)}</s></span>&nbsp;"
+                parts.append(f"<span style='color:{theme.MUTED}'><s>{html.escape(a.ref)}</s></span>&nbsp;"
                              f"<span style='color:{theme.BAD}'><b>{html.escape(a.hyp)}</b></span>")
             elif a.op == "del":
-                parts.append(f"<span style='background:#FDECEC;color:{theme.BAD}'><s>&nbsp;{html.escape(a.ref)}&nbsp;</s></span>")
+                parts.append(f"<span style='background:{theme.DANGER_LIGHT};color:{theme.BAD}'><s>&nbsp;{html.escape(a.ref)}&nbsp;</s></span>")
             else:
-                parts.append(f"<span style='background:#FFF4DB;color:{theme.WARN}'>&nbsp;{html.escape(a.hyp)}&nbsp;</span>")
+                parts.append(f"<span style='background:{theme.WARNING_LIGHT};color:{theme.WARN}'>&nbsp;{html.escape(a.hyp)}&nbsp;</span>")
         return f"<div style='font-size:12.5pt; line-height:170%'>{' '.join(parts)}</div>"
 
-    def wants_dictation(self) -> bool:
-        """Dikte çıktısı editöre mi gitmeli: pencere etkin ve "Canlı dikte" sekmesi açık."""
-        return (self.editor_page is not None and self.isVisible() and self.isActiveWindow()
-                and self.mode_tabs.currentWidget() is self.editor_page)
-
-    def closeEvent(self, e) -> None:
-        if self._rec_stream is not None:
-            self._toggle_record()
-        super().closeEvent(e)
+    def hideEvent(self, e) -> None:
+        """Sayfadan çıkınca ya da pencere kapanınca kayıt durur, ses duraklar; simge durumuna küçültmek bunları etkilemez."""
+        if not e.spontaneous():
+            if self._rec_stream is not None:
+                self._toggle_record()
+            self._pause()
+        super().hideEvent(e)

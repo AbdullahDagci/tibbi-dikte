@@ -32,8 +32,7 @@ sys.path.insert(0, str(ROOT))
 # app.dictation mikrofon/klavye modüllerini içe aktarır; ekransız sunucuda çalışabilmek için yollar burada
 MED = ROOT / "app" / "medical"
 BUILTIN_LEXICON, RADIOLOGY_LEXICON = MED / "lexicon_tr.txt", MED / "radiology_terms_tr.txt"
-BUILTIN_CORRECTIONS, RADIOLOGY_FUZZY, RADIOLOGY_KNOWN = (MED / "corrections_tr.tsv", MED / "radiology_fuzzy_tr.txt",
-                                                         MED / "radiology_known_tr.txt")
+BUILTIN_CORRECTIONS, RADIOLOGY_KNOWN = MED / "corrections_tr.tsv", MED / "radiology_known_tr.txt"
 from app.engines.base import ModelInfo  # noqa: E402
 from app.engines.registry import discover_models, load_engine, resolve_model  # noqa: E402
 from app.medical.postprocess import MedicalPostProcessor, read_lexicon, tr_capitalize, tr_lower  # noqa: E402
@@ -123,7 +122,6 @@ def collect_sets(names: list[str], limit: int) -> dict[str, list]:
 # ------------------------------------------------------------------ ölçüm
 def make_post():
     return MedicalPostProcessor.from_files([BUILTIN_LEXICON, RADIOLOGY_LEXICON], [BUILTIN_CORRECTIONS],
-                                           fuzzy_files=[BUILTIN_LEXICON, RADIOLOGY_FUZZY],
                                            protected_files=[RADIOLOGY_KNOWN],
                                            general_files=[MED / "general_tr_words.txt"])
 

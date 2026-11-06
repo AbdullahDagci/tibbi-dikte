@@ -22,11 +22,12 @@ from typing import Callable
 import numpy as np
 from PySide6.QtCore import QObject, Qt, QTimer, Signal
 from PySide6.QtGui import QKeySequence, QShortcut
-from PySide6.QtWidgets import (QCheckBox, QComboBox, QDialog, QFileDialog, QFrame, QHBoxLayout, QLabel, QLineEdit,
-                               QPlainTextEdit, QProgressBar, QPushButton, QStackedWidget, QVBoxLayout)
+from PySide6.QtWidgets import (QCheckBox, QComboBox, QFileDialog, QHBoxLayout, QLabel, QLineEdit, QPlainTextEdit,
+                               QProgressBar, QStackedWidget, QVBoxLayout, QWidget)
 
 from . import theme
 from .paths import resource_dir, user_dir
+from .ui import widgets
 
 SR = 16000
 OUT_ROOT = user_dir() / "veri_toplama"
@@ -53,12 +54,12 @@ class _Sig(QObject):
     transcribed = Signal(str)
 
 
-class CollectWindow(QDialog):
+class CollectPage(QWidget):
     def __init__(self, get_pipeline: Callable[[], tuple], parent=None):
         super().__init__(parent)
+        self.setObjectName("page")
+        self.setFocusPolicy(Qt.StrongFocus)
         self.get_pipeline = get_pipeline
-        self.setWindowTitle("Tıbbi Dikte — Veri toplama")
-        self.resize(900, 640)
         self.sentences: list[str] = []
         self.sent_file = DEFAULT_SENTENCES
         self.idx = 0
@@ -91,45 +92,44 @@ class CollectWindow(QDialog):
         root = QVBoxLayout(self)
         root.setContentsMargins(22, 18, 22, 18)
         root.setSpacing(12)
-        h1 = QLabel("Veri toplama")
-        h1.setObjectName("h1")
-        sub = QLabel("Modeli radyoloji diktesiyle eğitmek için ses ve doğru metin çiftleri toplar. Kayıtlar yalnızca "
-                     "bu bilgisayarda saklanır. Farklı konuşmacılar ve doğal dikte hızı en değerli veridir.")
-        sub.setObjectName("muted")
-        sub.setWordWrap(True)
-        root.addWidget(h1)
-        root.addWidget(sub)
 
-        row = QHBoxLayout()
-        row.addWidget(QLabel("Konuşmacı kodu:"))
+        speaker_label = QLabel("Konuşmacı kodu")
+        speaker_label.setObjectName("fieldLabel")
         self.speaker = QLineEdit(self._state.get("speaker", ""))
         self.speaker.setPlaceholderText("ör. dr01 (isim yazmayın)")
-        self.speaker.setFixedWidth(150)
+        self.speaker.setFixedWidth(170)
         self.speaker.textChanged.connect(self._refresh)
-        row.addWidget(self.speaker)
-        self.consent = QCheckBox("Konuşmacı KVKK açık rıza formunu imzaladı")
+        self.consent = QCheckBox("KVKK açık rıza formu imzalandı")
         self.consent.toggled.connect(self._refresh)
-        row.addWidget(self.consent)
-        row.addStretch()
         self.mode = QComboBox()
         self.mode.addItems(["Cümle oku", "Serbest dikte"])
         self.mode.currentIndexChanged.connect(self._on_mode)
+        pick = widgets.button("Cümle dosyası", "file-text", "light")
+        pick.clicked.connect(self._pick_file)
+        open_dir = widgets.button("Kayıt klasörü", "folder-open", "light")
+        open_dir.clicked.connect(self._open_folder)
+        row = QHBoxLayout()
+        row.setSpacing(10)
+        row.addWidget(speaker_label)
+        row.addWidget(self.speaker)
+        row.addWidget(self.consent)
+        row.addWidget(widgets.InfoTip("Kayıtlar yalnızca bu bilgisayarda saklanır. Farklı konuşmacılar ve doğal dikte "
+                                      "hızı en değerli veridir."))
+        row.addStretch()
         row.addWidget(self.mode)
-        root.addLayout(row)
+        setup = widgets.Card()
+        setup.body.addLayout(row)
+        root.addWidget(setup)
 
-        card = QFrame()
-        card.setObjectName("card")
-        cv = QVBoxLayout(card)
-        cv.setContentsMargins(22, 18, 22, 18)
-        top = QHBoxLayout()
+        card = widgets.Card()
         self.counter = QLabel("")
         self.counter.setObjectName("muted")
-        top.addWidget(self.counter)
-        top.addStretch()
-        pick = QPushButton("Cümle dosyası…")
-        pick.clicked.connect(self._pick_file)
-        top.addWidget(pick)
-        cv.addLayout(top)
+        head = QHBoxLayout()
+        head.setSpacing(8)
+        head.addWidget(self.counter, 1)
+        head.addWidget(pick)
+        head.addWidget(open_dir)
+        card.body.addLayout(head)
         self.stack = QStackedWidget()
         self.sentence = QLabel()
         self.sentence.setWordWrap(True)
@@ -138,53 +138,63 @@ class CollectWindow(QDialog):
         self.sentence.setMinimumHeight(140)
         self.free_text = QPlainTextEdit()
         self.free_text.setStyleSheet("font-size: 14pt;")
-        self.free_text.setPlaceholderText("Kaydı başlatın ve dikte edin. Kayıt bitince model metni buraya yazar; "
-                                          "söylediğiniz hâline göre düzeltip kaydedin.")
+        self.free_text.setPlaceholderText("Kaydı başlatın ve dikte edin. Kayıt bitince metni düzeltip kaydedin.")
         self.stack.addWidget(self.sentence)
         self.stack.addWidget(self.free_text)
-        cv.addWidget(self.stack, 1)
-        root.addWidget(card, 1)
+        card.body.addWidget(self.stack, 1)
 
-        ctl = QHBoxLayout()
-        self.btn_rec = QPushButton("●  Kaydı başlat  (Enter)")
-        self.btn_rec.setObjectName("primary")
+        self.btn_rec = widgets.button("Kaydı başlat", "player-record", "primary", tooltip="Enter")
         self.btn_rec.clicked.connect(self._toggle_record)
-        self.btn_play = QPushButton("▶  Dinle")
+        self.btn_play = widgets.button("Dinle", "player-play", "light")
         self.btn_play.clicked.connect(self._play)
-        self.btn_save = QPushButton("Kaydet ve sonraki  (Ctrl+Enter)")
+        self.btn_save = widgets.button("Kaydet ve sonraki", "device-floppy", "success", tooltip="Ctrl+Enter")
         self.btn_save.clicked.connect(self._save)
-        self.btn_skip = QPushButton("Atla")
-        self.btn_skip.clicked.connect(lambda: self._advance(1))
-        self.btn_back = QPushButton("◀")
-        self.btn_back.setFixedWidth(44)
-        self.btn_back.clicked.connect(lambda: self._advance(-1))
+        self.btn_skip = widgets.button("Atla", "player-skip-forward", "light")
+        self.btn_skip.clicked.connect(self._skip)
+        self.btn_back = widgets.icon_button("chevron-left", "Önceki cümle", "light")
+        self.btn_back.clicked.connect(self._back)
         self.level = QProgressBar()
         self.level.setRange(0, 100)
         self.level.setTextVisible(False)
-        self.level.setFixedWidth(140)
+        self.level.setFixedWidth(110)
+        ctl = QHBoxLayout()
+        ctl.setSpacing(8)
         for w in (self.btn_rec, self.btn_play, self.btn_save, self.btn_skip, self.btn_back):
             ctl.addWidget(w)
         ctl.addStretch()
         ctl.addWidget(self.level)
-        root.addLayout(ctl)
-
+        card.body.addLayout(ctl)
         self.status = QLabel("")
         self.status.setWordWrap(True)
-        root.addWidget(self.status)
-        bottom = QHBoxLayout()
+        card.body.addWidget(self.status)
+        root.addWidget(card, 1)
+
         self.totals = QLabel("")
         self.totals.setObjectName("muted")
-        open_dir = QPushButton("Kayıt klasörünü aç")
-        open_dir.clicked.connect(lambda: (OUT_ROOT.mkdir(parents=True, exist_ok=True), os.startfile(str(OUT_ROOT))))
-        bottom.addWidget(self.totals, 1)
-        bottom.addWidget(open_dir)
-        root.addLayout(bottom)
+        root.addWidget(self.totals)
 
-        QShortcut(QKeySequence(Qt.Key_Return), self, activated=self._enter)
-        QShortcut(QKeySequence(Qt.Key_Enter), self, activated=self._enter)
-        QShortcut(QKeySequence("Ctrl+Return"), self, activated=self._save)
+        for keys, slot in ((QKeySequence(Qt.Key_Return), self._enter), (QKeySequence(Qt.Key_Enter), self._enter),
+                           (QKeySequence("Ctrl+Return"), self._save)):
+            # Yalnızca bu sayfa açıkken: yoksa Sözlük'te basılan Enter kayıt başlatırdı
+            QShortcut(keys, self, activated=slot, context=Qt.WidgetWithChildrenShortcut)
         self._timer = QTimer(self, interval=100)
         self._timer.timeout.connect(self._tick)
+
+    def _open_folder(self) -> None:
+        OUT_ROOT.mkdir(parents=True, exist_ok=True)
+        os.startfile(str(OUT_ROOT))  # noqa: S606 (yerel klasör)
+
+    def _skip(self) -> None:
+        self._advance(1)
+
+    def _back(self) -> None:
+        self._advance(-1)
+
+    def showEvent(self, e) -> None:
+        super().showEvent(e)
+        # Enter kısayolları sayfa içindeyken çalışır; metin kutusundaki odak korunur (Enter orada yeni satırdır)
+        if not e.spontaneous() and self.focusWidget() is None:
+            self.setFocus()
 
     # ------------------------------------------------ cümleler
     def _load_sentences(self, path: Path) -> None:
@@ -253,9 +263,8 @@ class CollectWindow(QDialog):
             self._stream.start()
             self._t0 = time.monotonic()
             self._timer.start()
-            self.btn_rec.setText("■  Durdur  (Enter)")
-            self.btn_rec.setObjectName("danger")
-            self.btn_rec.setStyle(self.btn_rec.style())
+            self.btn_rec.setText("Durdur")
+            widgets.set_variant(self.btn_rec, "danger", icon="player-stop")
             self._set_status("Kaydediliyor…", theme.BAD)
         else:
             self._stream.stop()
@@ -263,9 +272,8 @@ class CollectWindow(QDialog):
             self._stream = None
             self._timer.stop()
             self.level.setValue(0)
-            self.btn_rec.setText("●  Tekrar kaydet  (Enter)")
-            self.btn_rec.setObjectName("primary")
-            self.btn_rec.setStyle(self.btn_rec.style())
+            self.btn_rec.setText("Tekrar kaydet")
+            widgets.set_variant(self.btn_rec, "primary", icon="player-record")
             self.pcm = np.concatenate(self._chunks) if self._chunks else np.zeros(0, np.float32)
             good, msg = quality(self.pcm)
             self._set_status(msg + ("" if good else " — tekrar kaydedin"), theme.GOOD if good else theme.BAD)
@@ -337,7 +345,7 @@ class CollectWindow(QDialog):
                          self.mode.currentText(), dt.datetime.now().isoformat(timespec="seconds"), "evet"])
         self._set_status(f"Kaydedildi: {wav.name}", theme.GOOD)
         self._advance(1 if self.mode.currentIndex() == 0 else 0)
-        self.btn_rec.setText("●  Kaydı başlat  (Enter)")
+        self.btn_rec.setText("Kaydı başlat")
 
     # ------------------------------------------------ özet
     def _set_status(self, msg: str, color: str | None = None) -> None:
@@ -363,10 +371,22 @@ class CollectWindow(QDialog):
         self.totals.setText(f"Bu konuşmacı: {spk_n} kayıt · {spk_s / 60:.1f} dk     "
                             f"Toplam: {tot_n} kayıt · {tot_s / 3600:.2f} sa (hedef: 20–50 sa)")
 
-    def closeEvent(self, e) -> None:
-        if self._stream is not None:
-            self._stream.stop()
-            self._stream.close()
-            self._stream = None
-        self._save_state()
-        super().closeEvent(e)
+    def hideEvent(self, e) -> None:
+        """Sayfadan çıkınca ya da pencere kapanınca kayıt durur; simge durumuna küçültmek kaydı durdurmaz."""
+        if not e.spontaneous():
+            if self._stream is not None:
+                self._stream.stop()
+                self._stream.close()
+                self._stream = None
+                self._timer.stop()
+            # Eski pencerenin kapanmasıyla aynı: yarım kayıt atılır, rıza bir sonraki konuşmacı için yeniden istenir
+            self._chunks = []
+            self.pcm = None
+            self.level.setValue(0)
+            self.btn_rec.setText("Kaydı başlat")
+            widgets.set_variant(self.btn_rec, "primary", icon="player-record")
+            self._set_status("")
+            self.consent.setChecked(False)
+            self._refresh()
+            self._save_state()
+        super().hideEvent(e)

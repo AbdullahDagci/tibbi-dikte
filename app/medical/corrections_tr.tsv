@@ -125,7 +125,7 @@ eks tride	ekstrüde
 ekstride	ekstrüde
 ekstrude	ekstrüde
 tekal sağ	tekal sak
-nöral noramen	nöral foramen
+nöral noramen*	nöral foramen
 # --- Servikal/omurga (kullanıcı denemesi 2). Sonu * olan satırlar kök düzeltmesidir: ekler korunur.
 vertebra korkusu	vertebra korpus
 vertebra korkuları	vertebra korpusları
@@ -178,3 +178,19 @@ en plate*	end-plate
 end plate*	end-plate
 # --- Kısaltma yazımı (06.11 kullanıcı denemesi: model "BT"yi "Bt" yazıyor)
 bt	BT
+# --- Batın MR (06.11 gerçek kayıt: testData/rapor.mp4). "Batı" ve "tabidir" gerçek kelimedir, yalnızca kalıpla düzeltilir
+batı mr	batın MR
+batı nemmar	batın MR
+batı nemar	batın MR
+batı memar	batın MR
+kraniokaddar*	kraniokaudal
+kraniokautar*	kraniokaudal
+kraniokadlar*	kraniokaudal
+ekstrepetik*	ekstrahepatik
+ikisi renal	iki sürrenal
+parankim silyal	parankim sinyal
+parankimsilyal	parankim sinyal
+yoğunlukları tabidir	yoğunlukları tabiidir
+özellikleri tabidir	özellikleri tabiidir
+ürogenital*	ürojenital
+intravenez*	intravenöz

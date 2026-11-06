@@ -1,7 +1,7 @@
 """Kullanıcı sözlüğü: her terim için doğru yazım + modelin duyabileceği söyleniş varyantları.
 
 Diskte mevcut iki dosya kullanılır (sonişleyici ve hotword üretimi bunları okur):
-  kullanici_terimler.txt     her satırda bir doğru yazım (hotword + bulanık düzeltme + yazım biçimi)
+  kullanici_terimler.txt     her satırda bir doğru yazım (hotword + yazım biçimi)
   kullanici_duzeltmeler.tsv  her satırda  varyant<TAB>doğru yazım   ("kök*" biçimi ekleri korur)
 
 Dışa/içe aktarma dosyası Excel'de açılabilen CSV'dir (UTF-8 BOM, ";" ayraçlı):
@@ -54,7 +54,7 @@ def join_root(text: str, with_suffixes: bool) -> str:
 def preview(entries: list[Entry], text: str) -> str:
     """Yalnızca sözlüğün etkisi: söylenişler doğru yazıma çevrilir (Ayarlar › Sözlük › Dene kutusu)."""
     pp = MedicalPostProcessor(corrections=[(v, e.term) for e in entries if e.term.strip() for v in e.variants],
-                              use_itn=False, fuzzy=False)
+                              use_itn=False)
     return pp.apply_corrections(text)
 
 
@@ -103,6 +103,44 @@ def merge(base: list[Entry], incoming: list[Entry]) -> tuple[list[Entry], int, i
         new_terms += t
         new_variants += v
     return merged, new_terms, new_variants
+
+
+def rebase(base: list[Entry], disk: list[Entry], current: list[Entry]) -> list[Entry]:
+    """Dosyadaki değişikliği (base -> disk) kaydedilmemiş düzenlemelerin (current) üzerine uygular.
+    Birleşim almaz: silinmiş terim ve söyleniş geri gelmez, aynı söyleniş iki terime bağlanmaz."""
+    def pairs(entries: list[Entry]) -> dict[tuple[str, str], str]:
+        return {(e.term, tr_lower(split_root(v)[0])): v for e in entries for v in e.variants}
+
+    def key_of(variant: str) -> str:
+        return tr_lower(split_root(variant)[0])
+
+    result = [Entry(e.term, list(e.variants)) for e in current]
+    by_term = {e.term: e for e in result}
+    old, new = pairs(base), pairs(disk)
+    for term, key in old.keys() - new.keys():
+        if term in by_term:
+            by_term[term].variants = [v for v in by_term[term].variants if key_of(v) != key]
+    base_terms = {e.term for e in base}
+    dropped = base_terms - {e.term for e in disk}  # dosyadan silinen terim; düzenlenmişse (söylenişi kaldıysa) durur
+    result = [e for e in result if not (e.term in dropped and not e.variants)]
+    by_term = {e.term: e for e in result}
+    for e in disk:
+        if e.term not in base_terms and e.term not in by_term:
+            by_term[e.term] = Entry(e.term, [])
+            result.append(by_term[e.term])
+        for v in e.variants:
+            key = key_of(v)
+            if (e.term, key) in old:
+                continue
+            for other in result:  # son karar geçerli: söyleniş başka terimdeyse oradan alınır
+                if other.term != e.term:
+                    other.variants = [x for x in other.variants if key_of(x) != key]
+            if e.term not in by_term:
+                by_term[e.term] = Entry(e.term, [])
+                result.append(by_term[e.term])
+            if key not in {key_of(x) for x in by_term[e.term].variants}:
+                by_term[e.term].variants.append(v)
+    return result
 
 
 def add_variant(lexicon_path: Path, corrections_path: Path, variant: str, term: str) -> list[str]:

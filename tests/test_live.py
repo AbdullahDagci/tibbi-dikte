@@ -98,7 +98,6 @@ def test_live_typing_applies_postprocessing_so_sentence_end_erases_little():
     m = Path(__file__).resolve().parent.parent / "app" / "medical"
     pp = MedicalPostProcessor.from_files(
         [m / "lexicon_tr.txt", m / "radiology_terms_tr.txt"], [m / "corrections_tr.tsv"],
-        fuzzy_files=[m / "lexicon_tr.txt", m / "radiology_fuzzy_tr.txt"],
         protected_files=[m / "radiology_known_tr.txt"], general_files=[m / "general_tr_words.txt"])
     full = ("C üç yedi intervertebral disklerde posterior taşma izlenmekte olup anterior subaraknoid mesafe "
             "daralmıştır.")

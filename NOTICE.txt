@@ -9,6 +9,8 @@ Tıbbi Türkçe v3 — Radyoloji: Abdullah DAĞCI tarafından radyoloji dikte i�
   Silero VAD   — MIT License
   damga        — Apache License 2.0
   PySide6 (Qt) — LGPL v3
+  Tabler Icons — MIT License
+  FFmpeg (Qt Multimedia içinde) — LGPL v2.1 veya üzeri
   pynput       — LGPL v3
   sounddevice  — MIT License
   soundfile / libsndfile — BSD / LGPL v2.1

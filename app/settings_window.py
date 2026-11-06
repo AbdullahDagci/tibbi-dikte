@@ -1,209 +1,299 @@
-﻿"""Ayarlar penceresi: Genel · Sözlük · Lisans · Hakkında."""
+﻿"""Ayarlar, Lisans ve Hakkında sayfaları."""
 from __future__ import annotations
 
-import csv
-from pathlib import Path
-
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import Qt, QTimer, Signal
 from PySide6.QtGui import QGuiApplication, QKeySequence
-from PySide6.QtWidgets import (QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFileDialog, QFormLayout,
-                               QHBoxLayout, QKeySequenceEdit, QLabel, QLineEdit, QMessageBox, QPlainTextEdit,
-                               QPushButton, QSpinBox, QTabWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QComboBox, QFormLayout, QHBoxLayout, QKeySequenceEdit, QLabel, QLineEdit,
+                               QMessageBox, QPlainTextEdit, QScrollArea, QSizePolicy, QSpinBox, QVBoxLayout, QWidget)
 
-from . import __version__, user_dict
-from .audio import list_input_devices
+from . import theme
+from .audio import list_input_devices, play_tone
 from .config import Config
-from .dictation import USER_CORRECTIONS, USER_LEXICON, ensure_user_files
 from .engines.registry import discover_models, resolve_model
 from .hotkey import is_valid, pynput_to_qt, qt_to_pynput
-from .lexicon_editor import LexiconEditor
 from .licensing import license as lic
-from .paths import install_dir
 from .ptt import PTT_KEYS
+from .ui import widgets
+from .ui.icons import pixmap as icon_pixmap
 
-TAB_GENERAL, TAB_LEXICON, TAB_LICENSE, TAB_ABOUT = range(4)
 
-
-class SettingsWindow(QDialog):
+class SettingsPage(QWidget):
     settings_changed = Signal(bool)   # True = model/sözlük yeniden yüklenmeli
-    license_changed = Signal()
 
     def __init__(self, cfg: Config, parent=None):
         super().__init__(parent)
+        self.setObjectName("page")
         self.cfg = cfg
-        self.setWindowTitle("Tıbbi Dikte — Ayarlar")
-        self.setMinimumSize(760, 560)
-        self.tabs = QTabWidget()
-        self.tabs.addTab(self._general_tab(), "Genel")
-        self.tabs.addTab(self._lexicon_tab(), "Sözlük")
-        self.tabs.addTab(self._license_tab(), "Lisans")
-        self.tabs.addTab(self._about_tab(), "Hakkında")
-        buttons = QDialogButtonBox(QDialogButtonBox.Save | QDialogButtonBox.Close)
-        buttons.button(QDialogButtonBox.Save).setText("Kaydet")
-        buttons.button(QDialogButtonBox.Close).setText("Kapat")
-        buttons.accepted.connect(self._save)
-        buttons.rejected.connect(self.close)
-        lay = QVBoxLayout(self)
-        lay.addWidget(self.tabs)
-        lay.addWidget(buttons)
 
-    # ------------------------------------------------------------ Genel
-    def _general_tab(self) -> QWidget:
-        w = QWidget()
-        f = QFormLayout(w)
-        self.model_box = QComboBox()
+        left, right = QVBoxLayout(), QVBoxLayout()
+        for column, cards in ((left, (self._model_card(), self._beep_card())),
+                              (right, (self._hotkey_card(), self._typing_card(), self._correction_card()))):
+            column.setSpacing(14)
+            for card in cards:
+                column.addWidget(card)
+            column.addStretch()
+        holder = QWidget()
+        holder_lay = QHBoxLayout(holder)
+        holder_lay.setContentsMargins(22, 18, 22, 12)
+        holder_lay.setSpacing(14)
+        holder_lay.addLayout(left, 1)
+        holder_lay.addLayout(right, 1)
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        scroll.setWidget(holder)
+
+        self.saved_badge = widgets.Badge("Kaydedildi", "success")
+        self.saved_badge.setVisible(False)
+        self.btn_save = widgets.button("Kaydet", "device-floppy", "success")
+        self.btn_save.clicked.connect(self._save_clicked)
+        footer = QHBoxLayout()
+        footer.setContentsMargins(22, 0, 22, 16)
+        footer.addStretch()
+        footer.addWidget(self.saved_badge)
+        footer.addWidget(self.btn_save)
+
+        lay = QVBoxLayout(self)
+        lay.setContentsMargins(0, 0, 0, 0)
+        lay.addWidget(scroll, 1)
+        lay.addLayout(footer)
+        self._load_values()
+
+    def _fill_lists(self) -> list:
+        """Model ve mikrofon listelerini yeniden okur: sonradan eklenen model ya da takılan mikrofon görünür."""
         models = discover_models()
         self._default_model_dir = str(resolve_model(models, "").dir) if models else ""
+        self.model_box.clear()
         for m in models:
             label = f"{m.name} (varsayılan)" if str(m.dir) == self._default_model_dir else m.name
             self.model_box.addItem(label, str(m.dir))
-        if models:
-            self.model_box.setCurrentIndex(
-                max(0, self.model_box.findData(str(resolve_model(models, self.cfg.model_dir).dir))))
-        f.addRow("Konuşma modeli:", self.model_box)
-
-        self.mic_box = QComboBox()
+        self.mic_box.clear()
         self.mic_box.addItem("Varsayılan mikrofon", None)
         for i, name in list_input_devices():
             self.mic_box.addItem(name, i)
-        idx = self.mic_box.findData(self.cfg.input_device)
-        self.mic_box.setCurrentIndex(max(0, idx))
-        f.addRow("Mikrofon:", self.mic_box)
+        return models
 
-        self.hotkey_edit = QKeySequenceEdit(QKeySequence(pynput_to_qt(self.cfg.hotkey)))
-        f.addRow("Başlat/Durdur kısayolu:", self.hotkey_edit)
-
-        self.ptt_box = QComboBox()
-        for key, (label, _) in PTT_KEYS.items():
-            self.ptt_box.addItem(label, key)
+    def _load_values(self) -> None:
+        """Denetimleri kayıtlı ayarlarla doldurur."""
+        models = self._fill_lists()
+        if models:
+            self.model_box.setCurrentIndex(
+                max(0, self.model_box.findData(str(resolve_model(models, self.cfg.model_dir).dir))))
+        self.mic_box.setCurrentIndex(max(0, self.mic_box.findData(self.cfg.input_device)))
+        self.threads.setValue(self.cfg.num_threads)
+        self.hotkey_edit.setKeySequence(QKeySequence(pynput_to_qt(self.cfg.hotkey)))
         self.ptt_box.setCurrentIndex(max(0, self.ptt_box.findData(self.cfg.ptt_key)))
-        self.ptt_box.setToolTip("Tuş basılı tutulduğu sürece dikte yapılır. Boşlukta kısa basış normal boşluk yazar; "
-                                "yaklaşık 0,35 sn basılı tutunca dikte başlar.")
-        f.addRow("Bas-konuş tuşu:", self.ptt_box)
+        for switch, value in ((self.cb_live, self.cfg.live_typing), (self.cb_space, self.cfg.add_trailing_space),
+                              (self.cb_overlay, self.cfg.show_overlay), (self.cb_itn, self.cfg.use_itn)):
+            switch.setChecked(value)
+        self.beep_on.setChecked(self.cfg.beep_enabled)
+        self.beep_start_hz.setValue(self.cfg.beep_start_hz)
+        self.beep_stop_hz.setValue(self.cfg.beep_stop_hz)
+        self.beep_ms.setValue(self.cfg.beep_ms)
+        self._beep_toggled(self.cfg.beep_enabled)
 
+    def showEvent(self, event) -> None:
+        """Kaydedilmeden bırakılan değişiklik uygulanmış gibi görünmesin; küçültüp geri açmak dokunmaz."""
+        super().showEvent(event)
+        if not event.spontaneous():
+            self._load_values()
+
+    # ------------------------------------------------------------ kartlar
+    def _model_card(self) -> widgets.Card:
+        card = widgets.Card("Model ve ses", "cpu")
+        form = self._form()
+        self.model_box = self._combo()
+        form.addRow("Konuşma modeli", self.model_box)
+        self.mic_box = self._combo()
+        form.addRow("Mikrofon", self.mic_box)
         self.threads = QSpinBox()
         self.threads.setRange(1, 8)
-        self.threads.setValue(self.cfg.num_threads)
-        f.addRow("İşlemci iş parçacığı:", self.threads)
+        form.addRow("İşlemci iş parçacığı", self.threads)
+        card.body.addLayout(form)
+        return card
 
-        self.cb_hot = QCheckBox("Tıbbi terimleri modele öncelikli tanıt (hotword)")
-        self.cb_hot.setChecked(self.cfg.use_hotwords)
-        self.cb_hot.setToolTip("Radyoloji için ince ayarlanmış modeller (Tıbbi Türkçe v3) terimleri kendisi öğrendi; "
-                               "bu modellerde hotword otomatik olarak kullanılmaz.")
-        self.cb_fuzzy = QCheckBox("Yanlış duyulan tıbbi terimleri otomatik düzelt")
-        self.cb_fuzzy.setChecked(self.cfg.fuzzy_correction)
-        self.cb_ctx = QCheckBox("Bağlama göre kelime düzelt (rapor dil modeli; ör. \"bacağı yayılan\" → \"bacağa\")")
-        self.cb_ctx.setChecked(self.cfg.use_context)
-        self.cb_itn = QCheckBox("Sayıları rakamla yaz (beş yüz miligram → 500 mg)")
-        self.cb_itn.setChecked(self.cfg.use_itn)
-        self.cb_live = QCheckBox("Konuşurken anında yaz (cümle sonunda düzeltilmiş hâliyle günceller)")
-        self.cb_live.setChecked(self.cfg.live_typing)
-        self.cb_live.setToolTip("Kapalıysa metin her cümlenin sonunda tek seferde yazılır. Geri silme (Backspace) "
-                                "ile sorun yaşayan uygulamalarda kapatın.")
-        self.cb_space = QCheckBox("Her cümleden sonra boşluk bırak")
-        self.cb_space.setChecked(self.cfg.add_trailing_space)
-        self.cb_overlay = QCheckBox("Dinlerken ekranda gösterge ve canlı metin göster")
-        self.cb_overlay.setChecked(self.cfg.show_overlay)
-        self.cb_post = QCheckBox("Tıbbi düzeltmeleri uygula (sayı, terim, sözlük) — kapalıysa model ne duyduysa o yazılır")
-        self.cb_post.setChecked(self.cfg.use_postprocess)
-        self.cb_post.toggled.connect(self._post_toggled)
-        self._post_toggled(self.cfg.use_postprocess)
-        for cb in (self.cb_live, self.cb_hot, self.cb_post, self.cb_fuzzy, self.cb_ctx, self.cb_itn, self.cb_space,
-                   self.cb_overlay):
-            f.addRow(cb)
-        return w
+    def _hotkey_card(self) -> widgets.Card:
+        card = widgets.Card("Kısayollar", "keyboard")
+        form = self._form()
+        self.hotkey_edit = QKeySequenceEdit()
+        form.addRow("Başlat / Durdur", self.hotkey_edit)
+        self.ptt_box = self._combo()
+        for key, (label, _) in PTT_KEYS.items():
+            self.ptt_box.addItem(label, key)
+        self.ptt_box.setToolTip("Tuş basılı tutulduğu sürece dikte yapılır. Boşlukta kısa basış normal boşluk yazar; "
+                                "yaklaşık 0,35 sn basılı tutunca dikte başlar.")
+        form.addRow("Bas-konuş tuşu", self.ptt_box)
+        card.body.addLayout(form)
+        return card
 
-    def _post_toggled(self, on: bool) -> None:
-        for cb in (self.cb_fuzzy, self.cb_ctx, self.cb_itn):
-            cb.setEnabled(on)
+    def _typing_card(self) -> widgets.Card:
+        card = widgets.Card("Yazım", "pencil")
+        self.cb_live, self.cb_space, self.cb_overlay = widgets.Switch(), widgets.Switch(), widgets.Switch()
+        card.body.addWidget(widgets.switch_row(
+            "Konuşurken anında yaz", self.cb_live,
+            "Kapalıysa metin her cümlenin sonunda tek seferde yazılır. Geri silme (Backspace) ile sorun yaşayan "
+            "uygulamalarda kapatın."))
+        card.body.addWidget(widgets.switch_row("Cümle sonunda boşluk bırak", self.cb_space))
+        card.body.addWidget(widgets.switch_row("Dinlerken ekranda gösterge", self.cb_overlay))
+        return card
 
-    # ------------------------------------------------------------ Sözlük
-    def _lexicon_tab(self) -> QWidget:
-        ensure_user_files()
-        w = QWidget()
-        v = QVBoxLayout(w)
-        info = QLabel("Sözlük, modelin <b>yanlış yazdığı</b> kelimeleri sizin istediğiniz <b>doğru yazıma</b> çevirir. "
-                      "Örnek: model <i>protrüzyon</i> yerine <i>protezyon</i> yazıyorsa doğru yazım "
-                      "<b>protrüzyon</b>, söyleniş <b>protezyon</b>. Söyleniş olmadan eklenen terim de işe yarar: "
-                      "büyük/küçük harfi korunur (<i>Doppler</i>) ve 8+ harfli terime çok yakın yazımlar ona "
-                      "düzeltilir. Söyleniş bir sesli komuta da bağlanabilir (<i>alt sağa geç</i> → alt satıra geç).")
-        info.setWordWrap(True)
-        info.setTextFormat(Qt.RichText)
-        v.addWidget(info)
-        self._lex_loaded = user_dict.load(USER_LEXICON, USER_CORRECTIONS)
-        self.lex_editor = LexiconEditor(self._lex_loaded)
-        v.addWidget(self.lex_editor, 1)
+    def _correction_card(self) -> widgets.Card:
+        card = widgets.Card("Düzeltmeler", "wand")
+        self.cb_itn = widgets.Switch()
+        card.body.addWidget(widgets.switch_row("Sayıları rakamla yaz", self.cb_itn, "beş yüz miligram → 500 mg"))
+        return card
 
+    def _beep_card(self) -> widgets.Card:
+        card = widgets.Card("Bip sesi", "volume")
+        self.beep_on = widgets.Switch()
+        self.beep_on.toggled.connect(self._beep_toggled)
+        card.body.addWidget(widgets.switch_row("Dikte başlarken ve biterken bip çal", self.beep_on))
+        self.beep_start_hz = self._spin(200, 4000, 10, " Hz")
+        self.beep_stop_hz = self._spin(200, 4000, 10, " Hz")
+        self.beep_ms = self._spin(20, 1000, 10, " ms")
+        self.btn_beep_start = widgets.button("Dinle", "player-play", "light")
+        self.btn_beep_start.clicked.connect(self._play_start_tone)
+        self.btn_beep_stop = widgets.button("Dinle", "player-play", "light")
+        self.btn_beep_stop.clicked.connect(self._play_stop_tone)
+        form = self._form()
+        form.addRow("Başlama sesi", self._with_button(self.beep_start_hz, self.btn_beep_start))
+        form.addRow("Bitiş sesi", self._with_button(self.beep_stop_hz, self.btn_beep_stop))
+        form.addRow("Süre", self.beep_ms)
+        card.body.addLayout(form)
+        return card
+
+    @staticmethod
+    def _spin(low: int, high: int, step: int, suffix: str) -> QSpinBox:
+        box = QSpinBox()
+        box.setRange(low, high)
+        box.setSingleStep(step)
+        box.setSuffix(suffix)
+        return box
+
+    @staticmethod
+    def _with_button(field: QWidget, button: QWidget) -> QHBoxLayout:
         row = QHBoxLayout()
-        row.addStretch()
-        imp = QPushButton("İçe aktar…")
-        imp.clicked.connect(self._import_lexicon)
-        exp = QPushButton("Dışa aktar…")
-        exp.clicked.connect(self._export_lexicon)
-        for b in (imp, exp):
-            row.addWidget(b)
-        v.addLayout(row)
-        return w
+        row.setSpacing(8)
+        row.addWidget(field, 1)
+        row.addWidget(button)
+        return row
 
-    def _lexicon_entries(self) -> list[user_dict.Entry]:
-        return self.lex_editor.entries()
+    def _beep_toggled(self, on: bool) -> None:
+        for w in (self.beep_start_hz, self.beep_stop_hz, self.beep_ms, self.btn_beep_start, self.btn_beep_stop):
+            w.setEnabled(on)
 
-    def _import_lexicon(self) -> None:
-        path, _ = QFileDialog.getOpenFileName(self, "Sözlüğü içe aktar", "",
-                                              "Sözlük dosyaları (*.csv *.tsv *.txt);;Tüm dosyalar (*.*)")
-        if not path:
-            return
-        try:
-            incoming = user_dict.import_file(Path(path))
-        except (OSError, UnicodeDecodeError, csv.Error) as e:
-            QMessageBox.warning(self, "İçe aktar", f"Dosya okunamadı:\n{e}")
-            return
-        merged, nt, nv = user_dict.merge(self._lexicon_entries(), incoming)
-        self.lex_editor.set_entries(merged)
-        QMessageBox.information(self, "İçe aktar", f"{nt} yeni terim, {nv} yeni varyant eklendi; mevcut "
-                                                   "sözlük korundu.\nUygulamak için Kaydet'e basın.")
+    def _play_start_tone(self) -> None:
+        play_tone(self.beep_start_hz.value(), self.beep_ms.value())
 
-    def _export_lexicon(self) -> None:
-        path, _ = QFileDialog.getSaveFileName(self, "Sözlüğü dışa aktar", "tibbi_dikte_sozluk.csv",
-                                              "CSV (Excel) (*.csv)")
-        if not path:
-            return
-        entries = self._lexicon_entries()
-        user_dict.export_file(entries, Path(path))
-        QMessageBox.information(self, "Dışa aktar", f"{len(entries)} terim kaydedildi:\n{path}")
+    def _play_stop_tone(self) -> None:
+        play_tone(self.beep_stop_hz.value(), self.beep_ms.value())
 
-    # ------------------------------------------------------------ Lisans
-    def _license_tab(self) -> QWidget:
-        w = QWidget()
-        v = QVBoxLayout(w)
-        v.addWidget(QLabel("Makine kodunuz (ürün anahtarı almak için satıcıya iletin):"))
-        row = QHBoxLayout()
+    @staticmethod
+    def _form() -> QFormLayout:
+        form = QFormLayout()
+        form.setHorizontalSpacing(14)
+        form.setVerticalSpacing(10)
+        form.setFieldGrowthPolicy(QFormLayout.AllNonFixedFieldsGrow)
+        form.setLabelAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+        return form
+
+    @staticmethod
+    def _combo() -> QComboBox:
+        """Uzun model ve mikrofon adları kartı genişletmesin; ad sığmazsa kısaltılır."""
+        box = QComboBox()
+        box.setSizeAdjustPolicy(QComboBox.AdjustToMinimumContentsLengthWithIcon)
+        box.setMinimumContentsLength(16)
+        return box
+
+    # ------------------------------------------------------------ kaydet
+    def _save_clicked(self) -> None:
+        self.save()
+
+    def save(self) -> bool:
+        seq = self.hotkey_edit.keySequence().toString(QKeySequence.PortableText)
+        hk = qt_to_pynput(seq) if seq else self.cfg.hotkey
+        if not is_valid(hk):
+            QMessageBox.warning(self, "Kısayol", f"Geçersiz kısayol: {seq}")
+            return False
+        old = self._reload_keys()
+        chosen = self.model_box.currentData() or ""
+        # varsayılan seçiliyse boş bırak: sonraki sürümde varsayılan değişirse kullanıcı da geçer
+        self.cfg.model_dir = "" if chosen == self._default_model_dir else chosen
+        self.cfg.input_device = self.mic_box.currentData()
+        self.cfg.hotkey = hk
+        self.cfg.ptt_key = self.ptt_box.currentData()
+        self.cfg.num_threads = self.threads.value()
+        self.cfg.use_itn = self.cb_itn.isChecked()
+        self.cfg.add_trailing_space = self.cb_space.isChecked()
+        self.cfg.live_typing = self.cb_live.isChecked()
+        self.cfg.show_overlay = self.cb_overlay.isChecked()
+        self.cfg.beep_enabled = self.beep_on.isChecked()
+        self.cfg.beep_start_hz = self.beep_start_hz.value()
+        self.cfg.beep_stop_hz = self.beep_stop_hz.value()
+        self.cfg.beep_ms = self.beep_ms.value()
+        self.cfg.save()
+        self.settings_changed.emit(old != self._reload_keys())
+        self.saved_badge.setVisible(True)
+        QTimer.singleShot(2500, self._hide_saved_badge)
+        return True
+
+    def _reload_keys(self) -> tuple:
+        return self.cfg.model_dir, self.cfg.num_threads, self.cfg.use_itn
+
+    def _hide_saved_badge(self) -> None:
+        self.saved_badge.setVisible(False)
+
+
+class LicensePage(QWidget):
+    license_changed = Signal()
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setObjectName("page")
+        card = widgets.Card("Ürün lisansı", "shield-check")
+        self.status_badge = widgets.Badge()
+        card.add_action(self.status_badge)
+        self.lic_status = QLabel()
+        self.lic_status.setObjectName("muted")
+        self.lic_status.setWordWrap(True)
+        card.body.addWidget(self.lic_status)
+
+        machine_label = QLabel("Makine kodu")
+        machine_label.setObjectName("fieldLabel")
+        card.body.addWidget(machine_label)
         self.mcode = QLineEdit(lic.machine_code())
         self.mcode.setReadOnly(True)
-        copy = QPushButton("Kopyala")
-        copy.clicked.connect(lambda: QGuiApplication.clipboard().setText(self.mcode.text()))
-        row.addWidget(self.mcode)
+        copy = widgets.button("Kopyala", "copy", "light")
+        copy.clicked.connect(self._copy_machine_code)
+        row = QHBoxLayout()
+        row.addWidget(self.mcode, 1)
         row.addWidget(copy)
-        v.addLayout(row)
-        v.addSpacing(12)
-        v.addWidget(QLabel("Ürün anahtarı:"))
+        card.body.addLayout(row)
+
+        key_label = QLabel("Ürün anahtarı")
+        key_label.setObjectName("fieldLabel")
+        card.body.addWidget(key_label)
         self.key_edit = QPlainTextEdit(lic.load_saved() or "")
         self.key_edit.setFixedHeight(90)
-        v.addWidget(self.key_edit)
-        act = QPushButton("Etkinleştir")
-        act.clicked.connect(self._activate)
-        v.addWidget(act, alignment=Qt.AlignLeft)
-        self.lic_status = QLabel()
-        self.lic_status.setWordWrap(True)
-        v.addWidget(self.lic_status)
-        v.addStretch()
-        self._refresh_license()
-        return w
+        card.body.addWidget(self.key_edit)
+        self.btn_activate = widgets.button("Etkinleştir", "key", "success")
+        self.btn_activate.clicked.connect(self._activate)
+        card.body.addWidget(self.btn_activate, alignment=Qt.AlignLeft)
+        card.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
 
-    def _refresh_license(self) -> None:
+        lay = QVBoxLayout(self)
+        lay.setContentsMargins(22, 18, 22, 18)
+        lay.addWidget(card)
+        lay.addStretch()
+        self.refresh()
+
+    def refresh(self) -> None:
         info = lic.current()
-        color = "#1a7f37" if info.valid else "#b42318"
-        self.lic_status.setText(f"<b style='color:{color}'>{'Etkin' if info.valid else 'Etkin değil'}</b> — {info.message}")
+        self.status_badge.set_state("Etkin" if info.valid else "Etkin değil", "success" if info.valid else "danger")
+        self.lic_status.setText(info.message)
+
+    def _copy_machine_code(self) -> None:
+        QGuiApplication.clipboard().setText(self.mcode.text())
 
     def _activate(self) -> None:
         info = lic.activate(self.key_edit.toPlainText())
@@ -212,88 +302,26 @@ class SettingsWindow(QDialog):
             self.license_changed.emit()
         else:
             QMessageBox.warning(self, "Lisans", info.message)
-        self._refresh_license()
+        self.refresh()
 
-    # ------------------------------------------------------------ Hakkında
-    def _about_tab(self) -> QWidget:
-        w = QWidget()
-        v = QVBoxLayout(w)
-        lbl = QLabel(
-            f"<h3>Tıbbi Dikte {__version__}</h3>"
-            "<p>İmlecin bulunduğu alana Türkçe konuşmayı yazar. Ses bilgisayardan dışarı çıkmaz; "
-            "tanıma tamamen yerel olarak yapılır.</p>")
-        lbl.setWordWrap(True)
-        lbl.setTextFormat(Qt.RichText)
-        v.addWidget(lbl)
-        # Seçili modelin lisansı bir ibare gerektiriyorsa (model.json "attribution") burada gösterilir.
-        self.attribution = QLabel()
-        self.attribution.setObjectName("muted")
-        v.addWidget(self.attribution)
-        self.model_box.currentIndexChanged.connect(self._update_attribution)
-        self._update_attribution()
-        notices = QPushButton("Açık kaynak lisansları")
-        notices.clicked.connect(self._open_notices)
-        v.addWidget(notices, alignment=Qt.AlignLeft)
-        v.addStretch()
-        return w
 
-    def _update_attribution(self) -> None:
-        models = discover_models()
-        m = resolve_model(models, self.model_box.currentData() or "") if models else None
-        text = f"{m.name} ({m.attribution})" if m is not None and m.attribution else ""
-        self.attribution.setText(f"Konuşma tanıma: {text}" if text else "")
-        self.attribution.setVisible(bool(text))
-
-    @staticmethod
-    def _open_notices() -> None:
-        import os
-        notice = install_dir() / "NOTICE.txt"
-        if notice.exists():
-            os.startfile(str(notice))  # noqa: S606 (yerel dosya, varsayılan metin düzenleyici)
-
-    # ------------------------------------------------------------ kaydet
-    def _save(self) -> None:
-        seq = self.hotkey_edit.keySequence().toString(QKeySequence.PortableText)
-        hk = qt_to_pynput(seq) if seq else self.cfg.hotkey
-        if not is_valid(hk):
-            QMessageBox.warning(self, "Kısayol", f"Geçersiz kısayol: {seq}")
-            return
-        entries = self._lexicon_entries()
-        clash = user_dict.conflicts(entries)
-        if clash:
-            lines = "\n".join(f"• “{v}” → {', '.join(t)}" for v, t in clash[:10])
-            QMessageBox.warning(self, "Sözlük", "Aynı varyant birden çok terime bağlı; birini seçin:\n" + lines)
-            self.tabs.setCurrentIndex(TAB_LEXICON)
-            return
-        old = (self.cfg.model_dir, self.cfg.num_threads, self.cfg.use_hotwords, self.cfg.use_itn,
-               self.cfg.fuzzy_correction, self.cfg.use_context)
-        chosen = self.model_box.currentData() or ""
-        # varsayılan seçiliyse boş bırak: sonraki sürümde varsayılan değişirse kullanıcı da geçer
-        self.cfg.model_dir = "" if chosen == self._default_model_dir else chosen
-        self.cfg.input_device = self.mic_box.currentData()
-        self.cfg.hotkey = hk
-        self.cfg.ptt_key = self.ptt_box.currentData()
-        self.cfg.num_threads = self.threads.value()
-        self.cfg.use_hotwords = self.cb_hot.isChecked()
-        self.cfg.fuzzy_correction = self.cb_fuzzy.isChecked()
-        self.cfg.use_context = self.cb_ctx.isChecked()
-        self.cfg.use_itn = self.cb_itn.isChecked()
-        self.cfg.use_postprocess = self.cb_post.isChecked()
-        self.cfg.add_trailing_space = self.cb_space.isChecked()
-        self.cfg.live_typing = self.cb_live.isChecked()
-        self.cfg.show_overlay = self.cb_overlay.isChecked()
-        self.cfg.save()
-
-        lex_changed = entries != self._lex_loaded
-        if lex_changed:
-            user_dict.save(entries, USER_LEXICON, USER_CORRECTIONS)
-        new = (self.cfg.model_dir, self.cfg.num_threads, self.cfg.use_hotwords, self.cfg.use_itn,
-               self.cfg.fuzzy_correction, self.cfg.use_context)
-        self.settings_changed.emit(lex_changed or old != new)
-        self.close()
-
-    def show_tab(self, tab: int) -> None:
-        self.tabs.setCurrentIndex(tab)
-        self.show()
-        self.raise_()
-        self.activateWindow()
+class AboutPage(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setObjectName("page")
+        logo = QLabel()
+        logo.setPixmap(icon_pixmap("stethoscope", theme.PRIMARY, 72))
+        title = QLabel("Tıbbi Dikte")
+        title.setObjectName("pageTitle")
+        developers = QLabel("Abdullah ve İbrahim Dağcı tarafından geliştirilmiştir.")
+        rights = QLabel("Tüm hakları saklıdır.")
+        rights.setObjectName("muted")
+        card = widgets.Card()
+        card.body.setContentsMargins(24, 28, 24, 28)
+        for widget in (logo, title, developers, rights):
+            card.body.addWidget(widget, alignment=Qt.AlignHCenter)
+        card.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        lay = QVBoxLayout(self)
+        lay.setContentsMargins(22, 18, 22, 18)
+        lay.addWidget(card)
+        lay.addStretch()

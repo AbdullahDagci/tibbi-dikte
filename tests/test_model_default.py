@@ -1,4 +1,4 @@
-"""Varsayılan konuşma modeli: model.json'da "default": true olan model (05.11: tibbi-tr-v3-tam) seçilir;
+"""Varsayılan konuşma modeli: model.json'da "default": true olan model (06.11: tibbi-tr-v3-tam-w07) seçilir;
 kullanıcı başka bir model seçtiyse onunki geçerli."""
 import json
 from pathlib import Path
@@ -62,12 +62,12 @@ def test_v2_chosen_in_new_version_is_kept(monkeypatch, tmp_path):
     assert Config.load().model_dir.endswith("tibbi-tr-v2")
 
 
-def test_repo_default_is_v3_tam():
+def test_repo_default_is_w07():
     flagged = [p.parent.name for p in (ROOT / "models").glob("*/model.json")
                if json.loads(p.read_text(encoding="utf-8")).get("default")]
-    assert flagged == ["tibbi-tr-v3-tam"]
+    assert flagged == ["tibbi-tr-v3-tam-w07"]
 
 
 def test_installer_ships_default_model():
     iss = (ROOT / "installer" / "setup.iss").read_text(encoding="utf-8")
-    assert r"models\tibbi-tr-v3-tam\*" in iss
+    assert r"models\tibbi-tr-v3-tam-w07\*" in iss

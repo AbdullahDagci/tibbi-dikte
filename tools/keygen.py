@@ -1,21 +1,23 @@
 """Ürün anahtarı üretici — YALNIZCA geliştirici/satıcı bilgisayarında kullanılır.
+Günlük kullanım için ekranlı sürüm: tools\\LisansYoneticisi.cmd
 
 İlk kurulum (bir kez):
     python tools/keygen.py init
     -> tools/private_key.pem (GİZLİ, yedekleyin, asla paylaşmayın / pakete koymayın)
     -> app/licensing/public_key.pem (uygulamaya gömülür)
 
-Deneme (demo) anahtarı — her bilgisayarda çalışır, makine kodu gerekmez, en fazla 31 gün:
-    python tools/keygen.py issue --demo --customer "X Hastanesi (demo)" --days 14
-
-Anahtar üretme (müşteri, uygulamadaki "Makine kodu"nu size iletir):
+Anahtar üretme (müşteri, uygulamadaki "Makine kodu"nu size iletir; her müşteriye ayrı anahtar):
+    python tools/keygen.py issue ABCD-EFGH-IJKL-MNOP --customer "X Hastanesi (deneme)" --days 14
     python tools/keygen.py issue ABCD-EFGH-IJKL-MNOP --customer "Dr. X Klinik" --days 365
     python tools/keygen.py issue ABCD-EFGH-IJKL-MNOP --customer "Y Hastanesi" --until 2027-12-31
     python tools/keygen.py issue ABCD-EFGH-IJKL-MNOP --customer "Z" --perpetual
+
+Herkese açık demo anahtarı — YALNIZCA kendi sunumlarınız için, müşteriye verilmez. Her bilgisayarda çalışır, en fazla
+31 gün geçerlidir ve iptal edilemez:
+    python tools/keygen.py issue --demo --customer "Kendi sunumum" --days 14
 Üretilen her anahtar tools/issued_keys.csv dosyasına kaydedilir.
 """
 import argparse
-import csv
 import datetime as dt
 import sys
 from pathlib import Path
@@ -25,8 +27,7 @@ from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from app.licensing.license import (DEMO_MACHINE, DEMO_MAX_DAYS, encode_key, pack_payload,  # noqa: E402
-                                   parse_machine_code)
+from tools import license_store  # noqa: E402
 
 PRIVATE = ROOT / "tools" / "private_key.pem"
 PUBLIC = ROOT / "app" / "licensing" / "public_key.pem"
@@ -46,16 +47,7 @@ def cmd_init(_a) -> int:
     return 0
 
 
-def _next_customer_id() -> int:
-    if not LOG.exists():
-        return 1
-    with LOG.open(encoding="utf-8") as f:
-        ids = [int(r["customer_id"]) for r in csv.DictReader(f)]
-    return max(ids, default=0) + 1
-
-
 def cmd_issue(a) -> int:
-    key = serialization.load_pem_private_key(PRIVATE.read_bytes(), password=None)
     if a.perpetual:
         expires = None
     elif a.until:
@@ -63,24 +55,14 @@ def cmd_issue(a) -> int:
     else:
         days = a.days if a.days is not None else (14 if a.demo else 365)
         expires = dt.date.today() + dt.timedelta(days=days)
+    try:
+        record = license_store.issue(a.customer, a.machine_code, a.demo, expires, private_key=PRIVATE, log=LOG)
+    except license_store.LicenseError as e:
+        raise SystemExit(str(e)) from e
     if a.demo:
-        if expires is None or (expires - dt.date.today()).days > DEMO_MAX_DAYS:
-            raise SystemExit(f"Deneme anahtarı en fazla {DEMO_MAX_DAYS} gün olabilir (--days 14 gibi).")
-        machine, machine_label = DEMO_MACHINE, "DEMO (her bilgisayar)"
-    else:
-        if not a.machine_code:
-            raise SystemExit("Makine kodu gerekli (veya --demo).")
-        machine, machine_label = parse_machine_code(a.machine_code), a.machine_code
-    cid = _next_customer_id()
-    payload = pack_payload(machine, expires, cid)
-    product_key = encode_key(payload, key.sign(payload))
-    new = not LOG.exists()
-    with LOG.open("a", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        if new:
-            w.writerow(["customer_id", "customer", "machine_code", "expires", "issued", "key"])
-        w.writerow([cid, a.customer, machine_label, expires or "süresiz", dt.date.today(), product_key])
-    print(product_key)
+        print("UYARI: Bu anahtar her bilgisayarda çalışır ve iptal edilemez. Müşteriye makine koduna bağlı anahtar verin.",
+              file=sys.stderr)
+    print(record.key)
     return 0
 
 
@@ -90,7 +72,7 @@ def main() -> int:
     sub.add_parser("init").set_defaults(fn=cmd_init)
     p = sub.add_parser("issue")
     p.add_argument("machine_code", nargs="?")
-    p.add_argument("--demo", action="store_true", help="her bilgisayarda çalışan süreli deneme anahtarı")
+    p.add_argument("--demo", action="store_true", help="her bilgisayarda çalışan süreli anahtar (yalnız kendi sunumlarınız için)")
     p.add_argument("--customer", required=True)
     g = p.add_mutually_exclusive_group()
     g.add_argument("--days", type=int, default=None, help="varsayılan: 365 (demo: 14)")

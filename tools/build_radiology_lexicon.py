@@ -1,8 +1,7 @@
 """rad_dict.xlsx (rapor kelime sıklıkları) -> temizlenmiş radyoloji sözlüğü.
 
 Çıktılar:
-  app/medical/radiology_terms_tr.txt  alana özgü terimler (hotword + bulanık düzeltme), belge sıklığına göre
-  app/medical/radiology_fuzzy_tr.txt  bunun yalnızca alana özgü (genel Türkçede olmayan) alt kümesi: bulanık düzeltme
+  app/medical/radiology_terms_tr.txt  alana özgü terimler (hotword), belge sıklığına göre
   data/radiology_vocab.tsv            temizlenmiş tüm kelimeler + sıklıklar (eğitim metni seçimi/ağırlığı için)
 
 Temizlik:
@@ -155,29 +154,12 @@ def main() -> int:
         "# Radyoloji terimleri — rad_dict.xlsx'ten otomatik üretildi (tools/build_radiology_lexicon.py).\n"
         "# Rapor belge sıklığına göre sıralı. Elle düzenlemeyin; kaynak listeyi güncelleyip yeniden üretin.\n"
         + "\n".join(top) + "\n", encoding="utf-8")
-    # Bulanık düzeltme hedefleri: genel Türkçe sözlükte HİÇ geçmeyen terimler (doğru bir kelimeyi başka bir
-    # doğru kelimeye çevirmemek için: "milimetrelik" -> "milimetrik", "değişiklikler" -> "değişikliklere" gibi)
-    gen_set = {g for g in general if len(g) >= 5}
-    def has_general_stem(w: str) -> bool:  # "değişikliklere" -> "değişiklik", "hatlarında" -> "hatları"
-        return any(w[:k] in gen_set for k in range(max(5, len(w) - 6), len(w) + 1))
-    # Hedefler yalnızca terim kökleri: fiil/çekim biçimleri ("izlendi", "saptanmadı", "kisti") hedef olursa
-    # genel Türkçe kelimeler bunlara benzetilip bozulur. Listede kökü bulunan ekli biçimler de çıkarılır
-    # (kök + ek mantığı onları zaten kapsar).
-    verbal = re.compile(r"(mış|miş|muş|müş|mıştır|miştir|dı|di|du|dü|tı|ti|tu|tü|an|en|yan|yen|ama|eme|acak|ecek|"
-                        r"dığı|diği|duğu|düğü|ması|mesi|ndan|nden|ında|inde|unda|ünde|ları|leri|dır|dir|dur|dür|"
-                        r"tır|tir|tur|tür|sı|si|su|sü|ken|arak|erek|ılır|ilir)$")
-    cand = [w for w in top if not has_general_stem(w) and len(w) >= 7 and not verbal.search(w)]
-    fuzzy = [w for w in cand if not any(o != w and len(o) >= 6 and w.startswith(o) for o in cand)]
-    # Koruma listesi: raporlarda gerçekten geçen tüm (temizlenmiş) kelimeler doğru kabul edilir, değiştirilmez
+    # Raporlarda gerçekten geçen tüm (temizlenmiş) kelimeler doğru kabul edilir, "sözlükte yok" diye işaretlenmez
     known = [w for w in remaining if tf[w] >= 3 and not bad_start(w)]
     (ROOT / "app" / "medical" / "radiology_known_tr.txt").write_text(
-        "# Raporlarda geçen kelimeler — bulanık düzeltme bunları DEĞİŞTİRMEZ (otomatik).\n"
+        "# Raporlarda geçen kelimeler — \"sözlükte yok\" diye işaretlenmez (otomatik).\n"
         + "\n".join(known) + "\n", encoding="utf-8")
     print(f"koruma listesi: {len(known)}")
-    (ROOT / "app" / "medical" / "radiology_fuzzy_tr.txt").write_text(
-        "# Bulanık düzeltme hedefleri — radiology_terms_tr.txt'nin genel Türkçede geçmeyen alt kümesi (otomatik).\n"
-        + "\n".join(fuzzy) + "\n", encoding="utf-8")
-    print(f"bulanık düzeltme hedefi: {len(fuzzy)}")
     print(f"ham {n_raw} -> temiz {len(tf)} (birim {len(dropped)}, baş harf {fixed_start}, ascii {folded}, "
           f"yazım {typos}); alana özgü {len(domain)}, yazılan {len(top)}")
     print("ilk 40:", ", ".join(top[:40]))

@@ -35,16 +35,13 @@ def test_corrections(pp_noitn, src, expected):
 
 
 @pytest.mark.parametrize("src,expected", [
-    ("Tropolin yüksek", "Troponin yüksek"),          # 1 harf hatası
-    ("Pantokrazol verildi", "Pantoprazol verildi"),
-    ("intrabenoz uygulandı", "intravenöz uygulandı"),  # 2 harf hatası (uzun kelime)
     ("metforminin dozu", "metforminin dozu"),          # doğru kelime + ek: dokunma
     ("kalp yetmezliği var", "kalp yetmezliği var"),    # ünsüz yumuşaması: dokunma
     ("ultrasonografisinde", "ultrasonografisinde"),    # terim + ek: dokunma
     ("hastaya söylendi", "hastaya söylendi"),          # sıradan kelimeler değişmez
     ("muayenede bulgu yok", "muayenede bulgu yok"),
 ])
-def test_fuzzy(pp_noitn, src, expected):
+def test_valid_words_stay(pp_noitn, src, expected):
     assert pp_noitn(src) == expected
 
 

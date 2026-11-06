@@ -1,5 +1,5 @@
 # Tıbbi terim sözlüğü — her satıra bir terim (yazılması istenen doğru biçim).
-# Bu liste hem modele "hotword" olarak verilir hem de bulanık düzeltmede kullanılır.
+# Bu liste modele "hotword" olarak verilir ve terimlerin yazım biçimini belirler.
 # Kendi terimlerinizi uygulamanın Ayarlar > Sözlük bölümünden ekleyin (bu dosya güncellemede değişir).
 
 # --- İlaç etken maddeleri
@@ -730,7 +730,7 @@ mamografi
 ultrasonografi
 Doppler
 
-# --- Ölçü birimleri (bulanık düzeltme "milimetredir"i "milimetrikir" yapmasın; ekli biçimler de tanınır)
+# --- Ölçü birimleri (ekli biçimler de tanınır)
 milimetre
 santimetre
 mililitre
@@ -854,3 +854,9 @@ loblar
 mediasten
 posterobazal
 kalibrasyon
+
+# --- Batın MR (06.11 gerçek kayıt: test ekranındaki terim isabeti bu kelimeleri saymıyordu)
+kraniokaudal
+ekstrahepatik
+sürrenal
+ürojenital

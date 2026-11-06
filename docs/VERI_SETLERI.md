@@ -35,7 +35,7 @@ alınmıştır; kullanmadan önce güncel lisans metnini yeniden doğrulayın.
 ## 4. Metin (dil modeli, tokenizer, sentetik ses için)
 | Kaynak | Lisans | Kullanım |
 |---|---|---|
-| Kendi anonim rapor metinlerimiz | bizim | bağlamsal düzeltme dil modeli, veri toplama cümleleri, TTS |
+| Kendi anonim rapor metinlerimiz | bizim | veri toplama cümleleri, TTS |
 | [TBMM tutanakları 1950–2023](https://zenodo.org/records/19713325) | CC BY 4.0 | genel resmî Türkçe metin |
 | Türkçe Vikipedi | CC BY-SA | ürüne gömülecek modellerde paylaşım-benzer yükümlülüğü nedeniyle dikkat |
 

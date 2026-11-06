@@ -4,8 +4,9 @@ Sıra:
   1. Kesin düzeltmeler (corrections_tr.tsv + kullanıcı dosyası): "e ka ge" -> "EKG"
   2. ITN (damga): "beş yüz" -> "500", "yüzde on" -> "%10"
   3. Birimler: "500 miligram" -> "500 mg"
-  4. Bulanık terim eşleme (lexicon_tr.txt + kullanıcı dosyası): "metformın" -> "metformin",
-     ek korunur: "hipertansiyonnu" -> "hipertansiyonu" değil, kök düzeltilir ek aynen kalır.
+
+Yalnızca kesin kurallar uygulanır. Benzerliğe göre tahmin yapılmaz: "pankreatik"i "pankreatit"e, "menenjiom"u
+"menenjitm"e çevirip klinik anlamı değiştiriyordu. Yanlış duyulan bir söyleniş corrections listesine eklenir.
 """
 from __future__ import annotations
 
@@ -14,9 +15,6 @@ import logging
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-
-from rapidfuzz import process
-from rapidfuzz.distance import Levenshtein
 
 # ------------------------------------------------------------------ Türkçe harf işlemleri
 log = logging.getLogger(__name__)
@@ -204,13 +202,7 @@ def normalize_spine_levels(text: str) -> str:
     return _LVL_PAIR.sub(pair, text)
 
 
-def max_edits(n: int) -> int:
-    """Kelime uzunluğuna göre izin verilen düzeltme mesafesi (kısa kelimeler dokunulmaz)."""
-    if n < 8:
-        return 0
-    if n < 10:
-        return 1
-    return 2  # uzun kelimelerde 3 düzeltme, doğru kelimeleri başka kelimelere çeviriyordu
+_SUSPECT_MIN_LEN = 8  # bundan kısa kelimeler "sözlükte yok" diye işaretlenmez
 
 
 # ------------------------------------------------------------------ ana sınıf
@@ -238,6 +230,10 @@ _SPINE_NUMS = {"bir": 1, "iki": 2, "üç": 3, "dört": 4, "beş": 5, "altı": 6,
                "on": 10, "on bir": 11, "on iki": 12}
 _SPINE_WORD_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([CTLS])\s+(on iki|on bir|bir|iki|üç|dört|beş|altı|yedi|sekiz|"
                             r"dokuz|on)(?![\wÇĞİÖŞÜçğıöşü])")
+# Harf adıyla söylenen MR sekansı ve torakal seviye: "te iki" -> "T2". ITN'den önce çevrilmeli, damga "bir ve te iki"yi
+# "01 VT 2" yapıyor. Sayı devam ediyorsa ("te on üç") T1-T12 aralığında değildir, dokunulmaz.
+_TE_WORD_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])[Tt][Ee]\s+(on iki|on bir|bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on)"
+                         r"(?![\wÇĞİÖŞÜçğıöşü])(?!\s+(?:bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz)(?![\wÇĞİÖŞÜçğıöşü]))")
 # Sınıflama numarası: "tip/evre/grade/kategori bir" -> 1 (ITN "bir"i "patolojik bir bulgu"daki gibi sözcük sayar)
 _TYPE_ONE_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([Tt]ip|[Ee]vre|[Gg]rade|[Kk]ategori)\s+bir(?![\wÇĞİÖŞÜçğıöşü])")
 # Omurga seviyesinden önce "son" anlamsızdır: sağ/sol hatası raporda en tehlikeli hatadır.
@@ -292,14 +288,10 @@ _COMMAND_RE = re.compile(r"\s*\b((?:" + "|".join(_tr_ci(c) for c in sorted(_COMM
 @dataclass
 class MedicalPostProcessor:
     lexicon: list[str] = field(default_factory=list)
-    fuzzy_lexicon: list[str] | None = None   # None = lexicon'un tamamı bulanık düzeltme hedefi
-    protected: list[str] = field(default_factory=list)  # doğru kabul edilen, asla düzeltilmeyen kelimeler
+    protected: list[str] = field(default_factory=list)  # doğru kabul edilen kelimeler (rapor kelime listesi)
     general: list[str] = field(default_factory=list)  # genel Türkçe kelimeler (koruma + bağlaç kontrolü)
-    context: object | None = None  # bağlamsal düzeltici (medical/context.py), rapor dil modeli varsa
     corrections: list[tuple[str, str]] = field(default_factory=list)
     use_itn: bool = True
-    fuzzy: bool = True
-    min_fuzzy_len: int = 8
 
     def __post_init__(self) -> None:
         # Uzun ifadeler önce: "e ka ge" "e ka"dan önce eşleşmeli
@@ -310,13 +302,6 @@ class MedicalPostProcessor:
             else:
                 rx = re.compile(r"(?<![\wçğıöşüÇĞİÖŞÜ])" + re.escape(tr_lower(wrong)) + r"(?![\wçğıöşüÇĞİÖŞÜ])")
             self._corr.append((rx, right))
-        # Tek kelimelik, yeterince uzun terimler bulanık eşlemeye girer
-        self._fuzzy_terms = {}
-        if self.fuzzy:
-            targets = self.lexicon if self.fuzzy_lexicon is None else self.fuzzy_lexicon
-            self._fuzzy_terms = {tr_lower(t): t for t in targets
-                                 if " " not in t and len(t) >= self.min_fuzzy_len}
-        self._fuzzy_keys = list(self._fuzzy_terms)
         # Yazım biçimi: sonra gelen dosya (kullanıcı sözlüğü) öncekini ezer — ama yalnızca küçük harfli bir kayıt
         # (raporlardan otomatik üretilen radyoloji listesi tümüyle küçük harflidir) el ile yazılmış "Doppler"i ezmez.
         self._canonical: dict[str, str] = {}
@@ -349,14 +334,11 @@ class MedicalPostProcessor:
 
     @classmethod
     def from_files(cls, lexicon_files: list[Path], correction_files: list[Path],
-                   fuzzy_files: list[Path] | None = None, protected_files: list[Path] | None = None,
-                   general_files: list[Path] | None = None, **kw) -> "MedicalPostProcessor":
-        """fuzzy_files verilirse bulanık düzeltme yalnızca bu dosyalardaki terimlere yapılır."""
+                   protected_files: list[Path] | None = None, general_files: list[Path] | None = None,
+                   **kw) -> "MedicalPostProcessor":
         lex: list[str] = []
         for p in lexicon_files:
             lex += read_lexicon(p)
-        if fuzzy_files is not None:
-            kw["fuzzy_lexicon"] = [t for p in fuzzy_files for t in read_lexicon(p)]
         if protected_files:
             kw["protected"] = [t for p in protected_files for t in read_lexicon(p)]
         if general_files:
@@ -392,6 +374,7 @@ class MedicalPostProcessor:
         if self._itn is None:
             return text
         # Omurga seviyesi önce: "C altı" -> "C6" ("altı" aksi hâlde sayı bağlamı görülmeden korunurdu)
+        text = _TE_WORD_RE.sub(lambda m: f"T{_SPINE_NUMS[m.group(1)]}", text)
         text = _SPINE_WORD_RE.sub(lambda m: f"{m.group(1)}{_SPINE_NUMS[m.group(2)]}", text)  # "L dört" -> "L4"
         text = _TYPE_ONE_RE.sub(r"\1 1", text)  # "Modic tip bir" -> "tip 1" (ITN "bir"i sözcük sayar)
         protected, saved = protect_number_words(text)
@@ -419,42 +402,6 @@ class MedicalPostProcessor:
                     and _harmonic_suffix(w, low[len(w):])):
                 return True
         return False
-
-    def _fuzzy_word(self, word: str) -> str:
-        low = tr_lower(word)
-        if (len(low) < self.min_fuzzy_len or not self._fuzzy_keys or self._is_protected(low)
-                or self._is_known(low)):
-            return word
-        best: tuple[int, int, str] | None = None  # (mesafe, ek uzunluğu, terim)
-        # Kelimenin tamamı (k=0) ve son 1-4 harfi ek sayılarak kökü ("metforminin" -> "metformin"+"in")
-        for k in range(0, 5):
-            stem = low[:len(low) - k]
-            limit = max_edits(len(stem))
-            if limit == 0:
-                break
-            res = process.extract(stem, self._fuzzy_keys, scorer=Levenshtein.distance,
-                                  score_cutoff=limit, limit=2)
-            if not res:
-                continue
-            term, dist = res[0][0], int(res[0][1])
-            if len(res) > 1 and int(res[1][1]) == dist:
-                continue  # iki terime eşit uzaklıkta: belirsiz, dokunma
-            if best is None or dist < best[0]:
-                best = (dist, k, term)
-        if best is None:
-            return word
-        _, k, term = best
-        fixed = self._fuzzy_terms[term] + (low[len(low) - k:] if k else "")
-        if word.isupper():
-            return tr_upper(fixed)
-        if word[:1].isupper():
-            return tr_capitalize(fixed)
-        return fixed
-
-    def apply_fuzzy(self, text: str) -> str:
-        if not self._fuzzy_keys:
-            return text
-        return _WORD_RE.sub(lambda m: self._fuzzy_word(m.group(0)), text)
 
     def apply_casing(self, text: str) -> str:
         """Sözlükteki terimleri sözlükteki yazımına getirir (cümle ortasında "Arteriyel" -> "arteriyel",
@@ -513,13 +460,10 @@ class MedicalPostProcessor:
         if not text:
             return text
         text = self.apply_join(text)
-        if self.context is not None:
-            text = self.context(text)  # "sol bacağı yayılan" -> "sol bacağa yayılan"
         text = self.apply_itn(text)
         text = normalize_units(text)
         text = normalize_spine_levels(text)
         text = _SIDE_RE.sub(lambda m: m.group(1) + "ol", text)  # "son L5 sinir kökü" -> "sol L5 ..."
-        text = self.apply_fuzzy(text)
         text = self.apply_casing(text)
         text = _PCT_SPACE_RE.sub(r"\1 %\2", text)
         return text
@@ -543,13 +487,10 @@ class MedicalPostProcessor:
 
     # -------------------------------------------------- vurgulama (Test ekranı canlı editörü)
     def _is_suspect(self, word: str) -> bool:
-        """Uzun, hiçbir sözlükte/genel kelime listesinde geçmeyen ve bulanık eşlemenin de
-        düzeltemediği (ya da belirsiz bulduğu) kelime: büyük ihtimalle yanlış duyulmuş ama
-        otomatik düzeltilemeyen bir terim. Bu, _fuzzy_word'ün düzeltme denediği ama başarısız
-        olduğu kelimelerle birebir örtüşür: başarılı bir düzeltme kelimeyi sözlükteki kanonik
-        yazıma çevirir, o da zaten korumalı sayılır."""
+        """Uzun ve hiçbir sözlükte ya da genel kelime listesinde geçmeyen kelime: yanlış duyulmuş olabilir.
+        Metin değiştirilmez, yalnızca kullanıcının gözden geçirmesi için işaretlenir."""
         low = tr_lower(word)
-        return (len(low) >= self.min_fuzzy_len and bool(self._fuzzy_keys)
+        return (len(low) >= _SUSPECT_MIN_LEN and bool(self._protected)
                 and not self._is_protected(low) and not self._is_known(low))
 
     def _word_status(self, word: str, c: float | None) -> tuple[str, str]:

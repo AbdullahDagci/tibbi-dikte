@@ -1,20 +1,34 @@
 # Müşteri demosu
 
-## Deneme (demo) anahtarı
-Her bilgisayarda çalışır, makine kodu gerekmez, **en fazla 31 gün** geçerlidir (uygulama daha uzununu reddeder).
+## Lisans Yöneticisi
+Verilen anahtarlar, kalan günler, yenileme ve yeni anahtar üretimi için `tools\LisansYoneticisi.cmd` dosyasını çalıştırın.
+Yalnızca bu bilgisayarda çalışır (`tools/private_key.pem` gerekir) ve müşteri paketine girmez. Kayıtlar
+`tools/issued_keys.csv` dosyasındadır; bu iki dosya git'e girmez, şifreli olarak yedekleyin.
 
-```powershell
-.\.venv\Scripts\python tools\keygen.py issue --demo --customer "X Hastanesi (demo)"            # 14 gün
-.\.venv\Scripts\python tools\keygen.py issue --demo --customer "Y Kliniği (demo)" --days 30
-```
-Müşteriye kurulum dosyasıyla birlikte gönderin. Müşteri: Kur → Ayarlar › Lisans › anahtarı yapıştır → Etkinleştir.
-Uygulama kalan süreyi tepside ve Lisans sekmesinde gösterir; son 3 günde uyarır. Süre bitince normal anahtar ister.
-Satın alırsa: müşteri Lisans sekmesindeki **makine kodunu** gönderir, normal anahtar üretilir
-(`keygen.py issue <makine-kodu> --customer ... --days 365`).
+## Müşteriye deneme lisansı
+Müşteriye **o bilgisayara bağlı**, kısa süreli anahtar verilir ve her müşteri için ayrı üretilir:
 
-> ⚠️ Kurulum dosyası mihu modelini içerir. mihu'nun yazılı izni gelene kadar kurulumu müşteriye vermek dağıtım
-> sayılır (lisans md. 5e). İzin gelene kadar demoyu kendi bilgisayarınızdan (yüz yüze / ekran paylaşımı) yapın;
-> kendi modelimiz (B yolu) hazır olduğunda bu kısıt kalkar.
+1. Müşteri uygulamayı kurar, Lisans sayfasındaki **makine kodunu** size gönderir.
+2. Lisans Yöneticisi'nde **Yeni lisans** ile anahtarı üretirsiniz. Komut satırından da üretilebilir:
+   ```powershell
+   .\.venv\Scripts\python tools\keygen.py issue ABCD-EFGH-IJKL-MNOP --customer "X Hastanesi (deneme)" --days 14
+   ```
+3. Müşteri anahtarı Lisans sayfasına yapıştırıp Etkinleştir'e basar.
+
+Anahtar başka bilgisayarda çalışmaz; kime verildiği `tools/issued_keys.csv` dosyasında kalır. Uygulama kalan süreyi
+tepside ve Lisans sayfasında gösterir, son 3 günde uyarır. Satın alırsa aynı makine kodu için yeni anahtar üretilir
+(`--days 365`). Yeni biçim anahtarlar bu sürümden eski kurulumlarda çalışmaz.
+
+### Herkese açık demo anahtarı
+`keygen.py issue --demo` her bilgisayarda çalışır, en fazla 31 gün geçerlidir ve **iptal edilemez**. Yalnızca kendi
+sunumlarınızda kullanın, müşteriye vermeyin.
+
+### Saat koruması
+Süreli anahtarlarda saati geri almak süreyi uzatmaz: geri alınan süre Windows'un saat kayıtlarından okunup kalan
+süreden düşülür, süre dolduysa lisans kapanır. Uygulama açık kalsa bile lisans saatte bir yeniden denetlenir.
+Süresiz lisans saatten etkilenmez. İnternet bağlantısı kullanılmadığı için şu durumlar engellenemez: Windows
+günlüğünü ve uygulamanın kayıtlarını birlikte silmek, sanal makine anlık görüntüsüne dönmek, saati BIOS'tan her gün
+geri almak.
 
 ## Canlı demo senaryosu (~10 dk)
 Hazırlık: USB/dikte mikrofonu, sessiz oda, müşterinin branşından 3–4 rapor; bir kez prova edip kaçan terimleri

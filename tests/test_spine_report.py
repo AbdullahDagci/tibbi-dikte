@@ -12,7 +12,6 @@ M = Path(__file__).resolve().parent.parent / "app" / "medical"
 def pp():
     return MedicalPostProcessor.from_files(
         [M / "lexicon_tr.txt", M / "radiology_terms_tr.txt"], [M / "corrections_tr.tsv"],
-        fuzzy_files=[M / "lexicon_tr.txt", M / "radiology_fuzzy_tr.txt"],
         protected_files=[M / "radiology_known_tr.txt"], general_files=[M / "general_tr_words.txt"], use_itn=False)
 
 
@@ -71,7 +70,6 @@ def test_spine_ranges(src, expected):
 def pp_itn():
     return MedicalPostProcessor.from_files(
         [M / "lexicon_tr.txt", M / "radiology_terms_tr.txt"], [M / "corrections_tr.tsv"],
-        fuzzy_files=[M / "lexicon_tr.txt", M / "radiology_fuzzy_tr.txt"],
         protected_files=[M / "radiology_known_tr.txt"], general_files=[M / "general_tr_words.txt"])
 
 
@@ -90,3 +88,24 @@ def pp_itn():
 ])
 def test_cervical_report_numbers(pp_itn, src, expected):
     assert pp_itn(src) == expected
+
+
+# Harf adıyla söylenen MR sekansı ve torakal seviye. ITN'den önce çevrilmeli: damga "bir ve te iki"yi "01 VT 2" yapıyor
+@pytest.mark.parametrize("heard,expected", [
+    ("te bir ve te iki ağırlıklı", "T1 ve T2 ağırlıklı"),
+    ("te iki ve te bir", "T2 ve T1"),
+    ("Te bir, te iki ve FLAIR sekanslar", "T1, T2 ve FLAIR sekanslar"),
+    ("T bir ve T iki ağırlıklı", "T1 ve T2 ağırlıklı"),
+    ("te iki hiperintens", "T2 hiperintens"),
+    ("te dokuz ve te on düzeyinde", "T9 ve T10 düzeyinde"),
+    ("te on bir ve te on iki", "T11 ve T12"),
+    ("te altı vertebra korpusunda", "T6 vertebra korpusunda"),
+    ("notte bir hata yok", "notte bir hata yok"),
+])
+def test_spoken_t_sequences_and_levels(pp_itn, heard, expected):
+    assert pp_itn(heard) == expected
+
+
+def test_number_above_thoracic_range_is_not_cut_short(pp_itn):
+    assert "T10" not in pp_itn("te on üç")
+

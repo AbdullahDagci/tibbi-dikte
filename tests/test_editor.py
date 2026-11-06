@@ -64,10 +64,10 @@ def test_insert_annotated_colors_trailing_text_without_changing_it(qapp):
     c = ed.textCursor()
     c.setPosition(len("Bulgular: "))
     c.setPosition(len("Bulgular: metformin"), QTextCursor.KeepAnchor)
-    assert c.charFormat().foreground().color().name() == "#d14343"
+    assert c.charFormat().foreground().color().name() == "#d92d52"
     c.setPosition(len("Bulgular: metformin kullanan"))
     c.setPosition(len("Bulgular: metformin kullanan hastada"), QTextCursor.KeepAnchor)
-    assert c.charFormat().foreground().color() != QColor("#d14343")
+    assert c.charFormat().foreground().color() != QColor("#d92d52")
 
 
 def test_sink_show_annotated_from_worker_thread(qapp):
@@ -85,7 +85,7 @@ def test_sink_show_annotated_from_worker_thread(qapp):
     assert ed.toPlainText() == "metformın"
     c = ed.textCursor()
     c.select(QTextCursor.Document)
-    assert c.charFormat().foreground().color().name() == "#d14343"
+    assert c.charFormat().foreground().color().name() == "#d92d52"
 
 
 def test_score_table_lists_rows_from_worker_thread_and_clears(qapp, tmp_path):
@@ -96,11 +96,11 @@ def test_score_table_lists_rows_from_worker_thread_and_clears(qapp, tmp_path):
     t.join()
     QCoreApplication.processEvents()
     assert page.score_table.rowCount() == 2
-    assert page.score_table.item(0, 2).text() == "%32"
+    assert page.score_table.item(0, 2).text() == "%17"
     assert page.score_table.item(1, 2).text() == "—"
     assert "düşük güven: 1" in page.score_summary.text()
     page._copy_scores()
-    assert "astaya\tAstaya\t%32\tdüşük güven" in QGuiApplication.clipboard().text()
+    assert "astaya\tAstaya\t%17\tdüşük güven" in QGuiApplication.clipboard().text()
     page._clear()
     assert page.score_table.rowCount() == 0 and page.editor.toPlainText() == ""
     # Açıkça silinmezse süreç kapanışta aralıklı çöküyor (0xC0000005)
@@ -121,3 +121,14 @@ def test_add_variant_request_uses_selection_and_replaces_it(qapp):
     assert got == ["pete"]
     ed.replace_selection("BT")
     assert ed.toPlainText() == "Toraks BT, incelemesi"
+
+
+def test_score_table_shows_estimated_accuracy_not_raw_score(qapp, tmp_path):
+    page = EditorPage(tmp_path / "l.txt", tmp_path / "c.tsv", "Ctrl+Alt+Space")
+    assert page.score_table.horizontalHeaderItem(2).text() == "Tahmini doğruluk"
+    page.add_scores([WordScore("merhaba", "Merhaba", 0.74, "normal"), WordScore("test", "test", 0.54, "suspect", "orta güven")])
+    assert page.score_table.item(0, 2).text() == "%98"
+    assert page.score_table.item(1, 2).text() == "%82"
+    assert "tahmini doğruluk %90" in page.score_summary.text()
+    page.deleteLater()
+    QCoreApplication.sendPostedEvents(None, QEvent.DeferredDelete)

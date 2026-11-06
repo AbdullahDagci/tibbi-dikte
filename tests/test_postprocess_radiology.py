@@ -15,7 +15,6 @@ M = Path(__file__).resolve().parent.parent / "app" / "medical"
 def _make(use_itn: bool) -> MedicalPostProcessor:
     return MedicalPostProcessor.from_files(
         [M / "lexicon_tr.txt", M / "radiology_terms_tr.txt"], [M / "corrections_tr.tsv"],
-        fuzzy_files=[M / "lexicon_tr.txt", M / "radiology_fuzzy_tr.txt"],
         protected_files=[M / "radiology_known_tr.txt"], general_files=[M / "general_tr_words.txt"], use_itn=use_itn)
 
 
@@ -36,7 +35,7 @@ def pp_itn():
     "Sol böbrek üst polde basit kortikal kist izlendi.",  # ("kist", "izlendi") birleştirme çifti olarak denk gelir
     "Meme ultrasonografisinde sol meme saat ikide lezyon izlendi.",
     "Mamografide sağ meme üst dış kadranda gruplaşmış mikrokalsifikasyonlar izlendi.",
-    # Bulanık düzeltme doğru yazımlara dokunmamalı ("abdomen"+"al", "milimetrik"+"ir" üretiyordu)
+    # Doğru yazımlara dokunulmamalı
     "Abdominal aortada infrarenal düzeyde anevrizma izlendi.",
     "Kranial bilgisayarlı tomografide akut kanama bulgusu saptanmadı.",
     "Endometrium kalınlığı sekiz milimetredir.",
@@ -63,6 +62,36 @@ def test_itn_keeps_words_and_spine_levels(pp_itn, src, expected):
     assert pp_itn(src) == expected
 
 
-def test_short_known_root_does_not_block_correction(pp):
-    # radiology_known'daki "intra" parçası "intravenez"i "intra" + ek sanıp doğru kelime sayıyordu
+def test_misheard_intravenous_is_corrected_by_exact_rule(pp):
     assert "intravenöz" in pp("Pantoprazol kırk miligram intravenez olarak uygulandı.")
+
+
+# Batın MR kaydı (06.11, testData/rapor.mp4): modelin gerçek seste yaptığı terim hataları
+@pytest.mark.parametrize("heard,expected", [
+    ("Kontrastsız tüm batı MR tetkiki.", "Kontrastsız tüm batın MR tetkiki."),
+    ("Tüm batı nemmar inceleme bileşenleri normaldir.", "Tüm batın MR inceleme bileşenleri normaldir."),
+    ("Tüm batı nemar inceleme bileşenleri normaldir.", "Tüm batın MR inceleme bileşenleri normaldir."),
+    ("Tüm batı memar inceleme bileşenleri normaldir.", "Tüm batın MR inceleme bileşenleri normaldir."),
+    ("Karaciğer kraniokaddar boyutu normaldir.", "Karaciğer kraniokaudal boyutu normaldir."),
+    ("Karaciğer kraniokautar boyutu normaldir.", "Karaciğer kraniokaudal boyutu normaldir."),
+    ("Karaciğer kraniokadlar boyutu normaldir.", "Karaciğer kraniokaudal boyutu normaldir."),
+    ("Ekstrepetik safra yolları normaldir.", "Ekstrahepatik safra yolları normaldir."),
+    ("Her ikisi renal bezi normaldir.", "Her iki sürrenal bezi normaldir."),
+    ("Ve parankim silyal yoğunlukları normaldir.", "Ve parankim sinyal yoğunlukları normaldir."),
+    ("Ve parankimsilyal yoğunlukları normaldir.", "Ve parankim sinyal yoğunlukları normaldir."),
+    ("Sinyal yoğunlukları tabidir.", "Sinyal yoğunlukları tabiidir."),
+    ("Parankim sinyal özellikleri tabidir.", "Parankim sinyal özellikleri tabiidir."),
+    ("Pelvik organlar ve ürogenital değerlendirme.", "Pelvik organlar ve ürojenital değerlendirme."),
+    ("Ürogenitalde patoloji izlenmedi.", "Ürojenitalde patoloji izlenmedi."),
+])
+def test_abdominal_mr_term_corrections(pp, heard, expected):
+    assert pp(heard) == expected
+
+
+# Gerçek Türkçe kelimeler: yalnızca kalıp içinde düzeltilir, tek başına kaldıklarında bozulmamalı
+@pytest.mark.parametrize("text", [
+    "Hasta bu kurala tabidir.",
+    "Hasta batı yakasında yaşıyor.",
+])
+def test_real_words_outside_the_phrases_are_left_alone(pp, text):
+    assert pp(text) == text

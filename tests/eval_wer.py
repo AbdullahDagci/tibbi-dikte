@@ -22,7 +22,6 @@ from app.dictation import write_hotwords  # noqa: E402
 
 LEX = ROOT / "app" / "medical" / "lexicon_tr.txt"
 RAD = ROOT / "app" / "medical" / "radiology_terms_tr.txt"
-RADF = ROOT / "app" / "medical" / "radiology_fuzzy_tr.txt"
 RADK = ROOT / "app" / "medical" / "radiology_known_tr.txt"
 CORR = ROOT / "app" / "medical" / "corrections_tr.tsv"
 
@@ -60,15 +59,14 @@ def main() -> int:
     refs = [l.strip() for l in Path(a.sentences).read_text(encoding="utf-8").splitlines() if l.strip()]
     files = sorted(Path(a.audio).glob("*.wav"))
     lexs = [LEX] if a.no_radiology else [LEX, RAD]
-    fuzz = [LEX] if a.no_radiology else [LEX, RADF]
     prot = [] if a.no_radiology else [RADK]
     terms = {tr_lower(t) for t in read_lexicon(LEX) + read_lexicon(RAD) if len(t) >= 6}  # ölçüt sabit
 
     hw = write_hotwords(lexs, ROOT / "tests" / "_hotwords.txt")
     raw = load_engine(model)
     biased = load_engine(model, hotwords_file=str(hw), hotwords_score=a.score)
-    post = MedicalPostProcessor.from_files(lexs, [CORR], fuzzy_files=fuzz, protected_files=prot, general_files=[LEX.parent / 'general_tr_words.txt'])
-    post_noitn = MedicalPostProcessor.from_files(lexs, [CORR], fuzzy_files=fuzz, protected_files=prot, general_files=[LEX.parent / 'general_tr_words.txt'], use_itn=False)
+    post = MedicalPostProcessor.from_files(lexs, [CORR], protected_files=prot, general_files=[LEX.parent / 'general_tr_words.txt'])
+    post_noitn = MedicalPostProcessor.from_files(lexs, [CORR], protected_files=prot, general_files=[LEX.parent / 'general_tr_words.txt'], use_itn=False)
 
     # sonişleme = hotword'süz ham çıktı + sonişleme (model.json "hotwords": false olan modellerde uygulamanın yaptığı)
     systems = {"ham": [], "hotword": [], "hotword+sonişleme": [], "sonişleme": []}

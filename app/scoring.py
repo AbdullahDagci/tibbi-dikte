@@ -12,6 +12,20 @@ from rapidfuzz.distance import Levenshtein
 
 from .medical.postprocess import tr_lower
 
+# Ham güven -> gerçekte doğru çıkma oranı. Ölçüm: Tibbi Türkçe v3 (w07), temperature_scale=2.0 (sherpa varsayılanı),
+# 1.468 kelime (1.310'u yapay ses, 158'i gerçek rapor), aralık ortaları: %30-45 %20,0 · %45-60 %80,2 · %60-70 %94,4 ·
+# %70-80 %98,1 · %80-90 %99,5 · %90-100 %100. Gerçek kayıtlar çoğaldıkça yeniden ölçülmeli (tools/confidence_calibration.py).
+_ACCURACY_CURVE = ((0.0, 0.0), (0.375, 0.20), (0.525, 0.802), (0.65, 0.944), (0.75, 0.981), (0.85, 0.99))
+
+
+def estimated_accuracy(raw_confidence: float) -> float:
+    """Ham çözücü güvenini tahmini doğruluğa çevirir. Üst sınır %99: model hiçbir kelimeden kesin emin olamaz."""
+    for (x0, y0), (x1, y1) in zip(_ACCURACY_CURVE, _ACCURACY_CURVE[1:]):
+        if raw_confidence <= x1:
+            return y0 + (max(raw_confidence, x0) - x0) / (x1 - x0) * (y1 - y0)
+    return _ACCURACY_CURVE[-1][1]
+
+
 _ONES = ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"]
 _TENS = ["", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"]
 _UNITS = {"mg": "miligram", "mcg": "mikrogram", "g": "gram", "kg": "kilogram", "ml": "mililitre", "dl": "desilitre",

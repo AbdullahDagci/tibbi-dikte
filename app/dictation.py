@@ -26,11 +26,8 @@ log = logging.getLogger(__name__)
 
 BUILTIN_LEXICON = resource_dir() / "medical" / "lexicon_tr.txt"
 RADIOLOGY_LEXICON = resource_dir() / "medical" / "radiology_terms_tr.txt"
-RADIOLOGY_FUZZY = resource_dir() / "medical" / "radiology_fuzzy_tr.txt"
 RADIOLOGY_KNOWN = resource_dir() / "medical" / "radiology_known_tr.txt"
 GENERAL_WORDS = resource_dir() / "medical" / "general_tr_words.txt"
-# Bağlamsal dil modeli: kullanıcı klasöründeki (yerel olarak yeniden kurulmuş) öncelikli, yoksa paketteki
-CONTEXT_LM = [user_dir() / "context_lm.json.gz", resource_dir() / "medical" / "context_lm.json.gz"]
 BUILTIN_CORRECTIONS = resource_dir() / "medical" / "corrections_tr.tsv"
 USER_LEXICON = user_dir() / "kullanici_terimler.txt"
 USER_CORRECTIONS = user_dir() / "kullanici_duzeltmeler.tsv"
@@ -86,6 +83,7 @@ class Dictation:
         self._stop = threading.Event()
         self._lock = threading.Lock()
         self._toggle_lock = threading.Lock()
+        self._load_lock = threading.RLock()  # yükleme ve sözlük yenileme aynı anda çalışmaz
         self._thread: threading.Thread | None = None
 
     # ------------------------------------------------ yükleme
@@ -97,6 +95,35 @@ class Dictation:
 
     def load(self) -> None:
         """Modeli ve sonişleyiciyi (yeniden) yükler. Dikte açıksa önce durdurur."""
+        with self._load_lock:
+            self._load()
+
+    def needs_engine_reload_for_dictionary(self) -> bool:
+        """Terimler modele hotword olarak veriliyorsa sözlük değişince motor da yeniden kurulmalı."""
+        return bool(self.cfg.use_hotwords and self.model is not None and self.model.hotwords)
+
+    def reload_dictionary(self) -> None:
+        """Sözlük değişti: yalnız sonişleyici yeniden kurulur. Model yüklenmez, dikte kesilmez."""
+        with self._load_lock:
+            if self.engine is None:
+                return  # model henüz yüklenmedi; yüklenirken güncel sözlüğü zaten okur
+            try:
+                post = self._build_post()
+            except Exception:  # noqa: BLE001 (eski sözlükle devam edilir)
+                log.exception("Sözlük yeniden yüklenemedi")
+                return
+            with self._lock:
+                self.post = post
+            log.info("Sözlük yenilendi")
+
+    def _build_post(self) -> MedicalPostProcessor:
+        lex_files = [BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_LEXICON]
+        return MedicalPostProcessor.from_files(
+            lex_files, [BUILTIN_CORRECTIONS, USER_CORRECTIONS],
+            protected_files=[RADIOLOGY_KNOWN], general_files=[GENERAL_WORDS],
+            use_itn=self.cfg.use_itn)
+
+    def _load(self) -> None:
         self.stop_listening()
         self.on_state("loading")
         try:
@@ -110,17 +137,7 @@ class Dictation:
                 log.info("Hotword bu modelde kapalı (model.json: hotwords=false)")
             engine = load_engine(model, num_threads=self.cfg.num_threads,
                                  hotwords_file=hw, hotwords_score=self.cfg.hotwords_score)
-            post = MedicalPostProcessor.from_files(
-                lex_files, [BUILTIN_CORRECTIONS, USER_CORRECTIONS],
-                fuzzy_files=[BUILTIN_LEXICON, RADIOLOGY_FUZZY, USER_LEXICON],
-                protected_files=[RADIOLOGY_KNOWN], general_files=[GENERAL_WORDS],
-                use_itn=self.cfg.use_itn, fuzzy=self.cfg.fuzzy_correction)
-            if self.cfg.use_context:
-                from .medical.context import ContextCorrector
-                lm_path = next((p for p in CONTEXT_LM if p.is_file()), None)
-                if lm_path is not None:
-                    post.context = ContextCorrector.from_file(lm_path, threshold=self.cfg.context_threshold)
-                    log.info("Bağlamsal düzeltme: %s", lm_path)
+            post = self._build_post()
             with self._lock:
                 self.model, self.engine, self.post = model, engine, post
             log.info("Model yüklendi: %s", model.name)
@@ -165,7 +182,7 @@ class Dictation:
         self.on_state("idle")
 
     def _finish_text(self, raw: str, confidences: list[tuple[str, float]] | None = None) -> str:
-        if self.post and self.cfg.use_postprocess:
+        if self.post:
             annotate = getattr(self.post, "annotate", None)
             spans = annotate(raw, confidences) if annotate else [(self.post(raw), "normal")]
         else:
@@ -202,7 +219,7 @@ class Dictation:
                         log.exception("Güven skorları gösterilemedi")
 
     def _word_scores(self, raw: str, confidences: list[tuple[str, float]] | None) -> list[WordScore]:
-        if self.post and self.cfg.use_postprocess:
+        if self.post:
             return self.post.word_scores(raw, confidences)
         if confidences:
             return [WordScore(w, w, c, "normal") for w, c in confidences]
@@ -214,8 +231,8 @@ class Dictation:
         return LiveWriter(self.typer, self.eraser, transform=self._live_transform)
 
     def _live_transform(self, text: str) -> str:
-        """Anlık yazılan kelimeler de cümle sonundaki gibi sonişlenir (ham mod kapalıysa)."""
-        return self.post(text) if self.post and self.cfg.use_postprocess else text
+        """Anlık yazılan kelimeler de cümle sonundaki gibi sonişlenir."""
+        return self.post(text) if self.post else text
 
     def _live(self, partial: str) -> None:
         if self._writer is not None:

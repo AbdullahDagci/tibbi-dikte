@@ -4,48 +4,37 @@ from __future__ import annotations
 import logging
 import threading
 
-from PySide6.QtCore import QObject, Qt, Signal
-from PySide6.QtGui import QAction, QColor, QFont, QIcon, QPainter, QPixmap
+from PySide6.QtCore import QCoreApplication, QEvent, QObject, Qt, QTimer, Signal
+from PySide6.QtGui import QAction, QIcon
 from PySide6.QtWidgets import QApplication, QMenu, QSystemTrayIcon
 
+from . import theme
+from .audio import beep_tone, play_tone
 from .config import Config
-from .collect import CollectWindow
-from .dictation import Dictation
+from .dictation import BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_CORRECTIONS, USER_LEXICON, Dictation, ensure_user_files
 from .hotkey import GlobalHotkey, pynput_to_qt
 from .licensing import license as lic
-from .dictation import BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_CORRECTIONS, USER_LEXICON
-from .editor import EditorPage
+from .main_window import MainWindow
 from .overlay import ListeningOverlay
 from .ptt import PushToTalk
-from .settings_window import TAB_LICENSE, SettingsWindow
-from .testbench import TestWindow
 from .typer import backspace, type_text
+from .ui.icons import icon as make_menu_icon
+from .ui.icons import logo_icon
 
 log = logging.getLogger(__name__)
 
 STATE_STYLE = {
-    "idle": ("#2f6fed", "Hazır"),
-    "listening": ("#d92d20", "Dinliyor…"),
-    "loading": ("#98a2b3", "Model yükleniyor…"),
-    "error": ("#f79009", "Hata — ayrıntı için günlük dosyasına bakın"),
-    "unlicensed": ("#667085", "Lisans gerekli"),
+    "idle": (theme.PRIMARY, "Hazır"),
+    "listening": (theme.DANGER, "Dinliyor…"),
+    "loading": (theme.MUTED, "Model yükleniyor…"),
+    "error": (theme.WARNING, "Hata — ayrıntı için günlük dosyasına bakın"),
+    "unlicensed": (theme.MUTED, "Lisans gerekli"),
 }
 
 
 def make_icon(color: str) -> QIcon:
-    pm = QPixmap(64, 64)
-    pm.fill(Qt.transparent)
-    p = QPainter(pm)
-    p.setRenderHint(QPainter.Antialiasing)
-    p.setBrush(QColor(color))
-    p.setPen(Qt.NoPen)
-    p.drawEllipse(2, 2, 60, 60)
-    p.setPen(QColor("white"))
-    f = QFont("Segoe UI", 30, QFont.Bold)
-    p.setFont(f)
-    p.drawText(pm.rect(), Qt.AlignCenter, "D")
-    p.end()
-    return QIcon(pm)
+    """Tepsi simgesi: logonun zemini dikte durumunun rengini alır."""
+    return logo_icon(color)
 
 
 class _Bridge(QObject):
@@ -59,6 +48,10 @@ class _Bridge(QObject):
     text = Signal(str)
 
 
+LICENSE_CHECK_MS = 3_600_000  # uygulama günlerce açık kalabilir: lisans saatte bir yeniden denetlenir
+LICENSE_NOTICE_DAYS = 30      # süresi bundan azsa açılışta kalan gün bildirilir
+
+
 class TrayApp:
     def __init__(self, app: QApplication):
         self.app = app
@@ -68,6 +61,10 @@ class TrayApp:
         self.bridge.toggle.connect(self._toggle)
         self.icons = {k: make_icon(c) for k, (c, _) in STATE_STYLE.items()}
         self.licensed = False
+        self._license_timer = QTimer()
+        self._license_timer.setInterval(LICENSE_CHECK_MS)
+        self._license_timer.timeout.connect(self._recheck_license)
+        self._license_timer.start()
 
         self.dictation = Dictation(self.cfg, on_state=self.bridge.state.emit, on_text=self.bridge.text.emit,
                                    on_level=self.bridge.level.emit, on_partial=self.bridge.partial.emit)
@@ -75,7 +72,7 @@ class TrayApp:
         self.bridge.level.connect(self.overlay.set_level)
         self.bridge.partial.connect(self.overlay.set_partial)
         self.bridge.text.connect(self.overlay.add_text)
-        self._test: TestWindow | None = None
+        self.main: MainWindow | None = None
         self.hotkey = GlobalHotkey(self.cfg.hotkey, self.bridge.toggle.emit)
         self.ptt = PushToTalk(self.cfg.ptt_key, self.bridge.ptt_start.emit, self.bridge.ptt_stop.emit)
         self.bridge.ptt_start.connect(self._ptt_start)
@@ -85,24 +82,27 @@ class TrayApp:
         menu = QMenu()
         self.act_toggle = QAction("Dikteyi başlat")
         self.act_toggle.triggered.connect(self._toggle)
-        act_settings = QAction("Ayarlar…")
-        act_settings.triggered.connect(lambda: self.settings().show_tab(0))
-        act_test = QAction("Test ve doğruluk…")
-        act_test.triggered.connect(self.show_test)
-        act_collect = QAction("Veri toplama…")
-        act_collect.triggered.connect(self.show_collect)
-        act_quit = QAction("Çıkış")
+        self.act_toggle.setIcon(make_menu_icon("microphone", theme.TEXT))
+        pages = (("dictate", "Uygulamayı aç", "logo"), ("lexicon", "Sözlük", "book-2"),
+                 ("test", "Test ve doğruluk", "flask"), ("collect", "Veri toplama", "database"),
+                 ("settings", "Ayarlar", "settings"))
+        page_actions = []
+        for name, title, icon_name in pages:
+            action = QAction(make_menu_icon(icon_name, theme.TEXT), title)
+            action.triggered.connect(lambda _checked=False, page=name: self.open_page(page))
+            page_actions.append(action)
+        act_quit = QAction(make_menu_icon("x", theme.DANGER), "Çıkış")
         act_quit.triggered.connect(self.quit)
-        for a in (self.act_toggle, act_test, act_collect, act_settings):
-            menu.addAction(a)
+        menu.addAction(self.act_toggle)
+        menu.addSeparator()
+        for action in page_actions:
+            menu.addAction(action)
         menu.addSeparator()
         menu.addAction(act_quit)
-        self._actions = (self.act_toggle, act_test, act_collect, act_settings, act_quit)
-        self._collect: CollectWindow | None = None
+        self._actions = (self.act_toggle, *page_actions, act_quit)
         self.tray.setContextMenu(menu)
         self.tray.activated.connect(self._on_tray_click)
         self.tray.show()
-        self._settings: SettingsWindow | None = None
 
     # ------------------------------------------------ yaşam döngüsü
     def start(self) -> None:
@@ -114,15 +114,13 @@ class TrayApp:
         info = lic.current()
         self.licensed = info.valid
         self.license_info = info
-        if info.valid and info.demo:
-            self.tray.showMessage("Tıbbi Dikte — deneme sürümü", info.message,
-                                  QSystemTrayIcon.Warning if (info.days_left or 0) <= 3 else QSystemTrayIcon.Information)
+        if info.valid and info.days_left is not None and (info.demo or info.days_left <= LICENSE_NOTICE_DAYS):
+            self.tray.showMessage("Tıbbi Dikte — deneme sürümü" if info.demo else "Tıbbi Dikte — lisans süresi", info.message,
+                                  QSystemTrayIcon.Warning if info.days_left <= 3 else QSystemTrayIcon.Information)
         if not info.valid:
-            self._on_state("unlicensed")
-            self.tray.showMessage("Tıbbi Dikte", f"{info.message} Lütfen ürün anahtarınızı girin.",
-                                  QSystemTrayIcon.Warning)
-            self.settings().show_tab(TAB_LICENSE)
+            self._require_license(info)
             return
+        self._sync_license()
         self._load_async()
 
     def _load_async(self) -> None:
@@ -134,56 +132,76 @@ class TrayApp:
         threading.Thread(target=run, name="model-load", daemon=True).start()
 
     def quit(self) -> None:
+        if self.main is not None and not self.main.confirm_quit():
+            return
         self.hotkey.stop()
         self.ptt.stop()
         self.dictation.stop_listening()
         self.tray.hide()
+        if self.main is not None:
+            self.main.close()
         self.app.quit()
 
+    def _require_license(self, info) -> None:
+        self._on_state("unlicensed")
+        self.tray.showMessage("Tıbbi Dikte", f"{info.message} Lütfen ürün anahtarınızı girin.", QSystemTrayIcon.Warning)
+        self._sync_license()
+        self.open_page("license")
+
+    def _recheck_license(self) -> None:
+        """Süre uygulama açıkken dolarsa dikte durur ve lisans sayfası açılır."""
+        info = lic.current()
+        self.license_info = info
+        if info.valid or not self.licensed:
+            self._update_tooltip()
+            return
+        self.dictation.stop_listening()
+        self.licensed = False
+        self._require_license(info)
+
+    def dispose(self) -> None:
+        """Olay döngüsü bittikten sonra çağrılır: açık iletişim kutusunun penceresi altından silinmez."""
+        self._license_timer.stop()
+        if self.main is not None:
+            self.main.deleteLater()
+            self.main = None
+            QCoreApplication.sendPostedEvents(None, QEvent.DeferredDelete)
+
     # ------------------------------------------------ olaylar
-    def settings(self) -> SettingsWindow:
-        if self._settings is None:
-            self._settings = SettingsWindow(self.cfg)
-            self._settings.settings_changed.connect(self._on_settings_changed)
-            self._settings.license_changed.connect(self._check_license)
-            self._settings.finished.connect(lambda _: setattr(self, "_settings", None))
-            self._settings.setAttribute(Qt.WA_DeleteOnClose)
-        return self._settings
-
-    def show_test(self) -> None:
-        if not self.licensed:
-            self.settings().show_tab(TAB_LICENSE)
-            return
-        if self._test is None:
+    def main_window(self) -> MainWindow:
+        if self.main is None:
+            ensure_user_files()
             d = self.dictation
-            page = EditorPage(USER_LEXICON, USER_CORRECTIONS, pynput_to_qt(self.cfg.hotkey),
-                              on_toggle=self._toggle, on_dictionary_changed=self._dictionary_changed)
-            self._test = TestWindow(lambda: (d.engine, d.post, d.listening),
-                                    [BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_LEXICON], editor_page=page)
-            page.set_listening(d.listening)
-            self._test.finished.connect(lambda _: setattr(self, "_test", None))
-            self._test.setAttribute(Qt.WA_DeleteOnClose)
-        self._test.show()
-        self._test.raise_()
-        self._test.activateWindow()
+            self.main = MainWindow(self.cfg, lambda: (d.engine, d.post, d.listening),
+                                   [BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_LEXICON], USER_LEXICON, USER_CORRECTIONS,
+                                   pynput_to_qt(self.cfg.hotkey), on_toggle=self._toggle,
+                                   on_dictionary_changed=self._dictionary_changed,
+                                   on_settings_changed=self._on_settings_changed,
+                                   on_license_changed=self._check_license)
+            self.main.set_licensed(self.licensed)
+            self.main.set_state(getattr(self, "state", "idle"))
+            self._update_tooltip()
+        return self.main
 
-    def show_collect(self) -> None:
-        if not self.licensed:
-            self.settings().show_tab(TAB_LICENSE)
-            return
-        if self._collect is None:
-            d = self.dictation
-            self._collect = CollectWindow(lambda: (d.engine, d.post, d.listening))
-            self._collect.finished.connect(lambda _: setattr(self, "_collect", None))
-            self._collect.setAttribute(Qt.WA_DeleteOnClose)
-        self._collect.show()
-        self._collect.raise_()
-        self._collect.activateWindow()
+    def open_page(self, name: str) -> None:
+        win = self.main_window()
+        win.show_page(name)
+        if win.isMinimized():  # büyütülmüş pencere büyütülmüş olarak geri gelir
+            win.setWindowState(win.windowState() & ~Qt.WindowMinimized)
+        win.show()
+        win.raise_()
+        win.activateWindow()
+
+    def _sync_license(self) -> None:
+        if self.main is not None:
+            self.main.set_licensed(self.licensed)
 
     def _on_settings_changed(self, reload_model: bool) -> None:
         self.hotkey.rebind(self.cfg.hotkey)
         self.ptt.rebind(self.cfg.ptt_key)
         self.overlay.hotkey_label = pynput_to_qt(self.cfg.hotkey)
+        if self.main is not None:
+            self.main.set_hotkey_label(pynput_to_qt(self.cfg.hotkey))
         if reload_model and self.licensed:
             self._load_async()
         self._update_tooltip()
@@ -193,9 +211,9 @@ class TrayApp:
             self._toggle()
 
     def _route_output(self) -> None:
-        """Dikte başlarken: Test › Canlı dikte editörü etkinse metin doğrudan editöre, değilse imlece (SendInput)."""
-        if self._test is not None and self._test.wants_dictation():
-            sink = self._test.editor_page.sink
+        """Dikte başlarken: Dikte sayfası etkinse metin doğrudan editöre, değilse imlece (SendInput)."""
+        if self.main is not None and self.main.wants_dictation():
+            sink = self.main.dictate_page.sink
             self.dictation.typer, self.dictation.eraser = sink.type, sink.erase
             self.dictation.on_segment = sink.show_annotated
             self.dictation.on_scores = sink.show_scores
@@ -205,15 +223,18 @@ class TrayApp:
             self.dictation.on_scores = None
 
     def _dictionary_changed(self) -> None:
-        """Editörden sözlüğe varyant eklendi: sözlük + hotword'ler yeniden yüklenir (dikte sürüyorsa bitince)."""
-        if self.dictation.listening:
+        """Sözlük değişti: anında geçerli olur, dikte sürüyorsa kesilmez. Terimler modele hotword olarak veriliyorsa
+        motor da yeniden kurulmalıdır; bu dikteyi durduracağı için dikte bitince yapılır."""
+        if not self.dictation.needs_engine_reload_for_dictionary():
+            threading.Thread(target=self.dictation.reload_dictionary, name="dictionary-reload", daemon=True).start()
+        elif self.dictation.listening:
             self._reload_pending = True
         else:
             self._load_async()
 
     def _toggle(self) -> None:
         if not self.licensed:
-            self.settings().show_tab(TAB_LICENSE)
+            self.open_page("license")
             return
         if self.dictation.engine is None:
             return
@@ -244,13 +265,10 @@ class TrayApp:
         self._beep(True)
         threading.Thread(target=self.dictation.stop_listening, daemon=True).start()
 
-    @staticmethod
-    def _beep(stopping: bool) -> None:
-        try:
-            import winsound
-            threading.Thread(target=winsound.Beep, args=(660 if stopping else 990, 70), daemon=True).start()
-        except Exception:
-            pass
+    def _beep(self, stopping: bool) -> None:
+        tone = beep_tone(self.cfg, stopping)
+        if tone is not None:
+            play_tone(*tone)
 
     def _on_state(self, state: str) -> None:
         prev = getattr(self, "state", None)
@@ -262,8 +280,8 @@ class TrayApp:
             elif state == "error" and prev == "listening":
                 self.overlay.error("Dikte sırasında hata oluştu (günlük dosyasına bakın).")
         self.state = state
-        if self._test is not None and self._test.editor_page is not None:
-            self._test.editor_page.set_listening(state == "listening")
+        if self.main is not None:
+            self.main.set_state(state)
         if state == "idle" and getattr(self, "_reload_pending", False):
             self._reload_pending = False
             self._load_async()
@@ -277,6 +295,10 @@ class TrayApp:
     def _update_tooltip(self) -> None:
         label = STATE_STYLE.get(getattr(self, "state", "idle"), STATE_STYLE["idle"])[1]
         model = self.dictation.model.name if self.dictation.model else "-"
+        if self.main is not None:
+            self.main.set_model_name("" if model == "-" else model)
         li = getattr(self, "license_info", None)
-        demo = f"\nDeneme: {li.days_left} gün kaldı" if li is not None and li.valid and li.demo else ""
+        demo = ""
+        if li is not None and li.valid and li.days_left is not None:
+            demo = f"\n{'Deneme' if li.demo else 'Lisans'}: {li.days_left} gün kaldı"
         self.tray.setToolTip(f"Tıbbi Dikte — {label}\nKısayol: {pynput_to_qt(self.cfg.hotkey)}\nModel: {model}{demo}")

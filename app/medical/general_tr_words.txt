@@ -1,4 +1,4 @@
-# Genel Türkçe kelimeler — bulanık düzeltme bunları DEĞİŞTİRMEZ (yalnızca Türkçede olmayan kelimeler düzeltilir).
+# Genel Türkçe kelimeler — "sözlükte yok" diye işaretlenmez; bölünmüş kelime birleştirmede de kullanılır.
 # Kaynak: hermitdave/FrequencyWords (OpenSubtitles 2018, tr_50k) — CC BY-SA 4.0
 bir
 bu
