@@ -83,6 +83,11 @@ class DictationSession(ABC):
         """Henüz kesinleşmemiş (o an söylenmekte olan) metin — yalnızca ekranda göstermek için."""
         return ""
 
+    def word_confidences(self) -> list[tuple[str, float]]:
+        """Son kesinleşen metnin (word, 0..1 güven) çiftlerini döndürür ve temizler (motor
+        desteklemiyorsa her zaman boş liste)."""
+        return []
+
 
 class SttEngine(ABC):
     def __init__(self, model: ModelInfo, *, num_threads: int = 2,
@@ -110,3 +115,17 @@ class SttEngine(ABC):
             parts += s.accept(samples[i:i + chunk])
         parts += s.flush()
         return " ".join(p for p in parts if p)
+
+    def transcribe_with_confidence(self, samples: np.ndarray,
+                                    sample_rate: int | None = None) -> tuple[str, list[tuple[str, float]]]:
+        """transcribe() gibi, ama ölçüm/kalibrasyon için kelime bazlı decoder güven skorlarını da döndürür
+        (motor desteklemiyorsa güven listesi boş döner)."""
+        if sample_rate and sample_rate != self.sample_rate:
+            samples = resample(samples, sample_rate, self.sample_rate)
+        s = self.new_session()
+        chunk = self.sample_rate // 10
+        parts: list[str] = []
+        for i in range(0, len(samples), chunk):
+            parts += s.accept(samples[i:i + chunk])
+        parts += s.flush()
+        return " ".join(p for p in parts if p), s.word_confidences()

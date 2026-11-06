@@ -16,13 +16,13 @@ def test_installer_ships_only_our_model():
 
 def test_notice_names_our_model_not_mihu():
     text = build_notice()
-    assert "Tıbbi Türkçe v3" in text and "Ertansa" in text
-    assert "mihu" not in text.lower()
+    assert "Tıbbi Türkçe v3" in text and "Abdullah DAĞCI" in text
+    assert "mihu" not in text.lower() and "ertansa" not in text.lower()
 
 
 def test_about_tab_attribution_of_default_model():
     spec = json.loads((ROOT / "models" / "tibbi-tr-v3-tam" / "model.json").read_text(encoding="utf-8"))
-    assert "mihu" not in spec["attribution"].lower() and "Ertansa" in spec["attribution"]
+    assert "mihu" not in spec["attribution"].lower() and "Abdullah DAĞCI" in spec["attribution"]
     assert "mihu" not in spec["license"].lower()
 
 

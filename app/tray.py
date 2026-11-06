@@ -197,8 +197,12 @@ class TrayApp:
         if self._test is not None and self._test.wants_dictation():
             sink = self._test.editor_page.sink
             self.dictation.typer, self.dictation.eraser = sink.type, sink.erase
+            self.dictation.on_segment = sink.show_annotated
+            self.dictation.on_scores = sink.show_scores
         else:
             self.dictation.typer, self.dictation.eraser = type_text, backspace
+            self.dictation.on_segment = None
+            self.dictation.on_scores = None
 
     def _dictionary_changed(self) -> None:
         """Editörden sözlüğe varyant eklendi: sözlük + hotword'ler yeniden yüklenir (dikte sürüyorsa bitince)."""

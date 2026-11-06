@@ -25,6 +25,23 @@ def _clean(text: str) -> str:
     return " ".join(text.split())
 
 
+def _word_confidences(tokens: list[str], ys_probs: list[float]) -> list[tuple[str, float]]:
+    """BPE alt-tokenlarını kelimelere gruplar (yeni kelime: token metni boşlukla başlar) ve her kelimenin
+    güvenini alt-token log-olabilirliklerinin ortalamasının exp'i olarak hesaplar (0..1, kalibre edilmemiş
+    ham decoder değeri — ölçüm/kalibrasyon için; app/scoring.py ile gerçek referansa karşı doğrulanmalı)."""
+    words: list[tuple[str, float]] = []
+    cur, lps = "", []
+    for tok, lp in zip(tokens, ys_probs):
+        if tok.startswith(" ") and cur:
+            words.append((cur.strip(), float(np.exp(np.mean(lps)))))
+            cur, lps = "", []
+        cur += tok
+        lps.append(lp)
+    if cur.strip():
+        words.append((cur.strip(), float(np.exp(np.mean(lps)))))
+    return words
+
+
 # ---------------------------------------------------------------- online (akış)
 # Kelime düşürülen uç noktada son kelimenin zaman damgasından bu kadar sonrası yeni akışa yeniden verilir
 TAIL_MARGIN_SEC = 0.3
@@ -40,6 +57,7 @@ class _OnlineSession(DictationSession):
     def __init__(self, rec: "sherpa_onnx.OnlineRecognizer", sr: int):
         self.rec = rec
         self.sr = sr
+        self._conf: list[tuple[str, float]] = []  # kesinleşen kelimelerin güven skorları (_new_stream ile sıfırlanmaz)
         self._new_stream()
 
     def _new_stream(self, audio: np.ndarray | None = None) -> None:
@@ -73,6 +91,7 @@ class _OnlineSession(DictationSession):
         r = json.loads(self.rec.get_result_as_json_string(self.stream))
         text = _clean(r.get("text", ""))
         ts = r.get("timestamps") or []
+        self._conf.extend(_word_confidences(r.get("tokens") or [], r.get("ys_probs") or []))
         prev, cur = _clean(self._last).split(), text.split()
         if ts and len(prev) > len(cur) and prev[:len(cur)] == cur:
             # zaman damgaları segment başına göre; segment akışın start_time anında başlar
@@ -94,9 +113,15 @@ class _OnlineSession(DictationSession):
         self.stream.accept_waveform(self.sr, np.zeros(int(self.sr * 0.6), dtype=np.float32))
         self.stream.input_finished()
         self._decode()
-        text = _clean(self.rec.get_result(self.stream))
+        r = json.loads(self.rec.get_result_as_json_string(self.stream))
+        text = _clean(r.get("text", ""))
+        self._conf.extend(_word_confidences(r.get("tokens") or [], r.get("ys_probs") or []))
         self._new_stream()
         return [text] if text else []
+
+    def word_confidences(self) -> list[tuple[str, float]]:
+        out, self._conf = self._conf, []
+        return out
 
 
 class SherpaOnlineEngine(SttEngine):

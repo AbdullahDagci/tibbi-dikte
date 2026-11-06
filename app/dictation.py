@@ -17,7 +17,7 @@ from .audio import Microphone
 from .config import Config
 from .engines.base import ModelInfo, SttEngine
 from .engines.registry import discover_models, load_engine, resolve_model
-from .medical.postprocess import MedicalPostProcessor, read_lexicon, tr_capitalize
+from .medical.postprocess import MedicalPostProcessor, WordScore, read_lexicon, tr_capitalize
 from .paths import resource_dir, user_dir
 from .live import LiveWriter
 from .typer import backspace, type_text
@@ -65,7 +65,9 @@ class Dictation:
                  typer: Callable[[str], None] = type_text,
                  on_level: Callable[[float], None] | None = None,
                  on_partial: Callable[[str], None] | None = None,
-                 eraser: Callable[[int], None] = backspace):
+                 eraser: Callable[[int], None] = backspace,
+                 on_segment: Callable[[list[tuple[str, str]]], None] | None = None,
+                 on_scores: Callable[[list[WordScore]], None] | None = None):
         self.cfg = cfg
         self.on_state = on_state or (lambda s: None)
         self.on_text = on_text or (lambda t: None)
@@ -74,6 +76,9 @@ class Dictation:
         self._writer: LiveWriter | None = None
         self.on_level = on_level or (lambda v: None)
         self.on_partial = on_partial or (lambda t: None)
+        self.on_segment = on_segment
+        self.on_scores = on_scores
+        self._last_spans: list[tuple[str, str]] = []
         self.engine: SttEngine | None = None
         self.post: MedicalPostProcessor | None = None
         self.model: ModelInfo | None = None
@@ -159,15 +164,22 @@ class Dictation:
         self._active.clear()
         self.on_state("idle")
 
-    def _finish_text(self, raw: str) -> str:
-        text = self.post(raw) if self.post and self.cfg.use_postprocess else raw
+    def _finish_text(self, raw: str, confidences: list[tuple[str, float]] | None = None) -> str:
+        if self.post and self.cfg.use_postprocess:
+            annotate = getattr(self.post, "annotate", None)
+            spans = annotate(raw, confidences) if annotate else [(self.post(raw), "normal")]
+        else:
+            spans = [(raw, "normal")] if raw else []
+        text = "".join(t for t, _ in spans)
         if text and self.cfg.add_trailing_space and not text.endswith(("\n", "• ")):
             text += " "
+            spans = spans + [(" ", "normal")]
+        self._last_spans = spans
         return text
 
-    def _emit(self, parts: list[str]) -> None:
+    def _emit(self, parts: list[str], confidences: list[tuple[str, float]] | None = None) -> None:
         for raw in parts:
-            text = self._finish_text(raw)
+            text = self._finish_text(raw, confidences)
             log.debug("ham=%r -> %r", raw, text)
             try:
                 if self._writer is not None:
@@ -178,6 +190,23 @@ class Dictation:
                 log.exception("Metin yazılamadı")
             if text:
                 self.on_text(text)
+                if self.on_segment:
+                    try:
+                        self.on_segment(self._last_spans)
+                    except Exception:
+                        log.exception("Vurgulama gösterilemedi")
+                if self.on_scores:
+                    try:
+                        self.on_scores(self._word_scores(raw, confidences))
+                    except Exception:
+                        log.exception("Güven skorları gösterilemedi")
+
+    def _word_scores(self, raw: str, confidences: list[tuple[str, float]] | None) -> list[WordScore]:
+        if self.post and self.cfg.use_postprocess:
+            return self.post.word_scores(raw, confidences)
+        if confidences:
+            return [WordScore(w, w, c, "normal") for w, c in confidences]
+        return [WordScore(w, w, None, "normal") for w in raw.split()]
 
     def _make_writer(self) -> LiveWriter | None:
         if not self.cfg.live_typing:
@@ -215,7 +244,8 @@ class Dictation:
                     # ses seviyesi (0..1, kabaca dBFS'e göre) -> ekrandaki nabız animasyonu
                     rms = float(np.sqrt(np.mean(chunk * chunk))) if len(chunk) else 0.0
                     self.on_level(min(1.0, max(0.0, (20 * np.log10(rms + 1e-9) + 55) / 40)))
-                    self._emit(session.accept(chunk))
+                    parts = session.accept(chunk)
+                    self._emit(parts, session.word_confidences() if parts else None)
                     part = session.partial()
                     self._live(part)  # zamanla kararlılaşan kelimeler için her parçada çağrılır
                     if part != last_partial:
@@ -225,8 +255,10 @@ class Dictation:
             mic.stop()
             # durdurulmadan önce kuyruğa düşmüş sesi de işle
             while (chunk := mic.read(timeout=0)) is not None:
-                self._emit(session.accept(chunk))
-            self._emit(session.flush())
+                parts = session.accept(chunk)
+                self._emit(parts, session.word_confidences() if parts else None)
+            flushed = session.flush()
+            self._emit(flushed, session.word_confidences() if flushed else None)
             self.on_partial("")
         except Exception:
             log.exception("Dikte hatası")

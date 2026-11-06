@@ -16,7 +16,7 @@
   "license_file": "",
   "modeling_unit": "bpe",
   "bpe_vocab": "bpe.vocab",
-  "attribution": "Ertansa tarafından radyoloji dikte için eğitildi",
+  "attribution": "Abdullah DAĞCI tarafından radyoloji dikte için eğitildi",
   "finetuned_from": "averaged.pt",
   "hotwords": false,
   "default": true,

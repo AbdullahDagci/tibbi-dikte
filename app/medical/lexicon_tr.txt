@@ -848,3 +848,9 @@ taşması
 diffüz
 kemik
 iliği
+
+# --- Toraks (06.11 kullanıcı denemesi: doğru kelimeler "sözlükte yok" sayılıyordu; kök ekleri de kapsar)
+loblar
+mediasten
+posterobazal
+kalibrasyon

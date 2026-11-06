@@ -9,7 +9,7 @@
 AppId={{6C1C6C0E-3E2B-4D7A-9C55-7A1E2D0B9F11}
 AppName={#AppName}
 AppVersion={#AppVersion}
-AppPublisher=Ertansa
+AppPublisher=Abdullah DAĞCI
 DefaultDirName={autopf}\TibbiDikte
 DefaultGroupName={#AppName}
 OutputDir=..\dist\installer

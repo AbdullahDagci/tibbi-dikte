@@ -69,7 +69,7 @@ def main() -> int:
                 hotwords=a.hotwords)
     if a.independent:  # B yolu: kendi modelimiz
         spec.pop("attribution", None)
-        spec.update(base_model="(bağımsız; mihu ağırlıkları kullanılmadı)", license="Ertansa — tescilli")
+        spec.update(base_model="(bağımsız; mihu ağırlıkları kullanılmadı)", license="Abdullah DAĞCI — tescilli")
     else:
         spec.update(base_model="mihuai/turkish-stt-66m-v2",
                 # Ince ayarlı model de mihu türevidir: atıf zorunluluğu devam eder (lisans md. 4a, 5b).

@@ -9,6 +9,7 @@ Sıra:
 """
 from __future__ import annotations
 
+import difflib
 import logging
 import re
 from dataclasses import dataclass, field
@@ -112,7 +113,7 @@ def protect_number_words(text: str) -> tuple[str, list[str]]:
     out, pos = [], 0
     for i, m in enumerate(toks):
         w = low[i]
-        protect = w in _ALWAYS_WORD
+        protect = w in _ALWAYS_WORD or (w == "iki" and i > 0 and low[i - 1] == "her")  # "Her 2 akciğer" yazılmaz
         if w in _AMBIGUOUS:
             prev_ = low[i - 1] if i else ""
             next_ = low[i + 1] if i + 1 < len(low) else ""
@@ -248,6 +249,34 @@ _COMMANDS = {
     "yeni madde": "\n• ",
 }
 COMMAND_PHRASES = tuple(_COMMANDS)  # Ayarlar › Sözlük'te terim önerisi (komuta söyleniş bağlamak için)
+
+# Decoder güven skoru (sherpa_engine._word_confidences, ham/kalibre edilmemiş) ile vurgulama eşiği.
+# tools/confidence_calibration.py ile ölçüldü (2026-11, tests/ + radyoloji_sentetik, 1310 kelime, 46 hata):
+# <0.45 kelimelerin %1,5'i (%35'i gerçekten hatalı), <0.60 kelimelerin %11,9'u (%17'si hatalı, hataların %59'u).
+# Kaba eşikler: 0.70 kelimelerin üçte birini boyuyordu. Referanslı gerçek sesle yeniden ölçülünce güncellenmeli.
+CONF_RED = 0.45
+CONF_ORANGE = 0.60
+_UNIT_ABBRS = "mmHg|mmol|mcg|mEq|mg|ng|kg|ml|dl|cm|mm|IU|g|L"
+_GAP_STRIP = " .,;:\n•"
+# Yalnız sayı/birimden oluşan çıktı: "2", "140/90", "%10", "4 mm", "5 mm'lik"
+_NUMERIC_RE = re.compile(rf"(?:[%\d][\d.,/%-]*\s*(?:(?:{_UNIT_ABBRS})\b)?(?:'[a-zçğıöşü]+)?\s*)+")
+
+
+@dataclass
+class WordScore:
+    """Test ekranındaki güven tablosunun bir satırı: duyulan -> yazılan, ham güven ve rengin nedeni."""
+    heard: str
+    written: str
+    confidence: float | None
+    status: str  # "normal" | "suspect" | "corrected"
+    reason: str = ""
+
+
+def _expand_confidences(confidences: list[tuple[str, float]] | None) -> list[float] | None:
+    """Motorun boşlukla ayrılmış kelimelerini _WORD_RE kelimelerine açar: "EKG'de" iki kelime sayılır."""
+    if not confidences:
+        return None
+    return [c for w, c in confidences for _ in _WORD_RE.findall(w)]
 
 
 def _tr_ci(phrase: str) -> str:
@@ -511,3 +540,89 @@ class MedicalPostProcessor:
                     piece = piece.rstrip(" ,;")
                 out.append(piece)
         return "".join(out)
+
+    # -------------------------------------------------- vurgulama (Test ekranı canlı editörü)
+    def _is_suspect(self, word: str) -> bool:
+        """Uzun, hiçbir sözlükte/genel kelime listesinde geçmeyen ve bulanık eşlemenin de
+        düzeltemediği (ya da belirsiz bulduğu) kelime: büyük ihtimalle yanlış duyulmuş ama
+        otomatik düzeltilemeyen bir terim. Bu, _fuzzy_word'ün düzeltme denediği ama başarısız
+        olduğu kelimelerle birebir örtüşür: başarılı bir düzeltme kelimeyi sözlükteki kanonik
+        yazıma çevirir, o da zaten korumalı sayılır."""
+        low = tr_lower(word)
+        return (len(low) >= self.min_fuzzy_len and bool(self._fuzzy_keys)
+                and not self._is_protected(low) and not self._is_known(low))
+
+    def _word_status(self, word: str, c: float | None) -> tuple[str, str]:
+        if c is not None and c < CONF_RED:
+            return "corrected", "düşük güven"
+        if self._is_suspect(word):
+            return "suspect", "sözlükte yok"
+        if c is not None and c < CONF_ORANGE:
+            return "suspect", "orta güven"
+        return "normal", ""
+
+    def _analyze(self, text: str, confidences: list[tuple[str, float]] | None
+                 ) -> tuple[str, list[tuple[int, int, WordScore]]]:
+        """Nihai metin ve her parçanın (başlangıç, bitiş, WordScore) kaydı; kayıtlar çakışmaz ve sıralıdır.
+        confidences kelime sayısıyla eşleşmezse yok sayılır (motorun kelime hizalaması garanti değil)."""
+        final = self(text)
+        heard = _WORD_RE.findall(text)
+        confs = _expand_confidences(confidences)
+        if confs is not None and len(confs) != len(heard):
+            confs = None
+        written = list(_WORD_RE.finditer(final))
+        sm = difflib.SequenceMatcher(None, [tr_lower(w) for w in heard],
+                                     [tr_lower(m.group(0)) for m in written], autojunk=False)
+        items: list[tuple[int, int, WordScore]] = []
+        for tag, i1, i2, j1, j2 in sm.get_opcodes():
+            if tag == "equal":
+                for off in range(i2 - i1):
+                    m = written[j1 + off]
+                    c = confs[i1 + off] if confs else None
+                    status, reason = self._word_status(m.group(0), c)
+                    items.append((m.start(), m.end(), WordScore(heard[i1 + off], m.group(0), c, status, reason)))
+                continue
+            # Rakamlar _WORD_RE kelimesi değil: komşu kelimelerin arası alınır ("beş yüz miligram" -> "500 mg")
+            gap_start = written[j1 - 1].end() if j1 else 0
+            gap_end = written[j2].start() if j2 < len(written) else len(final)
+            gap = final[gap_start:gap_end]
+            piece = gap.strip(_GAP_STRIP)
+            start = gap_start + len(gap) - len(gap.lstrip(_GAP_STRIP))
+            c = min(confs[i1:i2]) if confs and i2 > i1 else None
+            if not piece:  # ör. sesli komut: boyanacak metin yok
+                status, reason = "normal", "sonişleme değiştirdi"
+            elif _NUMERIC_RE.fullmatch(piece):  # doğru dönüşüm boyanmaz; yanlış duyulmuş olabilecek ölçü boyanır
+                status, reason = self._word_status("", c)
+                reason = reason or "sayı/birim dönüşümü"
+            else:
+                status, reason = "corrected", "sonişleme değiştirdi"
+            items.append((start, start + len(piece), WordScore(" ".join(heard[i1:i2]), piece, c, status, reason)))
+        return final, items
+
+    def word_scores(self, text: str, confidences: list[tuple[str, float]] | None = None) -> list[WordScore]:
+        """annotate() ile aynı kararların kelime kelime dökümü: duyulan, yazılan, güven ve rengin nedeni."""
+        return [row for _, _, row in self._analyze(text, confidences)[1]]
+
+    def annotate(self, text: str, confidences: list[tuple[str, float]] | None = None) -> list[tuple[str, str]]:
+        """__call__ ile birebir aynı metni (metin, durum) parçaları olarak verir. "corrected" (kırmızı):
+        sonişleme değiştirdi (sayı/birim dönüşümleri hariç) ya da decoder güveni CONF_RED altında.
+        "suspect" (turuncu): sözlükte yok ya da güveni CONF_ORANGE altında. Karşılaştırma ham metinle
+        yapıldığından _prepare() içindeki kesin düzeltmeler de yakalanır."""
+        final, items = self._analyze(text, confidences)
+        spans: list[tuple[str, str]] = []
+        pos = 0
+        for start, end, row in items:
+            if start > pos:
+                spans.append((final[pos:start], "normal"))
+            if end > start:
+                spans.append((final[start:end], row.status))
+            pos = max(pos, end)
+        if pos < len(final):
+            spans.append((final[pos:], "normal"))
+        merged: list[tuple[str, str]] = []
+        for t, s in spans:
+            if merged and merged[-1][1] == s:
+                merged[-1] = (merged[-1][0] + t, s)
+            else:
+                merged.append((t, s))
+        return merged

@@ -176,3 +176,5 @@ sinyal özelliklerdedir	sinyal özelliklerindedir
 # --- Omurga (06.11 kullanıcı denemesi: model "end-plate"i "en plate" yazıyor; ekler korunur)
 en plate*	end-plate
 end plate*	end-plate
+# --- Kısaltma yazımı (06.11 kullanıcı denemesi: model "BT"yi "Bt" yazıyor)
+bt	BT

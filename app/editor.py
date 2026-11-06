@@ -10,13 +10,17 @@ from pathlib import Path
 from typing import Callable
 
 from PySide6.QtCore import QObject, Qt, Signal
-from PySide6.QtGui import QFont, QGuiApplication, QTextCursor
-from PySide6.QtWidgets import (QFileDialog, QHBoxLayout, QInputDialog, QLabel, QMessageBox, QPlainTextEdit,
-                               QPushButton, QVBoxLayout, QWidget)
+from PySide6.QtGui import QColor, QFont, QGuiApplication, QTextCharFormat, QTextCursor
+from PySide6.QtWidgets import (QAbstractItemView, QFileDialog, QHBoxLayout, QHeaderView, QInputDialog, QLabel,
+                               QMessageBox, QPlainTextEdit, QPushButton, QSplitter, QTableWidget, QTableWidgetItem,
+                               QVBoxLayout, QWidget)
 
 from . import user_dict
 
 _STRIP = " \t\n.,;:!?\"'’()"
+# Test ekranı: sonislemenin değiştirdiği ("corrected") ve değiştirmeden bıraktığı ama kuşkulu
+# ("suspect") kelimeleri ayırt etmek için kullanıcıya gösterilen renkler.
+_STATUS_COLORS = {"corrected": QColor("#d14343"), "suspect": QColor("#c77d12")}
 
 
 class DictationEditor(QPlainTextEdit):
@@ -38,6 +42,24 @@ class DictationEditor(QPlainTextEdit):
         c.movePosition(QTextCursor.Left, QTextCursor.KeepAnchor, max(0, n))
         c.removeSelectedText()
         self.setTextCursor(c)
+
+    def insert_annotated(self, spans: list[tuple[str, str]]) -> None:
+        """insert_dictated ile zaten yazılmış son metni, sonisleme sonucuna göre renklendirir
+        ("corrected": kırmızı, "suspect": turuncu). Yeni metin eklemez, yalnızca biçimlendirir."""
+        total = sum(len(t) for t, _ in spans)
+        end = self.document().characterCount() - 1  # belge sonu (son karakterden sonraki konum)
+        pos = max(0, end - total)
+        c = self.textCursor()
+        default_fmt = QTextCharFormat()
+        for text, status in spans:
+            c.setPosition(pos)
+            c.setPosition(pos + len(text), QTextCursor.KeepAnchor)
+            fmt = QTextCharFormat(default_fmt)
+            color = _STATUS_COLORS.get(status)
+            if color is not None:
+                fmt.setForeground(color)
+            c.setCharFormat(fmt)
+            pos += len(text)
 
     # -------------------------------------------- klavye
     def keyPressEvent(self, e) -> None:
@@ -77,11 +99,14 @@ class TextSink(QObject):
     """Dikte iş parçacığından editöre güvenli yazma: çağrılar sırayla UI iş parçacığında uygulanır."""
     _typed = Signal(str)
     _erased = Signal(int)
+    _annotated = Signal(list)
+    scores = Signal(object)
 
     def __init__(self, editor: DictationEditor):
         super().__init__()
         self._typed.connect(editor.insert_dictated)
         self._erased.connect(editor.erase_dictated)
+        self._annotated.connect(editor.insert_annotated)
 
     def type(self, text: str) -> None:
         if text:
@@ -90,6 +115,14 @@ class TextSink(QObject):
     def erase(self, n: int) -> None:
         if n > 0:
             self._erased.emit(n)
+
+    def show_annotated(self, spans: list[tuple[str, str]]) -> None:
+        if spans:
+            self._annotated.emit(spans)
+
+    def show_scores(self, rows: list) -> None:
+        if rows:
+            self.scores.emit(rows)
 
 
 class EditorPage(QWidget):
@@ -117,25 +150,98 @@ class EditorPage(QWidget):
         copy.clicked.connect(lambda: QGuiApplication.clipboard().setText(self.editor.toPlainText()))
         save = QPushButton("Kaydet…")
         save.clicked.connect(self._save)
+        copy_scores = QPushButton("Skorları kopyala")
+        copy_scores.clicked.connect(self._copy_scores)
         clear = QPushButton("Temizle")
-        clear.clicked.connect(lambda: self.editor.clear())
+        clear.clicked.connect(self._clear)
         row.addWidget(self.btn)
         row.addWidget(self.status, 1)
-        for b in (copy, save, clear):
+        for b in (copy, copy_scores, save, clear):
             row.addWidget(b)
         v.addLayout(row)
 
         self.editor = DictationEditor()
         self.editor.add_variant_requested.connect(self._add_variant)
-        v.addWidget(self.editor, 1)
+        self._score_rows: list = []
+        self.score_table = QTableWidget(0, 4)
+        self.score_table.setHorizontalHeaderLabels(["Duyulan", "Yazılan", "Güven", "Renk nedeni"])
+        self.score_table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.score_table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.score_table.verticalHeader().hide()
+        self.score_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.score_summary = QLabel()
+        self.score_summary.setObjectName("muted")
+        self.score_summary.setWordWrap(True)
+        panel = QWidget()
+        pv = QVBoxLayout(panel)
+        pv.setContentsMargins(0, 0, 0, 0)
+        pv.addWidget(self.score_summary)
+        pv.addWidget(self.score_table, 1)
+        splitter = QSplitter(Qt.Vertical)
+        splitter.addWidget(self.editor)
+        splitter.addWidget(panel)
+        v.addWidget(splitter, 1)
         hint = QLabel("Sesli komutlar: \"alt satıra geç\", \"satır başı\" (yeni satır) · \"paragraf başı\" "
                       "(boş satır bırakıp yeni paragraf) · \"yeni madde\" (•).  Yanlış çıkan kelimeyi seçip "
-                      "sağ tıklayın › Sözlüğe varyant olarak ekle.")
+                      "sağ tıklayın › Sözlüğe varyant olarak ekle.  "
+                      "<span style='color:#d14343'>Kırmızı</span>: sonişleme bu kelimeyi değiştirdi (sayı/birim "
+                      "dönüşümleri hariç) ya da model düşük güvenle duydu, kontrol edin. "
+                      "<span style='color:#c77d12'>Turuncu</span>: tanınmayan/kuşkulu kelime ya da model orta "
+                      "güvenle duydu.")
+        hint.setTextFormat(Qt.RichText)
         hint.setObjectName("muted")
         hint.setWordWrap(True)
         v.addWidget(hint)
         self.sink = TextSink(self.editor)
+        self.sink.scores.connect(self.add_scores)
+        self._update_score_summary()
         self.set_listening(False)
+
+    # -------------------------------------------- güven tablosu
+    @staticmethod
+    def _conf_text(confidence: float | None) -> str:
+        return "—" if confidence is None else f"%{confidence * 100:.0f}"
+
+    def add_scores(self, rows: list) -> None:
+        for r in rows:
+            i = self.score_table.rowCount()
+            self.score_table.insertRow(i)
+            color = _STATUS_COLORS.get(r.status)
+            for col, value in enumerate((r.heard, r.written, self._conf_text(r.confidence), r.reason)):
+                item = QTableWidgetItem(value)
+                if color is not None:
+                    item.setForeground(color)
+                self.score_table.setItem(i, col, item)
+        self._score_rows += rows
+        self.score_table.scrollToBottom()
+        self._update_score_summary()
+
+    def _update_score_summary(self) -> None:
+        rows = self._score_rows
+        if not rows:
+            self.score_summary.setText("Güven skorları: dikte edilen her cümle burada kelime kelime listelenir "
+                                       "(ham model değeri, gerçek doğruluk olasılığı değildir).")
+            return
+        confs = [r.confidence for r in rows if r.confidence is not None]
+        mean = f"%{sum(confs) / len(confs) * 100:.0f}" if confs else "—"
+        by_reason = lambda reason: sum(r.reason == reason for r in rows)
+        self.score_summary.setText(
+            f"{len(rows)} satır · ortalama güven {mean} · "
+            f"<span style='color:#d14343'>düşük güven: {by_reason('düşük güven')} · "
+            f"sonişleme değiştirdi: {by_reason('sonişleme değiştirdi')}</span> · "
+            f"<span style='color:#c77d12'>orta güven: {by_reason('orta güven')} · "
+            f"sözlükte yok: {by_reason('sözlükte yok')}</span>")
+
+    def _copy_scores(self) -> None:
+        lines = ["Duyulan\tYazılan\tGüven\tRenk nedeni"]
+        lines += [f"{r.heard}\t{r.written}\t{self._conf_text(r.confidence)}\t{r.reason}" for r in self._score_rows]
+        QGuiApplication.clipboard().setText("\n".join(lines))
+
+    def _clear(self) -> None:
+        self.editor.clear()
+        self.score_table.setRowCount(0)
+        self._score_rows = []
+        self._update_score_summary()
 
     def set_listening(self, on: bool) -> None:
         self.btn.setText("■  Dikteyi durdur" if on else "●  Dikteyi başlat")

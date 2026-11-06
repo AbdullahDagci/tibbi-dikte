@@ -33,6 +33,24 @@ def test_raw_mode_setting_persists(monkeypatch, tmp_path):
     assert c.use_postprocess is False and c.live_typing is False
 
 
+def test_finish_text_forwards_confidences_to_annotate():
+    d = _dictation()
+    seen = {}
+
+    class FakePost:
+        def __call__(self, text):
+            return text.upper()
+
+        def annotate(self, text, confidences=None):
+            seen["confidences"] = confidences
+            return [(text.upper(), "normal")]
+
+    d.post = FakePost()
+    confs = [("abc", 0.2)]
+    d._finish_text("abc", confs)
+    assert seen["confidences"] == confs
+
+
 def test_live_writer_types_postprocessed_words():
     d = _dictation(live_typing=True)
     d.post = lambda text: text.upper()
