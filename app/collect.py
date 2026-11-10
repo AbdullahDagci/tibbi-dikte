@@ -26,6 +26,7 @@ from PySide6.QtWidgets import (QCheckBox, QComboBox, QFileDialog, QHBoxLayout, Q
                                QProgressBar, QStackedWidget, QVBoxLayout, QWidget)
 
 from . import theme
+from .audio import MIC_OPEN_ERROR, level_fraction
 from .paths import resource_dir, user_dir
 from .ui import widgets
 
@@ -55,11 +56,13 @@ class _Sig(QObject):
 
 
 class CollectPage(QWidget):
-    def __init__(self, get_pipeline: Callable[[], tuple], parent=None):
+    def __init__(self, get_pipeline: Callable[[], tuple], parent=None,
+                 get_device: Callable[[], int | None] = lambda: None):
         super().__init__(parent)
         self.setObjectName("page")
         self.setFocusPolicy(Qt.StrongFocus)
         self.get_pipeline = get_pipeline
+        self.get_device = get_device  # Ayarlar'da seçili mikrofon
         self.sentences: list[str] = []
         self.sent_file = DEFAULT_SENTENCES
         self.idx = 0
@@ -258,9 +261,14 @@ class CollectPage(QWidget):
                 self._set_status(why, theme.BAD)
                 return
             self._chunks = []
-            self._stream = sd.InputStream(samplerate=SR, channels=1, dtype="float32",
-                                          callback=lambda d, *_: self._chunks.append(d[:, 0].copy()))
-            self._stream.start()
+            try:
+                stream = sd.InputStream(samplerate=SR, channels=1, dtype="float32", device=self.get_device(),
+                                        callback=lambda d, *_: self._chunks.append(d[:, 0].copy()))
+                stream.start()
+            except Exception as e:  # noqa: BLE001 (aygıt yok, meşgul ya da izin yok)
+                self._set_status(f"{MIC_OPEN_ERROR} ({e})", theme.BAD)
+                return
+            self._stream = stream
             self._t0 = time.monotonic()
             self._timer.start()
             self.btn_rec.setText("Durdur")
@@ -283,8 +291,7 @@ class CollectPage(QWidget):
 
     def _tick(self) -> None:
         last = self._chunks[-1] if self._chunks else np.zeros(1, np.float32)
-        db = 20 * np.log10(float(np.sqrt(np.mean(last ** 2))) + 1e-9)
-        self.level.setValue(int(max(0, min(100, (db + 55) / 40 * 100))))
+        self.level.setValue(int(level_fraction(last) * 100))
         self._set_status(f"Kaydediliyor…  {time.monotonic() - self._t0:.0f} sn", theme.BAD)
 
     def _transcribe(self) -> None:

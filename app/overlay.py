@@ -17,6 +17,7 @@ from PySide6.QtGui import QColor, QCursor, QFont, QGuiApplication, QPainter, QPa
 from PySide6.QtWidgets import QLabel, QWidget
 
 from . import theme
+from .audio import MIC_WARNINGS
 
 ACCENT = {"listening": QColor(theme.DANGER), "finishing": QColor(theme.WARNING), "done": QColor(theme.SUCCESS),
           "loading": QColor(theme.MUTED), "error": QColor(theme.WARNING)}
@@ -54,6 +55,7 @@ class ListeningOverlay(QWidget):
         self._target = 0.0        # son ölçülen seviye
         self.committed = ""
         self.partial = ""
+        self.warning = ""         # mikrofon uyarısı (audio.MIC_WARNINGS anahtarı)
         self._t0 = time.monotonic()
 
         self.caption = QLabel(self)
@@ -79,7 +81,7 @@ class ListeningOverlay(QWidget):
 
     # ------------------------------------------------ dış arayüz
     def start(self) -> None:
-        self.committed, self.partial = "", ""
+        self.committed, self.partial, self.warning = "", "", ""
         self._set_state("listening")
         self._place()
         self._hide_timer.stop()
@@ -117,6 +119,12 @@ class ListeningOverlay(QWidget):
     def set_level(self, v: float) -> None:
         self._target = max(0.0, min(1.0, v))
 
+    def set_warning(self, key: str) -> None:
+        """Mikrofon uyarısı: başlıkta kısa uyarı, henüz metin yoksa ne yapılacağı da gövdede yazar."""
+        self.warning = key if key in MIC_WARNINGS else ""
+        self._set_state(self.state)
+        self._render_text()
+
     def set_partial(self, text: str) -> None:
         self.partial = text
         self._render_text()
@@ -131,8 +139,11 @@ class ListeningOverlay(QWidget):
         self.state = s
         c = ACCENT[s]
         hint = (f"  ·  {self.hotkey_label} ile durdur" if not self.ptt_mode else "  ·  bırakınca durur")             if s == "listening" else ""
+        hint_color = "#7C8698"
+        if s == "listening" and self.warning:
+            hint, hint_color = f"  ·  ⚠ {MIC_WARNINGS[self.warning][0]}", theme.WARNING
         self.caption.setText(f"<span style='color:{c.name()}; letter-spacing:1.5px'>{CAPTION[s]}</span>"
-                             f"<span style='color:#7C8698'>{html.escape(hint)}</span>")
+                             f"<span style='color:{hint_color}'>{html.escape(hint)}</span>")
         self.update()
 
     def _place(self) -> None:
@@ -154,7 +165,9 @@ class ListeningOverlay(QWidget):
         committed, partial = (re.sub(r"(?<=\w)-(?=\w)", "‑", t) for t in (committed, partial))
         # "C4-C5", "BI-RADS" satır sonunda tireden bölünmesin (yalnızca görüntü; yazılan metin değişmez)
         committed, partial = (re.sub(r"(?<=\w)-(?=\w)", "‑", t) for t in (committed, partial))
-        if not committed and not partial:
+        if not committed and not partial and self.warning and self.state == "listening":
+            body = f"<span style='color:{theme.WARNING}'>{html.escape(MIC_WARNINGS[self.warning][1])}</span>"
+        elif not committed and not partial:
             body = "<span style='color:#6B7486'>Konuşmaya başlayın…</span>"
         else:
             body = (f"<span style='color:#F4F6FA'>{html.escape(committed)}</span>"

@@ -15,4 +15,12 @@ $iscc = @("${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe", "$env:ProgramFiles\I
           "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe") | Where-Object { Test-Path $_ } | Select-Object -First 1
 if (-not $iscc) { throw "Inno Setup 6 bulunamadi: winget install JRSoftware.InnoSetup" }
 & $iscc /Q "/DSrcDir=..\$out\TibbiDikte" installer\setup.iss
-Get-ChildItem dist\installer
+if ($LASTEXITCODE) { throw "Kurulum dosyası derlenemedi" }
+# Müşteriye giden paket (dist\demo): kurulum dosyası + OKUBENI.txt; eski sürümün kurulum dosyası kalmaz
+$ver = (Select-String -Path installer\setup.iss -Pattern '#define AppVersion "(.+)"').Matches[0].Groups[1].Value
+$demo = "dist\demo"
+New-Item -ItemType Directory -Force $demo | Out-Null
+Remove-Item "$demo\TibbiDikte-Demo-Kurulum-*.exe" -ErrorAction SilentlyContinue
+Copy-Item "dist\installer\TibbiDikte-Kurulum-$ver.exe" "$demo\TibbiDikte-Demo-Kurulum-$ver.exe"
+(Get-Content installer\OKUBENI.txt -Raw -Encoding UTF8).Replace("{SURUM}", $ver) | Set-Content "$demo\OKUBENI.txt" -Encoding UTF8
+Get-ChildItem dist\installer, $demo

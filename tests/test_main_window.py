@@ -95,8 +95,17 @@ def test_broken_saved_size_is_ignored(make_window):
 
 
 # ------------------------------------------------------------ gezinme
+def test_data_collection_is_hidden_from_menu(make_window):
+    # 10.11: Veri toplama şimdilik gizli; sayfa kodu durur (HIDDEN_PAGES'ten çıkarınca geri gelir)
+    win = make_window()
+    win.show()
+    assert not win.nav_buttons["collect"].isVisible()
+    visible = [n for n, b in win.nav_buttons.items() if b.isVisible()]
+    assert visible == ["dictate", "test", "lexicon", "settings", "license", "about"]
+
+
 @pytest.mark.parametrize("name,title", [
-    ("dictate", "Dikte"), ("test", "Test ve doğruluk"), ("collect", "Veri toplama"), ("lexicon", "Sözlük"),
+    ("dictate", "Dikte"), ("test", "Test ve doğruluk"), ("lexicon", "Sözlük"),
     ("settings", "Ayarlar"), ("license", "Lisans"), ("about", "Hakkında"),
 ])
 def test_menu_click_opens_page_and_updates_title(make_window, name, title):
@@ -262,11 +271,14 @@ def test_license_page_shows_state_and_rejects_bad_key(qapp, monkeypatch):
     _dispose(page)
 
 
-def test_about_page_shows_only_developers_and_rights(qapp):
+def test_about_page_shows_standard_text_without_personal_names(qapp):
     from PySide6.QtWidgets import QLabel, QPushButton
+    from app import __version__
     page = AboutPage()
     texts = [label.text() for label in page.findChildren(QLabel) if label.text()]
-    assert texts == ["Tıbbi Dikte", "Abdullah ve İbrahim Dağcı tarafından geliştirilmiştir.", "Tüm hakları saklıdır."]
+    assert texts == ["Tıbbi Dikte", f"Türkçe tıbbi dikte yazılımı · Sürüm {__version__}",
+                     "© 2026 Tıbbi Dikte. Tüm hakları saklıdır."]
+    assert not any(name in " ".join(texts).lower() for name in ("abdullah", "ibrahim", "dağcı"))
     assert page.findChildren(QPushButton) == []
     _dispose(page)
 

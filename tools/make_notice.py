@@ -1,4 +1,5 @@
 """NOTICE.txt'yi kurulumun paketlediği modellerden (installer/setup.iss) üretir (build.ps1 çağırır).
+NOTICE.txt kurulumda gösterilmez (orada installer/lisans_sozlesmesi.txt gösterilir); program klasörüne kurulur.
 models/ altındaki yerel deneme modelleri (pilot, -best, karışımlar) NOTICE'a girmez.
 
 Bir modelin model.json'unda "attribution" varsa (ör. mihu türevi modeller), lisansı gereği atıf ve lisans

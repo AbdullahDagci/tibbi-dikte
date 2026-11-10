@@ -11,9 +11,7 @@ import time
 from pathlib import Path
 from typing import Callable
 
-import numpy as np
-
-from .audio import Microphone
+from .audio import MIC_OPEN_ERROR, LevelMonitor, Microphone, configured_device, level_fraction
 from .config import Config
 from .engines.base import ModelInfo, SttEngine
 from .engines.registry import discover_models, load_engine, resolve_model
@@ -23,6 +21,9 @@ from .live import LiveWriter
 from .typer import backspace, type_text
 
 log = logging.getLogger(__name__)
+
+NO_DATA_S = 2.0  # dikte sürerken bu kadar süre mikrofondan hiç parça gelmezse bağlantı kopmuş sayılır
+DICTATION_ERROR = "Dikte sırasında hata oluştu (günlük dosyasına bakın)."
 
 BUILTIN_LEXICON = resource_dir() / "medical" / "lexicon_tr.txt"
 RADIOLOGY_LEXICON = resource_dir() / "medical" / "radiology_terms_tr.txt"
@@ -64,8 +65,12 @@ class Dictation:
                  on_partial: Callable[[str], None] | None = None,
                  eraser: Callable[[int], None] = backspace,
                  on_segment: Callable[[list[tuple[str, str]]], None] | None = None,
-                 on_scores: Callable[[list[WordScore]], None] | None = None):
+                 on_scores: Callable[[list[WordScore]], None] | None = None,
+                 on_warning: Callable[[str], None] | None = None):
+        """on_warning(anahtar): mikrofon uyarısı (audio.MIC_WARNINGS anahtarı; "" = uyarı kalktı)."""
         self.cfg = cfg
+        self.on_warning = on_warning or (lambda k: None)
+        self.last_error = ""  # son hatanın kullanıcıya gösterilecek açıklaması
         self.on_state = on_state or (lambda s: None)
         self.on_text = on_text or (lambda t: None)
         self.typer = typer
@@ -167,6 +172,7 @@ class Dictation:
         if self.engine is None or self.listening:
             return
         self._stop.clear()
+        self.last_error = ""
         self._active.set()
         self._thread = threading.Thread(target=self._run, name="dictation", daemon=True)
         self._thread.start()
@@ -244,23 +250,40 @@ class Dictation:
     def _run(self) -> None:
         with self._lock:
             engine = self.engine
-        mic = Microphone(sample_rate=engine.sample_rate, device=self.cfg.input_device)
+        mic = Microphone(sample_rate=engine.sample_rate, device=configured_device(self.cfg))
+        monitor = LevelMonitor(engine.sample_rate)
+        warning = ""
         session = engine.new_session()
         self._writer = self._make_writer()
         try:
-            mic.start()
+            try:
+                mic.start()
+            except Exception:
+                self.last_error = MIC_OPEN_ERROR
+                raise
             last_partial = ""
             warned = 0.0
+            last_chunk_at = time.monotonic()
             while not self._stop.is_set():
                 chunk = mic.read(timeout=0.2)
                 backlog = mic.q.qsize()
                 if backlog >= 5 and time.monotonic() - warned > 1.0:  # 100 ms'lik parçalar: ≥0,5 sn geride
                     warned = time.monotonic()
                     log.warning("işleme gecikmesi: %d ses parçası (%.1f sn) bekliyor", backlog, backlog / 10)
+                if chunk is None:
+                    new = "lost" if time.monotonic() - last_chunk_at > NO_DATA_S else monitor.warning
+                else:
+                    last_chunk_at = time.monotonic()
+                    new = monitor.feed(chunk)
+                if new != warning:
+                    warning = new
+                    if warning:
+                        log.warning("mikrofon uyarısı: %s", warning)
+                    else:
+                        log.info("mikrofon uyarısı kalktı")
+                    self._warn(warning)
                 if chunk is not None:
-                    # ses seviyesi (0..1, kabaca dBFS'e göre) -> ekrandaki nabız animasyonu
-                    rms = float(np.sqrt(np.mean(chunk * chunk))) if len(chunk) else 0.0
-                    self.on_level(min(1.0, max(0.0, (20 * np.log10(rms + 1e-9) + 55) / 40)))
+                    self.on_level(level_fraction(chunk))  # ekrandaki nabız animasyonu
                     parts = session.accept(chunk)
                     self._emit(parts, session.word_confidences() if parts else None)
                     part = session.partial()
@@ -279,7 +302,18 @@ class Dictation:
             self.on_partial("")
         except Exception:
             log.exception("Dikte hatası")
+            self.last_error = self.last_error or DICTATION_ERROR
             self.on_state("error")
         finally:
             mic.stop()
+            if monitor.seconds:
+                log.info(monitor.summary(getattr(mic, "overflows", 0)))
+            if warning:
+                self._warn("")
             self._active.clear()
+
+    def _warn(self, key: str) -> None:
+        try:
+            self.on_warning(key)
+        except Exception:  # noqa: BLE001 (uyarı gösterilemese de dikte sürer)
+            log.exception("Mikrofon uyarısı gösterilemedi")

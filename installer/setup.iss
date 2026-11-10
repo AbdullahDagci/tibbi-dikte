@@ -1,6 +1,6 @@
 ; Inno Setup 6 — önce: pyinstaller TibbiDikte.spec --noconfirm
 #define AppName "Tıbbi Dikte"
-#define AppVersion "1.1.0"
+#define AppVersion "1.2.0"
 #ifndef SrcDir
   #define SrcDir "..\dist\TibbiDikte"
 #endif
@@ -9,7 +9,7 @@
 AppId={{6C1C6C0E-3E2B-4D7A-9C55-7A1E2D0B9F11}
 AppName={#AppName}
 AppVersion={#AppVersion}
-AppPublisher=Abdullah DAĞCI
+AppPublisher=Tıbbi Dikte
 DefaultDirName={autopf}\TibbiDikte
 DefaultGroupName={#AppName}
 OutputDir=..\dist\installer
@@ -19,7 +19,9 @@ SolidCompression=yes
 ArchitecturesInstallIn64BitMode=x64compatible
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-LicenseFile=..\NOTICE.txt
+; Kurulumda standart son kullanıcı sözleşmesi gösterilir; kişi adı ve bileşen listesi yok (10.11 kullanıcı kararı).
+; Açık kaynak bildirimleri lisansları gereği NOTICE.txt olarak program klasörüne kurulur ([Files]).
+LicenseFile=lisans_sozlesmesi.txt
 SetupIconFile=..\app\icons\logo.ico
 ; Güncellemeden sonra Windows eski simgeyi önbellekten göstermesin
 ChangesAssociations=yes
@@ -55,3 +57,28 @@ Name: "{userstartup}\{#AppName}"; Filename: "{app}\TibbiDikte.exe"; Tasks: autos
 [Run]
 Filename: "{sys}\ie4uinit.exe"; Parameters: "-show"; Flags: runhidden runasoriginaluser skipifdoesntexist
 Filename: "{app}\TibbiDikte.exe"; Description: "{#AppName} uygulamasını başlat"; Flags: nowait postinstall skipifsilent
+
+[Code]
+const
+  UserDataDir = '{userappdata}\TibbiDikte';
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+var
+  ResultCode: Integer;
+begin
+  if CurUninstallStep = usUninstall then
+  begin
+    { Açık uygulama dosyalarını kilitler: kapatılmazsa program klasörü silinmez ve uygulama açık kalır (10.11) }
+    Exec(ExpandConstant('{sys}\taskkill.exe'), '/F /IM TibbiDikte.exe', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Sleep(1000);
+  end;
+  { Lisans, ayarlar ve sözlük %APPDATA%'dadır; yeniden kurulumda kullanılsın diye varsayılan olarak kalır.
+    Sessiz kaldırmada soru sorulmaz ve veriler kalır. }
+  if (CurUninstallStep = usPostUninstall) and DirExists(ExpandConstant(UserDataDir)) then
+    if SuppressibleMsgBox('Lisans anahtarı, ayarlar ve sözlük de silinsin mi?' + #13#10#13#10 +
+        'Evet: bu bilgisayardaki tüm Tıbbi Dikte verileri (veri toplama ses kayıtları dahil) silinir; yeniden ' +
+        'kurulumda ürün anahtarı tekrar girilmelidir.' + #13#10#13#10 +
+        'Hayır: yeniden kurulumda lisans, ayarlar ve sözlük olduğu gibi kullanılır.',
+        mbConfirmation, MB_YESNO or MB_DEFBUTTON2, IDNO) = IDYES then
+      DelTree(ExpandConstant(UserDataDir), True, True, True);
+end;

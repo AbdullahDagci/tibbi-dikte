@@ -1,0 +1,29 @@
+﻿TIBBİ DİKTE — SON KULLANICI LİSANS SÖZLEŞMESİ
+
+Lütfen yazılımı kurmadan önce bu sözleşmeyi okuyun. "Anlaşmayı kabul ediyorum" seçeneğini işaretleyip kuruluma devam ederek bu sözleşmenin koşullarını kabul etmiş olursunuz.
+
+1. Lisans
+Bu yazılım satılmaz, lisanslanır. Yazılım, geçerli bir ürün anahtarıyla, anahtarın verildiği bilgisayarda ve lisans süresi boyunca kullanılabilir.
+
+2. Kısıtlamalar
+Yürürlükteki mevzuatın açıkça izin verdiği durumlar dışında yazılım kopyalanamaz, kiralanamaz, üçüncü kişilere devredilemez; tersine mühendislik yapılamaz, kaynak koda dönüştürülemez ve lisans denetimi devre dışı bırakılamaz.
+
+3. Tıbbi kullanım
+Tıbbi Dikte, konuşmayı yazıya döken yardımcı bir araçtır. Tanı koymaz, tıbbi karar vermez ve tıbbi cihaz değildir. Üretilen metin kullanılmadan önce kullanıcı tarafından kontrol edilmelidir. Metnin doğruluğundan ve kullanımından kullanıcı sorumludur.
+
+4. Kişisel veriler
+Ses ve metin yalnızca bu bilgisayarda işlenir; herhangi bir sunucuya gönderilmez. Kullanıcı, dikte ettiği kişisel ve sağlık verileri bakımından 6698 sayılı Kişisel Verilerin Korunması Kanunu'ndan doğan yükümlülüklerinden sorumludur.
+
+5. Garanti
+Yazılım "olduğu gibi" sağlanır. Yürürlükteki mevzuatın izin verdiği ölçüde, yazılımın kesintisiz ya da hatasız çalışacağı veya belirli bir amaca uygun olduğu konusunda garanti verilmez.
+
+6. Sorumluluğun sınırı
+Yürürlükteki mevzuatın izin verdiği ölçüde, yazılımın kullanılmasından ya da kullanılamamasından doğan dolaylı zararlardan sorumluluk kabul edilmez.
+
+7. Sona erme
+Bu sözleşmeye aykırılık hâlinde lisans kendiliğinden sona erer.
+
+8. Uygulanacak hukuk
+Bu sözleşme Türkiye Cumhuriyeti hukukuna tabidir.
+
+© 2026 Tıbbi Dikte. Tüm hakları saklıdır.

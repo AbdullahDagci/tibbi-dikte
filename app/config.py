@@ -13,6 +13,7 @@ class Config:
     hotkey: str = "<ctrl>+<alt>+<space>"  # pynput GlobalHotKeys biçimi
     ptt_key: str = "space"              # bas-konuş: off | space | rctrl | f8 | f9 | f10
     input_device: int | None = None     # None = varsayılan mikrofon
+    input_device_name: str = ""         # numara kayarsa (USB mikrofon takılıp çıkınca) aygıt adından bulunur
     num_threads: int = 2
     use_hotwords: bool = True
     hotwords_score: float = 2.0

@@ -1,0 +1,10 @@
+Tıbbi Dikte {SURUM} - Deneme kurulumu
+
+1. TibbiDikte-Demo-Kurulum-{SURUM}.exe dosyasını çalıştırın.
+   Windows "Windows bilgisayarınızı korudu" uyarısı gösterirse "Ek bilgi" ve ardından "Yine de çalıştır"ı seçin.
+2. Uygulama açılınca Lisans sayfası gelir. Sayfadaki "Makine kodu"nu kopyalayıp bize gönderin.
+3. Size özel ürün anahtarını Lisans sayfasına yapıştırıp Etkinleştir'e basın.
+4. Sonra sistem tepsisindeki simgeye sağ tıklayıp "Uygulamayı aç"ı seçin.
+5. Ayarlar sayfasında "Mikrofonu test et" ile mikrofonunuzun sesi doğru aldığını kontrol edin.
+
+Ürün anahtarı yalnızca makine kodunu gönderdiğiniz bilgisayarda çalışır.

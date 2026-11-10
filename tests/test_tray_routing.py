@@ -58,7 +58,7 @@ def test_output_goes_to_cursor_when_other_page_is_open(tray, monkeypatch):
 
 def test_tray_menu_opens_requested_pages(tray):
     labels = [a.text() for a in tray._actions]
-    assert labels == ["Dikteyi başlat", "Uygulamayı aç", "Sözlük", "Test ve doğruluk", "Veri toplama", "Ayarlar", "Çıkış"]
+    assert labels == ["Dikteyi başlat", "Uygulamayı aç", "Sözlük", "Test ve doğruluk", "Ayarlar", "Çıkış"]  # Veri toplama gizli
     next(a for a in tray._actions if a.text() == "Sözlük").trigger()
     assert tray.main.current_page_name() == "lexicon" and tray.main.isVisible()
 

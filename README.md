@@ -11,8 +11,12 @@ dikte uygulaması. Radyoloji ve genel tıbbi terimler için ayarlanmıştır, **
 - **Anlık yazım**: kelimeler konuşurken yazılır; cümle sonunda düzeltilmiş hâliyle yalnızca farklı kısım güncellenir.
 - **İki dikte modu**: aç/kapa kısayolu (**Ctrl+Alt+Space**) ve **bas-konuş** (Boşluk'u basılı tut; kısa basış normal boşluk yazar).
 - **Dinleme göstergesi**: ekranın altında sesle atan nabız + canlı metin; odak çalmaz.
+- **Mikrofon denetimi**: Ayarlar › *Mikrofonu test et* (5 sn kayıt → "ses gelmiyor / kısık / patlıyor / gürültülü / iyi"
+  + kaydı dinle). Dikte sırasında mikrofondan hiç ses gelmezse, ses patlarsa ya da bağlantı koparsa göstergede uyarı.
+  Her dikte sonunda `%APPDATA%\TibbiDikte\app.log`'a ses seviyesi özeti yazılır (metin yazılmaz).
 - **Tıbbi sonişleme**: terim düzeltme, sayı/birim (`beş yüz miligram → 500 mg`), omurga seviyesi onarımı (`G4 C5 → C4-C5`), sağ/sol (`son L5 → sol L5`).
-- **Sesli biçim komutları**: "yeni satır" / "alt satıra geç" / "satır başı" (yeni satır), "yeni paragraf" /
+- **Sesli biçim komutları**: "yeni satır" / "alt satıra geç" / "alt satır" / "altsatır" / "satır başı" /
+  "satırbaşı" (yeni satır), "yeni paragraf" /
   "paragraf başı" (boş satır bırakıp yeni paragraf), "yeni madde" (•).
 - **Söyleniş varyantlı sözlük**: her terime modelin duyabileceği söylenişler bağlanır (`BT ← bete, pete`);
   dışa/içe aktarma (Excel'de açılan CSV).
@@ -20,6 +24,7 @@ dikte uygulaması. Radyoloji ve genel tıbbi terimler için ayarlanmıştır, **
   *Sözlüğe varyant olarak ekle*) ve ses dosyası/kayıt + doğru metin → kelime doğruluğu, WER/CER, terim isabeti,
   renkli fark.
 - **Veri toplama ekranı**: radyologlardan eğitim verisi (ses + metin), KVKK onayı ve kalite kontrolüyle.
+  *Şimdilik menülerde gizli* (`app/main_window.py` › `HIDDEN_PAGES`'ten çıkarınca geri gelir).
 - **Değiştirilebilir model**: `model.json` ile her sherpa-onnx modeli kodsuz eklenir.
 - **Lisanslama**: makineye bağlı çevrimdışı Ed25519 ürün anahtarları + her bilgisayarda çalışan süreli **demo anahtarı**.
 
@@ -32,7 +37,7 @@ dikte uygulaması. Radyoloji ve genel tıbbi terimler için ayarlanmıştır, **
 2. Yazmak istediğin alana tıkla →
    - **Ctrl+Alt+Space** → konuş → **Ctrl+Alt+Space**, veya
    - **Boşluk'u basılı tut** → konuş → bırak.
-3. Tepsi menüsü: **Test ve doğruluk…**, **Veri toplama…**, **Ayarlar…** (model, mikrofon, kısayol, bas-konuş tuşu,
+3. Tepsi menüsü: **Test ve doğruluk…**, **Ayarlar…** (model, mikrofon, kısayol, bas-konuş tuşu,
    anlık yazım, sözlük).
 4. **Ayarlar › Sözlük**: modelin yanlış yazdığı kelimeyi sizin yazımınıza çevirir. Solda terimler, sağda seçili
    terimin **doğru yazımı** ve **söylenişleri** (modelin yanlış yazdığı hâller; her biri ayrı satır, Enter ile eklenir).

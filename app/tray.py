@@ -9,12 +9,13 @@ from PySide6.QtGui import QAction, QIcon
 from PySide6.QtWidgets import QApplication, QMenu, QSystemTrayIcon
 
 from . import theme
-from .audio import beep_tone, play_tone
+from .audio import MIC_WARNINGS, beep_tone, play_tone
 from .config import Config
-from .dictation import BUILTIN_LEXICON, RADIOLOGY_LEXICON, USER_CORRECTIONS, USER_LEXICON, Dictation, ensure_user_files
+from .dictation import (BUILTIN_LEXICON, DICTATION_ERROR, RADIOLOGY_LEXICON, USER_CORRECTIONS, USER_LEXICON, Dictation,
+                        ensure_user_files)
 from .hotkey import GlobalHotkey, pynput_to_qt
 from .licensing import license as lic
-from .main_window import MainWindow
+from .main_window import HIDDEN_PAGES, MainWindow
 from .overlay import ListeningOverlay
 from .ptt import PushToTalk
 from .typer import backspace, type_text
@@ -46,6 +47,7 @@ class _Bridge(QObject):
     ptt_stop = Signal()
     partial = Signal(str)
     text = Signal(str)
+    mic_warning = Signal(str)
 
 
 LICENSE_CHECK_MS = 3_600_000  # uygulama günlerce açık kalabilir: lisans saatte bir yeniden denetlenir
@@ -67,9 +69,11 @@ class TrayApp:
         self._license_timer.start()
 
         self.dictation = Dictation(self.cfg, on_state=self.bridge.state.emit, on_text=self.bridge.text.emit,
-                                   on_level=self.bridge.level.emit, on_partial=self.bridge.partial.emit)
+                                   on_level=self.bridge.level.emit, on_partial=self.bridge.partial.emit,
+                                   on_warning=self.bridge.mic_warning.emit)
         self.overlay = ListeningOverlay(pynput_to_qt(self.cfg.hotkey))
         self.bridge.level.connect(self.overlay.set_level)
+        self.bridge.mic_warning.connect(self._on_mic_warning)
         self.bridge.partial.connect(self.overlay.set_partial)
         self.bridge.text.connect(self.overlay.add_text)
         self.main: MainWindow | None = None
@@ -88,6 +92,8 @@ class TrayApp:
                  ("settings", "Ayarlar", "settings"))
         page_actions = []
         for name, title, icon_name in pages:
+            if name in HIDDEN_PAGES:
+                continue
             action = QAction(make_menu_icon(icon_name, theme.TEXT), title)
             action.triggered.connect(lambda _checked=False, page=name: self.open_page(page))
             page_actions.append(action)
@@ -278,7 +284,7 @@ class TrayApp:
             elif state == "idle" and prev == "listening":
                 self.overlay.done()
             elif state == "error" and prev == "listening":
-                self.overlay.error("Dikte sırasında hata oluştu (günlük dosyasına bakın).")
+                self.overlay.error(self.dictation.last_error or DICTATION_ERROR)
         self.state = state
         if self.main is not None:
             self.main.set_state(state)
@@ -290,7 +296,16 @@ class TrayApp:
         self.act_toggle.setEnabled(state in ("idle", "listening"))
         self._update_tooltip()
         if state == "error":
-            self.tray.showMessage("Tıbbi Dikte", STATE_STYLE["error"][1], QSystemTrayIcon.Critical)
+            self.tray.showMessage("Tıbbi Dikte", self.dictation.last_error or STATE_STYLE["error"][1],
+                                  QSystemTrayIcon.Critical)
+
+    def _on_mic_warning(self, key: str) -> None:
+        """Dikte sırasında mikrofon sorunu: göstergede; gösterge kapalıysa tepsi bildirimi."""
+        if self.cfg.show_overlay:
+            self.overlay.set_warning(key)
+        elif key in MIC_WARNINGS:
+            title, detail = MIC_WARNINGS[key]
+            self.tray.showMessage(f"Tıbbi Dikte — {title}", detail, QSystemTrayIcon.Warning)
 
     def _update_tooltip(self) -> None:
         label = STATE_STYLE.get(getattr(self, "state", "idle"), STATE_STYLE["idle"])[1]

@@ -6,12 +6,13 @@ from PySide6.QtGui import QGuiApplication, QKeySequence
 from PySide6.QtWidgets import (QComboBox, QFormLayout, QHBoxLayout, QKeySequenceEdit, QLabel, QLineEdit,
                                QMessageBox, QPlainTextEdit, QScrollArea, QSizePolicy, QSpinBox, QVBoxLayout, QWidget)
 
-from . import theme
-from .audio import list_input_devices, play_tone
+from . import __version__, theme
+from .audio import configured_device, list_input_devices, play_tone
 from .config import Config
 from .engines.registry import discover_models, resolve_model
 from .hotkey import is_valid, pynput_to_qt, qt_to_pynput
 from .licensing import license as lic
+from .mic_test import MicTestPanel
 from .ptt import PTT_KEYS
 from .ui import widgets
 from .ui.icons import pixmap as icon_pixmap
@@ -79,7 +80,7 @@ class SettingsPage(QWidget):
         if models:
             self.model_box.setCurrentIndex(
                 max(0, self.model_box.findData(str(resolve_model(models, self.cfg.model_dir).dir))))
-        self.mic_box.setCurrentIndex(max(0, self.mic_box.findData(self.cfg.input_device)))
+        self.mic_box.setCurrentIndex(max(0, self.mic_box.findData(configured_device(self.cfg))))
         self.threads.setValue(self.cfg.num_threads)
         self.hotkey_edit.setKeySequence(QKeySequence(pynput_to_qt(self.cfg.hotkey)))
         self.ptt_box.setCurrentIndex(max(0, self.ptt_box.findData(self.cfg.ptt_key)))
@@ -106,6 +107,8 @@ class SettingsPage(QWidget):
         form.addRow("Konuşma modeli", self.model_box)
         self.mic_box = self._combo()
         form.addRow("Mikrofon", self.mic_box)
+        self.mic_test = MicTestPanel(lambda: self.mic_box.currentData())  # kaydetmeden önce seçili mikrofon denenir
+        form.addRow("", self.mic_test)
         self.threads = QSpinBox()
         self.threads.setRange(1, 8)
         form.addRow("İşlemci iş parçacığı", self.threads)
@@ -220,6 +223,7 @@ class SettingsPage(QWidget):
         # varsayılan seçiliyse boş bırak: sonraki sürümde varsayılan değişirse kullanıcı da geçer
         self.cfg.model_dir = "" if chosen == self._default_model_dir else chosen
         self.cfg.input_device = self.mic_box.currentData()
+        self.cfg.input_device_name = self.mic_box.currentText() if self.cfg.input_device is not None else ""
         self.cfg.hotkey = hk
         self.cfg.ptt_key = self.ptt_box.currentData()
         self.cfg.num_threads = self.threads.value()
@@ -305,6 +309,9 @@ class LicensePage(QWidget):
         self.refresh()
 
 
+COPYRIGHT_YEAR = 2026  # Hakkında ve kurulum sözleşmesi (installer/lisans_sozlesmesi.txt) aynı yılı gösterir
+
+
 class AboutPage(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -313,12 +320,12 @@ class AboutPage(QWidget):
         logo.setPixmap(icon_pixmap("stethoscope", theme.PRIMARY, 72))
         title = QLabel("Tıbbi Dikte")
         title.setObjectName("pageTitle")
-        developers = QLabel("Abdullah ve İbrahim Dağcı tarafından geliştirilmiştir.")
-        rights = QLabel("Tüm hakları saklıdır.")
+        version = QLabel(f"Türkçe tıbbi dikte yazılımı · Sürüm {__version__}")
+        rights = QLabel(f"© {COPYRIGHT_YEAR} Tıbbi Dikte. Tüm hakları saklıdır.")
         rights.setObjectName("muted")
         card = widgets.Card()
         card.body.setContentsMargins(24, 28, 24, 28)
-        for widget in (logo, title, developers, rights):
+        for widget in (logo, title, version, rights):
             card.body.addWidget(widget, alignment=Qt.AlignHCenter)
         card.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
         lay = QVBoxLayout(self)

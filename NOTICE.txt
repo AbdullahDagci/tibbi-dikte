@@ -1,7 +1,7 @@
 Tıbbi Dikte
 ===========
 
-Tıbbi Türkçe v3 — Radyoloji: Abdullah DAĞCI tarafından radyoloji dikte için eğitildi
+Tıbbi Türkçe v3 — Radyoloji: Tıbbi Dikte için radyoloji diktesine özel olarak eğitildi
   Lisans: Tıbbi Dikte ürün lisansı
 
 Üçüncü taraf bileşenler

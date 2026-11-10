@@ -240,7 +240,8 @@ _TYPE_ONE_RE = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([Tt]ip|[Ee]vre|[Gg
 _SIDE_RE = re.compile(r"(?<![\wçğıöşü])([Ss])on(?=\s+[LSCT]\s?(?:\d|bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on)\b)")
 # Sesli biçim komutları (büyük/küçük harf Türkçe kurallarıyla duyarsız; model komutu noktalı cümle gibi verebilir)
 _COMMANDS = {
-    "yeni satır": "\n", "alt satıra geç": "\n", "satır başı": "\n",
+    "yeni satır": "\n", "alt satıra geç": "\n", "satır başı": "\n", "satırbaşı": "\n",
+    "alt satır": "\n", "altsatır": "\n",
     "yeni paragraf": "\n\n", "paragraf başı": "\n\n",
     "yeni madde": "\n• ",
 }

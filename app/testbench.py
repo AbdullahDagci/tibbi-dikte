@@ -18,7 +18,7 @@ from PySide6.QtWidgets import (QFileDialog, QHBoxLayout, QLabel, QPlainTextEdit,
                                QTextBrowser, QVBoxLayout, QWidget)
 
 from . import theme
-from .audio import AudioPlayer
+from .audio import MIC_OPEN_ERROR, AudioPlayer, analyze_recording, level_fraction
 from .audio_file import load_audio
 from .medical.postprocess import read_lexicon, tr_lower
 from .scoring import Score, score
@@ -36,11 +36,13 @@ class _Signals(QObject):
 class TestPage(QWidget):
     __test__ = False  # pytest bunu test sınıfı sanmasın
 
-    def __init__(self, get_pipeline: Callable[[], tuple], term_files: list[Path], parent=None):
-        """get_pipeline() -> (engine, postprocessor, meşgul_mu: bool)."""
+    def __init__(self, get_pipeline: Callable[[], tuple], term_files: list[Path], parent=None,
+                 get_device: Callable[[], int | None] = lambda: None):
+        """get_pipeline() -> (engine, postprocessor, meşgul_mu: bool). get_device() -> Ayarlar'da seçili mikrofon."""
         super().__init__(parent)
         self.setObjectName("page")
         self.get_pipeline = get_pipeline
+        self.get_device = get_device
         self._term_files = term_files
         self._load_terms()
         self.audio: np.ndarray | None = None
@@ -199,8 +201,14 @@ class TestPage(QWidget):
             self._rec_chunks = []
             def cb(indata, *_):
                 self._rec_chunks.append(indata[:, 0].copy())
-            self._rec_stream = sd.InputStream(samplerate=16000, channels=1, dtype="float32", callback=cb)
-            self._rec_stream.start()
+            try:  # dikte hangi mikrofonu kullanıyorsa test de onu kullanır
+                stream = sd.InputStream(samplerate=16000, channels=1, dtype="float32", device=self.get_device(),
+                                        callback=cb)
+                stream.start()
+            except Exception as e:  # noqa: BLE001 (aygıt yok, meşgul ya da izin yok)
+                self._show_error(f"{MIC_OPEN_ERROR} ({e})")
+                return
+            self._rec_stream = stream
             self.player.stop()  # hoparlörden çıkan ses kayda girmesin
             self._sync_player()
             self._rec_t0 = time.monotonic()
@@ -220,12 +228,15 @@ class TestPage(QWidget):
             widgets.set_variant(self.btn_rec, "info", icon="microphone")
             self._sync_player()
             if self._rec_chunks:
-                self._set_audio(np.concatenate(self._rec_chunks), 16000, "Mikrofon kaydı")
+                pcm = np.concatenate(self._rec_chunks)
+                self._set_audio(pcm, 16000, "Mikrofon kaydı")
+                report = analyze_recording(pcm, 16000)  # sonuç kötüyse önce mikrofona bakılmalı, modele değil
+                if not report.ok:
+                    self._set_file_label(f"Mikrofon kaydı  ·  ⚠ {report.message}")
 
     def _rec_tick(self) -> None:
         last = self._rec_chunks[-1] if self._rec_chunks else np.zeros(1, np.float32)
-        rms = float(np.sqrt(np.mean(last ** 2)))
-        self.rec_level.setValue(int(max(0, min(100, (20 * np.log10(rms + 1e-9) + 55) / 40 * 100))))
+        self.rec_level.setValue(int(level_fraction(last) * 100))
         self.file_label.setText(f"Kaydediliyor…  {time.monotonic() - self._rec_t0:.0f} sn")
 
     def _play(self) -> None:

@@ -22,7 +22,7 @@ _STRIP = " \t\n.,;:!?\"'’()"
 # Test ekranı: sonislemenin değiştirdiği ("corrected") ve değiştirmeden bıraktığı ama kuşkulu
 # ("suspect") kelimeleri ayırt etmek için kullanıcıya gösterilen renkler.
 _STATUS_COLORS = {"corrected": QColor(theme.BAD), "suspect": QColor(theme.WARN)}
-_HELP = ("Sesli komutlar: \"alt satıra geç\", \"satır başı\", \"paragraf başı\", \"yeni madde\".\n"
+_HELP = ("Sesli komutlar: \"alt satıra geç\" / \"alt satır\" / \"satır başı\", \"paragraf başı\", \"yeni madde\".\n"
          "Yanlış çıkan kelimeyi seçip sağ tıklayın: Sözlüğe varyant olarak ekle.\n"
          "Kırmızı: sonişleme değiştirdi ya da model düşük güvenle duydu, kontrol edin.\n"
          "Turuncu: tanınmayan kelime ya da model orta güvenle duydu.")

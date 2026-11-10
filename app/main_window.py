@@ -11,6 +11,7 @@ from PySide6.QtWidgets import (QButtonGroup, QFrame, QHBoxLayout, QLabel, QMainW
                                QStackedWidget, QVBoxLayout, QWidget)
 
 from . import __version__, theme
+from .audio import configured_device
 from .collect import CollectPage
 from .config import Config
 from .editor import EditorPage
@@ -30,6 +31,9 @@ NAV_GROUPS = (
 )
 TITLES = {name: title for _, items in NAV_GROUPS for name, title, _ in items}
 OPEN_WITHOUT_LICENSE = {"license", "about"}
+# Menülerde (sol menü ve tepsi) gösterilmeyen sayfalar; sayfa kodu durur, geri açmak için buradan çıkarın.
+# 10.11 kullanıcı kararı: Veri toplama şimdilik gizli.
+HIDDEN_PAGES = frozenset({"collect"})
 STATE_BADGE = {
     "idle": ("Hazır", "success"),
     "listening": ("Dinliyor", "danger"),
@@ -145,6 +149,7 @@ class MainWindow(QMainWindow):
         btn.setIcon(icon)
         btn.setIconSize(QSize(18, 18))
         btn.clicked.connect(self._nav_clicked)
+        btn.setHidden(name in HIDDEN_PAGES)
         self._nav_group.addButton(btn)
         self.nav_buttons[name] = btn
         return btn
@@ -172,6 +177,10 @@ class MainWindow(QMainWindow):
         current = self.stack.currentWidget()
         return next((n for n, p in self._pages.items() if p is current), "")
 
+    def _input_device(self) -> int | None:
+        """Test ve veri toplama kayıtları da diktenin kullandığı (Ayarlar'da seçili) mikrofondan alınır."""
+        return configured_device(self.cfg)
+
     def _make_page(self, name: str) -> QWidget:
         if name == "dictate":
             page = EditorPage(self._lexicon_path, self._corrections_path, self._hotkey_label,
@@ -179,9 +188,9 @@ class MainWindow(QMainWindow):
             page.set_listening(self._state == "listening")
             return page
         if name == "test":
-            return TestPage(self._get_pipeline, self._term_files)
+            return TestPage(self._get_pipeline, self._term_files, get_device=self._input_device)
         if name == "collect":
-            return CollectPage(self._get_pipeline)
+            return CollectPage(self._get_pipeline, get_device=self._input_device)
         if name == "lexicon":
             page = LexiconPage(self._lexicon_path, self._corrections_path)
             page.saved.connect(self._lexicon_saved)

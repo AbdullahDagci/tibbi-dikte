@@ -23,6 +23,17 @@ def test_new_commands(pp, src, expected):
     assert pp(src) == expected
 
 
+@pytest.mark.parametrize("cmd", ["Satır başı", "Satırbaşı", "Alt satır", "Altsatır"])
+def test_newline_variants(pp, cmd):
+    assert pp(f"Bulgular {cmd} trakea açıktır") == "Bulgular\ntrakea açıktır"
+    assert pp(f"Kalp normaldir. {cmd}. Trakea açıktır.") == "Kalp normaldir.\nTrakea açıktır."
+
+
+def test_alt_satir_does_not_eat_longer_command(pp):
+    # "alt satıra geç" bütün olarak eşleşmeli; "alt satır" önce yakalayıp "a geç" bırakmamalı
+    assert pp("Kalp normal alt satıra geç trakea açık") == "Kalp normal\ntrakea açık"
+
+
 def test_command_with_model_punctuation_and_case(pp):
     # akış modeli komutu ayrı bir cümle gibi büyük harf ve noktayla verebilir
     assert pp("Kalp boyutları normaldir. Alt satıra geç. Trakea açıktır.") == \
